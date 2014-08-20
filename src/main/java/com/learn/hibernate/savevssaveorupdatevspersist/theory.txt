@@ -1,0 +1,10 @@
+Main difference between save and saveOrUpdate method is that save() generates a new identifier and INSERT record into database
+while saveOrUpdate can either INSERT or UPDATE based upon existence of record.
+
+Save vs Persist
+
+1. Save returns id - persist returns an object
+2. Both make transient object persistent but persist doesn't guarantee the id assignment at once. This could be happen at
+flush time
+3. persist() will not execute INSERT outside the session. but save() could do this. This  is why persist() is useful in
+extended session context.

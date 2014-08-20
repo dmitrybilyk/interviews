@@ -31,6 +31,7 @@ public class ManyToManyAnnotationBidirectionalExecutor {
 		student1.addCourse(course2);
 		student2.addCourse(course1);
 		student2.addCourse(course2);
+		student2.addCourse(course2);
 
 		session.save(student1);
 		session.save(student2);

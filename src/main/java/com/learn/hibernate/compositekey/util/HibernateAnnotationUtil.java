@@ -32,7 +32,11 @@ public class HibernateAnnotationUtil {
 		} catch (Throwable ex) {
 			throw new ExceptionInInitializerError(ex);
 		}
-	}
+      finally
+      {
+         shutdown();
+      }
+   }
 	public static SessionFactory getSessionFactory() {
 		return sessionFactory;
 	}

@@ -19,8 +19,8 @@ public class Library {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
-    @Fetch(FetchMode.SUBSELECT)
+    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @Fetch(FetchMode.JOIN)
     private List<Book> books;
 
     private String name;

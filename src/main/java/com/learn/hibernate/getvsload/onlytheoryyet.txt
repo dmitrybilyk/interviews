@@ -1,0 +1,4 @@
+Get always hits database if object is not found in cache. And if object is not found neither in cache nor in db, null will be
+returned. Load returns proxy object and it will be hit the db only if not getId() method called. If object is not exists,
+exception will be thrown. Load can enhance a performance because of lazy loading.
+
