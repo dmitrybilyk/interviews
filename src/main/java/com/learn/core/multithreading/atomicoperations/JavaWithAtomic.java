@@ -1,17 +1,18 @@
-package com.learn.core.threads.atomicoperations;
+package com.learn.core.multithreading.atomicoperations;
 
+import java.util.concurrent.atomic.AtomicInteger;
+ 
 
-//If you will run above program, you will notice that count value varies
-// between 5,6,7,8. The reason is because count++ is not an atomic operation.
-// So by the time one threads read it’s value and increment it by one, other
-// thread has read the older value leading to wrong result.
+//Benefits of using Atomic Concurrency classes is that we don’t need to worry
+// about synchronization at each and every place we are dealing with integers
+// and it’s assumed to be more efficient that synchronization which involves
+// locking resources.
 
-public class JavaWithoutAtomic {
+public class JavaWithAtomic {
  
     public static void main(String[] args) throws InterruptedException {
  
-//        ProcessingWithAtThread pt = new ProcessingWithAtThread();
-        ProcessingThread pt = new ProcessingThread();
+        ProcessingWithAtThread pt = new ProcessingWithAtThread();
         Thread t1 = new Thread(pt, "t1");
         t1.start();
         Thread t2 = new Thread(pt, "t2");
@@ -24,21 +25,21 @@ public class JavaWithoutAtomic {
 }
  
  
-class ProcessingThread implements Runnable {
-    private int count;
+class ProcessingWithAtThread implements Runnable {
+    private AtomicInteger count = new AtomicInteger();
  
  
     @Override
     public void run() {
         for (int i = 1; i < 5; i++) {
             processSomething(i);
-            count++;
+            count.incrementAndGet();
         }
     }
  
  
     public int getCount() {
-        return this.count;
+        return this.count.get();
     }
  
  

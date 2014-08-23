@@ -1,4 +1,4 @@
-package com.learn.core.threads.deamonthread;
+package com.learn.core.multithreading.deamonthread;
 
 public class JavaDaemonThread {
  
