@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+    <import resource="applicationContext.xml"/>
+
+    <!-- Set up our reader and its properties -->
+    <bean id="itemReader" class="org.springframework.batch.item.file.FlatFileItemReader">
+        <property name="resource" value="file:spring.springbatch/data/ledger.txt" />
+        <property name="recordSeparatorPolicy" ref="recordSeparatorPolicy" />
+        <property name="lineMapper" ref="lineMapper" />
+    </bean>
+
+    <bean id="recordSeparatorPolicy" class="org.springframework.batch.item.file.separator.SimpleRecordSeparatorPolicy"/>
+
+    <bean id="lineMapper" class="org.springframework.batch.item.file.mapping.DefaultLineMapper">
+        <property name="lineTokenizer" ref="lineTokenizer" />
+        <property name="fieldSetMapper" ref="fieldSetMapper" />
+    </bean>
+
+    <bean id="fieldSetMapper" class="org.springframework.batch.item.file.mapping.PassThroughFieldSetMapper" />
+
+    <bean id="lineTokenizer" class="org.springframework.batch.item.file.transform.DelimitedLineTokenizer">
+        <constructor-arg value="," />
+    </bean>
+
+    <!-- Set up our writer, and it's properties -->
+    <bean id="itemWriter" class="org.springframework.batch.item.file.FlatFileItemWriter">
+        <property name="resource" value="file:spring.springbatch/data/ledger2.txt" />
+        <property name="lineAggregator" ref="lineAggregator"/>
+    </bean>
+
+    <bean id="lineAggregator" class="org.springframework.batch.item.file.transform.DelimitedLineAggregator">
+        <property name="delimiter" value=" "/>
+    </bean>
+
+    <!-- Set up our transformation step with these beans in -->
+    <bean id="step" class="org.springframework.batch.core.step.item.SimpleStepFactoryBean">
+        <property name="transactionManager" ref="transactionManager" />
+        <property name="jobRepository" ref="jobRepository" />
+        <property name="itemReader" ref="itemReader" />
+        <property name="itemWriter" ref="itemWriter" />
+    </bean>
+
+    <!-- Set up our job to run said step -->
+    <bean id="readwriteJob" class="org.springframework.batch.core.job.SimpleJob">
+        <property name="name" value="readwriteJob" />
+        <property name="steps">
+            <list>
+                <ref local="step"/>
+            </list>
+        </property>
+        <property name="jobRepository" ref="jobRepository"/>
+    </bean>
+
+</beans>

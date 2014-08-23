@@ -35,6 +35,8 @@ CORE
 
 ----------------------------------------------------------------------------------------------------------------------------------
 
+Objects in java are situated in the heap, references on them and primitives - in stack.
+
 PRINCIPLES OF OBJECT-ORIENTED PROGRAMMING
 
 The main principles of object-orienting programming:

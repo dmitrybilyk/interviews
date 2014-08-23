@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:batch="http://www.springframework.org/schema/batch"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:context="http://www.springframework.org/schema/context"
+
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+    http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.1.xsd    
+    http://www.springframework.org/schema/batch http://www.springframework.org/schema/batch/spring-batch-2.1.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+    <import resource="classpath*:Hibernate.xml"/>
+
+	<!-- 1) USE ANNOTATIONS TO CONFIGURE SPRING BEANS -->
+	<context:component-scan base-package="com.batch" />
+
+    <context:annotation-config />
+
+	<!-- 2) DATASOURCE, TRANSACTION MANAGER AND JDBC TEMPLATE -->
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/ledger" />
+		<property name="username" value="root" />
+		<property name="password" value="root" />
+	</bean>
+
+
+	<!--<jdbc:initialize-database data-source="dataSource">-->
+		<!--<jdbc:script location="classpath:schema-ddl.sql" />-->
+	<!--</jdbc:initialize-database>-->
+
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+
+	<!-- 3) JOB REPOSITORY - WE USE IN-MEMORY REPOSITORY FOR OUR EXAMPLE -->
+	<bean id="jobRepository"
+		class="org.springframework.batch.core.repository.support.MapJobRepositoryFactoryBean">
+		<property name="transactionManager" ref="transactionManager" />
+	</bean>
+
+	<!-- 4) LAUNCH JOBS FROM A REPOSITORY -->
+	<bean id="jobLauncher"
+		class="org.springframework.batch.core.launch.support.SimpleJobLauncher">
+		<property name="jobRepository" ref="jobRepository" />
+	</bean>
+
+	<!-- 5) Define the job and its steps. In our case I use one step. Configure 
+		its readers and writers -->
+	<batch:job id="simpleJob">
+
+
+
+        <!--This listener is used for logging here-->
+		<batch:listeners>
+			<batch:listener ref="appJobExecutionListener" />
+            <batch:listener ref="cleanDBListener" />
+		</batch:listeners>
+        <!--<batch:step id="removeAll">-->
+            <!--<batch:listeners>-->
+                  <!--<batch:listener ref="cleanDBListener" />-->
+            <!--</batch:listeners>-->
+        <!--</batch:step>-->
+		<batch:step id="step1">
+			<batch:tasklet>
+                <!--We intersept exception here-->
+				<batch:listeners>
+					<batch:listener ref="itemFailureLoggerListener" />
+				</batch:listeners>
+
+				<batch:chunk reader="itemReader" processor="itemProcessor"  writer="itemWriter"
+                             commit-interval="10" skip-limit="10">
+                    <batch:skippable-exception-classes>
+                        <batch:include class="com.batch.exceptions.OwnTestException"/>
+                    </batch:skippable-exception-classes>
+                </batch:chunk>
+				<!--<batch:chunk reader="itemReader" processor="itemProcessor"  writer="fieldSetItemWriter" commit-interval="10" />-->
+			</batch:tasklet>
+            <batch:next on="COMPLETED" to="saveParamsDecider"/>
+            <batch:next on="FAILED" to="failJobStep"/>
+		</batch:step>
+
+        <batch:decision id="saveParamsDecider" decider="saveParamsDecider">
+            <batch:next on="COMPLETED" to="saveParamsToStepContextStep"/>
+            <batch:next  on="FAILED" to="failJobStep"/>
+        </batch:decision>
+        
+        <batch:step id="saveParamsToStepContextStep">
+            <batch:tasklet ref="saveParametersTasklet"/>
+            <batch:next on="COMPLETED" to="readParamsFromStepContextStep"/>
+            <batch:next on="FAILED" to="failJobStep"/>
+        </batch:step>
+
+        <batch:step id="readParamsFromStepContextStep">
+            <batch:tasklet ref="readParamsTasklet"/>
+            <batch:next on="COMPLETED" to="showAllLedgersStep"/>
+            <batch:next on="FAILED" to="failJobStep"/>
+        </batch:step>
+
+        <batch:step id="showAllLedgersStep">
+            <batch:tasklet>
+                <batch:chunk reader="showAllLedgersReader" processor="showAllLedgersProcessor"
+                             writer="hibernateItemWriter" commit-interval="10"/>
+            </batch:tasklet>
+        </batch:step>
+
+        <batch:step id="failJobStep">
+            <batch:tasklet ref="updateDbOnFail"/>
+        </batch:step>
+
+	</batch:job>
+
+
+	<!-- ======================================================= -->
+	<!-- 6) READER -->
+	<!-- ======================================================= -->
+	<bean id="itemReader" class="org.springframework.batch.item.file.FlatFileItemReader">
+		<property name="resource" value="classpath:ledger.txt" />
+		 <!--<property name="linesToSkip" value="1" /> -->
+		<property name="lineMapper">
+			<bean class="org.springframework.batch.item.file.mapping.DefaultLineMapper">
+				<property name="lineTokenizer">
+					<bean
+						class="org.springframework.batch.item.file.transform.DelimitedLineTokenizer">
+						<property name="names"
+							value="receiptDate,memberName,checkNumber,checkDate,paymentType,depositAmount,paymentAmount,comments" />
+					</bean>
+				</property>
+				<property name="fieldSetMapper" ref="ledgerMapper" />
+			</bean>
+		</property>
+	</bean>
+
+    <bean id="lineAggregator" class="org.springframework.batch.item.file.transform.DelimitedLineAggregator">
+        <property name="delimiter" value=" "/>
+    </bean>
+
+    <bean id="fieldSetItemWriter" class="org.springframework.batch.item.file.FlatFileItemWriter">
+        <property name="lineAggregator" ref="lineAggregator"/>
+        <property name="resource" value="file:./ledger2.txt" />
+    </bean>
+
+    <bean id="fieldSetMapper" class="org.springframework.batch.item.file.mapping.PassThroughFieldSetMapper"/>
+    <bean id="saveParametersTasklet" class="com.batch.todb.tasklet.SaveParametersTasklet"/>
+    <bean id="readParamsTasklet" class="com.batch.todb.tasklet.ReadParamsTasklet"/>
+    <bean id="updateDbOnFail" class="com.batch.todb.tasklet.UpdateDbOnFail"/>
+    <bean id="saveParamsDecider" class="com.batch.todb.decider.SaveParamsDecider"/>
+    <bean id="showAllLedgersReader" class="org.springframework.batch.item.database.HibernateCursorItemReader">
+        <property name="sessionFactory" ref="sessionFactory"/>
+        <!--<property name="queryString" value="from Ledger l where l.memberName like :mask"/>-->
+        <property name="queryString" value="from Ledger"/>
+        <!--<property name="parameterValues">-->
+            <!--<map>-->
+                <!--<entry key="mask" value="#{jobExecutionContext['memberNameMask']}"/>-->
+            <!--</map>-->
+        <!--</property>-->
+
+    </bean>
+    <bean id="showAllLedgersProcessor" class="com.batch.todb.ShowAllLedgersProcessor"/>
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="hiberDataSource"/>
+    </bean>
+
+    <bean id="hibernateItemWriter" class="org.springframework.batch.item.database.HibernateItemWriter">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+
+</beans>
+
