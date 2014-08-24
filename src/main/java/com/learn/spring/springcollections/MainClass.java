@@ -15,7 +15,7 @@ import java.util.Map;
  */
 public class MainClass {
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("spring-collections.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("spring.collections/spring-collections.xml");
 
         Customer cust = (Customer)context.getBean("CustomerBean");
         System.out.println(cust);

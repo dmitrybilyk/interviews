@@ -1,3 +1,5 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <%--
   Created by IntelliJ IDEA.
   User: dmitry
@@ -13,5 +15,24 @@
   <body>
        <a href="${pageContext.request.contextPath}/TestForwardRedirectServlet?param=redirect">Redirect</a>
        <a href="${pageContext.request.contextPath}/TestForwardRedirectServlet?param=forward">Forward</a>
+       <a href="${pageContext.request.contextPath}/AnnotatedServlet">To Annotated servlet</a>
+       <a href="${pageContext.request.contextPath}/RequestDispatcherAnnotatedServlet">To Dispatcher Annotated servlet</a>
+       <a href="${pageContext.request.contextPath}/SessionTrackingAnnotatedServlet">Init Student</a>
+       <a href="${pageContext.request.contextPath}/CustomRuntimeExceptionServlet">Throw custom exception</a>
+       <a href="${pageContext.request.contextPath}/LongRunningServlet">Long running servlet</a>
+       <a href="${pageContext.request.contextPath}/AsyncLongRunningServlet">Async Long running servlet</a>
+       <a href="${pageContext.request.contextPath}/RedirectToUploadFilePageServlet">To upload page</a>
+       <a href="${pageContext.request.contextPath}/TestServletContextServlet">ContextTest</a>
+
+  <c:out value="${returnedParam}"/>
+  <c:out value="${servletContext.returnedParam}"/>
+
+       <c:if test="${student ne null}">
+           <c:out value="${student}"/>
+       </c:if>
+       <c:if test="${student eq null}">
+           <c:out value="student is null"/>
+       </c:if>
+
   </body>
 </html>

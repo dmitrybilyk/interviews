@@ -1,0 +1,20 @@
+The life cycle of the servlet is managed by a web container the application is running in.
+Firstly, servlet is created if it is not created yet.
+Then initialization phase is taking place.
+Constructor runs. Method init runs.
+
+Then servlet proceeds requests.
+
+In 'service' method container decides to which method to go.
+
+There are several methods to work with different types of requests:
+
+- GET
+- POST
+- PUT
+- HEAD
+- OPTIONS
+- TRACE
+
+Eventually 'destroy' method is taking place when server is shutting down.
+

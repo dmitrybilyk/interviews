@@ -99,28 +99,4 @@
     </bean>
 
 
-    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <property name="location">
-            <value>constants.properties</value>
-        </property>
-    </bean>
-
-    <bean id="propertyTest"
-          class="com.learn.spring.springcollections.propertyPlaceholderConfigurer.PropertyTest">
-        <property name="prefixProp" value="${prefix}" />
-        <property name="suffixProp" value="${suffix}" />
-    </bean>
-
-
-    <context:property-placeholder location='database.properties'/>
-
-    <bean id='dataSource' destroy-method='close'
-          class='org.apache.commons.dbcp.BasicDataSource'>
-        <property name='driverClassName' value='${jdbc.driverClassName}'/>
-        <property name='url' value='${jdbc.url}'/>
-        <property name='username' value='${jdbc.username}'/>
-        <property name='password' value='${jdbc.password}'/>
-    </bean>
-
-
 </beans>

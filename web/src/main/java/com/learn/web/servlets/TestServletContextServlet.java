@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Created by bid on 8/20/14.
  */
-public class TestForwardRedirectServlet extends HttpServlet
+public class TestServletContextServlet extends HttpServlet
 {
 
    String name;
@@ -24,18 +24,11 @@ public class TestForwardRedirectServlet extends HttpServlet
    @Override
    protected void doGet(final HttpServletRequest req, final HttpServletResponse resp) throws ServletException, IOException
    {
-      if(req.getParameter("contextParameter") != null){
-         System.out.println("Context parameter present, context works");
-      }
 
-      if(req.getParameter("param").equals("redirect")){
-//         redirect("toredirect.jsp", resp);
-         redirect("http://football.ua", resp);
-      }else{
-//         forward("toforward.jsp", req, resp);
-         forward("http://terrikon.com", req, resp);
-      }
-
+//         redirect("http://football.ua", resp);
+      getServletContext().setAttribute("contextParameter", "someContextParam");
+         req.setAttribute("returnedParam", "returned parameter");
+         forward("index.jsp", req, resp);
    }
 
    private void redirect(

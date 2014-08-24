@@ -6,6 +6,11 @@
          version="3.0">
 
 
+    <context-param>
+        <param-name>tempfile.dir</param-name>
+        <param-value>tmpfiles</param-value>
+    </context-param>
+
     <servlet>
         <servlet-name>TestForwardRedirectServlet</servlet-name>
         <servlet-class>com.learn.web.servlets.TestForwardRedirectServlet</servlet-class>
@@ -14,5 +19,36 @@
         <servlet-name>TestForwardRedirectServlet</servlet-name>
         <url-pattern>/TestForwardRedirectServlet</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>TestServletContextServlet</servlet-name>
+        <servlet-class>com.learn.web.servlets.TestServletContextServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TestServletContextServlet</servlet-name>
+        <url-pattern>/TestServletContextServlet</url-pattern>
+    </servlet-mapping>
+
+
+    <session-config>
+        <session-timeout>1</session-timeout>
+    </session-config>
+
+
+    <error-page>
+        <error-code>404</error-code>
+        <location>/AppExceptionHandlerServlet</location>
+    </error-page>
+
+    <error-page>
+        <exception-type>javax.servlet.ServletException</exception-type>
+        <location>/AppExceptionHandlerServlet</location>
+    </error-page>
+
+
+    <error-page>
+        <exception-type>com.learn.web.exceptions.CustomRuntimeException</exception-type>
+        <location>/CustomExceptionHandlerServlet</location>
+    </error-page>
 
 </web-app>

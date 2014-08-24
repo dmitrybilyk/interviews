@@ -1,0 +1,504 @@
+1. Web server - it understands http protocol and proceed requests. Application server -
+it is additinally provides some features. For example, servlet container - tomcat application server.
+
+2. http method is called idempotent if it returns the same result every time.
+ All methods except POST are idempotent.
+
+
+3. What is the difference between GET and POST method?
+
+    GET is a safe method (idempotent) where POST is non-idempotent method.
+
+    We can send limited data with GET method and it’s sent in the header request URL whereas we can send
+    large amount of data with POST because it’s part of the body.
+
+    GET method is not secure because data is exposed in the URL and we can easily bookmark it and send
+    similar request again, POST is secure because data is sent in request body and we can’t bookmark it.
+
+    GET is the default HTTP method whereas we need to specify method as POST to send request with POST method.
+
+    Hyperlinks in a page uses GET method.
+
+4. MIME type - is the type of data sending from server to the client. We can use Content-Type header
+to say client which info we are sending.
+
+
+5. Structure of web application:
+
+root contains static files, meta-inf, web-inf. WEB-INF contains classes, lib, web.xml
+
+
+6.
+ServletRequest methods:
+
+    Object getAttribute(String name) – This method returns the value of named attribute as Object and null if
+    it’s not present. We can use getAttributeNames() method to get the enumeration of attribute names for the
+    request. This interface also provide methods for setting and removing attributes.
+
+    String getParameter(String name) – This method returns the request parameter as String. We can use
+    getParameterNames() method to get the enumeration of parameter names for the request.
+
+    String getServerName() – returns the hostname of the server.
+
+    int getServerPort() – returns the port number of the server on which it’s listening.
+
+
+
+ServletResponse methods:
+
+
+    void addCookie(Cookie cookie) – Used to add cookie to the response.
+
+    void addHeader(String name, String value) – used to add a response header with the given name and value.
+
+    String encodeURL(java.lang.String url) – encodes the specified URL by including the session ID in it, or,
+    if encoding is not needed, returns the URL unchanged.
+
+    String getHeader(String name) – return the value for the specified header, or null if this header has not
+    been set.
+
+    void sendRedirect(String location) – used to send a temporary redirect response to the client using the
+    specified redirect location URL.
+
+    void setStatus(int sc) – used to set the status code for the response.
+
+
+
+RequestDispatcher interface
+
+RequestDispatcher interface is used to forward the request to another resource that can be HTML,
+JSP or another servlet in the same context. We can also use this to include the content of another resource to the response. This interface is used for servlet communication within the same context.
+
+There are two methods defined in this interface:
+
+    void forward(ServletRequest request, ServletResponse response) – forwards the request from a servlet
+    to another resource (servlet, JSP file, or HTML file) on the server.
+
+    void include(ServletRequest request, ServletResponse response) – includes the content of a resource
+    (servlet, JSP page, HTML file) in the response.
+
+We can get RequestDispatcher in a servlet using ServletContext getRequestDispatcher(String path) method.
+
+The path must begin with a / and is interpreted as relative to the current context root.
+
+
+
+
+GenericServlet class
+
+GenericServlet is an abstract class that implements Servlet, ServletConfig and Serializable interface.
+GenericServlet provide default implementation of all the Servlet life cycle methods and ServletConfig
+methods and makes our life easier when we extend this class, we need to override only the methods we want
+and rest of them we can work with the default implementation. Most of the methods defined in this class
+are only for easy access to common methods defined in Servlet and ServletConfig interfaces.
+
+One of the important method in GenericServlet class is no-argument init() method and we should override
+this method in our servlet program if we have to initialize some resources before processing any request
+from servlet.
+
+
+
+HTTPServlet class
+
+HTTPServlet is an abstract class that extends GenericServlet and provides base for creating
+HTTP based web applications. There are methods defined to be overridden by subclasses for
+different HTTP methods.
+
+    doGet(), for HTTP GET requests
+    doPost(), for HTTP POST requests
+    doPut(), for HTTP PUT requests
+    doDelete(), for HTTP DELETE requests
+
+
+
+
+Servlet Attributes
+
+Servlet attributes are used for inter-servlet communication, we can set, get and remove attributes
+in web application. There are three scopes for servlet attributes – request scope, session scope and
+application scope.
+
+ServletRequest, HttpSession and ServletContext interfaces provide methods to get/set/remove attributes
+from request, session and application scope respectively.
+
+Servlet attributes are different from init parameters defined in web.xml for ServletConfig or ServletContext.
+
+
+
+
+Some of the important Servlet API annotations are:
+
+    WebServlet – We can use this annotation with Servlet classes to define init parameters,
+    loadOnStartup value, description and url patterns etc. At least one URL pattern MUST be declared
+    in either the value or urlPattern attribute of the annotation, but not both. The class on which
+    this annotation is declared MUST extend HttpServlet.
+
+    WebInitParam – This annotation is used to define init parameters for servlet or filter, it contains
+    name, value pair and we can provide description also. This annotation can be used within a WebFilter
+    or WebServlet annotation.
+
+    WebFilter – This annotation is used to declare a servlet filter. This annotation is processed by
+    the container during deployment, the Filter class in which it is found will be created as per
+    the configuration and applied to the URL patterns, Servlets and DispatcherTypes. The annotated
+    class MUST implement javax.servlet.Filter interface.
+
+    WebListener – The annotation used to declare a listener for various types of event, in a given
+    web application context.
+
+7. Advantages of servlet over CGI:
+- servlet has a better performance. Separate thread is created for each request.
+- servlet is not dependent on platform
+- servlet is more robust, because container takes care of life cycle (we don't have memory leaks, security
+issues, garbaage collection)
+
+8. Functions of servlet container. It supports communication, life cycle and resource management, multithreading,
+jsp.
+
+
+9. What is ServletConfig object?
+
+javax.servlet.ServletConfig is used to pass configuration information to Servlet.
+Every servlet has it’s own ServletConfig object and servlet container is responsible
+for instantiating this object. We can provide servlet init parameters in web.xml file
+or through use of WebInitParam annotation. We can use getServletConfig() method to get
+the ServletConfig object of the servlet.
+
+
+10. ServletContext is unique object, in which common application level init parameters are shared between
+all servlets of application. We can get it through getServletConfig().getServletContext().
+In web.xml use <context-param> element.
+
+
+11. Differenct between ServletConfig and ServletContext object.
+ServletContext is unique and could contain application level init parameters. We can set attributes to is.
+ServletConfig is opposite.
+
+12. RequestDispatcher.
+
+ RequestDispatcher interface is used to forward the request to another resource that can be HTML,
+ JSP or another servlet in same application. We can also use this to include the content of another
+ resource to the response. This interface is used for inter-servlet communication in the same context.
+
+
+13. What is difference between PrintWriter and ServletOutputStream?
+
+    PrintWriter is a character-stream class whereas ServletOutputStream is a byte-stream class.
+    We can use PrintWriter to write character based information such as character array and String
+    to the response whereas we can use ServletOutputStream to write byte array data to the response.
+
+    We can use ServletResponse getWriter() to get the PrintWriter instance whereas we can use
+    ServletResponse getOutputStream() method to get the ServletOutputStream object reference.
+
+
+14. Can we get PrintWriter and ServletOutputStream both in a servlet?
+
+We can’t get instances of both PrintWriter and ServletOutputStream in a single servlet method,
+if we invoke both the methods; getWriter() and getOutputStream() on response; we will get
+java.lang.IllegalStateException at runtime with message as other method has already been called
+for this response.
+
+
+15. How can we create deadlock situation in servlet?
+
+    We can create deadlock in servlet by making a loop of method invocation, just call doPost()
+    method from doGet() method and doGet() method to doPost() method to create deadlock situation in servlet.
+
+
+
+
+17. What is SingleThreadModel interface?
+
+SingleThreadModel interface was provided for thread safety and it guarantees that no two threads will
+execute concurrently in the servlet’s service method. However SingleThreadModel does not solve all
+thread safety issues. For example, session attributes and static variables can still be accessed by
+multiple requests on multiple threads at the same time, even when SingleThreadModel servlets are used.
+Also it takes out all the benefits of multithreading support of servlets, thats why this interface
+is Deprecated in Servlet 2.4.
+
+
+
+18. Do we need to override service() method?
+
+When servlet container receives client request, it invokes the service() method which in turn invokes
+the doGet(), doPost() methods based on the HTTP method of request. I don’t see any use case where we
+would like to override service() method. The whole purpose of service() method is to forward to request
+to corresponding HTTP method implementations. If we have to do some pre-processing of request, we can
+always use servlet filters and listeners.
+
+19. Is it good idea to create servlet constructor?
+
+We can define a constructor for servlet but I don’t think its of any use because we won’t be having access
+to the ServletConfig object until unless servlet is initialized by container. Ideally if we have to initialize
+any resource for servlet, we should override init() method where we can access servlet init parameters using
+ServletConfig object.
+
+
+20. What is difference between GenericServlet and HttpServlet?
+
+GenericServlet is protocol independent implementation of Servlet interface whereas HttpServlet is HTTP
+protocol specific implementation. Most of the times we use servlet for creating web application and that’s
+why we extend HttpServlet class. HttpServlet class extends GenericServlet and also provide some other
+methods specific to HTTP protocol.
+
+
+21. What is difference between GenericServlet and HttpServlet?
+
+GenericServlet is protocol independent implementation of Servlet interface whereas HttpServlet is HTTP
+protocol specific implementation. Most of the times we use servlet for creating web application and that’s
+why we extend HttpServlet class. HttpServlet class extends GenericServlet and also provide some other
+methods specific to HTTP protocol.
+
+22. How to achieve thread safety in servlets.
+If there are any local variables in service methods, we don’t need to worry about their thread safety
+because they are specific to each thread but if we have a shared resource then we can use synchronization
+to achieve thread safety in servlets when working with shared resources.
+
+23. What is servlet attributes and their scope?
+
+Servlet attributes are used for inter-servlet communication, we can set, get and remove attributes in web
+application. There are three scopes for servlet attributes – request scope, session scope and application scope.
+
+ServletRequest, HttpSession and ServletContext interfaces provide methods to get/set/remove attributes
+from request, session and application scope respectively.
+
+Servlet attributes are different from init parameters defined in web.xml for ServletConfig or ServletContext.
+
+
+24. How do we call one servlet from another servlet?
+
+We can use RequestDispatcher forward() method to forward the processing of a request to another servlet.
+If we want to include the another servlet output to the response, we can use RequestDispatcher include()
+method.
+
+
+25. How can we invoke another servlet in a different application?
+
+We can’t use RequestDispatcher to invoke servlet from another application because it’s specific for
+the application. If we have to forward the request to a resource in another application, we can use
+ServletResponse sendRedirect() method and provide complete URL of another servlet. This sends the
+response to client with response code as 302 to forward the request to another URL. If we have to
+send some data also, we can use cookies that will be part of the servlet response and sent in the
+request to another servlet.
+
+
+26. What is difference between ServletResponse sendRedirect() and RequestDispatcher forward() method?
+
+    RequestDispatcher forward() is used to forward the same request to another resource whereas
+    ServletResponse sendRedirect() is a two step process. In sendRedirect(), web application
+    returns the response to client with status code 302 (redirect) with URL to send the request.
+
+    The request sent is a completely new request.
+    forward() is handled internally by the container whereas sednRedirect() is handled by browser.
+
+    We should use forward() when accessing resources in the same application because it’s faster
+    than sendRedirect() method that required an extra network call.
+
+    In forward() browser is unaware of the actual processing resource and the URL in address bar
+    remains same whereas in sendRedirect() URL in address bar change to the forwarded resource.
+
+    forward() can’t be used to invoke a servlet in another context, we can only use sendRedirect()
+    in this case.
+
+
+27. Why HttpServlet class is declared abstract?
+
+HttpServlet class provide HTTP protocol implementation of servlet but it’s left abstract because
+there is no implementation logic in service methods such as doGet() and doPost() and we should
+override at least one of the service methods. That’s why there is no point in having an instance
+of HttpServlet and is declared abstract class.
+
+
+28. What are the phases of servlet life cycle?
+
+We know that Servlet Container manages the life cycle of Servlet, there are four phases of servlet life cycle.
+
+    Servlet Class Loading – When container receives request for a servlet, it first loads the class into
+    memory and calls it’s default no-args constructor.
+
+    Servlet Class Initialization – Once the servlet class is loaded, container initializes the ServletContext
+    object for the servlet and then invoke it’s init method by passing servlet config object. This is the
+    place where a servlet class transforms from normal class to servlet.
+
+    Request Handling – Once servlet is initialized, its ready to handle the client requests. For every
+    client request, servlet container spawns a new thread and invokes the service() method by passing
+    the request and response object reference.
+
+    Removal from Service – When container stops or we stop the application, servlet container destroys
+    the servlet class by invoking it’s destroy() method.
+
+
+
+29. What are life cycle methods of a servlet?
+
+Servlet Life Cycle consists of three methods:
+
+    public void init(ServletConfig config) – This method is used by container to initialize the servlet, this method is invoked only once in the lifecycle of servlet.
+    public void service(ServletRequest request, ServletResponse response) – This method is called once for every request, container can’t invoke service() method until unless init() method is executed.
+    public void destroy() – This method is invoked once when servlet is unloaded from memory.
+
+
+30. why we should override only no-agrs init() method.
+
+If we have to initialize some resource before we want our servlet to process client requests, we
+should override init() method. If we override init(ServletConfig config) method, then the first
+statement should be super(config) to make sure superclass init(ServletConfig config) method is
+invoked first. That’s why GenericServlet provides another helper init() method without argument that
+get’s called at the end of init(ServletConfig config) method. We should always utilize this method
+for overriding init() method to avoid any issues as we may forget to add super() call in overriding
+init method with ServletConfig argument. .
+
+
+
+31. What is URL Encoding?
+
+URL Encoding is the process of converting data into CGI form so that it can travel across the
+network without any issues. URL Encoding strip the white spaces and replace special characters
+with escape characters. We can use java.net.URLEncoder.encode(String str, String unicode) to
+encode a String. URL Decoding is the reverse process of encoding and we can use
+java.net.URLDecoder.decode(String str, String unicode) to decode the encoded string.
+For example “Pankaj’s Data” is encoded to “Pankaj%27s+Data”.
+
+
+32. What are different methods of session management in servlets?
+
+    Session is a conversional state between client and server and it can consists of multiple request
+    and response between client and server. Since HTTP and Web Server both are stateless, the only way
+    to maintain a session is when some unique information about the session (session id) is passed
+    between server and client in every request and response.
+
+    Some of the common ways of session management in servlets are:
+
+        User Authentication
+        HTML Hidden Field
+        Cookies
+        URL Rewriting
+        Session Management API
+
+
+33. What is URL Rewriting?
+
+We can use HttpSession for session management in servlets but it works with Cookies and we can disable
+the cookie in client browser. Servlet API provides support for URL rewriting that we can use to manage
+session in this case.
+
+The best part is that from coding point of view, it’s very easy to use and involves one step – encoding
+the URL. Another good thing with Servlet URL Encoding is that it’s a fallback approach and it kicks
+in only if browser cookies are disabled.
+
+We can encode URL with HttpServletResponse encodeURL() method and if we have to redirect the request
+to another resource and we want to provide session information, we can use encodeRedirectURL() method.
+
+
+34. How does Cookies work in Servlets?
+
+Cookies are used a lot in web client-server communication, it’s not something specific to java.
+Cookies are text data sent by server to the client and it gets saved at the client local machine.
+
+Servlet API provides cookies support through javax.servlet.http.Cookie class that implements Serializable
+and Cloneable interfaces.
+
+HttpServletRequest getCookies() method is provided to get the array of Cookies from request, since there
+is no point of adding Cookie to request, there are no methods to set or add cookie to request.
+
+Similarly HttpServletResponse addCookie(Cookie c) method is provided to attach cookie in response header,
+there are no getter methods for cookie.
+
+
+
+35. How to notify an object in session when session is invalidated or timed-out?
+
+    If we have to make sure an object gets notified when session is destroyed, the object should
+    implement javax.servlet.http.HttpSessionBindingListener interface. This interface defines two
+    callback methods – valueBound() and valueUnbound() that we can define to implement processing
+    logic when the object is added as attribute to the session and when session is destroyed.
+
+
+36. What is the difference between encodeRedirectUrl and encodeURL?
+
+encodeRedirectUrl is called on response. We have to do this if we use url rewriting. If cookies are disabled.
+encodeURL - we use it to normalize url, to remove spaces, special characters and so on.
+
+37. We use filters in order to intercept request before it sent to the server and response before it sent to
+the client. We may check something, compress, validate and so on.
+
+
+
+38. What is the effective way to make sure all the servlets are accessible only when user has a valid session?
+
+    We know that servlet filters can be used to intercept request between servlet container and servlet,
+    we can utilize it to create authentication filter and check if request contains a valid session or not.
+
+
+39. Servlet listeners. They are useful when we want to initialize something but we have different entry
+    points. To remove code redundency we use listeners.
+
+
+40. Request methods throw ServletException and IO exception. If exception is thrown, then some html
+with error code will be sent to the client. If we want to change the default page and use ours, we
+can add <error-page> to web.xml and map it to concrete exception
+
+
+41. What is a deployment descriptor?
+
+Deployment descriptor is a configuration file for the web application and it’s name is web.xml and it resides
+in WEB-INF directory. Servlet container use this file to configure web application servlets, servlet config
+params, context init params, filters, listeners, welcome pages and error handlers.
+
+With servlet 3.0 annotations, we can remove a lot of clutter from web.xml by configuring servlets,
+filters and listeners using annotations.
+
+
+42. How to make sure a servlet is loaded at the application startup?
+<servlet>
+    <servlet-name>foo</servlet-name>
+    <servlet-class>com.foo.servlets.Foo</servlet-class>
+    <load-on-startup>5</load-on-startup> 5 - priority, the less - the bigger priority
+</servlet>
+
+43. How to get the actual path of servlet in server?
+
+    We can use following code snippet to get the actual path of the servlet in file system.
+
+
+44. How to get the server information in a servlet?
+
+We can use below code snippet to get the servlet information in a servlet through servlet context object.
+
+getServletContext().getServerInfo()
+
+
+46. How do we go with database connection and log4j integration in servlet?
+
+    If you work with database connection a lot in your web application, its best to initialize
+    it in a servlet context listener and set it as a context attribute for other servlets to use.
+
+    Integrating Log4j is also very easy in web applications, all we need is a log4j configuration
+    XML or property file and then configure it in a servlet context listener.
+
+
+47. How to get the IP address of client in servlet?
+
+We can use request.getRemoteAddr() to get the client IP address in servlet.
+
+
+48. Servlet 3 features:
+
+- annotations;
+- web fragments - we can devide an application to modules;
+- we can add web components dynamically;
+- async processing;
+
+49. What are different ways for servlet authentication?
+
+Servlet Container provides different ways of login based servlet authentication:
+
+    HTTP Basic Authentication
+    HTTP Digest Authentication
+    HTTPS Authentication
+    Form Based Login: A standard HTML form for authentication, advantage is that we can change
+    the login page layout as our application requirements rather than using HTTP built-in login mechanisms.
+
+
+50. How can we achieve transport layer security for our web application?
+ You can use ssl to include digital certificate
+
