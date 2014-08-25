@@ -1,2 +1,4 @@
-Using merge you can open session, create object, close this session, update this object, create a new session and successfully
-refresh entity in db. But using update you are not able to do so. Exception will be thrown.
+Using merge you can open session, create object, close this session,
+update this object, create a new session and successfully
+refresh entity in db. But using update you are not able to do so.
+Exception will be thrown.
