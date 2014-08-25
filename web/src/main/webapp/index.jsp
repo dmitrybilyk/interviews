@@ -24,6 +24,11 @@
        <a href="${pageContext.request.contextPath}/RedirectToUploadFilePageServlet">To upload page</a>
        <a href="${pageContext.request.contextPath}/TestServletContextServlet">ContextTest</a>
 
+       <%--Spring mvc--%>
+       <a href="${pageContext.request.contextPath}/mvc/welcome">Go to welcome controller</a>
+
+
+  "${pageContext.request.contextPath}/mvc/testMVC"
   <c:out value="${returnedParam}"/>
   <c:out value="${servletContext.returnedParam}"/>
 

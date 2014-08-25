@@ -1,11 +1,21 @@
 package com.learn.web.servlets;
 
+import com.learn.web.spring.model.Student;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 
 /**
  * Created by bid on 8/20/14.
@@ -13,12 +23,21 @@ import javax.servlet.http.HttpServletResponse;
 public class TestServletContextServlet extends HttpServlet
 {
 
+   @Autowired
+   private Student student;
+
    String name;
+
+   private WebApplicationContext springContext;
 
    @Override
    public void init() throws ServletException
    {
       name = "Dima";
+
+      springContext = WebApplicationContextUtils.getRequiredWebApplicationContext(getServletConfig().getServletContext());
+      final AutowireCapableBeanFactory beanFactory = springContext.getAutowireCapableBeanFactory();
+      beanFactory.autowireBean(this);
    }
 
    @Override
@@ -33,7 +52,8 @@ public class TestServletContextServlet extends HttpServlet
 
    private void redirect(
            String aDestinationPage, HttpServletResponse aResponse
-   ) throws IOException {
+   ) throws IOException
+   {
       String urlWithSessionID = aResponse.encodeRedirectURL(aDestinationPage);
       aResponse.sendRedirect( urlWithSessionID );
    }

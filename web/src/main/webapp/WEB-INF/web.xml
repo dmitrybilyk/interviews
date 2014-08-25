@@ -6,6 +6,30 @@
          version="3.0">
 
 
+    <servlet>
+        <servlet-name>mvc-dispatcher</servlet-name>
+        <servlet-class>
+            org.springframework.web.servlet.DispatcherServlet
+        </servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>mvc-dispatcher</servlet-name>
+        <url-pattern>/mvc/*</url-pattern>
+    </servlet-mapping>
+
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/mvc-dispatcher-servlet.xml</param-value>
+    </context-param>
+
+    <listener>
+        <listener-class>
+            org.springframework.web.context.ContextLoaderListener
+        </listener-class>
+    </listener>
+
     <context-param>
         <param-name>tempfile.dir</param-name>
         <param-value>tmpfiles</param-value>
@@ -35,20 +59,20 @@
     </session-config>
 
 
-    <error-page>
-        <error-code>404</error-code>
-        <location>/AppExceptionHandlerServlet</location>
-    </error-page>
+    <!--<error-page>-->
+        <!--<error-code>404</error-code>-->
+        <!--<location>/AppExceptionHandlerServlet</location>-->
+    <!--</error-page>-->
 
-    <error-page>
-        <exception-type>javax.servlet.ServletException</exception-type>
-        <location>/AppExceptionHandlerServlet</location>
-    </error-page>
+    <!--<error-page>-->
+        <!--<exception-type>javax.servlet.ServletException</exception-type>-->
+        <!--<location>/AppExceptionHandlerServlet</location>-->
+    <!--</error-page>-->
 
 
-    <error-page>
-        <exception-type>com.learn.web.exceptions.CustomRuntimeException</exception-type>
-        <location>/CustomExceptionHandlerServlet</location>
-    </error-page>
+    <!--<error-page>-->
+        <!--<exception-type>com.learn.web.exceptions.CustomRuntimeException</exception-type>-->
+        <!--<location>/CustomExceptionHandlerServlet</location>-->
+    <!--</error-page>-->
 
 </web-app>
