@@ -10,7 +10,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * Time: 23:32
  * To change this template use File | Settings | File Templates.
  */
-public class DrawingMain {
+public class Main
+{
     public static void main(String[] args){
 //        Triangle triangle = new Triangle();
 //        triangle.draw();

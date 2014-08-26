@@ -1,0 +1,32 @@
+The life cycle of beans consist of call back methods which can be categorized broadly in two groups:
+
+    Post initialization call back methods
+    Pre destruction call back methods
+
+Spring framework provides following 4 ways for controlling life cycle events of bean:
+
+    InitializingBean and DisposableBean callback interfaces
+    Other Aware interfaces for specific behavior
+    BeanNameAware with setBeanName, ApplicationContextAware with setApplicationContext
+
+    custom init() and destroy() methods in bean configuration file
+
+    @PostConstruct and @PreDestroy annotations
+
+
+Custom init() and destroy() methods in bean configuration file
+
+The default init and destroy methods in bean configuration file can be defined in two ways:
+
+    Bean local definition applicable to a single bean
+    <beans>
+        <bean id="demoBean" class="com.howtodoinjava.task.DemoBean" init-method="customInit" destroy-method="customDestroy"></bean>
+    </beans>
+
+
+    Global definition applicable to all beans defined in beans context
+    <beans default-init-method="customInit" default-destroy-method="customDestroy">
+            <bean id="demoBean" class="com.howtodoinjava.task.DemoBean"></bean>
+    </beans>
+
+
