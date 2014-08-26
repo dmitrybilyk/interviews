@@ -1,0 +1,14 @@
+'Dependency injection' means giving an object its instance variables. Dependency injection
+is basically providing the objects that and object needs (it's dependencies) instead
+of having it construct them itself. It's also very useful for testing.
+Dependencies can be injected into objects by many means(Constructor injection
+Setter injection).
+
+Dependency Injection was originally called Inversion of Control (IoC) because the normal
+control sequence would be the object finds the objects it depends on by itself and then
+calls them. Here, this is reversed: The dependencies are handed to the object when it's
+created. This also illustrates the Hollywood Principle at work: Don't call around for
+your dependencies, we'll give them to you when we need you.
+
+Inversion of control devides WHAT to do from WHEN to do.
+

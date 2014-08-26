@@ -1,0 +1,4 @@
+http://www.mkyong.com/tutorials/java-io-tutorials/
+
+Charachter stream interfaces - Reader, Writer
+Byte stream interfaces - InputStream, OutputStream

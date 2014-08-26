@@ -1,0 +1,14 @@
+In the standard IO API you work with byte streams and character streams.
+In NIO you work with channels and buffers. Data is always read from a channel
+into a buffer, or written from a buffer to a channel.
+
+Java NIO contains the concept of "selectors". A selector is an object that can
+monitor multiple channels for events (like: connection opened, data arrived etc.).
+Thus, a single thread can monitor multiple channels for data.
+
+How all this works is explained in more detail in the next text in this series -
+the Java NIO overview.
+
+todo
+read http://tutorials.jenkov.com/java-nio/overview.html
+
