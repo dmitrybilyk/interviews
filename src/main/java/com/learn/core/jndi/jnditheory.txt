@@ -1,0 +1,24 @@
+The Java Naming and Directory Interface™ (JNDI) is an application programming interface (API) that provides
+naming and directory functionality to applications written using the Java™ programming language. It is
+defined to be independent of any specific directory service implementation. Thus a variety of directories -new,
+emerging, and already deployed can be accessed in a common way.
+
+Architecture
+
+The JNDI architecture consists of an API and a service provider interface (SPI). Java applications use the
+JNDI API to access a variety of naming and directory services. The SPI enables a variety of naming and
+directory services to be plugged in transparently, thereby allowing the Java application using the JNDI
+API to access their services
+
+
+Packaging
+
+JNDI is included in the Java SE Platform. To use the JNDI, you must have the JNDI classes and one or more
+service providers. The JDK includes service providers for the following naming/directory services:
+
+    Lightweight Directory Access Protocol (LDAP)
+    Common Object Request Broker Architecture (CORBA) Common Object Services (COS) name service
+    Java Remote Method Invocation (RMI) Registry
+    Domain Name Service (DNS)
+
+

@@ -1,0 +1,9 @@
+create schema 'example_db';
+
+use example_db;
+
+CREATE TABLE employee (emp_id int(10) PRIMARY KEY AUTO_INCREMENT, emp_name VARCHAR(50), salary DOUBLE, dept_name VARCHAR(50));
+
+insert into employee values (1, 'Dima2', 100000, 'IT2');
+
+in mysql shell use /home/bid/Dev/projects/interview/web/src/main/java/com/learn/web/pagination/filldata.sql

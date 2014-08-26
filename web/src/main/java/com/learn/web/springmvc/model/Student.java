@@ -1,4 +1,4 @@
-package com.learn.web.spring.model;
+package com.learn.web.springmvc.model;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;

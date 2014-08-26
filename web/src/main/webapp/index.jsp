@@ -23,6 +23,7 @@
        <a href="${pageContext.request.contextPath}/AsyncLongRunningServlet">Async Long running servlet</a>
        <a href="${pageContext.request.contextPath}/RedirectToUploadFilePageServlet">To upload page</a>
        <a href="${pageContext.request.contextPath}/TestServletContextServlet">ContextTest</a>
+       <a href="${pageContext.request.contextPath}/employee">go to pagination test</a>
 
        <%--Spring mvc--%>
        <a href="${pageContext.request.contextPath}/mvc/welcome">Go to welcome controller</a>

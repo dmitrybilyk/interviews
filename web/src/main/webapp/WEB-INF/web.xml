@@ -54,6 +54,17 @@
     </servlet-mapping>
 
 
+
+    <servlet>
+        <servlet-name>EmployeeServlet</servlet-name>
+        <servlet-class>com.learn.web.pagination.servlet.EmployeeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EmployeeServlet</servlet-name>
+        <url-pattern>/employee</url-pattern>
+    </servlet-mapping>
+
+
     <session-config>
         <session-timeout>1</session-timeout>
     </session-config>

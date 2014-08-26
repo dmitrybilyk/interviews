@@ -8,9 +8,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title></title>
+    <title>MVC test</title>
 </head>
 <body>
-fsdfsdfsdf
+<a href="${pageContext.request.contextPath}/mvc/welcome/students">Go to welcome controller</a>
 </body>
 </html>

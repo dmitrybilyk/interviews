@@ -1,6 +1,6 @@
 package com.learn.web.servlets;
 
-import com.learn.web.spring.model.Student;
+import com.learn.web.springmvc.model.Student;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
