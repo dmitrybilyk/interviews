@@ -1,0 +1,63 @@
+/*http://htmlacademy.ru/courses/42/run/7  using facebook account*/
+
+body  {
+    color: #000000;
+}
+body #container {
+    background: #FFFFFF;
+    position: relative; /* относительная позиция отцентрует блок относительно левого и правого отступов*/
+    width: 780px; /* используем на 20px меньше из полных 800px ширины это позволит избежать проблем с горизонтальной полосой прокрутки в браузерах Chrome */
+    margin: 0 auto; /* параметр auto в союзе с width центрует страницу*/
+    text-align: left; /* это заменяет text-align: center на элементе body. */
+}
+.cbody #header {
+
+    background-color: #33ccff;
+    height: 50px;
+    padding: 10px 20px 0 340px; /* дополнительные отступы слева и снизу для красоты. */
+
+}
+.cbody #sidebar1 {
+    position: absolute;
+    top: 60px; /* смещение сверху на высоту шапки */
+    left: 0; /* положение слева */
+    width: 150px; /* ширина колонки, фоновый цвет будет присутствовать только в пределах блока */
+    padding: 15px 10px 15px 20px; /* отступы */
+    background-color: #FF99CC;
+}
+.cbody #sidebar2 {
+    position: absolute;
+    top: 60px; /* смещение сверху на высоту шапки */
+    right: 0; /* положение справа */
+    width: 160px; /* ширина колонки, фоновый цвет будет присутствовать только в пределах блока */
+    padding: 15px 10px 15px 20px; /* отступы */
+    background-color: #FF99CC;
+}
+.cbody #mainContent {
+    margin: 0 200px; /* правое и левое поле создают две колонки по сторонам страницы. Безразлично, сколько sidebar содержит, пространство колонки останется неизменным. */
+    padding: 0 10px; /* запомните padding пространство внутри div, а margin пространство за пределами div*/
+}
+.cbody #footer {
+    padding: 0 10px 0 20px;
+    background-color: #336699;
+}
+
+
+
+h1 {
+    color: #618AD2;
+    text-shadow: 2px 2px 0 #ccc;
+}
+
+pre {
+    padding: 10px;
+    font-size: 14px;
+    line-height: 20px;
+    background: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+em {
+    color: #618AD2;
+}
