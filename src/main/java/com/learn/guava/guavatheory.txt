@@ -1,0 +1,8 @@
+Preconditions are not new. Apache Commons had similar functionality but not as clean as Guava’s solution.
+Preconditions are used for checking method arguments, states, etc. When a condition is false the Precondition
+will throw the expected exception. With expected I mean the following: when checking a state you can use
+Preconditions.checkState( condition ). If the condition is false it will throw an IllegalStateException.
+The same is true for other Preconditions like checkArgument which throws an IllegalArgumentException.
+Of course, working with Preconditions only makes sense when using static Imports. Let’s take a look at
+an example.
+

@@ -120,28 +120,6 @@ public class BrainfuckEngine {
 		charPointer = 0;
 	}
 
-
-	/**
-	 * Interprets the given file.
-	 * 
-	 * @param file
-	 * 			  The file to interpret.
-	 * @throws Exception  
-	 */
-	public void interpret(File file) throws Exception {
-		fileReader = new BufferedReader(new FileReader(file));
-		String content = "";
-		String line = "";
-		while((line = fileReader.readLine()) != null) {
-			content += line;
-			lineCount++;
-
-		}
-
-		interpret(content);
-	}
-
-
 	/**
 	 * Interprets the given string.
 	 * 
