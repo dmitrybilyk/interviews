@@ -1,7 +1,7 @@
-package com.learn.hibernate.interceptors;
+package com.learn.sql;
 
-import java.util.Date;
 import javax.persistence.*;
+import java.util.Date;
 
 /**
  * Created with IntelliJ IDEA.
@@ -10,7 +10,7 @@ import javax.persistence.*;
  * Time: 12:33
  * To change this template use File | Settings | File Templates.
  */
-@Entity(name="com.learn.hibernate.interceptors.Book")
+@Entity(name="com.learn.sql.Book")
 public class Book{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
