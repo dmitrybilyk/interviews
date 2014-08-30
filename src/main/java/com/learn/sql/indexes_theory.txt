@@ -1,3 +1,28 @@
+show databases;
+
+show tables;
+
+create schema testsql;
+
+use testsql;
+
+select count(*) from Book;
+
+select * from Book;
+
+
+desc Book;
+
+CREATE UNIQUE INDEX name_index ON Book ( name);
+CREATE INDEX name_index ON Book ( name);
+
+ALTER TABLE Book DROP INDEX name_index;
+
+SHOW INDEX FROM Book;
+
+select * from Book where name='name1443';
+
+
 http://www.sql-ex.ru/register.php
 
 http://www.devmanuals.com/tutorials/java/servlet/CreateIndex.html
