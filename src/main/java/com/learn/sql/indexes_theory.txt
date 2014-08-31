@@ -24,11 +24,10 @@ select * from Book where name='name1443';
 
 
 http://www.sql-ex.ru/register.php
+dmitrybilyk 035645
+
 
 http://www.devmanuals.com/tutorials/java/servlet/CreateIndex.html
-
-
-
 
 
 Indexes are special tables that, unlike normal data tables, are kept in a specific order.
