@@ -26,3 +26,36 @@ select * from Book where name='name1443';
 http://www.sql-ex.ru/register.php
 
 http://www.devmanuals.com/tutorials/java/servlet/CreateIndex.html
+
+
+
+
+
+Indexes are special tables that, unlike normal data tables, are kept in a specific order.
+Instead of containing all of the data about an entity, however, an index contains only
+the column (or columns) used to locate rows in the data table, along with information
+describing where the rows are physically located. Therefore, the role of indexes is to
+facilitate the retrieval of a subset of a table's rows and columns without the need to
+inspect every row in the table.
+
+Indexes are used to improve search of row with some condition. The database creates
+one index by default - for primary key.
+
+Index could be unique or not unique. We may use indexes for uniqueness validation
+by single field or by several fields. These indexes are balanced-tree indexes by default.
+Whereas B-tree indexes are great at handling columns that contain many different values,
+such as a customer's first/last names, they can become unwieldy when built on a column
+that allows only a small number of values. But if you want to improve performance of
+searching in tables with low cardinality (many similar rows), Oracle gives you an opo-
+tunity to use bitmap indexes.
+
+In situations when you need to search many text data you have to use full-text index.
+
+Некластерные индексы создаются СУБД по умолчанию. Данные физически расположены в
+произвольном порядке, но логически упорядочены согласно индексу. Такой тип индексов
+подходит для таблиц, где часто изменяются значения.
+
+При кластерном индексировании данные физически упорядочены, что серьезно повышает
+скорость выборок данных (но только в случае последовательного доступа к данным).
+Для одной таблицы может быть создан только один кластерный индекс.
+
