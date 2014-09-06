@@ -1,13 +1,15 @@
 package stockWatcher.client;
 
 import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.*;
+import com.google.gwt.i18n.client.HasDirection;
+import com.google.gwt.layout.client.Layout;
 import com.google.gwt.user.client.Random;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.*;
 import com.google.gwt.user.client.rpc.AsyncCallback;
-import com.google.gwt.user.client.DOM;
 
 import java.util.ArrayList;
 
@@ -18,7 +20,7 @@ public class StockWatcher implements EntryPoint {
 
     private static final int REFRESH_INTERVAL = 5000; // ms
 
-    private VerticalPanel mainPanel = new VerticalPanel();
+    private VerticalPanel workPanel = new VerticalPanel();
     private FlexTable stocksFlexTable = new FlexTable();
     private HorizontalPanel addPanel = new HorizontalPanel();
     private TextBox newSymbolTextBox = new TextBox();
@@ -30,23 +32,81 @@ public class StockWatcher implements EntryPoint {
      * This is the entry point method.
      */
     public void onModuleLoad() {
+
+        StockWatcherConstants constants = GWT.create(StockWatcherConstants.class);
+
+        VerticalPanel nikitaMainPanel = new VerticalPanel();
+        nikitaMainPanel.addStyleName("nikitaMainPanelStyle");
+
+        HorizontalPanel header = new HorizontalPanel();
+        header.setHorizontalAlignment(HasHorizontalAlignment.HorizontalAlignmentConstant.endOf(HasDirection.Direction.RTL));
+        Label headerLabel = new Label(constants.nikitasSite());
+        headerLabel.setSize("100%", "200px");
+
+        HorizontalPanel footer = new HorizontalPanel();
+        HorizontalPanel center = new HorizontalPanel();
+
+        VerticalPanel centerCenter = new VerticalPanel();
+        Label centerCenterLabel = new Label("center label");
+        centerCenterLabel.setSize("100%", "200px");
+        centerCenterLabel.setStylePrimaryName("centerCenterLabel");
+        centerCenter.add(centerCenterLabel);
+
+        centerCenter.setStylePrimaryName("centerCenterStyle");
+
+        VerticalPanel leftCenter = new VerticalPanel();
+        Label leftCenterLabel = new Label("Left side");
+        leftCenterLabel.setSize("100%", "200px");
+        leftCenter.add(leftCenterLabel);
+
+
+        VerticalPanel rightCenter = new VerticalPanel();
+        Label rightCenterLabel = new Label("Left side");
+        rightCenterLabel.setSize("100%", "200px");
+        rightCenter.add(rightCenterLabel);
+
+        center.add(leftCenter);
+        center.add(centerCenter);
+        center.add(rightCenter);
+
+        header.add(headerLabel);
+
+        nikitaMainPanel.add(header);
+        nikitaMainPanel.add(center);
+        nikitaMainPanel.add(footer);
+
         // Create table for stock data.
         stocksFlexTable.setText(0, 0, "Symbol");
         stocksFlexTable.setText(0, 1, "Price");
         stocksFlexTable.setText(0, 2, "Change");
         stocksFlexTable.setText(0, 3, "Remove");
+        stocksFlexTable.addStyleName("watchList");
+        // Add styles to elements in the stock list table.
+        stocksFlexTable.getRowFormatter().addStyleName(0, "watchListHeader");
+        stocksFlexTable.getCellFormatter().addStyleName(0, 1, "watchListNumericColumn");
+        stocksFlexTable.getCellFormatter().addStyleName(0, 2, "watchListNumericColumn");
+        stocksFlexTable.getCellFormatter().addStyleName(0, 3, "watchListRemoveColumn");
+
+        stocksFlexTable.setCellPadding(6);
+
+
+        addPanel.addStyleName("addPanel");
 
         // Assemble Add Stock panel.
         addPanel.add(newSymbolTextBox);
         addPanel.add(addStockButton);
 
         // Assemble Main panel.
-        mainPanel.add(stocksFlexTable);
-        mainPanel.add(addPanel);
-        mainPanel.add(lastUpdatedLabel);
+        workPanel.add(stocksFlexTable);
+        workPanel.add(addPanel);
+        workPanel.add(lastUpdatedLabel);
+
+
+        centerCenter.add(workPanel);
+        RootPanel.get().add(nikitaMainPanel);
 
         // Associate the Main panel with the HTML host page.
-        RootPanel.get("stockList").add(mainPanel);
+//        RootPanel.get("stockList").add(workPanel);
 
         // Move cursor focus to the input box.
         newSymbolTextBox.setFocus(true);
@@ -109,9 +169,15 @@ public class StockWatcher implements EntryPoint {
         stocks.add(symbol);
         stocksFlexTable.setText(row, 0, symbol);
 
+        stocksFlexTable.setWidget(row, 2, new Label());
+
+//        Label changeWidget = (Label)stocksFlexTable.getWidget(row, 2);
+//        changeWidget.setText(changeText + " (" + changePercentText + "%)");
+
         // TODO Add a button to remove this stock from the table.
         // Add a button to remove this stock from the table.
         Button removeStockButton = new Button("x");
+        removeStockButton.addStyleDependentName("remove");
         removeStockButton.addClickHandler(new ClickHandler() {
             public void onClick(ClickEvent event) {
                 int removedIndex = stocks.indexOf(symbol);

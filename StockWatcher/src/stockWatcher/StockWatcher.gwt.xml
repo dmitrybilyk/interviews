@@ -2,10 +2,14 @@
         "http://google-web-toolkit.googlecode.com/svn/releases/2.0/distro-source/core/src/gwt-module.dtd">
 <module rename-to="StockWatcher">
 
+    <inherits name="com.google.gwt.i18n.I18N"/>
+
     <!-- Inherit the core Web Toolkit stuff.                  -->
     <inherits name='com.google.gwt.user.User'/>
 
-    <inherits name='com.google.gwt.user.theme.standard.Standard'/>
+
+    <!--<inherits name='com.google.gwt.user.theme.standard.Standard'/>-->
+    <inherits name="com.google.gwt.user.theme.dark.Dark"/>
 
     <!-- Specify the app entry point class.                   -->
     <entry-point class='stockWatcher.client.StockWatcher'/>
