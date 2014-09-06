@@ -34,6 +34,10 @@ public class StockWatcher implements EntryPoint {
     public void onModuleLoad() {
 
         StockWatcherConstants constants = GWT.create(StockWatcherConstants.class);
+        StockWatcherMessages messages = GWT.create(StockWatcherMessages.class);
+
+        GWT.log(messages.invalidSymbol("fuck"));
+        Window.alert(messages.invalidSymbol("yes"));
 
         VerticalPanel nikitaMainPanel = new VerticalPanel();
         nikitaMainPanel.addStyleName("nikitaMainPanelStyle");
