@@ -13,4 +13,12 @@
         <!--<servlet-name>StockWatcher StockWatcherService</servlet-name>-->
         <!--<url-pattern>/StockWatcher/StockWatcherService</url-pattern>-->
     <!--</servlet-mapping>-->
+    <servlet>
+        <servlet-name>stockWatcher.StockWatcher StockWatcherService</servlet-name>
+        <servlet-class>stockWatcher.server.StockWatcherServiceImpl</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>stockWatcher.StockWatcher StockWatcherService</servlet-name>
+        <url-pattern>/StockWatcher/StockWatcherService</url-pattern>
+    </servlet-mapping>
 </web-app>

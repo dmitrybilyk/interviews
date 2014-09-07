@@ -13,11 +13,11 @@ public interface StockWatcherService extends RemoteService {
      * Utility/Convenience class.
      * Use StockWatcherService.App.getInstance() to access static instance of StockWatcherServiceAsync
      */
-    public static class App {
+//    public static class App {
 //        private static StockWatcherServiceAsync ourInstance = GWT.create(StockWatcherService.class);
-
+//
 //        public static synchronized StockWatcherServiceAsync getInstance() {
 //            return ourInstance;
 //        }
-    }
+//    }
 }

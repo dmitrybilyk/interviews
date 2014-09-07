@@ -1,7 +1,7 @@
-package stockWatcher.client;
+package com.learn.flash.client;
 
 import com.google.gwt.user.client.rpc.AsyncCallback;
 
-public interface StockWatcherServiceAsync {
+public interface flashServiceAsync {
     void getMessage(String msg, AsyncCallback<String> async);
 }

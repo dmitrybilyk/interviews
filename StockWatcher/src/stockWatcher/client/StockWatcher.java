@@ -1,17 +1,23 @@
 package stockWatcher.client;
 
+import com.google.gwt.cell.client.TextCell;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.dom.client.Document;
 import com.google.gwt.event.dom.client.*;
 import com.google.gwt.i18n.client.HasDirection;
-import com.google.gwt.layout.client.Layout;
+import com.google.gwt.user.cellview.client.CellList;
 import com.google.gwt.user.client.Random;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.*;
 import com.google.gwt.user.client.rpc.AsyncCallback;
+import stockWatcher.client.popup.CwBasicPopup;
+import stockWatcher.client.uibinder.HelloWidgetWorld;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Entry point classes define <code>onModuleLoad()</code>
@@ -37,7 +43,7 @@ public class StockWatcher implements EntryPoint {
         StockWatcherMessages messages = GWT.create(StockWatcherMessages.class);
 
         GWT.log(messages.invalidSymbol("fuck"));
-        Window.alert(messages.invalidSymbol("yes"));
+//        Window.alert(messages.invalidSymbol("yes"));
 
         VerticalPanel nikitaMainPanel = new VerticalPanel();
         nikitaMainPanel.addStyleName("nikitaMainPanelStyle");
@@ -63,9 +69,11 @@ public class StockWatcher implements EntryPoint {
         leftCenterLabel.setSize("100%", "200px");
         leftCenter.add(leftCenterLabel);
 
+        CompositeExample compositeExample = new CompositeExample("Composite example");
+        leftCenter.add(compositeExample);
 
         VerticalPanel rightCenter = new VerticalPanel();
-        Label rightCenterLabel = new Label("Left side");
+        Label rightCenterLabel = new Label("Right side");
         rightCenterLabel.setSize("100%", "200px");
         rightCenter.add(rightCenterLabel);
 
@@ -107,6 +115,66 @@ public class StockWatcher implements EntryPoint {
 
 
         centerCenter.add(workPanel);
+
+        CwBasicPopup popup = new CwBasicPopup();
+        centerCenter.add(popup);
+
+
+
+        //Cell list example
+        // Create a cell to render each value in the list.
+        TextCell textCell = new TextCell();
+
+        // Create a CellList that uses the cell.
+        CellList<String> cellList = new CellList<String>(textCell);
+
+        // Set the total row count. This isn't strictly necessary, but it affects
+        // paging calculations, so its good habit to keep the row count up to date.
+        cellList.setRowCount(DAYS.size(), true);
+
+        // Push the data into the widget.
+        cellList.setRowData(0, DAYS);
+
+        rightCenter.add(cellList);
+
+        CellTableExample cellTableExample = new CellTableExample();
+        rightCenter.add(cellTableExample.getCellTable());
+
+
+        CellTreeExample cellTreeExample = new CellTreeExample();
+        rightCenter.add(cellTreeExample.getCellTree());
+
+        CellBrowserExample cellBrowserExample = new CellBrowserExample();
+        rightCenter.add(cellBrowserExample.getBrowser());
+
+
+        centerCenter.getElement().getStyle().setBackgroundColor("white");
+
+
+        HelloWidgetWorld helloWidgetWorld = new HelloWidgetWorld("Dima", "Nikita", "Natasha");
+// Don't forget, this is DOM only; will not work with GWT widgets
+
+        leftCenter.add(helloWidgetWorld);
+
+
+        StockWatcherServiceAsync stockWatcherService = GWT.create(StockWatcherService.class);
+
+        stockWatcherService.getMessage("Dima", new AsyncCallback<String>() {
+            @Override
+            public void onFailure(Throwable caught) {
+                GWT.log(caught.getMessage());
+            }
+
+            @Override
+            public void onSuccess(String result) {
+                GWT.log("Resutl of async - " + result);
+            }
+        });
+
+
+
+
+
         RootPanel.get().add(nikitaMainPanel);
 
         // Associate the Main panel with the HTML host page.
@@ -147,6 +215,11 @@ public class StockWatcher implements EntryPoint {
 
     }
 
+    // The list of data to display.
+    private static final List<String> DAYS = Arrays.asList("Sunday", "Monday",
+            "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
+
+
     /**
      * Add stock to FlexTable. Executed when the user clicks the addStockButton or
      * presses enter in the newSymbolTextBox.
@@ -157,7 +230,7 @@ public class StockWatcher implements EntryPoint {
 
         // Stock code must be between 1 and 10 chars that are numbers, letters, or dots.
         if (!symbol.matches("^[0-9A-Z\\.]{1,10}$")) {
-            Window.alert("'" + symbol + "' is not a valid symbol.");
+//            Window.alert("'" + symbol + "' is not a valid symbol.");
             newSymbolTextBox.selectAll();
             return;
         }

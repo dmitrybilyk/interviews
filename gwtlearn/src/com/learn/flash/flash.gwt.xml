@@ -1,21 +1,18 @@
 <!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.0//EN"
         "http://google-web-toolkit.googlecode.com/svn/releases/2.0/distro-source/core/src/gwt-module.dtd">
-<module rename-to="StockWatcher">
-
-    <inherits name="com.google.gwt.i18n.I18N"/>
+<module rename-to="flash">
 
     <!-- Inherit the core Web Toolkit stuff.                  -->
     <inherits name='com.google.gwt.user.User'/>
-
-
-    <!--<inherits name='com.google.gwt.user.theme.standard.Standard'/>-->
-    <inherits name="com.google.gwt.user.theme.dark.Dark"/>
+    <inherits name="com.google.gwt.i18n.I18N"/>
+    <inherits name="com.google.gwt.i18n.CldrLocales"/>
+    <!--<inherits name="com.google.web.bindery.requestfactory.RequestFactory"/>-->
 
     <!-- Specify the app entry point class.                   -->
-    <entry-point class='stockWatcher.client.StockWatcher'/>
+    <entry-point class='com.learn.flash.client.flash'/>
 
 
     <!-- Specify the app servlets.                   -->
-    <servlet path='/StockWatcherService' class='stockWatcher.server.StockWatcherServiceImpl'/>
+    <servlet path='/flashService' class='com.learn.flash.server.flashServiceImpl'/>
 
 </module>
