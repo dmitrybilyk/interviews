@@ -12,6 +12,15 @@ import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.*;
 import com.google.gwt.user.client.rpc.AsyncCallback;
+import com.google.gwt.user.client.ui.FormPanel;
+import com.sencha.gxt.core.client.util.ToggleGroup;
+import com.sencha.gxt.widget.core.client.FramedPanel;
+import com.sencha.gxt.widget.core.client.button.TextButton;
+import com.sencha.gxt.widget.core.client.container.AbstractHtmlLayoutContainer;
+import com.sencha.gxt.widget.core.client.container.HtmlLayoutContainer;
+import com.sencha.gxt.widget.core.client.container.MarginData;
+import com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer;
+import com.sencha.gxt.widget.core.client.form.*;
 import stockWatcher.client.popup.CwBasicPopup;
 import stockWatcher.client.uibinder.HelloWidgetWorld;
 
@@ -83,9 +92,21 @@ public class StockWatcher implements EntryPoint {
 
         header.add(headerLabel);
 
+
+        VerticalPanel gxtArea = new VerticalPanel();
+
+
         nikitaMainPanel.add(header);
         nikitaMainPanel.add(center);
+
+        footer.add(gxtArea);
+
+        gxtArea.add(asWidget());
+
         nikitaMainPanel.add(footer);
+
+
+
 
         // Create table for stock data.
         stocksFlexTable.setText(0, 0, "Symbol");
@@ -318,4 +339,139 @@ public class StockWatcher implements EntryPoint {
             label.setText("Failed to receive answer from server!");
         }
     }
+
+
+
+
+//    GXT
+
+    private static final int COLUMN_FORM_WIDTH = 680;
+    private VerticalPanel vp;
+
+    public Widget asWidget() {
+        if (vp == null) {
+            vp = new VerticalPanel();
+            vp.setSpacing(10);
+            createColumnForm();
+            createTabForm();
+        }
+        return vp;
+    }
+
+    private void createColumnForm() {
+        FramedPanel panel = new FramedPanel();
+        panel.setHeadingText("Form Example");
+        panel.setWidth(COLUMN_FORM_WIDTH);
+
+        HtmlLayoutContainer con = new HtmlLayoutContainer(getTableMarkup());
+        panel.add(con, new MarginData(15));
+
+        int cw = ((COLUMN_FORM_WIDTH - 30)/ 2) - 12;
+
+        TextField firstName = new TextField();
+        firstName.setAllowBlank(false);
+        firstName.setWidth(cw);
+        con.add(new FieldLabel(firstName, "First Name"), new AbstractHtmlLayoutContainer.HtmlData(".fn"));
+
+        TextField lastName = new TextField();
+        lastName.setAllowBlank(false);
+        lastName.setWidth(cw);
+        con.add(new FieldLabel(lastName, "Last Name"), new AbstractHtmlLayoutContainer.HtmlData(".ln"));
+
+        TextField company = new TextField();
+        company.setWidth(cw);
+        con.add(new FieldLabel(company, "Company"), new AbstractHtmlLayoutContainer.HtmlData(".company"));
+
+        TextField email = new TextField();
+        email.setWidth(cw);
+        con.add(new FieldLabel(email, "Email"), new AbstractHtmlLayoutContainer.HtmlData(".email"));
+
+        DateField birthday = new DateField();
+        birthday.setWidth(cw);
+        con.add(new FieldLabel(birthday, "Birthday"), new AbstractHtmlLayoutContainer.HtmlData(".birthday"));
+
+        Radio radio1 = new Radio();
+        radio1.setBoxLabel("Yes");
+
+        Radio radio2 = new Radio();
+        radio2.setBoxLabel("No");
+
+        HorizontalPanel hp = new HorizontalPanel();
+        hp.add(radio1);
+        hp.add(radio2);
+
+        con.add(new FieldLabel(hp, "GXT User"), new AbstractHtmlLayoutContainer.HtmlData(".user"));
+
+        ToggleGroup group = new ToggleGroup();
+        group.add(radio1);
+        group.add(radio2);
+
+        HtmlEditor a = new HtmlEditor();
+        a.setWidth(COLUMN_FORM_WIDTH - 25 - 30);
+        con.add(new FieldLabel(a, "Comment"), new AbstractHtmlLayoutContainer.HtmlData(".editor"));
+
+        panel.addButton(new TextButton("Cancel"));
+        panel.addButton(new TextButton("Submit"));
+
+        // need to call after everything is constructed
+        List<FieldLabel> labels = FormPanelHelper.getFieldLabels(panel);
+        for (FieldLabel lbl : labels) {
+            lbl.setLabelAlign(com.sencha.gxt.widget.core.client.form.FormPanel.LabelAlign.TOP);
+        }
+
+        vp.add(panel);
+    }
+
+    private void createTabForm() {
+        FormPanel panel = new FormPanel();
+        panel.setWidth("300");
+
+        TabPanel tabs = new TabPanel();
+        panel.setWidget(tabs);
+
+        VerticalLayoutContainer p = new VerticalLayoutContainer();
+        p.setLayoutData(new MarginData(8));
+
+        tabs.add(p, "Person Details");
+
+        TextField firstName = new TextField();
+        firstName.setAllowBlank(false);
+        firstName.setValue("Darrell");
+        p.add(new FieldLabel(firstName, "First Name"), new VerticalLayoutContainer.VerticalLayoutData(1, -1));
+
+        TextField lastName = new TextField();
+        lastName.setAllowBlank(false);
+        lastName.setValue("Meyer");
+        p.add(new FieldLabel(lastName, "Last Name"), new VerticalLayoutContainer.VerticalLayoutData(1, -1));
+
+        TextField email = new TextField();
+        email.setAllowBlank(false);
+        p.add(new FieldLabel(email, "Email"), new VerticalLayoutContainer.VerticalLayoutData(1, -1));
+
+        p = new VerticalLayoutContainer();
+        p.setLayoutData(new MarginData(8));
+
+        tabs.add(p, "Phone Numbers");
+
+        TextField home = new TextField();
+        home.setValue("888-888-8888");
+        p.add(new FieldLabel(home, "Home"), new VerticalLayoutContainer.VerticalLayoutData(1, -1));
+
+        TextField business = new TextField();
+        business.setValue("888-888-8888");
+        p.add(new FieldLabel(business, "Business"), new VerticalLayoutContainer.VerticalLayoutData(1, -1));
+
+        vp.add(panel);
+    }
+
+    private native String getTableMarkup() /*-{
+        return [ '<table width=100% cellpadding=0 cellspacing=0>',
+            '<tr><td class=fn width=50%></td><td class=ln width=50%></td></tr>',
+            '<tr><td class=company></td><td class=email></td></tr>',
+            '<tr><td class=birthday></td><td class=user></td></tr>',
+            '<tr><td class=editor colspan=2></td></tr>', '</table>'
+
+        ].join("");
+    }-*/;
+
 }

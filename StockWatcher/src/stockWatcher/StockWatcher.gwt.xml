@@ -7,9 +7,9 @@
     <!-- Inherit the core Web Toolkit stuff.                  -->
     <inherits name='com.google.gwt.user.User'/>
 
+    <inherits name='com.sencha.gxt.ui.GXT'/>
 
-    <!--<inherits name='com.google.gwt.user.theme.standard.Standard'/>-->
-    <inherits name="com.google.gwt.user.theme.dark.Dark"/>
+    <inherits name="com.google.gwt.resources.Resources" />
 
     <!-- Specify the app entry point class.                   -->
     <entry-point class='stockWatcher.client.StockWatcher'/>

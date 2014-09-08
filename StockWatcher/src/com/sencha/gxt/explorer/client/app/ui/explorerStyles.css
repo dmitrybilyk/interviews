@@ -1,0 +1,194 @@
+/**
+ * Sencha GXT 3.1.0 - Sencha for GWT
+ * Copyright(c) 2007-2014, Sencha, Inc.
+ * licensing@sencha.com
+ *
+ * http://www.sencha.com/products/gxt/license/
+ */
+@if gxt.theme neptune {
+  body {
+    font-family: helvetica, arial, verdana, sans-serif;
+  }
+  #demo-header {
+    background-color: #34495e;
+  }
+  .explorer-example-body {
+    background-color: #efefef;
+  }
+
+} @elif gxt.theme crisp {
+  @sprite .explorer-example-body {
+    gwt-image: 'squareBg';
+    background-color: red;
+  }
+  #demo-header {
+    background-image: none;
+    background-color: #2A3F5D !important;
+  }
+} @else {
+  body {
+    font-family: arial, helvetica, tahoma, sans-serif;
+  }
+  @sprite #demo-header {
+    gwt-image: 'classicBg';
+  }
+}
+
+.pad-text {
+  font-size: 12px;
+  padding: 5px;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.white-bg {
+  background-color: white;
+}
+
+.padding-10 {
+  padding: 10px;
+}
+
+.padding-20 {
+  padding: 20px;
+}
+
+.padding-5 {
+  padding: 5px;
+}
+
+.margin-5 {
+  margin: 5px;
+}
+
+.margin-10 {
+  margin: 10px;
+}
+
+.margin-20 {
+  margin: 20px;
+}
+
+#demo-header {
+  border: 0 none;
+  padding-left: 3px;
+}
+
+#demo-theme {
+  float: right;
+  padding-right: 8px;
+  padding-top: 5px;
+  position: relative;
+}
+
+#demo-title {
+  color: white;
+  font: 16px tahoma, arial, sans-serif;
+  padding: 6px 0 8px 6px;
+}
+
+.sample-box {
+  float: left;
+  width: 135px;
+  margin: 5px 5px 0 5px;
+  text-align: center;
+  height: 114px;
+  cursor: default;
+  color: #444;
+  overflow: hidden;
+  padding-top: 4px;
+  border: none !important;
+}
+
+@if gxt.theme neptune {
+  .sample-over {
+    background: #e2eff8;
+  }
+} @else {
+  @sprite .sample-over {
+    gwt-image: "sampleOver";
+  }
+}
+
+.sample-over div {
+  color: #1860A8;
+}
+
+.sample-box div {
+  font-size: 10px;
+  line-height: 12px;
+}
+@if gxt.theme neptune {
+  .sample-box {
+    font-family: helvetica, arial, verdana, sans-serif;
+  }
+} @else {
+  .sample-box {
+    font-family: tahoma, arial, sans-serif;
+  }
+}
+
+
+.sample-box dt a {
+  border: 0 none !important;
+}
+
+  /* chooser */
+#img-chooser-dlg .details {
+  padding: 10px;
+  text-align: center;
+}
+
+#img-chooser-dlg .details-info {
+  border-top: 1px solid #cccccc;
+  font: 11px Arial, Helvetica, sans-serif;
+  margin-top: 5px;
+  padding-top: 5px;
+  text-align: left;
+}
+
+#img-chooser-dlg .details-info b {
+  color: #555555;
+  display: block;
+  margin-bottom: 4px;
+}
+
+#img-chooser-dlg .details-info span {
+  display: block;
+  margin-bottom: 5px;
+  margin-left: 5px;
+}
+
+  /* list view */
+
+#images-view .thumb {
+  background: #dddddd;
+  padding: 3px;
+}
+
+#images-view .thumb img {
+  height: 60px;
+  width: 80px;
+  border: 1px solid #add2ed;
+}
+
+
+#images-view .loading-indicator {
+  font-size: 11px;
+  background-repeat: no-repeat;
+  background-position: left;
+  padding-left: 20px;
+  margin: 10px;
+}
+
+.cost-column {
+  background-color: #F1F2F4;
+}
+
+@if gxt.theme neptune {
+  .thumbd img {
+    border: 1px solid #add2ed
+  }
+}

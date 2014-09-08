@@ -27,6 +27,8 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="gwt-codeserver" level="project" />
+    <orderEntry type="library" name="gxt-chart" level="project" />
+    <orderEntry type="library" name="com.google.gwt.inject:gin:1.0" level="project" />
   </component>
 </module>
 
