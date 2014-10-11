@@ -8,6 +8,7 @@ import java.util.List;
 /**
  * Created by bid on 8/21/14.
  */
+@SuppressWarnings("unchecked")
 public class Comparison
 {
    private static int sizeOfList = 3000000;

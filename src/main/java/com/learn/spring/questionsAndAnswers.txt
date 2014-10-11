@@ -1,22 +1,32 @@
 Q: What is Spring?
-A: Spring is an open source development framework for enterprise Java. The core features of the Spring Framework can be used in developing any Java application, but there are extensions for building web applications on top of the Java EE platform. Spring framework targets to make J2EE development easier to use and promote good programming practice by enabling a POJO-based programming model.
+A: Spring is an open source development framework for enterprise Java. The core features of the Spring Framework
+can be used in developing any Java application, but there are extensions for building web applications on top
+of the Java EE platform. Spring framework targets to make J2EE development easier to use and promote good
+programming practice by enabling a POJO-based programming model.
 
 Q: what are benefits of using spring?
 A: Following is the list of few of the great benefits of using Spring Framework:
 
-Lightweight: Spring is lightweight when it comes to size and transparency. The basic version of spring framework is around 2MB.
+Lightweight: Spring is lightweight when it comes to size and transparency. The basic version of spring framework
+is around 2MB.
 
-Inversion of control (IOC): Loose coupling is achieved in spring using the technique Inversion of Control. The objects give their dependencies instead of creating or looking for dependent objects.
+Inversion of control (IOC): Loose coupling is achieved in spring using the technique Inversion of Control.
+The objects give their dependencies instead of creating or looking for dependent objects.
 
-Aspect oriented (AOP): Spring supports Aspect oriented programming and enables cohesive development by separating application business logic from system services.
+Aspect oriented (AOP): Spring supports Aspect oriented programming and enables cohesive development by
+separating application business logic from system services.
 
 Container: Spring contains and manages the life cycle and configuration of application objects.
 
-MVC Framework: Spring's web framework is a well-designed web MVC framework, which provides a great alternative to web frameworks such as Struts or other over engineered or less popular web frameworks.
+MVC Framework: Spring's web framework is a well-designed web MVC framework, which provides a great alternative
+to web frameworks such as Struts or other over engineered or less popular web frameworks.
 
-Transaction Management: Spring provides a consistent transaction management interface that can scale down to a local transaction (using a single database, for example) and scale up to global transactions (using JTA, for example).
+Transaction Management: Spring provides a consistent transaction management interface that can scale down to a
+local transaction (using a single database, for example) and scale up to global transactions (using JTA, for
+example).
 
-Exception Handling: Spring provides a convenient API to translate technology-specific exceptions (thrown by JDBC, Hibernate, or JDO, for example) into consistent, unchecked exceptions.
+Exception Handling: Spring provides a convenient API to translate technology-specific exceptions (thrown by
+JDBC, Hibernate, or JDO, for example) into consistent, unchecked exceptions.
 
 Q: What are the different modules in Spring framework?
 A: Following are the modules of the Spring framework:
@@ -48,49 +58,67 @@ Web-Struts module
 Web-Portlet module
 
 Q: What is Spring configuration file?
-A: Spring configuration file is an XML file. This file contains the classes information and describes how these classes are configured and introduced to each other.
+A: Spring configuration file is an XML file. This file contains the classes information and describes how these
+classes are configured and introduced to each other.
 
 Q: What is Dependency Injection?
-A: Inversion of Control (IoC) is a general concept, and it can be expressed in many different ways and Dependency Injection is merely one concrete example of Inversion of Control.
+A: Inversion of Control (IoC) is a general concept, and it can be expressed in many different ways and Dependency
+Injection is merely one concrete example of Inversion of Control.
 
-This concept says that you do not create your objects but describe how they should be created. You don't directly connect your components and services together in code but describe which services are needed by which components in a configuration file. A container (the IOC container) is then responsible for hooking it all up.
+This concept says that you do not create your objects but describe how they should be created. You don't directly
+connect your components and services together in code but describe which services are needed by which components
+in a configuration file. A container (the IOC container) is then responsible for hooking it all up.
 
 Q: What are the different types of IoC (dependency injection)?
 A: Types of IoC are:
 
-Constructor-based dependency injection: Constructor-based DI is accomplished when the container invokes a class constructor with a number of arguments, each representing a dependency on other class.
+Constructor-based dependency injection: Constructor-based DI is accomplished when the container invokes a class
+constructor with a number of arguments, each representing a dependency on other class.
 
-Setter-based dependency injection: Setter-based DI is accomplished by the container calling setter methods on your beans after invoking a no-argument constructor or no-argument static factory method to instantiate your bean.
+Setter-based dependency injection: Setter-based DI is accomplished by the container calling setter methods on
+your beans after invoking a no-argument constructor or no-argument static factory method to instantiate your bean.
 
 Q: Which DI would you suggest Constructor-based or setter-based DI?
-A: Since you can mix both, Constructor- and Setter-based DI, it is a good rule of thumb to use constructor arguments for mandatory dependencies and setters for optional dependencies. Note that the use of a @Required annotation on a setter can be used to make setters required dependencies.
+A: Since you can mix both, Constructor- and Setter-based DI, it is a good rule of thumb to use constructor
+arguments for mandatory dependencies and setters for optional dependencies. Note that the use of a @Required
+annotation on a setter can be used to make setters required dependencies.
 
 Q: What are the benefits of IOC?
 A: The main benefits of IOC or dependency injection are:
 
 It minimizes the amount of code in your application.
 
-It makes your application easy to test as it doesn't require any singletons or JNDI lookup mechanisms in your unit test cases.
+It makes your application easy to test as it doesn't require any singletons or JNDI lookup mechanisms in
+your unit test cases.
 
 Loose coupling is promoted with minimal effort and least intrusive mechanism.
 
 IOC containers support eager instantiation and lazy loading of services.
 
 Q: What is AOP?
-A: Aspect-oriented programming, or AOP, is a programming technique that allows programmers to modularize crosscutting concerns, or behavior that cuts across the typical divisions of responsibility, such as logging and transaction management. The core construct of AOP is the aspect, which encapsulates behaviors affecting multiple classes into reusable modules.
+A: Aspect-oriented programming, or AOP, is a programming technique that allows programmers to modularize
+crosscutting concerns, or behavior that cuts across the typical divisions of responsibility, such as logging
+and transaction management. The core construct of AOP is the aspect, which encapsulates behaviors affecting
+multiple classes into reusable modules.
 
 Q: What is Spring IoC container?
-A: The Spring IoC creates the objects, wire them together, configure them, and manage their complete lifecycle from creation till destruction. The Spring container uses dependency injection (DI) to manage the components that make up an application.
+A: The Spring IoC creates the objects, wire them together, configure them, and manage their complete lifecycle
+from creation till destruction. The Spring container uses dependency injection (DI) to manage the components
+that make up an application.
 
 Q: What are types of IoC containers? Explain them.
 A: There are two types of IoC containers:
 
-Bean Factory container: This is the simplest container providing basic support for DI .The BeanFactory is usually preferred where the resources are limited like mobile devices or applet based applications
+Bean Factory container: This is the simplest container providing basic support for DI .The BeanFactory is
+usually preferred where the resources are limited like mobile devices or applet based applications
 
-Spring ApplicationContext Container: This container adds more enterprise-specific functionality such as the ability to resolve textual messages from a properties file and the ability to publish application events to interested event listeners.
+Spring ApplicationContext Container: This container adds more enterprise-specific functionality such as
+the ability to resolve textual messages from a properties file and the ability to publish application events
+to interested event listeners.
 
 Q: Give an example of BeanFactory implementation.
-A: The most commonly used BeanFactory implementation is the XmlBeanFactory class. This container reads the configuration metadata from an XML file and uses it to create a fully configured system or application.
+A: The most commonly used BeanFactory implementation is the XmlBeanFactory class. This container reads the
+configuration metadata from an XML file and uses it to create a fully configured system or application.
 
 Q: What are the common implementations of the ApplicationContext?
 A: The three commonly used implementation of 'Application Context' are:
@@ -110,15 +138,21 @@ Application contexts provide a generic way to load file resources, such as image
 
 Application contexts can publish events to beans that are registered as listeners.
 
-Certain operations on the container or beans in the container, which have to be handled in a programmatic fashion with a bean factory, can be handled declaratively in an application context.
+Certain operations on the container or beans in the container, which have to be handled in a programmatic
+fashion with a bean factory, can be handled declaratively in an application context.
 
-The application context implements MessageSource, an interface used to obtain localized messages, with the actual implementation being pluggable.
+The application context implements MessageSource, an interface used to obtain localized messages, with the
+actual implementation being pluggable.
 
 Q: What are Spring beans?
-A: The objects that form the backbone of your application and that are managed by the Spring IoC container are called beans. A bean is an object that is instantiated, assembled, and otherwise managed by a Spring IoC container. These beans are created with the configuration metadata that you supply to the container, for example, in the form of XML <bean/> definitions.
+A: The objects that form the backbone of your application and that are managed by the Spring IoC container
+are called beans. A bean is an object that is instantiated, assembled, and otherwise managed by a Spring IoC
+container. These beans are created with the configuration metadata that you supply to the container, for example,
+in the form of XML <bean/> definitions.
 
 Q: What does a bean definition contain?
-A: The bean definition contains the information called configuration metadata which is needed for the container to know the followings:
+A: The bean definition contains the information called configuration metadata which is needed for the container
+to know the followings:
 
 How to create a bean
 
@@ -177,24 +211,31 @@ A: Following is sequence of a bean lifecycle in Spring:
 
 Instantiate - First the spring container finds the bean's definition from the XML file and instantiates the bean..
 
-Populate properties - Using the dependency injection, spring populates all of the properties as specified in the bean definition..
+Populate properties - Using the dependency injection, spring populates all of the properties as specified in the
+bean definition..
 
 Set Bean Name - If the bean implements BeanNameAware interface, spring passes the bean's id to setBeanName() method.
 
-Set Bean factory - If Bean implements BeanFactoryAware interface, spring passes the beanfactory to setBeanFactory() method.
+Set Bean factory - If Bean implements BeanFactoryAware interface, spring passes the beanfactory to setBeanFactory()
+method.
 
-Pre Initialization - Also called postprocess of bean. If there are any bean BeanPostProcessors associated with the bean, Spring calls postProcesserBeforeInitialization() method.
+Pre Initialization - Also called postprocess of bean. If there are any bean BeanPostProcessors associated with the
+bean, Spring calls postProcesserBeforeInitialization() method.
 
-Initialize beans - If the bean implements IntializingBean,its afterPropertySet() method is called. If the bean has init method declaration, the specified initialization method is called.
+Initialize beans - If the bean implements IntializingBean,its afterPropertySet() method is called. If the bean has
+init method declaration, the specified initialization method is called.
 
-Post Initialization - If there are any BeanPostProcessors associated with the bean, their postProcessAfterInitialization() methods will be called.
+Post Initialization - If there are any BeanPostProcessors associated with the bean, their
+postProcessAfterInitialization() methods will be called.
 
 Ready to use - Now the bean is ready to use by the application.
 
 Destroy - If the bean implements DisposableBean , it will call the destroy() method .
 
 Q: What are inner beans in Spring?
-A: A <bean/> element inside the <property/> or <constructor-arg/> elements defines a so-called inner bean. An inner bean definition does not require a defined id or name; the container ignores these values. It also ignores the scope flag. Inner beans are always anonymous and they are always scoped as prototypes.
+A: A <bean/> element inside the <property/> or <constructor-arg/> elements defines a so-called inner bean.
+An inner bean definition does not require a defined id or name; the container ignores these values.
+It also ignores the scope flag. Inner beans are always anonymous and they are always scoped as prototypes.
 
 Q: How can you inject Java Collection in Spring?
 A: Spring offers four types of collection configuration elements which are as follows:
@@ -208,25 +249,37 @@ A: Spring offers four types of collection configuration elements which are as fo
 <props>:	This can be used to inject a collection of name-value pairs where the name and value are both Strings.
 
 Q: What is bean auto wiring?
-A: The Spring container is able to autowire relationships between collaborating beans. This means that it is possible to automatically let Spring resolve collaborators (other beans) for your bean by inspecting the contents of the BeanFactory without using <constructor-arg> and <property> elements.
+A: The Spring container is able to autowire relationships between collaborating beans. This means that it is
+possible to automatically let Spring resolve collaborators (other beans) for your bean by inspecting the contents
+of the BeanFactory without using <constructor-arg> and <property> elements.
 
 Q: What are different Modes of auto wiring?
-A: The autowiring functionality has five modes which can be used to instruct Spring container to use autowiring for dependency injection:
+A: The autowiring functionality has five modes which can be used to instruct Spring container to use autowiring
+for dependency injection:
 
-no: This is default setting which means no autowiring and you should use explicit bean reference for wiring. You have nothing to do special for this wiring. This is what you already have seen in Dependency Injection chapter.
+no: This is default setting which means no autowiring and you should use explicit bean reference for wiring.
+You have nothing to do special for this wiring. This is what you already have seen in Dependency Injection chapter.
 
-byName: Autowiring by property name. Spring container looks at the properties of the beans on which autowire attribute is set to byName in the XML configuration file. It then tries to match and wire its properties with the beans defined by the same names in the configuration file.
+byName: Autowiring by property name. Spring container looks at the properties of the beans on which autowire
+attribute is set to byName in the XML configuration file. It then tries to match and wire its properties with
+the beans defined by the same names in the configuration file.
 
-byType: Autowiring by property datatype. Spring container looks at the properties of the beans on which autowire attribute is set to byType in the XML configuration file. It then tries to match and wire a property if its type matches with exactly one of the beans name in configuration file. If more than one such beans exist, a fatal exception is thrown.
+byType: Autowiring by property datatype. Spring container looks at the properties of the beans on which autowire
+attribute is set to byType in the XML configuration file. It then tries to match and wire a property if its type
+matches with exactly one of the beans name in configuration file. If more than one such beans exist, a fatal
+exception is thrown.
 
-constructor:	Similar to byType, but type applies to constructor arguments. If there is not exactly one bean of the constructor argument type in the container, a fatal error is raised.
+constructor:	Similar to byType, but type applies to constructor arguments. If there is not exactly one bean
+of the constructor argument type in the container, a fatal error is raised.
 
-autodetect: Spring first tries to wire using autowire by constructor, if it does not work, Spring tries to autowire by byType.
+autodetect: Spring first tries to wire using autowire by constructor, if it does not work, Spring tries to
+autowire by byType.
 
 Q: What are the limitations with autowiring?
 A: Limitations of autowiring are:
 
-Overriding possibility: You can still specify dependencies using <constructor-arg> and <property> settings which will always override autowiring.
+Overriding possibility: You can still specify dependencies using <constructor-arg> and <property> settings which
+will always override autowiring.
 
 Primitive data types: You cannot autowire so-called simple properties such as primitives, Strings, and Classes.
 
@@ -236,16 +289,24 @@ Q: Can you inject null and empty string values in Spring?
 A: Yes.
 
 Q: What is Annotation-based container configuration?
-A: An alternative to XML setups is provided by annotation-based configuration which relies on the bytecode metadata for wiring up components instead of angle-bracket declarations. Instead of using XML to describe a bean wiring, the developer moves the configuration into the component class itself by using annotations on the relevant class, method, or field declaration.
+A: An alternative to XML setups is provided by annotation-based configuration which relies on the bytecode
+metadata for wiring up components instead of angle-bracket declarations. Instead of using XML to describe a
+bean wiring, the developer moves the configuration into the component class itself by using annotations on the
+relevant class, method, or field declaration.
 
 Q: How do you turn on annotation wiring?
-A: Annotation wiring is not turned on in the Spring container by default. So, before we can use annotation-based wiring, we will need to enable it in our Spring configuration file by configuring <context:annotation-config/>.
+A: Annotation wiring is not turned on in the Spring container by default. So, before we can use annotation-based
+wiring, we will need to enable it in our Spring configuration file by configuring <context:annotation-config/>.
 
 Q: What does @Required annotation mean?
-A: This annotation simply indicates that the affected bean property must be populated at configuration time, through an explicit property value in a bean definition or through autowiring. The container throws BeanInitializationException if the affected bean property has not been populated.
+A: This annotation simply indicates that the affected bean property must be populated at configuration time,
+through an explicit property value in a bean definition or through autowiring. The container throws
+BeanInitializationException if the affected bean property has not been populated.
 
 Q: What does @Autowired annotation mean?
-A: This annotation provides more fine-grained control over where and how autowiring should be accomplished. The @Autowired annotation can be used to autowire bean on the setter method just like @Required annotation, constructor, a property or methods with arbitrary names and/or multiple arguments.
+A: This annotation provides more fine-grained control over where and how autowiring should be accomplished.
+The @Autowired annotation can be used to autowire bean on the setter method just like @Required annotation,
+constructor, a property or methods with arbitrary names and/or multiple arguments.
 
 Q: What does @Qualifier annotation mean?
 A: There may be a situation when you create more than one bean of the same type and want to wire only one of them with a property, in such case you can use @Qualifier annotation along with @Autowired to remove the confusion by specifying which exact bean will be wired.
@@ -257,15 +318,22 @@ A: Spring has JSR-250 based annotations which include @PostConstruct, @PreDestro
 
 @PreDestroy: This annotation can be used as an alternate of destruction callback.
 
-@Resource : This annotation can be used on fields or setter methods. The @Resource annotation takes a 'name' attribute which will be interpreted as the bean name to be injected. You can say, it follows by-name autowiring semantics.
+@Resource : This annotation can be used on fields or setter methods. The @Resource annotation takes a 'name'
+attribute which will be interpreted as the bean name to be injected. You can say, it follows by-name autowiring
+semantics.
 
 Q: What is Spring Java Based Configuration? Give some annotation example.
-A: Java based configuration option enables you to write most of your Spring configuration without XML but with the help of few Java-based annotations.
+A: Java based configuration option enables you to write most of your Spring configuration without XML but with
+the help of few Java-based annotations.
 
-For example: Annotation @Configuration indicates that the class can be used by the Spring IoC container as a source of bean definitions. The @Bean annotation tells Spring that a method annotated with @Bean will return an object that should be registered as a bean in the Spring application context.
+For example: Annotation @Configuration indicates that the class can be used by the Spring IoC container as a
+source of bean definitions. The @Bean annotation tells Spring that a method annotated with @Bean will return
+an object that should be registered as a bean in the Spring application context.
 
 Q: How is event handling done in Spring?
-A: Event handling in the ApplicationContext is provided through the ApplicationEvent class and ApplicationListener interface. So if a bean implements the ApplicationListener, then every time an ApplicationEvent gets published to the ApplicationContext, that bean is notified.
+A: Event handling in the ApplicationContext is provided through the ApplicationEvent class and ApplicationListener
+interface. So if a bean implements the ApplicationListener, then every time an ApplicationEvent gets published to
+the ApplicationContext, that bean is notified.
 
 Q: Describe some of the standard Spring events.
 A: Spring provides the following standard events:
@@ -345,18 +413,25 @@ Q: Which of the above transaction management type is preferable?
 A: Declarative transaction management is preferable over programmatic transaction management though it is less flexible than programmatic transaction management, which allows you to control transactions through your code.
 
 Q: What is Spring MVC framework?
-A: The Spring web MVC framework provides model-view-controller architecture and ready components that can be used to develop flexible and loosely coupled web applications. The MVC pattern results in separating the different aspects of the application (input logic, business logic, and UI logic), while providing a loose coupling between these elements.
+A: The Spring web MVC framework provides model-view-controller architecture and ready components that can be used
+to develop flexible and loosely coupled web applications. The MVC pattern results in separating the different
+aspects of the application (input logic, business logic, and UI logic), while providing a loose coupling between
+these elements.
 
 Q: What is a DispatcherServlet?
-A: The Spring Web MVC framework is designed around a DispatcherServlet that handles all the HTTP requests and responses.
+A: The Spring Web MVC framework is designed around a DispatcherServlet that handles all the HTTP requests and
+responses.
 
 Q: What is WebApplicationContext ?
-A: The WebApplicationContext is an extension of the plain ApplicationContext that has some extra features necessary for web applications. It differs from a normal ApplicationContext in that it is capable of resolving themes, and that it knows which servlet it is associated with.
+A: The WebApplicationContext is an extension of the plain ApplicationContext that has some extra features
+necessary for web applications. It differs from a normal ApplicationContext in that it is capable of resolving
+themes, and that it knows which servlet it is associated with.
 
 Q: What are the advantages of Spring MVC over Struts MVC ?
 A: Following are some of the advantages of Spring MVC over Struts MVC:
 
-Spring's MVC is very versatile and flexible based on interfaces but Struts forces Actions and Form object into concrete inheritance.
+Spring's MVC is very versatile and flexible based on interfaces but Struts forces Actions and Form object into
+concrete inheritance.
 
 Spring provides both interceptors and controllers, thus helps to factor out common behavior to the handling of many requests.
 

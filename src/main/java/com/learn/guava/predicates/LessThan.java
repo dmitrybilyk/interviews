@@ -20,7 +20,7 @@ public class LessThan<T extends Comparable<T>> implements Predicate<T> {
 
 
 public static void main(final String[] args) {
-  final Collection<Integer> things = Arrays.asList(1, 2, 3, 4, 8);
+  final Collection<Integer> things = Arrays.asList(-4, 1, 2, 3, 4, 8);
   System.out.println(Iterables.all(things, new LessThan<Integer>(5)));
 }
 }

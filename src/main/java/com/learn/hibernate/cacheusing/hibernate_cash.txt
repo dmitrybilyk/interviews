@@ -1,7 +1,7 @@
 Hibernate Cache Types
 
-Hibernate uses different types of caches. Each type of cache is used for different purposes. Let us first have a look at this
-cache types.
+Hibernate uses different types of caches. Each type of cache is used for different purposes. Let us first have a
+look at this cache types.
 
     The first cache type is the session cache. The session cache caches object within the current session.
     The second cache type is the query Cache. The query cache is responsible for caching queries and their results.

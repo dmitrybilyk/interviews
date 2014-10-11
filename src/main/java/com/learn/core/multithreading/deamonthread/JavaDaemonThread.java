@@ -1,5 +1,8 @@
 package com.learn.core.multithreading.deamonthread;
 
+
+//Daemon threads are terminated by the JVM when there are no longer any user threads running,
+// including the main thread of execution.
 public class JavaDaemonThread {
  
     public static void main(String[] args) throws InterruptedException {

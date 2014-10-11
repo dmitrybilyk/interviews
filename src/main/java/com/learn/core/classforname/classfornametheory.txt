@@ -1,0 +1,14 @@
+Дело в том, что Class.forName() приводит к загрузке класса и инициализации его статической части.
+В свою очередь многие JDBC драйвера при статической инициализации регистрируют себя в DriverManager'е. Так что все дело в side effect'ах.
+
+A side effect is when a method call changes a class's state. So
+
+public class SideEffectClass{
+
+    private int state = 0;
+
+
+    public doSomething(int arg0){
+        state += arg0;
+    }
+}

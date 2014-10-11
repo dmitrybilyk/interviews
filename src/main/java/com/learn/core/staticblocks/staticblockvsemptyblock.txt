@@ -1,0 +1,8 @@
+The static initializer block will be called on loading of the class, and will have no access to instance
+variables or methods. As per @Prahalad Deshpande's comment, it is often used to create static variables.
+The non-static initializer block on the other hand is created on object construction only, will have access
+to instance variables and methods, and (as per the important correction suggested by @EJP) will be called
+at the beginning of the constructor, after the super constructor has been called (either explicitly or
+implicitly) and before any other subsequent constructor code is called. I've seen it used when a class
+has multiple constructors and needs the same initialization code called for all constructors. Just as
+with constructors, you should avoid calling non-final methods in this block.
