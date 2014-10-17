@@ -91,7 +91,7 @@ http://maven.apache.org/maven-v4_0_0.xsd">
                     <port>${tomcat.webport}</port>
                     <ajpPort>${tomcat.ajpport}</ajpPort>
                     <systemProperties>
-                        <JAVA_OPTS>-XX:MaxPermSize=256m</JAVA_OPTS>
+                        <JAVA_OPTS>-XX:MaxPermSize=512m</JAVA_OPTS>
                     </systemProperties>
                 </configuration>
             </plugin>

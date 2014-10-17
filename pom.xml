@@ -12,6 +12,7 @@
         <module>web</module>
         <module>gwt</module>
         <module>learngwtgxt</module>
+        <module>gwttoknow</module>
     </modules>
 
 
