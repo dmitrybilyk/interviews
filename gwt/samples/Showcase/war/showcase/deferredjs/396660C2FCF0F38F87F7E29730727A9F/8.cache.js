@@ -1,1 +1,0 @@
-$wnd.showcase.runAsyncCallback8("function $qb(){var a,b,c;b=new $Wb;q7b((XLb(),b.gb),Ksc,'cwFlowPanel');for(c=0;c<30;c++){a=new PPb(czc+c);nj(a.gb,'cw-FlowPanel-checkBox',true);lOb(b,a,b.gb)}return b}\nj3(724,1,brc);_.sc=function erb(){U5(this.a,$qb())};Rrc(Zn)(8);\n//# sourceURL=showcase-8.js\n")
