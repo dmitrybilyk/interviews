@@ -8,9 +8,12 @@ import com.extjs.gxt.ui.client.widget.tips.ToolTip;
 import com.extjs.gxt.ui.client.widget.tips.ToolTipConfig;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootPanel;
+import toknow.anotherclient.AnotherLabel;
 import toknow.client.buttons.ButtonsExample;
 import toknow.client.tooltips.ToolTipsExample;
+import toknow.gwtinaction.BasicProject;
 
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
@@ -35,8 +38,34 @@ public class AllInOne implements EntryPoint {
    * This is the entry point method.
    */
   public void onModuleLoad() {
-    tooltips();
-    buttons();
+
+    runTheBasicProject();
+
+
+//    Label theGreeting = new Label("Hello World!");
+//    theGreeting.addStyleName("label-style");
+//    RootPanel.get().add(theGreeting);
+//
+//    AnotherLabel anotherLabel = new AnotherLabel();
+//    anotherLabel.setText("Another label");
+//    addWidget(anotherLabel);
+//
+//    tooltips();
+//    buttons();
+  }
+
+  private void runTheBasicProject() {
+    BasicProject basicProject = new BasicProject();
+    // Create the user interface
+    basicProject.setUpGui();
+    // Set up history management
+    basicProject.setUpHistoryManagement();
+    // Set up all the event handling required for the application.
+    basicProject.setUpEventHandling();
+  }
+
+  private void addWidget(AnotherLabel anotherLabel) {
+    RootPanel.get().add(anotherLabel);
   }
 
   private void tooltips() {

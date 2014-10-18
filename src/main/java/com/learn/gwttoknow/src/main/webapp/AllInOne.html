@@ -6,58 +6,49 @@
 <!-- differences in layout.                        -->
 
 <html>
-  <head>
+<head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Wrapper HTML for BasicProject</title>
 
-    <!--                                                               -->
-    <!-- Consider inlining CSS to reduce the number of requested files -->
-    <!--                                                               -->
+    <!-- Here's a link to the application's CSS Style Sheet -->
+    <link type="text/css" rel="stylesheet" href="BasicProject.css">
     <link type="text/css" rel="stylesheet" href="AllInOne.css">
 
-    <!--                                           -->
-    <!-- Any title is fine                         -->
-    <!--                                           -->
-    <title>Web Application Starter Project</title>
-
-    <!--                                           -->
-    <!-- This script loads your compiled module.   -->
-    <!-- If you add any GWT meta tags, they must   -->
-    <!-- be added before this line.                -->
-    <!--                                           -->
+    <!-- Here's a link to the application's Bootstrap JavaScript code -->
+    <!--<script language="javascript" src="BasicProject/BasicProject.nocache.js"></script>-->
     <script type="text/javascript" language="javascript" src="AllInOne/AllInOne.nocache.js"></script>
-  </head>
-
-  <!--                                           -->
-  <!-- The body can have arbitrary html, or      -->
-  <!-- you can leave the body empty if you want  -->
-  <!-- to create a completely dynamic UI.        -->
-  <!--                                           -->
+</head>
   <body>
 
     <!-- OPTIONAL: include this if you want history support -->
     <iframe src="javascript:''" id="__gwt_historyFrame" tabIndex='-1' style="position:absolute;width:0;height:0;border:0"></iframe>
 
-    <!-- RECOMMENDED if your web app will not function without JavaScript enabled -->
-    <noscript>
-      <div style="width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif">
-        Your web browser must have JavaScript enabled
-        in order for this application to display correctly.
-      </div>
-    </noscript>
+    <div>
+        <div id="logo" width="80px"></div>
+        <div><h1>Welcome to the GWTiA Basic application!</h1></div>
+    </div>
 
-    <h1>Web Application Starter Project</h1>
+    <!-- The three divs inside this div provide the content to the Tab Panels within the application -->
+    <div id="content">
+        <div id="Home">
+            This is the output of Chapters 2 and 3 where we looked at:
+            <ul>
+                <li>Using GWTDesigner to create a basic project</li>
+                <li>Running Development mode</li>
+                <li>What files make up a GWT project and how things fit together</li>
+                <li>Using widgets and panels, as well as handling events and applying styling</li>
+                <li>Dealing with Layout panels</li>
+                <li>Handling History (browser's forward and back button) in a GWT application</li>
+            </ul>
+        </div>
+        <div id="Products">Here are some of our top products...</div>
+        <div id="Contact">
+            You can contact us at <a href="mailto:s.klaus@itiscold.here">1 Rudolf Street, The North Pole</a>
+        </div>
+    </div>
 
-    <table align="center">
-      <tr>
-        <td colspan="2" style="font-weight:bold;">Please enter your name:</td>
-      </tr>
-      <tr>
-        <td id="nameFieldContainer"></td>
-        <td id="sendButtonContainer"></td>
-      </tr>
-      <tr>
-        <td colspan="2" style="color:red;" id="errorLabelContainer"></td>
-      </tr>
-    </table>
+    <!-- This button will be wrapped as a GWT widget inside the application -->
+    <button type="button" id="search">Search</button>
+    <a name="Contact" />
   </body>
 </html>
