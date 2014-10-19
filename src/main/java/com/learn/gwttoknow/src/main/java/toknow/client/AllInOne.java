@@ -8,12 +8,19 @@ import com.extjs.gxt.ui.client.widget.tips.ToolTip;
 import com.extjs.gxt.ui.client.widget.tips.ToolTipConfig;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.user.client.ui.Label;
-import com.google.gwt.user.client.ui.RootPanel;
+import com.google.gwt.dom.client.Element;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.uibinder.client.UiHandler;
+import com.google.gwt.user.client.DOM;
+import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.ui.*;
 import toknow.anotherclient.AnotherLabel;
 import toknow.client.buttons.ButtonsExample;
+import toknow.client.radiobuttons.RadioButtons;
 import toknow.client.tooltips.ToolTipsExample;
 import toknow.gwtinaction.BasicProject;
+import toknow.nikita.BorderLayoutExample;
+import toknow.nikita.SplitLayoutExample;
 
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
@@ -39,12 +46,14 @@ public class AllInOne implements EntryPoint {
    */
   public void onModuleLoad() {
 
-    runTheBasicProject();
+    SplitLayoutExample splitLayoutExample = new SplitLayoutExample();
+    RootPanel.get().add(splitLayoutExample.createSplitLayoutPanel());
 
+//    runTheBasicProject();
+//    runMyBasicProject();
 
-//    Label theGreeting = new Label("Hello World!");
-//    theGreeting.addStyleName("label-style");
-//    RootPanel.get().add(theGreeting);
+//    runRadioButtons();
+
 //
 //    AnotherLabel anotherLabel = new AnotherLabel();
 //    anotherLabel.setText("Another label");
@@ -53,6 +62,35 @@ public class AllInOne implements EntryPoint {
 //    tooltips();
 //    buttons();
   }
+
+  private void runRadioButtons() {
+    RadioButtons radioButtons = new RadioButtons();
+    RootPanel.get().add(radioButtons.onInitialize());
+  }
+
+  private void runMyBasicProject() {
+    final VerticalPanel verticalPanel = new VerticalPanel();
+    verticalPanel.getElement().setId("verticalPanel");
+
+    Button button = new Button("My button", new SelectionListener<ButtonEvent>() {
+      @Override
+      public void componentSelected(ButtonEvent ce) {
+        Window.alert(DOM.getElementById("verticalPanel").getInnerHTML());
+      }
+    });
+
+    Label theGreeting = new Label("Hello World!");
+    theGreeting.addStyleName("label-style");
+    RootPanel.get().add(theGreeting);
+
+    verticalPanel.add(button);
+    verticalPanel.add(theGreeting);
+
+    insertLogo();
+
+    RootPanel.get().add(verticalPanel);
+  }
+
 
   private void runTheBasicProject() {
     BasicProject basicProject = new BasicProject();
@@ -89,5 +127,15 @@ public class AllInOne implements EntryPoint {
     };
     RootPanel.get().add(runButtonsButton);
   }
+
+
+  void insertLogo(){
+    Image image = new Image(GWT.getModuleBaseURL() + "../" + "images/gwtia.png");
+    RootPanel logoSlot = RootPanel.get("logo");
+    if (logoSlot!=null)logoSlot.add(image);
+
+  }
+
+
 
 }

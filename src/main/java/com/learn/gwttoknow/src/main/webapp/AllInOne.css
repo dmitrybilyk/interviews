@@ -36,3 +36,11 @@ h1 {
 .label-style {
     font-size: 20px;
 }
+
+.header-label {
+    color: #00008B;
+    font-size: 50px;
+    font-style: oblique;
+    height: 18px;
+    text-align: center;
+}
