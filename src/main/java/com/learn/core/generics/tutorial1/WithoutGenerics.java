@@ -12,10 +12,10 @@ import java.util.List;
  */
 public class WithoutGenerics {
     public static void main(String[] args) {
-        List<String> stringList1 = new ArrayList<String>();
+        List stringList1 = new ArrayList();
         stringList1.add ("Java 5");
         stringList1.add ("with generics");
-        String s1 =  stringList1.get (0);
+        String s1 = (String) stringList1.get (0);
         System.out.println(s1);
     }
 }
