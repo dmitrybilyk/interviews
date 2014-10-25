@@ -20,7 +20,7 @@ import java.util.List;
 //        Widening a reference (contravariance)
 public class Wildcards {
 
-//        Covariance
+  //        Covariance
 //        Let’s suppose, for example, that we’ve got a set of boxes, each one
 //        of a different kind of fruit. We’d like to be able to write methods
 //        that could accept a any of them. More formally, given a subtype A of
@@ -30,13 +30,12 @@ public class Wildcards {
 //        To accomplish this task we can use a wildcard with extends, such as in the
 //        following example:
 //
-//        List<Apple> apples = new ArrayList<Apple>();
-//        List<? extends Fruit> fruits = apples;
-
+  public void extend() {
+    List<Apple> apples = new ArrayList<Apple>();
+    List<? extends Fruit> fruits = apples;
+  }
 //  ? extends reintroduces covariant subtyping for generics types: Apple is a
 // subtype of Fruit and List<Apple> is a subtype of List<? extends Fruit>.
-
-
 
 
 //  Contravariance
@@ -44,8 +43,11 @@ public class Wildcards {
 //  Let’s now introduce another wildcard: ? super. Given a supertype B of a type A,
 //  then C<B> is a subtype of C<? super A>:
 
-//  List<Fruit> fruits = new ArrayList<Fruit>();
-//  List<? super Apple> = fruits;
+  public void superExample() {
+    List<Fruit> fruits = new ArrayList<Fruit>();
+    List<? super Apple> apples = fruits;
+}
+
 
 
 //  How Can Wildcards Be Used?
@@ -108,7 +110,7 @@ public class Wildcards {
     public void superUsage(){
       List<? super Apple> fruits = new ArrayList<Fruit>();
 
-//      List<? super Apple> = fruits;
+      List<? super Apple> apples = fruits;
 //      We know that fruits is a reference to a List of something that is a
 // supertype of Apple. Again, we cannot know which supertype it is, but
 // we know that Apple and any of its subtypes will be assignment compatible

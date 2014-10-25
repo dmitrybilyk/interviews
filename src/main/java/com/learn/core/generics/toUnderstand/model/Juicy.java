@@ -4,9 +4,9 @@ import java.util.List;
 
 public interface Juicy<T> {
 //    Juice<T> squeeze();
-//  <T> List<Juice<T>> squeeze(List<Juicy<T>> fruits);
+  <T> List<Juice<T>> squeeze(List<Juicy<T>> fruits);
 //<T extends Juicy<T>> List<Juice<T>> squeeze(List<T> fruits);
-<T extends Juicy<? super T>> List<Juice<? super T>> squeeze(List<? extends T> fruits);
+//<T extends Juicy<? super T>> List<Juice<? super T>> squeeze(List<? extends T> fruits);
 
 }
 
