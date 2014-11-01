@@ -18,6 +18,7 @@ import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.*;
 import toknow.anotherclient.AnotherLabel;
 import toknow.client.buttons.ButtonsExample;
@@ -26,6 +27,7 @@ import toknow.client.tooltips.ToolTipsExample;
 import toknow.gwtinaction.BasicProject;
 import toknow.nikita.Duplicate;
 import toknow.nikita.SplitLayoutExample;
+import toknow.server.GreetingServiceImpl;
 
 import java.util.ArrayList;
 
@@ -72,6 +74,19 @@ public class AllInOne implements EntryPoint {
     parts.add(1);
     String s  = Joiner.on(',').join(parts);
     GWT.log(s);
+
+    GreetingServiceAsync greetingService = GWT.create(GreetingService.class);
+    greetingService.greetServer("Hi test", new AsyncCallback<String>() {
+      public void onFailure(Throwable caught) {
+        GWT.log("fuck");
+      }
+
+      public void onSuccess(String result) {
+        GWT.log("It's ok!!!");
+      }
+    });
+
+
 
 //    Duplicate duplicate = new Duplicate();
 //    duplicate.createViewport();

@@ -1,5 +1,8 @@
 package toknow.server;
 
+import com.google.appengine.api.datastore.DatastoreService;
+import com.google.appengine.api.datastore.DatastoreServiceFactory;
+import com.google.appengine.api.datastore.Entity;
 import toknow.client.GreetingService;
 import toknow.shared.FieldVerifier;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
@@ -19,6 +22,13 @@ public class GreetingServiceImpl extends RemoteServiceServlet implements
       throw new IllegalArgumentException(
           "Name must be at least 4 characters long");
     }
+
+    DatastoreService ds = DatastoreServiceFactory.getDatastoreService();
+    Entity entity = new Entity("Person");
+    entity.setProperty("first", "first value");
+    entity.setProperty("second", "second value");
+
+    ds.put(entity);
 
     String serverInfo = getServletContext().getServerInfo();
     String userAgent = getThreadLocalRequest().getHeader("User-Agent");
