@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="EntryPointsManager">
+    <entry_points version="2.0" />
+  </component>
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="google-app-engine" url="file://$PROJECT_DIR$/nikitas-site" />
+    <file type="gwt" url="file://$PROJECT_DIR$/../../interviews/gwt/gwttoknow" />
+    <file type="gwt" url="file://$PROJECT_DIR$/gwt-maven" />
+    <file type="gwt" url="file://$PROJECT_DIR$/gwt/samples/DynaTableRf" />
+    <file type="gwt" url="file://$PROJECT_DIR$/gwt/samples/Validation" />
+    <file type="gwt" url="file://$PROJECT_DIR$/gwtgxt/gwtgxt" />
+    <file type="gwt" url="file://$PROJECT_DIR$/gwtlearn" />
+    <file type="gwt" url="file://$PROJECT_DIR$/gwttoknow" />
+    <file type="gwt" url="file://$PROJECT_DIR$/gwttoknow" />
+    <file type="gwt" url="file://$PROJECT_DIR$/learngwtgxt" />
+    <file type="gwt" url="file://$PROJECT_DIR$/nikitas-site" />
+    <file type="gwt" url="file://$PROJECT_DIR$/src/main/java/com/learn/gwttoknow" />
+    <file type="web" url="file://$PROJECT_DIR$/../../interviews/gwt/gwttoknow" />
+    <file type="web" url="file://$PROJECT_DIR$/gwt-maven/web" />
+    <file type="web" url="file://$PROJECT_DIR$/gwt/samples/DynaTableRf" />
+    <file type="web" url="file://$PROJECT_DIR$/gwt/samples/Validation" />
+    <file type="web" url="file://$PROJECT_DIR$/gwtgxt/gwtgxt" />
+    <file type="web" url="file://$PROJECT_DIR$/gwtlearn" />
+    <file type="web" url="file://$PROJECT_DIR$/gwttoknow" />
+    <file type="web" url="file://$PROJECT_DIR$/gwttoknow" />
+    <file type="web" url="file://$PROJECT_DIR$/nikitas-site" />
+    <file type="web" url="file://$PROJECT_DIR$/src/main/java/com/learn/gwttoknow" />
+    <file type="web" url="file://$PROJECT_DIR$/web" />
+  </component>
+  <component name="IdProvider" IDEtalkID="FF39771A070B506D252E6DAC56039AAD" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/gwt-maven/pom.xml" />
+        <option value="$PROJECT_DIR$/gwt/samples/DynaTableRf/pom.xml" />
+        <option value="$PROJECT_DIR$/gwt/samples/Validation/pom.xml" />
+        <option value="$PROJECT_DIR$/../../interviews/gwttoknow/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/learn/gwttoknow/pom.xml" />
+        <option value="$PROJECT_DIR$/appengine-guestbook-java-master/pom.xml" />
+      </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/gwt-maven/server/pom.xml" />
+        <option value="$PROJECT_DIR$/gwt-maven/shared/pom.xml" />
+        <option value="$PROJECT_DIR$/gwt-maven/web/pom.xml" />
+        <option value="$PROJECT_DIR$/gwttoknow/pom.xml" />
+        <option value="$PROJECT_DIR$/nikissite/pom.xml" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" assert-keyword="true" jdk-15="true" project-jdk-name="1.7" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>
+

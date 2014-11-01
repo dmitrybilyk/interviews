@@ -1,11 +1,16 @@
 package toknow.client;
 
+import com.extjs.gxt.ui.client.Style;
 import com.extjs.gxt.ui.client.event.ButtonEvent;
 import com.extjs.gxt.ui.client.event.ComponentEvent;
 import com.extjs.gxt.ui.client.event.SelectionListener;
+import com.extjs.gxt.ui.client.widget.Viewport;
 import com.extjs.gxt.ui.client.widget.button.Button;
+import com.extjs.gxt.ui.client.widget.layout.BorderLayout;
+import com.extjs.gxt.ui.client.widget.layout.BorderLayoutData;
 import com.extjs.gxt.ui.client.widget.tips.ToolTip;
 import com.extjs.gxt.ui.client.widget.tips.ToolTipConfig;
+import com.google.common.base.Joiner;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.Element;
@@ -19,8 +24,10 @@ import toknow.client.buttons.ButtonsExample;
 import toknow.client.radiobuttons.RadioButtons;
 import toknow.client.tooltips.ToolTipsExample;
 import toknow.gwtinaction.BasicProject;
-import toknow.nikita.BorderLayoutExample;
+import toknow.nikita.Duplicate;
 import toknow.nikita.SplitLayoutExample;
+
+import java.util.ArrayList;
 
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
@@ -46,8 +53,31 @@ public class AllInOne implements EntryPoint {
    */
   public void onModuleLoad() {
 
-    SplitLayoutExample splitLayoutExample = new SplitLayoutExample();
-    RootPanel.get().add(splitLayoutExample.createSplitLayoutPanel());
+    Viewport viewport = new Viewport();
+
+    Button button = new Button("firstButton");
+
+
+
+    BorderLayout borderLayout = new BorderLayout();
+    BorderLayoutData borderLayoutData = new BorderLayoutData(Style.LayoutRegion.EAST);
+//    RootPanel.get().add(borderLayoutData);
+
+    BorderLayoutExample borderLayoutExample = new BorderLayoutExample();
+    RootPanel.get().add(borderLayoutExample);
+    ArrayList<Integer> parts = new ArrayList<Integer>();
+    parts.add(1);
+    parts.add(1);
+    parts.add(1);
+    parts.add(1);
+    String s  = Joiner.on(',').join(parts);
+    GWT.log(s);
+
+//    Duplicate duplicate = new Duplicate();
+//    duplicate.createViewport();
+
+//    SplitLayoutExample splitLayoutExample = new SplitLayoutExample();
+//    RootPanel.get().add(splitLayoutExample.createSplitLayoutPanel());
 
 //    runTheBasicProject();
 //    runMyBasicProject();
