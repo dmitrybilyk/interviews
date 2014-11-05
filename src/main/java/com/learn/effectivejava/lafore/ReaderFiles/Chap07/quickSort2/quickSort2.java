@@ -1,3 +1,5 @@
+package com.learn.effectivejava.lafore.ReaderFiles.Chap07.quickSort2;
+
 // quickSort2.java
 // demonstrates quick sort with median-of-three partitioning
 // to run this program: C>java QuickSort2App

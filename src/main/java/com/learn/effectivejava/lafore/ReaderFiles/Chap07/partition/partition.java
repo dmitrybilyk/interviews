@@ -1,3 +1,5 @@
+package com.learn.effectivejava.lafore.ReaderFiles.Chap07.partition;
+
 // partition.java
 // demonstrates partitioning an array
 // to run this program: C>java PartitionApp

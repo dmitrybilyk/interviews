@@ -1,3 +1,5 @@
+package com.learn.effectivejava.lafore.ReaderFiles.Chap05.sortedList;
+
 // sortedList.java
 // demonstrates sorted list
 // to run this program: C>java SortedListApp

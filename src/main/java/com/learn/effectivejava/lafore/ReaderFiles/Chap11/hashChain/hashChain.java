@@ -1,3 +1,5 @@
+package com.learn.effectivejava.lafore.ReaderFiles.Chap11.hashChain;
+
 // hashChain.java
 // demonstrates hash table with separate chaining
 // to run this program: C:>java HashChainApp

@@ -1,3 +1,5 @@
+package com.learn.effectivejava.lafore.ReaderFiles.Chap14.mstw;
+
 // mstw.java
 // demonstrates minimum spanning tree with weighted graphs
 // to run this program: C>java MSTWApp

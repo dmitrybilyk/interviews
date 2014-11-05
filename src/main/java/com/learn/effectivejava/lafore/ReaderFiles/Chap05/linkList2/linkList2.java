@@ -1,3 +1,5 @@
+package com.learn.effectivejava.lafore.ReaderFiles.Chap05.linkList2;
+
 // linkList2.java
 // demonstrates linked list
 // to run this program: C>java LinkList2App

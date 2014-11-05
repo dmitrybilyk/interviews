@@ -1,4 +1,5 @@
-// bank.java
+package com.learn.effectivejava.lafore.ReaderFiles.Chap01.Bank;
+// bank.javacom.learn.effectivejava.lafore.ReaderFiles.Chap01.Bank
 // demonstrates basic OOP syntax
 // to run this program: C>java BankApp
 ////////////////////////////////////////////////////////////////

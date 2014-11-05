@@ -1,3 +1,5 @@
+package com.learn.effectivejava.lafore.ReaderFiles.Chap03.InsertSort;
+
 // insertSort.java
 // demonstrates insertion sort
 // to run this program: C>java InsertSortApp

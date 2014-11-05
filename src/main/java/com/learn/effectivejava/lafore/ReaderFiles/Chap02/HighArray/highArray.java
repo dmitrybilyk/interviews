@@ -1,3 +1,5 @@
+package com.learn.effectivejava.lafore.ReaderFiles.Chap02.HighArray;
+
 // highArray.java
 // demonstrates array class with high-level interface
 // to run this program: C>java HighArrayApp

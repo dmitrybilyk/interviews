@@ -1,3 +1,5 @@
+package com.learn.effectivejava.lafore.ReaderFiles.Chap02.OrderedArray;
+
 // orderedArray.java
 // demonstrates ordered array class
 // to run this program: C>java OrderedApp

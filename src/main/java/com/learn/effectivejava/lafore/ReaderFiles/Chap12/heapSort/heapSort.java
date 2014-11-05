@@ -1,3 +1,5 @@
+package com.learn.effectivejava.lafore.ReaderFiles.Chap12.heapSort;
+
 // heapSort.java
 // demonstrates heap sort
 // to run this program: C>java HeapSortApp

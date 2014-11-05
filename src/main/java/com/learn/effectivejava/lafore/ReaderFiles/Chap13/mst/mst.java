@@ -1,3 +1,5 @@
+package com.learn.effectivejava.lafore.ReaderFiles.Chap13.mst;
+
 // mst.java
 // demonstrates minimum spanning tree
 // to run this program: C>java MSTApp

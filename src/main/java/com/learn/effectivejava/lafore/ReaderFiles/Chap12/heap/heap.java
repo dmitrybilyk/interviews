@@ -1,3 +1,5 @@
+package com.learn.effectivejava.lafore.ReaderFiles.Chap12.heap;
+
 // heap.java
 // demonstrates heaps
 // to run this program: C>java HeapApp

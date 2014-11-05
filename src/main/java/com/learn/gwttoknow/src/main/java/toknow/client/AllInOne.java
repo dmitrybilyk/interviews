@@ -67,13 +67,7 @@ public class AllInOne implements EntryPoint {
 
     BorderLayoutExample borderLayoutExample = new BorderLayoutExample();
     RootPanel.get().add(borderLayoutExample);
-    ArrayList<Integer> parts = new ArrayList<Integer>();
-    parts.add(1);
-    parts.add(1);
-    parts.add(1);
-    parts.add(1);
-    String s  = Joiner.on(',').join(parts);
-    GWT.log(s);
+    testGuava();
 
     GreetingServiceAsync greetingService = GWT.create(GreetingService.class);
     greetingService.greetServer("Hi test", new AsyncCallback<String>() {
@@ -106,6 +100,16 @@ public class AllInOne implements EntryPoint {
 //
 //    tooltips();
 //    buttons();
+  }
+
+  private void testGuava() {
+    ArrayList<Integer> parts = new ArrayList<Integer>();
+    parts.add(1);
+    parts.add(1);
+    parts.add(1);
+    parts.add(1);
+    String s  = Joiner.on(',').join(parts);
+    GWT.log(s);
   }
 
   private void runRadioButtons() {

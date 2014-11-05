@@ -1,3 +1,4 @@
+package com.learn.effectivejava.lafore.ReaderFiles.Chap02.LowArray;
 // lowArray.java
 // demonstrates array class with low-level interface
 // to run this program: C>java LowArrayApp

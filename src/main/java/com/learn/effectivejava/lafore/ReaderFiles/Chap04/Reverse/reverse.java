@@ -1,3 +1,5 @@
+package com.learn.effectivejava.lafore.ReaderFiles.Chap04.Reverse;
+
 // reverse.java
 // stack used to reverse a string
 // to run this program: C>java ReverseApp

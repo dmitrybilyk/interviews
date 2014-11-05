@@ -1,3 +1,5 @@
+package com.learn.effectivejava.lafore.ReaderFiles.Chap10.tree234;
+
 // tree234.java
 // demonstrates 234 tree
 // to run this program: C>java Tree234App

@@ -1,3 +1,5 @@
+package com.learn.effectivejava.lafore.ReaderFiles.Chap04.Stack;
+
 // stack.java
 // demonstrates stacks
 // to run this program: C>java StackApp
