@@ -14,7 +14,9 @@ import com.extjs.gxt.ui.client.widget.layout.BorderLayoutData;
 import com.google.gwt.dom.client.Style;
 import com.google.gwt.user.client.Element;
 import com.google.gwt.user.client.ui.FlexTable;
+import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.Image;
+import toknow.client.tree.BasicTreePanelExample;
 
 public class BorderLayoutExample extends LayoutContainer {  
   
@@ -79,6 +81,11 @@ public class BorderLayoutExample extends LayoutContainer {
 
 //    Label ownerNameLabel = new Label("Сайт Никиты");
 //    ownerNameLabel.addStyleName("big-text");
+
+    HorizontalPanel horizontalNorthPanel = new HorizontalPanel();
+    north.add(horizontalNorthPanel);
+    horizontalNorthPanel.add(new BasicTreePanelExample());
+
     north.getHeader().setHtml("Сайт Никиты");
     north.getHeader().getElement().getStyle().setFontStyle(Style.FontStyle.OBLIQUE);
 

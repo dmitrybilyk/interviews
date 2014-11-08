@@ -25,9 +25,6 @@ import toknow.client.buttons.ButtonsExample;
 import toknow.client.radiobuttons.RadioButtons;
 import toknow.client.tooltips.ToolTipsExample;
 import toknow.gwtinaction.BasicProject;
-import toknow.nikita.Duplicate;
-import toknow.nikita.SplitLayoutExample;
-import toknow.server.GreetingServiceImpl;
 
 import java.util.ArrayList;
 
@@ -67,7 +64,7 @@ public class AllInOne implements EntryPoint {
 
     BorderLayoutExample borderLayoutExample = new BorderLayoutExample();
     RootPanel.get().add(borderLayoutExample);
-    testGuava();
+//    testGuava();
 
     GreetingServiceAsync greetingService = GWT.create(GreetingService.class);
     greetingService.greetServer("Hi test", new AsyncCallback<String>() {
