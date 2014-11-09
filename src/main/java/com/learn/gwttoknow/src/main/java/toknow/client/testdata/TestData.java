@@ -586,13 +586,18 @@ public class TestData {
   }
 
   public static MyClass getClassTreeModel() {
-    MyClass myClass = new MyClass() ;
-    myClass.add(new ClassMate("Maksim"));
-    myClass.add(new ClassMate("Maksim2"));
-    myClass.add(new ClassMate("Maksim3"));
-//
+    MyClass rootClass = new MyClass("root") ;
 
-    return myClass;
+    ClassMate[] myClasses = new ClassMate[]{
+      new ClassMate("Maks"),
+            new ClassMate("Maks2"),
+            new ClassMate("Maks3")
+    };
+    for (int i = 0; i < myClasses.length; i++) {
+      rootClass.add((ClassMate) myClasses[i]);
+    }
+
+    return rootClass;
   }
 
   private static MailItem createFakeMail() {

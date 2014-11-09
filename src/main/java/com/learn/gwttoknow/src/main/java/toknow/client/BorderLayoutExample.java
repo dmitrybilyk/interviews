@@ -16,6 +16,7 @@ import com.google.gwt.user.client.Element;
 import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.Image;
+import toknow.client.tabs.BasicTabExample;
 import toknow.client.tree.BasicTreePanelExample;
 
 public class BorderLayoutExample extends LayoutContainer {  
@@ -85,6 +86,7 @@ public class BorderLayoutExample extends LayoutContainer {
     HorizontalPanel horizontalNorthPanel = new HorizontalPanel();
     north.add(horizontalNorthPanel);
     horizontalNorthPanel.add(new BasicTreePanelExample());
+    horizontalNorthPanel.add(new BasicTabExample());
 
     north.getHeader().setHtml("Сайт Никиты");
     north.getHeader().getElement().getStyle().setFontStyle(Style.FontStyle.OBLIQUE);
@@ -102,13 +104,13 @@ public class BorderLayoutExample extends LayoutContainer {
     BorderLayoutData eastData = new BorderLayoutData(LayoutRegion.EAST, 150);  
     eastData.setSplit(true);  
     eastData.setCollapsible(true);  
-//    eastData.setMargins(new Margins(0,0,0,5));
+    eastData.setMargins(new Margins(0,0,0,5));
   
     BorderLayoutData southData = new BorderLayoutData(LayoutRegion.SOUTH, 200);
     southData.setSplit(true);  
     southData.setCollapsible(true);  
     southData.setFloatable(true);  
-//    southData.setMargins(new Margins(5, 0, 0, 0));
+    southData.setMargins(new Margins(5, 0, 0, 0));
   
     add(north, northData);  
     add(west, westData);  

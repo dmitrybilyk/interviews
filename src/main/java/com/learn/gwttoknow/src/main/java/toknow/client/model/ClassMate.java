@@ -10,26 +10,33 @@ import java.io.Serializable;
  * Created by dik81 on 11/8/14.
  */
 public class ClassMate extends BaseTreeModel implements Serializable{
+  public ClassMate() {
 
-  private String name;
-
-  public ClassMate(String name) {
-    this.name = name;
   }
 
-  public ClassMate() {
+  public ClassMate(String name) {
+    set("name", name);
+  }
+
+  public ClassMate(String name, String author, String genre) {
+    set("name", name);
+    set("author", author);
+    set("genre", genre);
   }
 
   public String getName() {
-    return name;
+    return (String) get("name");
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public String getAuthor() {
+    return (String) get("author");
   }
 
-  @Override
+  public String getGenre() {
+    return (String) get("genre");
+  }
+
   public String toString() {
-    return super.toString();
+    return getName();
   }
 }

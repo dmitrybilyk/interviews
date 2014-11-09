@@ -22,6 +22,8 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.*;
 import toknow.anotherclient.AnotherLabel;
 import toknow.client.buttons.ButtonsExample;
+import toknow.client.loginform.loginform;
+import toknow.client.navigationpanel.NavigationPanel;
 import toknow.client.radiobuttons.RadioButtons;
 import toknow.client.tooltips.ToolTipsExample;
 import toknow.gwtinaction.BasicProject;
@@ -63,7 +65,13 @@ public class AllInOne implements EntryPoint {
 //    RootPanel.get().add(borderLayoutData);
 
     BorderLayoutExample borderLayoutExample = new BorderLayoutExample();
+
+
+//    loginform loginform = new loginform();
+
+//    RootPanel.get().add(loginform);
     RootPanel.get().add(borderLayoutExample);
+//    RootPanel.get().add(new NavigationPanel());
 //    testGuava();
 
     GreetingServiceAsync greetingService = GWT.create(GreetingService.class);
