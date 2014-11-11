@@ -21,9 +21,13 @@ import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.*;
 import toknow.anotherclient.AnotherLabel;
+import toknow.client.accordionfriends.AccordionLayoutExample;
 import toknow.client.buttons.ButtonsExample;
+import toknow.client.imageorganizer.*;
+import toknow.client.imageorganizer.ImageOrganizerExample;
 import toknow.client.loginform.loginform;
 import toknow.client.navigationpanel.NavigationPanel;
+import toknow.client.panels.MainPanel;
 import toknow.client.radiobuttons.RadioButtons;
 import toknow.client.tooltips.ToolTipsExample;
 import toknow.gwtinaction.BasicProject;
@@ -54,9 +58,33 @@ public class AllInOne implements EntryPoint {
    */
   public void onModuleLoad() {
 
-    Viewport viewport = new Viewport();
+    MainPanel mainPanel = new MainPanel();
+    VerticalPanel mainVerticalPanel = new VerticalPanel();
+    HorizontalPanel headerPanel = new HorizontalPanel();
+    headerPanel.addStyleName("header-panel");
+    Label label = new Label();
+    label.addStyleName("site-header-style");
+    headerPanel.add(label);
+    label.setText("Сайт Никиты!");
+    mainVerticalPanel.setHeight("30px");
+    mainVerticalPanel.setTitle("Сайт Никиты!");
+    mainVerticalPanel.addStyleName("header-style");
+//    mainVerticalPanel.add(label);
 
-    Button button = new Button("firstButton");
+    HorizontalPanel content = new HorizontalPanel();
+    content.add(new AccordionLayoutExample());
+    content.add(new ImageOrganizerExample());
+    content.addStyleName("content-style");
+    mainVerticalPanel.add(content);
+
+    mainPanel.add(mainVerticalPanel);
+
+    RootPanel.get().add(mainPanel);
+
+
+//    Viewport viewport = new Viewport();
+
+//    Button button = new Button("firstButton");
 
 
 
@@ -64,13 +92,13 @@ public class AllInOne implements EntryPoint {
     BorderLayoutData borderLayoutData = new BorderLayoutData(Style.LayoutRegion.EAST);
 //    RootPanel.get().add(borderLayoutData);
 
-    BorderLayoutExample borderLayoutExample = new BorderLayoutExample();
+//    BorderLayoutExample borderLayoutExample = new BorderLayoutExample();
 
 
 //    loginform loginform = new loginform();
 
 //    RootPanel.get().add(loginform);
-    RootPanel.get().add(borderLayoutExample);
+//    RootPanel.get().add(borderLayoutExample);
 //    RootPanel.get().add(new NavigationPanel());
 //    testGuava();
 
