@@ -49,6 +49,8 @@ import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.i18n.client.NumberFormat;  
 import com.google.gwt.user.client.Element;  
 import com.google.gwt.user.client.rpc.AsyncCallback;
+import toknow.client.GreetingService;
+import toknow.client.GreetingServiceAsync;
 import toknow.client.Photo;
 
 @SuppressWarnings("deprecation")  
@@ -115,7 +117,7 @@ public class ImageOrganizerExample extends LayoutContainer {
     centerData.setMargins(new Margins(5));  
     container.add(center, centerData);  
   
-//    final ExampleServiceAsync service = (ExampleServiceAsync) Registry.get(Examples.SERVICE);
+//    final GreetingServiceAsync service = (GreetingServiceAsync) Registry.get(GreetingService.SERVICE);
   
     RpcProxy<List<Photo>> proxy = new RpcProxy<List<Photo>>() {
       @Override  

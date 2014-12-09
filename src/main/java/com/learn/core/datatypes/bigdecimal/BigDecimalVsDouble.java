@@ -13,6 +13,9 @@ public class BigDecimalVsDouble {
     System.out.println(bd1);
     System.out.println(b1d1);
     System.out.println(bd2);
+    BigDecimal bd = null;
+      System.out.println(bd == null);
+//    System.out.println(BigDecimal.valueOf(null));
   }
 
 

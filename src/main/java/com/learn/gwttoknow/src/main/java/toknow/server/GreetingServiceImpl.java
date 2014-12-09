@@ -4,8 +4,12 @@ import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
 import toknow.client.GreetingService;
+import toknow.model.CompanyBO;
 import toknow.shared.FieldVerifier;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * The server side implementation of the RPC service.
@@ -39,6 +43,17 @@ public class GreetingServiceImpl extends RemoteServiceServlet implements
 
     return "Hello, " + input + "!<br><br>I am running " + serverInfo
         + ".<br><br>It looks like you are using:<br>" + userAgent;
+  }
+
+  public List<CompanyBO> getCompanyBOs() {
+   List<CompanyBO> companyBOs = new ArrayList<CompanyBO>();
+  CompanyBO companyBO = new CompanyBO.CompanyBOBuilder(1).description("desc1").displayName("displ name")
+          .configurationEqualGroup("group1").build();
+    companyBOs.add(companyBO);
+    CompanyBO companyBO2 = new CompanyBO.CompanyBOBuilder(1).description("desc1").displayName("displ name")
+            .configurationEqualGroup("group1").build();
+    companyBOs.add(companyBO2);
+    return companyBOs;
   }
 
   /**

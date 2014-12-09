@@ -121,6 +121,28 @@
             <classifier>sources</classifier>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>com.google.api.client</groupId>
+            <artifactId>google-api-client</artifactId>
+            <version>1.4.1-beta</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.api.client</groupId>
+            <artifactId>google-api-client-googleapis-auth</artifactId>
+            <version>1.2.3-alpha</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>com.google.gdata</groupId>
+            <artifactId>core</artifactId>
+            <version>1.47.1</version>
+        </dependency>
+
+
+
     </dependencies>
 
     <build>
