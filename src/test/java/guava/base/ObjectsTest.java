@@ -6,6 +6,11 @@ import org.testng.annotations.Test;
 
 import static org.fest.assertions.Assertions.assertThat;
 
+
+/**
+ * helps to implement equals(), hashcode() and toString methods. Also contains firstNonNull useful method
+ */
+
 @Test
 public class ObjectsTest {
 

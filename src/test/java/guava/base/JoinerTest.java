@@ -12,6 +12,7 @@ import static org.fest.assertions.Assertions.assertThat;
 
 /**
  * Test class to show some features of Joiners
+ * Converts collection to string delimetered with specifid char
  */
 public class JoinerTest {
 

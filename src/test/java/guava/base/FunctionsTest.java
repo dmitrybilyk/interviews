@@ -19,6 +19,7 @@ import static org.fest.assertions.Assertions.assertThat;
 
 /**
  * Class to show how Functions in Guava works
+ * Function is used to transform one list of values to another list with modified values
  */
 
 public class FunctionsTest {

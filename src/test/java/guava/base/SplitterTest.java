@@ -12,6 +12,9 @@ import static org.fest.assertions.Assertions.assertThat;
 
 /**
  * Class to show some features of Splitter class
+ * Class working in the opposite direction than Joiner
+
+  It allows to split String into collection of elements
  */
 public class SplitterTest {
 

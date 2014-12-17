@@ -5,6 +5,12 @@ import org.testng.annotations.Test;
 
 import java.util.Arrays;
 
+/**
+ * This class allows to check correctness of parameters
+ * passed to our method and throw an appropriate
+ * exception when necessary
+ */
+
 public class PreconditionsTest {
 
     PreconditionsLesson preconditionsLesson = new PreconditionsLesson();

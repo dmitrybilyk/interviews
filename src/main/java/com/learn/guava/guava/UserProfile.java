@@ -1,5 +1,6 @@
 package com.learn.guava.guava;
 
+import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
 /**
@@ -34,12 +35,12 @@ public class UserProfile {
     }
 
     public String toString() {
-        return Objects.toStringHelper(this).add("name", name)
+        return MoreObjects.toStringHelper(this).add("name", name)
                 .add("nickname", nickname)
                 .addValue(age).toString();
     }
 
     public String getDisplayName() {
-        return Objects.firstNonNull(nickname, name);
+        return MoreObjects.firstNonNull(nickname, name);
     }
 }

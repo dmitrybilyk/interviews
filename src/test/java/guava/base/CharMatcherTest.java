@@ -7,6 +7,7 @@ import static org.fest.assertions.Assertions.assertThat;
 
 /**
  * Class to learn some features of CharMatcher
+ * Similar to Predicate, but working with chars.
  */
 public class CharMatcherTest {
 
@@ -28,6 +29,7 @@ public class CharMatcherTest {
     @Test
     public void shouldMatchBreakingWhitespace() throws Exception {
         assertThat(CharMatcher.BREAKING_WHITESPACE.matchesAllOf("\r\n\r\n")).isTrue();
+//        assertThat(CharMatcher.BREAKING_WHITESPACE.matchesAllOf("Dima")).isTrue();
     }
 
     @Test

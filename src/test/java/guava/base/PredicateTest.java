@@ -18,6 +18,7 @@ import static org.testng.Assert.assertFalse;
 
 /**
  * Features of Predicates class
+ * Predicated used to filter passed object
  */
 public class PredicateTest {
 
@@ -78,7 +79,7 @@ public class PredicateTest {
         Predicate<CharSequence> twoDigitsPredicate = Predicates.containsPattern("\\d\\d");
 
         // then
-        assertThat(twoDigitsPredicate.apply("Hello world 40")).isTrue();
+        assertThat(twoDigitsPredicate.apply("Hello world 47")).isTrue();
     }
 
     @Test
