@@ -9,6 +9,7 @@ import static org.testng.Assert.fail;
 
 /**
  * BiMap showcase
+ * BiMap is a map with unique both keys and values
  */
 public class BiMapTest {
 

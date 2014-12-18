@@ -70,7 +70,7 @@ public class IterablesTest {
     @Test
     public void shouldCycleOverIterable() throws Exception {
 
-        Iterable<String> cycleIterables = Iterables.cycle("Right", "Left");
+        Iterable<String> cycleIterables = Iterables.cycle("Right", "Left", "Up", "3");
 
         // then
         Iterator<String> iterator = cycleIterables.iterator();

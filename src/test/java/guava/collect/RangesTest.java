@@ -1,9 +1,7 @@
 //package guava.collect;
 //
-//import com.google.common.collect.DiscreteDomains;
 //import com.google.common.collect.Lists;
 //import com.google.common.collect.Range;
-//import com.google.common.collect.Ranges;
 //import org.testng.annotations.Test;
 //
 //import java.util.ArrayList;
@@ -12,8 +10,8 @@
 //import static org.fest.assertions.Assertions.assertThat;
 //
 ///**
-// * Range and Ranges showcase
-// */
+//* Range and Ranges showcase
+//*/
 //public class RangesTest {
 //
 //    @Test
