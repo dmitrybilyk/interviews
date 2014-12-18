@@ -3,7 +3,10 @@ package com.ibatis;
 import com.ibatis.sqlmap.client.SqlMapClient;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class UserDaoIbatis implements UserDao
 {
@@ -43,7 +46,12 @@ public class UserDaoIbatis implements UserDao
   @Override
   public List<UserTEO> getUsers(SqlMapClient sqlmapClient) {
     try {
-      return (List<UserTEO>) sqlmapClient.queryForList("user.getUsers");
+      Map<String, Object> map = new HashMap<String, Object>();
+      ComplexParam complexParam = new ComplexParam();
+      complexParam.setComplexValue("alias");
+      map.put("key", "alias");
+      List<UserTEO> userTEOs = (List<UserTEO>) sqlmapClient.queryForList("user.getUsers", map);
+      return userTEOs != null? userTEOs : new ArrayList<UserTEO>();
     } catch (SQLException e) {
       e.printStackTrace();
     }

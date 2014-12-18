@@ -21,8 +21,9 @@
 		  SELECT MAX(ID) FROM USERINFO
 	</select>
 
-    <select id="getUsers" resultMap="userResultMap">
-        SELECT * FROM USERINFO
+    <select id="getUsers" parameterClass="java.util.HashMap" resultMap="userResultMap">
+        SELECT * FROM USERINFO $key$ where
+        $key$ = 'UserMy'
     </select>
 
 	<insert id="addUser" parameterClass="USER">
