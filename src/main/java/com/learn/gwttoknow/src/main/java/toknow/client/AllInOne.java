@@ -102,16 +102,16 @@ public class AllInOne implements EntryPoint {
 //    RootPanel.get().add(new NavigationPanel());
 //    testGuava();
 
-    GreetingServiceAsync greetingService = GWT.create(GreetingService.class);
-    greetingService.greetServer("Hi test", new AsyncCallback<String>() {
-      public void onFailure(Throwable caught) {
-        GWT.log("fuck");
-      }
-
-      public void onSuccess(String result) {
-        GWT.log("It's ok!!!");
-      }
-    });
+//    GreetingServiceAsync greetingService = GWT.create(GreetingService.class);
+//    greetingService.greetServer("Hi test", new AsyncCallback<String>() {
+//      public void onFailure(Throwable caught) {
+//        GWT.log("fuck");
+//      }
+//
+//      public void onSuccess(String result) {
+//        GWT.log("It's ok!!!");
+//      }
+//    });
 
 
 

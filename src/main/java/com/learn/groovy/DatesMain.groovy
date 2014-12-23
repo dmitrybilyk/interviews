@@ -17,7 +17,7 @@ class DatesMain {
         def date = new Date() + 1
         println date
 
-        use(TimeCategory){
+        use(org.codehaus.groovy.runtime.TimeCategory){
             println new Date() + 1.week - 1.hour
         }
 

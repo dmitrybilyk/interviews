@@ -25,7 +25,6 @@
         <module name="guestbook" />
         <module name="gwtgxt" />
         <module name="gwtlearn" />
-        <module name="gwttoknow" />
         <module name="nikitka" />
         <module name="siteofnikita" />
         <module name="web" />
@@ -54,4 +53,3 @@
     </bytecodeTargetLevel>
   </component>
 </project>
-

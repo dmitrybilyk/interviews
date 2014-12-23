@@ -11,7 +11,7 @@ public class UseMacro {
 
   public static void main(String[] args) throws Exception {
   Velocity.init();
-  Template template = Velocity.getTemplate("./src/main/resources/velocity/macro/UseMacro.vm");
+  Template template = Velocity.getTemplate("velocity/macro/UseMacro.vm");
 
   VelocityContext context = new VelocityContext();
 
