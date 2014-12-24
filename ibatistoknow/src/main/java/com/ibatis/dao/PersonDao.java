@@ -1,5 +1,6 @@
-package com.ibatis;
+package com.ibatis.dao;
 
+import com.ibatis.UserTEO;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.learn.model.Person;
 
@@ -9,7 +10,7 @@ import java.util.List;
  * Created by dik81 on 11/27/14.
  */
 public interface PersonDao {
-  Person addUser(Person user, SqlMapClient sqlmapClient);
+  Person addPerson(Person user, SqlMapClient sqlmapClient);
 
   Person getUserById(Integer id, SqlMapClient sqlmapClient);
 

@@ -1,5 +1,8 @@
-package com.ibatis;
+package com.ibatis.dao;
 
+import com.ibatis.ComplexParam;
+import com.ibatis.UserTEO;
+import com.ibatis.dao.PersonDao;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.learn.model.Person;
 
@@ -9,16 +12,12 @@ import java.util.*;
 public class PersonDaoIbatis implements PersonDao
 {
     @Override
-    public Person addUser(Person person, SqlMapClient sqlmapClient) {
+    public Person addPerson(Person person, SqlMapClient sqlmapClient) {
         try
         {
             Integer id = (Integer)sqlmapClient.queryForObject("getMaxId");
             id = id == null ? 1 : id + 1;
             person.setId(id);
-            person.setHeightInMeters(1.78);
-            person.setFirstName("Dima");
-            person.setLastName("Bilyk");
-            person.setBirthDate(new Date());
             sqlmapClient.insert("insertPerson", person);
             return person;
         }

@@ -5,12 +5,14 @@ package com.ibatis;
  */
 
 import com.ibatis.common.resources.Resources;
+import com.ibatis.dao.PersonDao;
+import com.ibatis.dao.PersonDaoIbatis;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.learn.model.Person;
 
 import java.io.Reader;
-import java.util.List;
+import java.util.Date;
 
 
 public class PersonIbatisTest {
@@ -23,21 +25,8 @@ public class PersonIbatisTest {
     Reader reader = Resources.getResourceAsReader("sqlmapclientPerson.xml");
     SqlMapClient sqlmapClient = SqlMapClientBuilder.buildSqlMapClient (reader);
 
-    manager.addUser(new Person(),sqlmapClient);
-
-    //Fetch the user detail
-
-
-    Person person = manager.getUserById(1, sqlmapClient);
-    System.out.println(person.getFirstName());
-//
-//    List<UserTEO> allUsers = manager.getUsers(sqlmapClient);
-//
-//    for (UserTEO selectedUser : allUsers) {
-//      System.out.println(selectedUser.getName());
-//    }
-
-    //Lets delete the user
-//    manager.deleteUserById(1, sqlmapClient);
+    for (int i = 0; i < 10; i++) {
+      manager.addPerson(new Person.PersonBuilder(i, "Dima"+i, "Bilyk"+i, new Date()).build(),sqlmapClient);
+    }
   }
 }
