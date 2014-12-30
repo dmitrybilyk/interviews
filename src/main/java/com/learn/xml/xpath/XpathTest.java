@@ -1,9 +1,10 @@
-package com.learn.xpath;
+package com.learn.xml.xpath;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -11,17 +12,17 @@ import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-public class XpathTest
-{
+public class XpathTest {
     public static void main(String[] args) {
 
         try {
-            FileInputStream file = new FileInputStream(new File("/home/bid/Dev/projects/interview/src/main/resources/xpath/xpathTestFile.xml"));
+            FileInputStream file = new FileInputStream(new File("/home/likewise-open/DO/dmitry.bilyk/dev/projects/maventotalproject/src/main/resources/xpath/xpathTestFile.xml"));
 
             DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
 
