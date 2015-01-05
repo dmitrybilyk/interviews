@@ -46,9 +46,9 @@ public class FunctionsTest {
 
 //      to make all countries with using capital letters
       Function<Country, Country> turnToCapitalLetters = new Function<Country, Country>() {
-        @javax.annotation.Nullable
+        @Nullable
         @Override
-        public Country apply(@javax.annotation.Nullable Country input) {
+        public Country apply(@Nullable Country input) {
           assert input != null;
           input.setName(Strings.toUpperCase(input.getName()));
           return input;
@@ -65,9 +65,9 @@ public class FunctionsTest {
 //      to modified country
 
       Function<Country, ModifiedCountry> toModifiedCountry = new Function<Country, ModifiedCountry>() {
-        @javax.annotation.Nullable
+        @Nullable
         @Override
-        public ModifiedCountry apply(@javax.annotation.Nullable Country input) {
+        public ModifiedCountry apply(@Nullable Country input) {
           ModifiedCountry newModifiedCountry = new ModifiedCountry();
           assert input != null;
           newModifiedCountry.setName(input.getName());

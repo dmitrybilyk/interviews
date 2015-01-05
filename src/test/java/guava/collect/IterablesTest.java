@@ -4,10 +4,11 @@ import com.google.common.base.Predicate;
 import com.google.common.base.Strings;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
+import com.learn.guava.guava.geo.Country;
 import org.fest.assertions.Condition;
 import org.testng.annotations.Test;
 
-import javax.annotation.Nullable;
+import org.jetbrains.annotations.Nullable;
 import java.util.Iterator;
 import java.util.List;
 
@@ -216,6 +217,28 @@ public class IterablesTest {
 
         // then
         assertThat(numbersList).excludes(-12, -1024);
+    }
+
+    @Test
+    public void containsAnyWithEqualsIgnoreCase() throws Exception {
+
+        // given
+        List<Country> numbersList = Country.getSomeCountries();
+
+        final String value = "poland";
+
+        // when
+        boolean containsIgnoreCase = Iterables.any(numbersList, new Predicate<Country>() {
+            @Override
+            public boolean apply(@Nullable Country input) {
+                if (input != null) {
+                    return input.getName().equalsIgnoreCase(value);
+                }
+                return false;
+            }
+        });
+
+        System.out.println(containsIgnoreCase);
     }
 
 
