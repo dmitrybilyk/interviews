@@ -33,6 +33,10 @@ public class Country {
         this.area = area;
     }
 
+    public Country() {
+
+    }
+
     public static List<Country> getSomeCountries() {
         List<Country> countries = Lists.newArrayList();
 
