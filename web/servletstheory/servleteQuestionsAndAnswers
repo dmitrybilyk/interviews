@@ -149,7 +149,7 @@ Some of the important Servlet API annotations are:
 - servlet has a better performance. Separate thread is created for each request.
 - servlet is not dependent on platform
 - servlet is more robust, because container takes care of life cycle (we don't have memory leaks, security
-issues, garbaage collection)
+issues, garbage collection)
 
 8. Functions of servlet container. It supports communication, life cycle and resource management, multithreading,
 jsp.
@@ -169,8 +169,8 @@ all servlets of application. We can get it through getServletConfig().getServlet
 In web.xml use <context-param> element.
 
 
-11. Differenct between ServletConfig and ServletContext object.
-ServletContext is unique and could contain application level init parameters. We can set attributes to is.
+11. Difference between ServletConfig and ServletContext object.
+ServletContext is unique and could contain application level init parameters. We can set attributes to it.
 ServletConfig is opposite.
 
 12. RequestDispatcher.
@@ -288,7 +288,7 @@ request to another servlet.
     returns the response to client with status code 302 (redirect) with URL to send the request.
 
     The request sent is a completely new request.
-    forward() is handled internally by the container whereas sednRedirect() is handled by browser.
+    forward() is handled internally by the container whereas sendRedirect() is handled by browser.
 
     We should use forward() when accessing resources in the same application because it’s faster
     than sendRedirect() method that required an extra network call.

@@ -10,8 +10,8 @@ package com.learn.effectivejava.bloh;
 public class _CloneMethod {
     //never use cloneable on child objects.
     // You may use it for copying objects that contain only arrays or classes that single.
-    //In order to make Object's clonable appropriate for cloning objects of you class you should
-    //imlement Clonable interface.
+    //In order to make Object's clonable appropriate for cloning objects of your class you should
+    //implement Clonable interface.
     //the problems may occur when objects contain complicated objects.
 
 }

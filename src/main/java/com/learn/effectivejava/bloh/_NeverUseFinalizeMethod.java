@@ -8,6 +8,6 @@ package com.learn.effectivejava.bloh;
  * To change this template use File | Settings | File Templates.
  */
 public class _NeverUseFinalizeMethod {
-    //It could be used as insurence method. You never have to user this method. There is no garanti that
+    //It could be used as insurence method. You never have to use this method. There is no garantie that
     //it will be called in time
 }

@@ -14,6 +14,7 @@ class BoolArray
     public static void main(String [] args) 
     {
         BoolArray ba = new BoolArray();
+//        BoolArray ba = new BoolArray();
         ba.set(ba.b, 0);
         ba.set(ba.b, 2);
         ba.test();

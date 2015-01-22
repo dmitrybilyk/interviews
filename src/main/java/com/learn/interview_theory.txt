@@ -43,7 +43,7 @@ The main principles of object-orienting programming:
 2. Incapsulation
 3. Polimorphysm
 
-Also we abstraction
+Also the abstraction
 
 One interface - many implementations. In java polimorthism includes
 overriding, overloading. You should always use type of parent class in parameters
@@ -401,7 +401,7 @@ to JDK 1.5, formal type parameters e.g. <K, V> or <E> gets replaced by either Ob
 or Super Class of the Type. Also when the translated code is not type correct compiler
 inserts a type casting operator. This all done behind the scene so you don't need to worry
 about what important to us is that Java compiler guarantees type-safety and flag any
-type-safety relate error during compilation. In short Generics in Java is syntactic
+type-safety related error during compilation. In short Generics in Java is syntactic
 sugar and doesn’t store any type related information at runtime. All type related
 information is erased by Type Erasure, this was the main requirement while developing
 Generics feature in order to reuse all Java code written without Generics.
@@ -521,6 +521,14 @@ because there is no difference between checked and unchecked exceptions.
 
 You will not get compile errors like you would in Java for using undefined members
 or passing arguments of the wrong type.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+Javascript
+
+Оператор идентичности “===” ведёт себя так же, как и оператор равенства “==”, за исключением того, что он не выполняет
+преобразование типов. Если 2 значения имеют разный тип, оператор === сразу возвращает “false”, и в этом случае он будет
+работать действительно быстрее. Во всех других случаях производительность будет одинаковая.
 
 ----------------------------------------------------------------------------------------------------------------------------------
 
