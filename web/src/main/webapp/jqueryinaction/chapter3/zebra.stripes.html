@@ -5,13 +5,29 @@
     <link rel="stylesheet" type="text/css" href="../styles/core.css"/>
     <script type="text/javascript" src="../scripts/jquery-1.4.js"></script>
     <script type="text/javascript">
+
+      $.fn.getClassNames = function() {
+        var name = this.attr('className');
+        if (name != null) {
+          return name.split('');
+        }
+        else {
+          return [];
+        }
+      };
+
       $(function(){
+        $("button").on("click", function(){
+          console.log(getClassNames());
+        });
         $("table tr:nth-child(even)").addClass("striped");
         $("table").mouseover(swapThem).mouseout(swapThem);
+        $("tr").mousemove(swapThem).mouseout(swapThem);
       });
 
       function swapThem() {
-        $('tr').toggleClass('striped');
+//        $('tr').toggleClass('striped');
+        $('tr').toggleClass('mystriped');
       }
     </script>
 
@@ -37,6 +53,9 @@
       }
       tr.striped {
         background-color: gold;
+      }
+      tr.mystriped {
+        background-color: peru;
       }
       td {
         padding: 1px 8px;
@@ -107,5 +126,8 @@
         <td>Caliber R/T</td>
       </tr>
     </table>
+
+  <button class="one two three">My button</button>
+
   </body>
 </html>

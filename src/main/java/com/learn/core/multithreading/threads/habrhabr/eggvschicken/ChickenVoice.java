@@ -23,9 +23,9 @@ public class ChickenVoice	//Класс с методом main()
 
         if(mAnotherOpinion.isAlive())	//Если оппонент еще не сказал последнее слово
         {
-            try{
-                mAnotherOpinion.join();	//Подождать пока оппонент закончит высказываться.
-            }catch(InterruptedException e){}
+//            try{
+//                mAnotherOpinion.join();	//Подождать пока оппонент закончит высказываться.
+//            }catch(InterruptedException e){}
             
             System.out.println("Первым появилось яйцо!");
         }

@@ -13,13 +13,13 @@ public class ThreadExample {
 
         //Start the threads
         thread1.start();
-
+//
         thread2.setPriority(1);
         thread2.start();
-
-        thread3.start();
-        thread4.start();
-        thread5.start();
+//
+//        thread3.start();
+//        thread4.start();
+//        thread5.start();
         try {
 //            The sleep() method is invoked on the main thread to cause a one second delay.
             Thread.currentThread().sleep(1000);

@@ -28,7 +28,7 @@ class DaemonThread implements Runnable{
     private void processSomething() {
         try {
             System.out.println("Processing daemon thread");
-            Thread.sleep(2000);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

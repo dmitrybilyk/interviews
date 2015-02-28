@@ -22,8 +22,8 @@ public class ThreadLocalExample implements Runnable{
      
     public static void main(String[] args) throws InterruptedException {
         ThreadLocalExample obj = new ThreadLocalExample();
-        for(int i=0 ; i<10; i++){
-            Thread t = new Thread(obj, ""+i);
+        for(int i = 0 ; i < 10; i++){
+            Thread t = new Thread(obj, "" +i);
             Thread.sleep(new Random().nextInt(1000));
             t.start();
         }
@@ -31,7 +31,7 @@ public class ThreadLocalExample implements Runnable{
  
     @Override
     public void run() {
-        System.out.println("Thread Name= "+Thread.currentThread().getName()+" default Formatter = "+formatter.get().toPattern());
+        System.out.println("Thread Name = " + Thread.currentThread().getName() + " default Formatter = " + formatter.get().toPattern());
         try {
             Thread.sleep(new Random().nextInt(1000));
         } catch (InterruptedException e) {
@@ -40,7 +40,7 @@ public class ThreadLocalExample implements Runnable{
          
         formatter.set(new SimpleDateFormat());
          
-        System.out.println("Thread Name= "+Thread.currentThread().getName()+" formatter = "+formatter.get().toPattern());
+        System.out.println("Thread Name= " + Thread.currentThread().getName() + " formatter = " + formatter.get().toPattern());
     }
  
 }

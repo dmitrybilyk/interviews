@@ -7,7 +7,7 @@ class XThread extends Thread {
     XThread(String threadName) {
         super(threadName); // Initialize thread.
 //        System.out.println(this);
-//        start();
+        start();
     }
     public void run() {
         //Display info about this particular thread

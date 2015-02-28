@@ -16,12 +16,12 @@ package com.learn.core.multithreading.waitandnotify;
 
 public class WaitNotifyTest {
     public static void main(String[] args){
-//        DataManager dataManager = new DataManager();
+        DataManager dataManager = new DataManager();
 //
 //        SomeBigTaskRunnable someBigTaskRunnable = new SomeBigTaskRunnable();
 //        Thread someThreadForJoin = new Thread(someBigTaskRunnable);
 //
-////        SenderRunnable senderRunnable = new SenderRunnable(dataManager);
+//        SenderRunnable senderRunnable = new SenderRunnable(dataManager);
 //        SenderRunnable senderRunnable = new SenderRunnable(dataManager, someThreadForJoin);
 //        PrepareRunnable prepareRunnable = new PrepareRunnable(dataManager);
 //        Thread senderThread = new Thread(senderRunnable);
