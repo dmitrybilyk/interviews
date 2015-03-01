@@ -20,7 +20,7 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		// Creates the Runnable object and the Thread to run it
-		FileSearch searcher=new FileSearch("C:\\","autoexec.bat");
+		FileSearch searcher=new FileSearch("/home/dmitry/dev/learn/concurrencycookbookcode/7881_code","TaskLocalRandom.java");
 		Thread thread=new Thread(searcher);
 		
 		// Starts the Thread
@@ -28,7 +28,7 @@ public class Main {
 		
 		// Wait for ten seconds
 		try {
-			TimeUnit.SECONDS.sleep(10);
+			TimeUnit.SECONDS.sleep(1/1000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
