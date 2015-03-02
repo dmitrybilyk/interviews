@@ -76,7 +76,7 @@ public class FileSearch implements Runnable {
 			}
 		}
 		// Check the interruption
-		if (Thread.interrupted()) {
+		if (Thread.currentThread().isInterrupted()) {
 			throw new InterruptedException();
 		}
 	}

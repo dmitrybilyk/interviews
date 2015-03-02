@@ -14,6 +14,7 @@ public class Task implements Runnable {
 	public void run() {
 		// The next instruction always throws and exception
 		int numero=Integer.parseInt("TTT");
+		System.out.println("dfdf");
 	}
 
 }
