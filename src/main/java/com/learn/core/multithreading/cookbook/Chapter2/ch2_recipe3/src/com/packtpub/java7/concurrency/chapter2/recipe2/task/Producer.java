@@ -1,7 +1,5 @@
 package com.learn.core.multithreading.cookbook.Chapter2.ch2_recipe3.src.com.packtpub.java7.concurrency.chapter2.recipe2.task;
 
-import com.learn.core.multithreading.cookbook.Chapter2.ch2_recipe3.src.com.packtpub.java7.concurrency.chapter2.recipe2.task.EventStorage;
-
 /**
  * This class implements a producer of events.
  *

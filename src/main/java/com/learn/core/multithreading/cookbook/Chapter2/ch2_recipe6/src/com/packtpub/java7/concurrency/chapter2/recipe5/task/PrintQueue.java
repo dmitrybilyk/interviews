@@ -14,8 +14,9 @@ public class PrintQueue {
 	 * With the boolean attribute, we control the fairness of
 	 * the Lock
 	 */
-	private final Lock queueLock=new ReentrantLock(false);
-	
+	private final Lock queueLock=new ReentrantLock(true);
+//	private final Lock queueLock=new ReentrantLock(false);
+
 	/**
 	 * Method that prints the Job. The printing is divided in two phase two
 	 * show how the fairness attribute affects the election of the thread who
@@ -26,7 +27,7 @@ public class PrintQueue {
 		queueLock.lock();
 		
 		try {
-			Long duration=(long)(Math.random()*10000);
+			Long duration=(long)(Math.random()*2000);
 			System.out.printf("%s: PrintQueue: Printing a Job during %d seconds\n",Thread.currentThread().getName(),(duration/1000));
 			Thread.sleep(duration);
 		} catch (InterruptedException e) {
@@ -38,7 +39,7 @@ public class PrintQueue {
 		
 		queueLock.lock();
 		try {
-			Long duration=(long)(Math.random()*10000);
+			Long duration=(long)(Math.random()*2000);
 			System.out.printf("%s: PrintQueue: Printing a Job during %d seconds\n",Thread.currentThread().getName(),(duration/1000));
 			Thread.sleep(duration);
 		} catch (InterruptedException e) {

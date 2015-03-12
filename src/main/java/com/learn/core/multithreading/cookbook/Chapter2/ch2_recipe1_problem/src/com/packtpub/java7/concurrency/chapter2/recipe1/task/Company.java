@@ -1,7 +1,7 @@
 package com.learn.core.multithreading.cookbook.Chapter2.ch2_recipe1_problem.src.com.packtpub.java7.concurrency.chapter2.recipe1.task;
 
 /**
- * This class simulates a company that pays a salary an
+ * This class simulates a company that pays a salary and
  * insert money into an account 
  *
  */
