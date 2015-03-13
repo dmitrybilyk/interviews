@@ -17,7 +17,7 @@ public class MultipleBounds {
 // to be a pretty familiar notation:
 
 //<T extends A & B>
-//The previous bounds means that T extends both A and B. Please take into account that, according to the Java Language Secification, Chapter 4.4, states that a bound is either:
+//The previous bounds means that T extends both A and B. Please take into account that, according to the Java Language Secification, Chapter4.4, states that a bound is either:
 
 //        A type variable.
 //        A class.
