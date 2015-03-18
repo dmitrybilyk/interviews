@@ -1,0 +1,52 @@
+package com.learn.core.multithreading.cookbook.Chapter5.ch5_recipe05.src.com.packtpub.java7.concurrency.chapter5.recipe05.core;
+
+import com.learn.core.multithreading.cookbook.Chapter5.ch5_recipe05.src.com.packtpub.java7.concurrency.chapter5.recipe05.task.SearchNumberTask;
+import com.learn.core.multithreading.cookbook.Chapter5.ch5_recipe05.src.com.packtpub.java7.concurrency.chapter5.recipe05.util.ArrayGenerator;
+import com.learn.core.multithreading.cookbook.Chapter5.ch5_recipe05.src.com.packtpub.java7.concurrency.chapter5.recipe05.util.TaskManager;
+
+import java.util.concurrent.ForkJoinPool;
+import java.util.concurrent.TimeUnit;
+
+/**
+ * Main class of the program. 
+ */
+public class Main {
+
+	/**
+	 * Main method of the example
+	 * @param args
+	 */
+	public static void main(String[] args) {
+
+		// Generate an array of 1000 integers
+		ArrayGenerator generator=new ArrayGenerator();
+		int array[]=generator.generateArray(1000);
+		
+		// Create a TaskManager object
+		TaskManager manager=new TaskManager();
+		
+		// Create a ForkJoinPool with the default constructor
+		ForkJoinPool pool=new ForkJoinPool();
+		
+		// Create a Task to process the array
+		SearchNumberTask task=new SearchNumberTask(array,0,1000,5,manager);
+		
+		// Execute the task
+		pool.execute(task);
+
+		// Shutdown the pool
+		pool.shutdown();
+		
+		
+		// Wait for the finalization of the task
+		try {
+			pool.awaitTermination(1, TimeUnit.DAYS);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		// Write a message to indicate the end of the program
+		System.out.printf("Main: The program has finished\n");
+	}
+
+}
