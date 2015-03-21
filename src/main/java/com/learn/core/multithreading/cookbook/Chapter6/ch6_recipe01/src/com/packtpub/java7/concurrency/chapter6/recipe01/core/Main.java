@@ -34,7 +34,7 @@ public class Main {
 		
 		// Wait for the finalization of the threads
 		for (int i=0; i<threads.length; i++) {
-				threads[i].join();
+//				threads[i].join();
 		}
 		
 		// Write to the console the size of the list
