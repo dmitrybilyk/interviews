@@ -29,7 +29,7 @@ public class OrderListOfObjects {
     Collections.sort(pizzas, new Comparator<Student>() {
       @Override
       public int compare(Student p1, Student p2) {
-        return ComparisonChain.start().compare(p1.getName(), p2.getName()).result();
+        return ComparisonChain.start().compare(p2.getName(), p1.getName()).result();
         // or in case the fields can be null:
         /*
           return ComparisonChain.start()
