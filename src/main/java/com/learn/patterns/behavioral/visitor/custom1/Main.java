@@ -20,5 +20,14 @@ public class Main {
     }
 
     System.out.println("Total = " + sum);
+
+    RepairVisitor repairVisitor = new RepairVisitorImpl();
+
+    long sum2 = 0;
+    for (VisitorItem visitorItem : visitorItems) {
+      sum2 += visitorItem.accept(repairVisitor);
+    }
+
+    System.out.println("Total = " + sum2);
   }
 }

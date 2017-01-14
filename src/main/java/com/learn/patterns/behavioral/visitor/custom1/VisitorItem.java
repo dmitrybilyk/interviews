@@ -5,4 +5,5 @@ package com.learn.patterns.behavioral.visitor.custom1;
  */
 public interface VisitorItem {
   long accept(CleaningCostVisitor visitor);
+  long accept(RepairVisitor visitor);
 }

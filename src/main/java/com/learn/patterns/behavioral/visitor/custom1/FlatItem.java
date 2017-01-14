@@ -8,4 +8,9 @@ public class FlatItem implements VisitorItem {
   public long accept(CleaningCostVisitor visitor) {
     return visitor.visit(this);
   }
+
+  @Override
+  public long accept(RepairVisitor visitor) {
+    return visitor.visit(this);
+  }
 }
