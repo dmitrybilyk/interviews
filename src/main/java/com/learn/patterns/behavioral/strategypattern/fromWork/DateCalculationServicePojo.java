@@ -17,7 +17,7 @@ public class DateCalculationServicePojo {
 
     public void calculateDates(Date now, Warehousing warehousing, ImportType importType){
 
-        if(importType == ImportType.UPLOAD){
+        if(importType == ImportType.UPLOAD) {
             WarehousingStrategy warehousingStrategy = strategiesMap.get(warehousing.name());
             warehousingStrategy.executeCalculation(now);
 //            for (WarehousingStrategy strategy : warehousingStrategies) {

@@ -8,7 +8,7 @@ package com.learn.patterns.behavioral.command;
  * To change this template use File | Settings | File Templates.
  */
 
-//Command Pattern is one of the Behavioral Design Pattern and it’s used to
+//Command Pattern is one of the Behavioral Design Patterns and it’s used to
 // implement lose coupling in a request-response model. In command pattern,
 // the request is sent to the invoker and invoker pass it to the encapsulated
 // command object. Command object passes the request to the appropriate
