@@ -17,33 +17,33 @@ public class FileWriterUtil {
         this.content=new StringBuilder();
     }
 
+    public Memento save() {
+        return new Memento(this.fileName, this.content);
+    }
+
     @Override
-    public String toString(){
+    public String toString() {
         return this.content.toString();
     }
 
-    public void write(String str){
+    public void undoToLastSave(Object obj) {
+        Memento memento = (Memento) obj;
+        this.fileName = memento.fileName;
+        this.content = memento.content;
+    }
+
+    public void write(String str) {
         content.append(str);
     }
 
-    public Memento save(){
-        return new Memento(this.fileName,this.content);
-    }
-
-    public void undoToLastSave(Object obj){
-        Memento memento = (Memento) obj;
-        this.fileName= memento.fileName;
-        this.content=memento.content;
-    }
-
-    private class Memento{
+    private class Memento {
         private String fileName;
         private StringBuilder content;
 
-        public Memento(String file, StringBuilder content){
-            this.fileName=file;
+        public Memento(String file, StringBuilder content) {
+            this.fileName = file;
             //notice the deep copy so that Memento and FileWriterUtil content variables don't refer to same object
-            this.content=new StringBuilder(content);
+            this.content = new StringBuilder(content);
         }
     }
 }
