@@ -26,6 +26,10 @@ public class TestCompositePattern {
 
         drawing.clear();
 
+        Drawing drawing1 = new Drawing();
+        drawing.add(new Triangle());
+
+        drawing.add(drawing1);
         drawing.add(tri);
         drawing.add(cir);
         drawing.draw("Green");
