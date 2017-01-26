@@ -12,9 +12,9 @@ package com.learn.patterns.structural.proxy;
 public class ProxyPatternTest {
 
     public static void main(String[] args){
-        CommandExecutor executor = new CommandExecutorProxy("dik81", "035645");
+        CommandExecutor executor = new CommandExecutorProxy("dik81", "035t645");
         try {
-            executor.runCommand("echo %JAVA_HOME");
+            executor.runCommand("echo $JAVA_HOME");
 //            executor.runCommand("rmcmd");
         } catch (Exception e) {
             System.out.println("Exception Message::"+e.getMessage());
