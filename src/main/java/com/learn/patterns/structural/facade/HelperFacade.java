@@ -5,8 +5,9 @@ import java.sql.Connection;
 //We can create a Facade interface like below. Notice the use of Java Enum for type safety.
 public class HelperFacade {
 
-    public static void generateReport(DBTypes dbType, ReportTypes reportType, String tableName){
+    public static String generateReport(DBTypes dbType, ReportTypes reportType, String tableName){
         Connection con = null;
+        String report = null;
         switch (dbType){
             case MYSQL:
                 con = MySqlHelper.getMySqlDBConnection();
@@ -19,6 +20,7 @@ public class HelperFacade {
                         mySqlHelper.generateMySqlPDFReport(tableName, con);
                         break;
                 }
+                report = "mysql report";
                 break;
             case ORACLE:
                 con = OracleHelper.getOracleDBConnection();
@@ -31,16 +33,17 @@ public class HelperFacade {
                         oracleHelper.generateOraclePDFReport(tableName, con);
                         break;
                 }
+                report = "oracle report";
                 break;
         }
-
+        return report;
     }
 
-    public static enum DBTypes{
+    public enum DBTypes{
         MYSQL,ORACLE;
     }
 
-    public static enum ReportTypes{
+    public enum ReportTypes{
         HTML,PDF;
     }
 }
