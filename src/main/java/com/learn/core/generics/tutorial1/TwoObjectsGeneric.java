@@ -7,39 +7,63 @@ package com.learn.core.generics.tutorial1;
  * Time: 21:38
  * To change this template use File | Settings | File Templates.
  */
-public class TwoObjectsGeneric<T, V> {
-    T ob1;
+public class TwoObjectsGeneric<T, V, L> {
+  T ob1;
 
-    V ob2;
+  V ob2;
 
-    TwoObjectsGeneric(T o1, V o2) {
-        ob1 = o1;
-        ob2 = o2;
-    }
+  L ob3;
 
-    void showTypes() {
-        System.out.println("Type of T is " + ob1.getClass().getName());
+  TwoObjectsGeneric(T o1, V o2, L o3) {
+    ob1 = o1;
+    ob2 = o2;
+    ob3 = o3;
+  }
 
-        System.out.println("Type of V is " + ob2.getClass().getName());
-    }
+  TwoObjectsGeneric(T o1, T o2) {
+    ob1 = o1;
+    System.out.println(o2);
+  }
 
-    T getob1() {
-        return ob1;
-    }
+  public static void main(String args[]) {
+    TwoObjectsGeneric<String, String, Long> tgObj = new TwoObjectsGeneric<>("dfdf", "Generics", 10l);
+    tgObj.showTypes();
 
-    V getob2() {
-        return ob2;
-    }
+    String v = tgObj.getob1();
+    System.out.println("value: " + v);
 
+    String str = tgObj.getob2();
+    System.out.println("value: " + str);
 
-    public static void main(String args[]) {
-        TwoObjectsGeneric<Integer, String> tgObj = new TwoObjectsGeneric<Integer, String>(88, "Generics");
-        tgObj.showTypes();
+    Long aLong = tgObj.getob3();
+    System.out.println("value: " + aLong);
 
-        int v = tgObj.getob1();
-        System.out.println("value: " + v);
+    TwoObjectsGeneric<Integer, String, Long> tgObj2 = new TwoObjectsGeneric<>(77, "Generics", 1000l);
+    tgObj.showTypes();
 
-        String str = tgObj.getob2();
-        System.out.println("value: " + str);
-}
+    System.out.println(tgObj2.someMethod(45));
+  }
+
+  T getob1() {
+    return ob1;
+  }
+
+  V getob2() {
+    return ob2;
+  }
+
+  L getob3() {
+    return ob3;
+  }
+
+  void showTypes() {
+    System.out.println("Type of T is " + ob1.getClass().getName());
+    System.out.println("Type of V is " + ob2.getClass().getName());
+    System.out.println("Type of L is " + ob3.getClass().getName());
+  }
+
+  public T someMethod(T t) {
+    System.out.println(t);
+    return t;
+  }
 }
