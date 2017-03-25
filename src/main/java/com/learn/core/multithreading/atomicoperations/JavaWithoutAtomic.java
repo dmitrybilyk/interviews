@@ -45,7 +45,7 @@ class ProcessingThread implements Runnable {
     private void processSomething(final int i) {
         // processing some job
         try {
-            Thread.sleep(i * 100);
+            Thread.sleep(i * 1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

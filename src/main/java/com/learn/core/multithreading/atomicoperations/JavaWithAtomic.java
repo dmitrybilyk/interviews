@@ -5,7 +5,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 //Benefits of using Atomic Concurrency classes is that we don’t need to worry
 // about synchronization at each and every place we are dealing with integers
-// and it’s assumed to be more efficient that synchronization which involves
+// and it’s assumed to be more efficient than synchronization which involves
 // locking resources.
 
 public class JavaWithAtomic {
