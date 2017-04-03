@@ -11,7 +11,7 @@ public class Main {
   public static void main(String[] args) {
     Thread threads[] = new Thread[10];
     Thread.State status[] = new Thread.State[10];
-    for (int i = 1; i <= 10; i++) {
+    for (int i = 1; i < 10; i++) {
       threads[i] = new Thread(new Calculator(i));
       if ((i%2) == 0) {
         threads[i].setPriority(Thread.MAX_PRIORITY);
@@ -28,13 +28,16 @@ public class Main {
       }
 
       for (int j=0; j<10; j++){
+        if (threads[j] != null) {
         pw.println("Main : Status of Thread "+j+" : " +
                 threads[j].getState());
         status[j]=threads[j].getState();
-      }
+      }}
 
       for (int k=0; k<10; k++){
-        threads[k].start();
+        if (threads[k] != null && !threads[k].isAlive()) {
+          threads[k].start();
+        }
       }
 
 

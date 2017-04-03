@@ -9,7 +9,7 @@ public class Line implements Shape {
         System.out.println("Creating Line object");
         //adding time delay
         try {
-            Thread.sleep(2000);
+            Thread.sleep(500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

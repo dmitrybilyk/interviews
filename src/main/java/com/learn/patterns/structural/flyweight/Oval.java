@@ -13,7 +13,7 @@ public class Oval implements Shape {
         System.out.println("Creating Oval object with fillTheCashMachine="+f);
         //adding time delay
         try {
-            Thread.sleep(2000);
+            Thread.sleep(500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
