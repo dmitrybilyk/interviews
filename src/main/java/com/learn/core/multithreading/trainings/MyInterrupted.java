@@ -11,14 +11,19 @@ public class MyInterrupted {
       public void run() {
 //        try {
         System.out.println(Thread.currentThread().getName());
+        if (Thread.currentThread().isInterrupted()) {
+          System.out.println("code for interrupted");
+        } else {
+          System.out.println("code for non-interrupted");
+        }
+//        try {
 //          Thread.sleep(3000);
 //        } catch (InterruptedException e) {
-//          e.printStackTrace();
-//          System.out.println("interrupted a sleep");
+//          System.out.println("continue working now");
 //        }
       }
     }, "first");
     thread.start();
-    thread.interrupt();
+//    thread.interrupt();
   }
 }
