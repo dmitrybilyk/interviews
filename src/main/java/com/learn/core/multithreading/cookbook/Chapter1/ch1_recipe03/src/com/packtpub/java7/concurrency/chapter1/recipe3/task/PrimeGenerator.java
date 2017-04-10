@@ -1,7 +1,7 @@
 package com.learn.core.multithreading.cookbook.Chapter1.ch1_recipe03.src.com.packtpub.java7.concurrency.chapter1.recipe3.task;
 
 /**
- *  This class generates prime numbers until is interrumped
+ *  This class generates prime numbers until it's interrupted
  */
 public class PrimeGenerator extends Thread{
 

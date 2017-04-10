@@ -9,7 +9,7 @@ public class Main {
     System.out.println("some work is here by: " + Thread.currentThread().getName());
   }
   public static void main(String[] args) throws InterruptedException {
-    Thread thread = new Thread(new Runnable() {
+    final Thread thread = new Thread(new Runnable() {
       @Override
       public void run() {
         try {

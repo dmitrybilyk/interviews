@@ -15,6 +15,13 @@ public class FileClock implements Runnable {
 	@Override
 	public void run() {
 		for (int i = 0; i < 10; i++) {
+//			if (!Thread.currentThread().isInterrupted()) {
+//				try {
+//					throw new InterruptedException();
+//				} catch (InterruptedException e) {
+//					e.printStackTrace();
+//				}
+//			}
 			System.out.printf("%s\n", new Date());
 			try {
 				// Sleep during one second

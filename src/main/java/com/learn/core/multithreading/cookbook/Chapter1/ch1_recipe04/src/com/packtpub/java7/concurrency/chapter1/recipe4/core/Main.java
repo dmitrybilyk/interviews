@@ -20,7 +20,7 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		// Creates the Runnable object and the Thread to run it
-		FileSearch searcher=new FileSearch("/home/dmitry/dev/learn/concurrencycookbookcode/7881_code","TaskLocalRandom.java");
+		FileSearch searcher=new FileSearch("/home/dmitry/","7.html");
 		Thread thread=new Thread(searcher);
 		
 		// Starts the Thread

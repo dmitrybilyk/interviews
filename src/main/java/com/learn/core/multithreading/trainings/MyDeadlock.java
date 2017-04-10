@@ -5,8 +5,8 @@ package com.learn.core.multithreading.trainings;
  */
 public class MyDeadlock {
     public static void main(String[] args) {
-        Object mutextA = new Object();
-        Object mutextB = new Object();
+        final Object mutextA = new Object();
+        final Object mutextB = new Object();
         new Thread() {
             @Override
             public void run() {
