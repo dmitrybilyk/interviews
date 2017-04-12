@@ -7,7 +7,7 @@ import java.util.Deque;
 
 
 /**
- * Class that review the Event data structure and delete
+ * Class that reviews the Event data structure and deletes
  * the events older than ten seconds
  *
  */

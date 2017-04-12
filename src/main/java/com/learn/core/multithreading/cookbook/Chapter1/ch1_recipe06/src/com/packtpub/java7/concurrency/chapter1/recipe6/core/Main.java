@@ -14,7 +14,7 @@ import java.util.Date;
 public class Main {
 
 	/**
-	 * Main method of the class. Create and star two initialization tasks
+	 * Main method of the class. Create and start two initialization tasks
 	 * and wait for their finish
 	 * @param args
 	 */
