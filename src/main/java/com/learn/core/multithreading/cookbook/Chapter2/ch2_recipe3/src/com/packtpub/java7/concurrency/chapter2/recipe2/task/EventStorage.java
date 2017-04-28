@@ -41,7 +41,7 @@ public class EventStorage {
 				}
 			}
 			storage.add(new Date());
-			System.out.printf("Set: %d",storage.size());
+			System.out.println("Set:" + storage.size());
 			notify();
 	}
 	
@@ -56,7 +56,7 @@ public class EventStorage {
 					e.printStackTrace();
 				}
 			}
-			System.out.printf("Get: %d: %s",storage.size(),((LinkedList<?>)storage).poll());
+			System.out.println("Get: "+storage.size() + ((LinkedList<?>)storage).poll());
 			notify();
 	}
 	
