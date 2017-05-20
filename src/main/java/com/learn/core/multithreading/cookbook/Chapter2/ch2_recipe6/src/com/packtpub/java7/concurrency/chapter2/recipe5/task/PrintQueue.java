@@ -14,8 +14,8 @@ public class PrintQueue {
 	 * With the boolean attribute, we control the fairness of
 	 * the Lock
 	 */
-	private final Lock queueLock=new ReentrantLock(true);
-//	private final Lock queueLock=new ReentrantLock(false);
+//	private final Lock queueLock=new ReentrantLock(true);
+	private final Lock queueLock=new ReentrantLock(false);
 
 	/**
 	 * Method that prints the Job. The printing is divided in two phase two
