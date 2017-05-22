@@ -1,5 +1,7 @@
 package com.learn.core.multithreading.cookbook.Chapter7.ch7_recipe01.src.com.packtpub.java7.concurrency.chapter7.recipe01.executor;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.BlockingQueue;
@@ -55,6 +57,7 @@ public class MyExecutor extends ThreadPoolExecutor {
 	 * This method is called to finish the execution of the Executor immediately. We write statistics
 	 * about the tasks executed in it
 	 */
+	@NotNull
 	@Override
 	public List<Runnable> shutdownNow() {
 		System.out.printf("MyExecutor: Going to immediately shutdown.\n");
