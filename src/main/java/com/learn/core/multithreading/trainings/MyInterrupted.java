@@ -1,6 +1,6 @@
 package com.learn.core.multithreading.trainings;
 
-import org.joda.time.DateTime;
+//import org.joda.time.DateTime;
 
 /**
  * Created by dmitry on 04.04.17.
@@ -27,7 +27,7 @@ public class MyInterrupted {
     }, "first");
     thread.start();
 
-    System.out.println(DateTime.now().dayOfWeek().getMinimumValue());
+//    System.out.println(DateTime.now().dayOfWeek().getMinimumValue());
 //    thread.interrupt();
   }
 }
