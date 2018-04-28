@@ -9,8 +9,8 @@ public class JoinTest
    {
       Thread thread = new Thread(new MyRunnable());
       thread.start();
-//      Thread.sleep(2000);
-//      thread.join();
+      Thread.sleep(2000);
+      thread.join();
       System.out.println("In main");
    }
 }

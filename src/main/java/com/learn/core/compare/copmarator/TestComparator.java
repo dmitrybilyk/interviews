@@ -1,6 +1,8 @@
 package com.learn.core.compare.copmarator;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class TestComparator {
@@ -15,11 +17,11 @@ public class TestComparator {
         humans.add(human3);
         humans.add(human4);
 
-        for(Human human: humans){
-            System.out.println(human.getSurName());
-        }
+//        for(Human human: humans){
+//            System.out.println(human.getSurName());
+//        }
 
-//        Arrays.sort(humans, new ComplexComparator());
+        Collections.sort(humans, new HeightComparator());
 
         System.out.println("After sorting...");
 

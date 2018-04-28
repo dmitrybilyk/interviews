@@ -7,11 +7,11 @@ package com.learn.core.compare.comparable;
  * Time: 16:49
  * To change this template use File | Settings | File Templates.
  */
-public class TestComparable implements Comparable {
+public class BookKeeper implements Comparable {
     int age;
     String name;
 
-    public TestComparable(int i, String alex) {
+    public BookKeeper(int i, String alex) {
         this.age = i;
         this.name = alex;
     }
@@ -33,15 +33,19 @@ public class TestComparable implements Comparable {
     }
 
     public int compareTo(Object o) {
-        if(!(o instanceof TestComparable)){
-             throw new ClassCastException();
-        }
+//        if(!(o instanceof BookKeeper)){
+//             throw new ClassCastException();
+//        }
 
-        int secondAge = ((TestComparable) o).getAge();
-        String secondName = ((TestComparable) o).getName();
+        int secondAge = ((BookKeeper) o).getAge();
+        String secondName = ((BookKeeper) o).getName();
 
 //        if(secondAge == this.age){
-            return this.getName().compareTo(secondName);
+            if (secondAge > this.getAge()) {
+                return -1;
+            } else {
+                return 1;
+            }
 //        }else{
 //            return this.age - secondAge;
 //        }

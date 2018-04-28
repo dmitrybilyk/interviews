@@ -13,6 +13,6 @@ public class HeightComparator implements Comparator{
     public int compare(Object o1, Object o2) {
         int height1 = ((Human)o1).getHeight();
         int height2 = ((Human)o2).getHeight();
-        return height1-height2;
+        return height2-height1;
     }
 }
