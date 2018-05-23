@@ -6,7 +6,8 @@
          version="3.0">
 
     <welcome-file-list>
-        <welcome-file>jqueryinaction/index.jsp</welcome-file>
+        <!--<welcome-file>jqueryinaction/index.jsp</welcome-file>-->
+        <welcome-file>index_scheduler.jsp</welcome-file>
     </welcome-file-list>
 
     <servlet>
@@ -58,6 +59,15 @@
     <servlet-mapping>
         <servlet-name>TestForwardRedirectServlet</servlet-name>
         <url-pattern>/TestForwardRedirectServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SchedulerStartServlet</servlet-name>
+        <servlet-class>com.learn.web.servlets.SchedulerStartServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SchedulerStartServlet</servlet-name>
+        <url-pattern>/SchedulerStartServlet</url-pattern>
     </servlet-mapping>
 
     <servlet>
