@@ -7,8 +7,8 @@ import org.springframework.stereotype.Component;
  * Created by dmitry on 24.01.15.
  */
 @Component
-public class Department implements DepartmentInterface{
-    @Value("fuccck")
+public class DepartmentChild1 implements DepartmentInterface{
+    @Value("fuccck1")
     private String name;
 
     public String getName() {
