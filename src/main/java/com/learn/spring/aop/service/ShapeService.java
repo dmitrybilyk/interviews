@@ -3,6 +3,7 @@ package com.learn.spring.aop.service;
 import com.learn.spring.aop.model.Circle;
 import com.learn.spring.aop.model.Triangle;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 /**
  * Created by IntelliJ IDEA.
@@ -11,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * Time: 16:44
  * To change this template use File | Settings | File Templates.
  */
-
+//@Component
 public class ShapeService {
     private Circle circle;
     private Triangle triangle;

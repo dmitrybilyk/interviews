@@ -1,5 +1,7 @@
 package com.learn.spring.aop.model;
 
+import org.springframework.stereotype.Component;
+
 /**
  * Created by IntelliJ IDEA.
  * User: bilyk
@@ -7,6 +9,7 @@ package com.learn.spring.aop.model;
  * Time: 16:45
  * To change this template use File | Settings | File Templates.
  */
+//@Component
 public class Circle {
     private String name;
 
