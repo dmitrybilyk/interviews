@@ -33,6 +33,7 @@ public class EventTrigger implements ApplicationEventPublisherAware
    public void eventTrigger()
    {
       Course course = new Course();
+      course.setName("testCoursename");
       CourseFullEvent courseFullEvent = new CourseFullEvent(this, course);
       applicationEventPublisher.publishEvent(courseFullEvent);
    }
