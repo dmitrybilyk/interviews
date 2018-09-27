@@ -21,10 +21,10 @@ public class MyAspect {
 
 
 //    @Before("myPointcut()")
-    @Before("theirPointcut()")
-//    @After("execution(public void act())")
+//    @Before("theirPointcut()")
+    @After("execution(public void act())")
     public void printBefore(){
-        System.out.println("around");
+        System.out.println("around2ere");
     }
 //    @Before("execution(public void act())")
 //    public void getNameAdvice(){

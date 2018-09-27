@@ -10,6 +10,6 @@ public class Main {
     public static void main(String[] args) {
         AbstractApplicationContext context = new ClassPathXmlApplicationContext("/spring.autowiring/autowiring-spring.xml");
         Employee employee=(Employee) context.getBean("employee");
-        System.out.println(employee.getDepartment().getName());
+        System.out.println(employee.getDepartmentInterface().getName());
     }
 }

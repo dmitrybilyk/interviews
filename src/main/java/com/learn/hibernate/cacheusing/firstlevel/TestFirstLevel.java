@@ -4,7 +4,13 @@ import com.learn.hibernate.cacheusing.model.Person;
 import com.learn.hibernate.cacheusing.utils.FirstLevelCashHibernateAnnotationUtil;
 import com.learn.hibernate.cacheusing.utils.HibernateAnnotationUtil;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,18 +21,9 @@ import org.hibernate.Transaction;
  */
 public class TestFirstLevel {
     public static void main(String[] args) {
-        Session sessionToSavePerson = FirstLevelCashHibernateAnnotationUtil.getSessionFactory().openSession();
-        Person personToSave = new Person("dima", "bilyk", "Matrosova", "Gorlovka");
-        Transaction transaction = sessionToSavePerson.beginTransaction();
-        sessionToSavePerson.persist(personToSave);
-        transaction.commit();
-        sessionToSavePerson.close();
-
-        Session session = FirstLevelCashHibernateAnnotationUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        Person person = (Person) session.get(Person.class, 1);
-        Person person2 = (Person) session.get(Person.class, 1);
-        Person person3 = (Person) session.get(Person.class, 1);
-        System.out.println(person3.getFirstName());
+        ApplicationContext context = new ClassPathXmlApplicationContext("cacheusing/spring/spring-first-level-cache.xml");
+        PersonDao personDao = (PersonDao) context.getBean("personDao");
+        personDao.doSomething();
+//        LocalSessionFactoryBean sessionFactory = (LocalSessionFactoryBean) context.getBean("sessionFactory");
 }
 }
