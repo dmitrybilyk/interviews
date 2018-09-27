@@ -227,6 +227,12 @@
             <version>1.6.8</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>3.12</version>
+        </dependency>
+
         <!--junit-->
         <dependency>
             <groupId>junit</groupId>
