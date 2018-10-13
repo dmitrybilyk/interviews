@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
  * Created by RUSLAN77 on  30.05.2018 in Ukraine
  */
 @Transactional
-public class PersonDaoImpl implements PersonDao {
+public class PersonDaoImpl implements personDao {
     @Autowired
     private SessionFactory sessionFactory;
     @Override

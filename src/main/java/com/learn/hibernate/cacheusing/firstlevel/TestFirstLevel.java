@@ -22,7 +22,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class TestFirstLevel {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("cacheusing/spring/spring-first-level-cache.xml");
-        PersonDao personDao = (PersonDao) context.getBean("personDao");
+        personDao personDao = (personDao) context.getBean("personDao");
         personDao.doSomething();
 //        LocalSessionFactoryBean sessionFactory = (LocalSessionFactoryBean) context.getBean("sessionFactory");
 }
