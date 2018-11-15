@@ -16,13 +16,15 @@ public class MyRunnableTest {
         List<Thread> threads = new ArrayList<Thread>();
         // We will create 500 threads
         for (int i = 0; i < 500; i++) {
-            Runnable task = new MyRunnable(10000000L + i);
-            Thread worker = new Thread(task);
+//            Runnable task = new MyRunnable(10000000L + i);
+            Thread worker = new Thread(() -> {
+                System.out.println(10000000L);});
             // We can set the name of the thread
             worker.setName(String.valueOf(i));
             // Start the thread, never call method run() direct
             worker.start();
             // Remember the thread for later usage
+            threads.forEach(System.out::println);
             threads.add(worker);
         }
         int running = 0;
