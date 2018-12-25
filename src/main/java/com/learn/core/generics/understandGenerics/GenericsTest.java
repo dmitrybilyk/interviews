@@ -43,10 +43,10 @@ public class GenericsTest {
   public static void main(String[] args) {
     List<Pet> src = new ArrayList<>(30);
     src.add(new Kitty());
-    src.add(new Doge());
-    src.add(new Pet());
+//    src.add(new Doge());
+//    src.add(new Pet());
 
-    List<Pet> dest = new ArrayList<Pet>(30);
+    List<Pet> dest = new ArrayList<>(30);
     dest.add(new Kitty());
     dest.add(new Kitty());
     dest.add(new Kitty());
@@ -55,28 +55,14 @@ public class GenericsTest {
       p.call();
     }
 
-    List<Number> intList = new ArrayList<Number>();
-    intList.add(new Integer(10));
-    intList.add(new Float(10.0f));
+
   }
 
 
   public static <T> void copy(List<? super T> dest, List<? extends T> src) {
     int srcSize = src.size();
-    if (srcSize > dest.size())
-      throw new IndexOutOfBoundsException("Source does not fit in dest");
 
-    if (srcSize < 10 ||
-            (src instanceof RandomAccess && dest instanceof RandomAccess)) {
       for (int i=0; i<srcSize; i++)
         dest.set(i, src.get(i));
-    } else {
-      ListIterator<? super T> di=dest.listIterator();
-      ListIterator<? extends T> si=src.listIterator();
-      for (int i=0; i<srcSize; i++) {
-        di.next();
-        di.set(si.next());
-      }
-    }
   }
 }
