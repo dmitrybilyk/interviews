@@ -17,6 +17,7 @@ public class TestSetRemoveAll {
     Set<String> setToDelete = new HashSet<>();
     setToDelete.add("one");
     setToDelete.add("two");
+    setToDelete.iterator().next();
 
     set.removeAll(setToDelete);
     System.out.println(setToDelete.size());

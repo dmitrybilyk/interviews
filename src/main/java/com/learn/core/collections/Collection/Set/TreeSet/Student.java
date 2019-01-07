@@ -3,7 +3,7 @@ package com.learn.core.collections.Collection.Set.TreeSet;
 /**
  * Created by bid on 8/21/14.
  */
-public class Student
+public class Student implements Comparable<Student>
 {
    private String name;
 
@@ -15,6 +15,11 @@ public class Student
    public void setName(final String name)
    {
       this.name = name;
+   }
+
+   @Override
+   public int compareTo(Student o) {
+      return this.getName().compareTo(o.getName());
    }
 
 //   @Override
