@@ -20,6 +20,7 @@
     <properties>
         <spring-version>4.0.0.RELEASE</spring-version>
         <spring.security.version>3.2.3.RELEASE</spring.security.version>
+        <slf4j.version>1.7.7</slf4j.version>
     </properties>
 
     <dependencies>
@@ -343,8 +344,18 @@
         <!--slf4j-->
         <dependency>
             <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
-            <version>1.5.6</version>
+            <version>${slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jul-to-slf4j</artifactId>
+            <version>${slf4j.version}</version>
         </dependency>
 
         <!--mysql-->
@@ -414,6 +425,11 @@
             <groupId>commons-codec</groupId>
             <artifactId>commons-codec</artifactId>
             <version>1.9</version>
+        </dependency>
+        <dependency>
+            <groupId>777.com.intellij</groupId>
+            <artifactId>annotations</artifactId>
+            <version>12.0</version>
         </dependency>
 
 

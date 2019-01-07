@@ -12,7 +12,7 @@ import org.joda.time.DateTimeConstants;
 public class EveryNMinutesPeriodicity implements Periodicity {
 
   public static final String INTERVAL_MINUTES = "intervalMinutes";
-  public static final int INTERVAL_MINUTES_DEFAULT = 10;
+  public static final int INTERVAL_MINUTES_DEFAULT = 1;
 
   private int intervalMinutes = INTERVAL_MINUTES_DEFAULT;
 
@@ -23,7 +23,7 @@ public class EveryNMinutesPeriodicity implements Periodicity {
 
   @Override
   public long getPeriodInMillis() {
-    return DateTimeConstants.MILLIS_PER_MINUTE * (long) intervalMinutes;
+    return DateTimeConstants.MILLIS_PER_MINUTE * (long) intervalMinutes / 4;
   }
 
   @Override
