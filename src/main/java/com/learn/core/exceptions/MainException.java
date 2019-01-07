@@ -17,7 +17,7 @@ public class MainException {
 //        try {
 ////            System.out.println("test");
         try {
-            throwException();
+            throwException("some message to send");
         } catch (TestException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }
@@ -27,11 +27,11 @@ public class MainException {
 //        } finally {
 //            System.out.println("testFinally");
 //        }
-        throwNullPointerException();
+//        throwNullPointerException();
     }
     
-    static void throwException() throws TestException {
-        throw new TestException();
+    static void throwException(String s) throws TestException {
+        throw new TestException(s);
     }
 
     static void throwNullPointerException(){

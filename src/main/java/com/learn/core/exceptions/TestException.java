@@ -22,11 +22,11 @@ public class TestException extends Exception {
     public TestException() {
     }
 
-    @Override
-    public void printStackTrace() {
-//        super.printStackTrace();
-        System.out.println("test exception print stack trace");
-    }
+//    @Override
+//    public void printStackTrace() {
+////        super.printStackTrace();
+//        System.out.println("test exception print stack trace");
+//    }
 
     public TestException(String message) {
         super(message);
