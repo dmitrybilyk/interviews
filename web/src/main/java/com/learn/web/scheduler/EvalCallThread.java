@@ -52,8 +52,12 @@ public class EvalCallThread implements Runnable {
         logger.error("Error logging in as user \"{}\"", login, exc);
         return;
       }
+      logger.info("finalizing surveys");
+      Thread.sleep(2000);
 //      evaluationManager.finalizeSurveys(evaluationIgnoreAge, loginExternalKey);
 //      ScorecardSecurityUtils.logout();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
     } finally {
       logger.info("Exiting from eval lookup task");
     }

@@ -132,7 +132,8 @@ public class Scheduler {
 //    if (running) {
 //      threadPool.getQueue().clear();
 //    }
-    tasks.add(new EvalCallLookupScheduledTask());
+    EvalCallLookupScheduledTask e = new EvalCallLookupScheduledTask();
+    tasks.add(e);
     for (ScheduledTask task : tasks) {
       threadPool.scheduleAtFixedRate(task, task.getInitialDelay(), task.getPeriodInMillis(), TimeUnit.MILLISECONDS);
     }

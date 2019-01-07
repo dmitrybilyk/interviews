@@ -30,10 +30,10 @@ public class EvalCallLookupScheduledTask extends PeriodicalScheduledTask {
 
   @Override
   public void run() {
-    if (lastExecution != null && !lastExecution.isDone()) {
-      logger.info("EvalCallLookup task is already running, skipping this scheduled run.");
-      return;
-    }
+//    if (lastExecution != null && !lastExecution.isDone()) {
+//      logger.info("EvalCallLookup task is already running, skipping this scheduled run.");
+//      return;
+//    }
     EvalCallThread actualTask = new EvalCallThread(evaluationIgnoreAge, loginExternalKey, login, password, logger);
     lastExecution = executor.submit(actualTask);
   }
