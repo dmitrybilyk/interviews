@@ -1,6 +1,7 @@
 package com.learn.web.gwt.client;
 
 import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.user.client.ui.Frame;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootPanel;
 
@@ -10,6 +11,8 @@ import com.google.gwt.user.client.ui.RootPanel;
 public class LearnGwt implements EntryPoint {
     @Override
     public void onModuleLoad() {
-        RootPanel.get().add(new Label("Test label"));
+        Frame frame = new Frame();
+        frame.setUrl("http://localhost:8081/player/mvc/get");
+        RootPanel.get().add(frame);
     }
 }
