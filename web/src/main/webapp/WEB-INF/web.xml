@@ -7,7 +7,7 @@
 
     <welcome-file-list>
         <!--<welcome-file>jqueryinaction/index.jsp</welcome-file>-->
-        <welcome-file>index_scheduler.jsp</welcome-file>
+        <welcome-file>LearnGwt.jsp</welcome-file>
     </welcome-file-list>
 
     <servlet>
