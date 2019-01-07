@@ -8,6 +8,10 @@ public class WorkerInterfaceTest {
 
     public static void main(String [] args) {
 
+        for (int i = 0; i < 9; i++) {
+            System.out.println(i);
+        }
+
       // вызов метода doSomeWork через анонимный класс
       // (классический способ)
       execute(new WorkerInterface() {
