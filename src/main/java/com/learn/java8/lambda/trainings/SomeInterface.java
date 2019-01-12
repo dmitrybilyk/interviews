@@ -14,7 +14,7 @@ public interface SomeInterface {
     public static void main(String[] args) {
 //        SomeInterface someInterface = new SomeInterface() {
 //            @Override
-//            public void someMethod() {
+//            public void someStaticMethod() {
 //                System.out.println("2");
 //            }
 //        };
