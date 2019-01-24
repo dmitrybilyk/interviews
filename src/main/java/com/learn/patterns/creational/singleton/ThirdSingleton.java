@@ -8,6 +8,13 @@ package com.learn.patterns.creational.singleton;
  * To change this template use File | Settings | File Templates.
  */
 
+//Calling getSingleton() references the inner class, triggering the JVM to load & initialize it.
+// This is thread-safe, since classloading uses locks.
+//
+//        For subsequent calls, the JVM resolves our already-loaded inner class & returns the existing singleton.
+// Thus — a cache.
+//
+//        And thanks to the magic of JVM optimizations, a very very efficient one.
 //Решили проблему с ленивой инициализацией, но осталась проблема с обработкой ошибок в конструкторе
 public class ThirdSingleton {
     private ThirdSingleton(){
