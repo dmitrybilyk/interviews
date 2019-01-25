@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/gwt/samples/Showcase/Showcase.iml" filepath="$PROJECT_DIR$/gwt/samples/Showcase/Showcase.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../../interviews/gwt/gwttoknow/gwttoknow.iml" filepath="$PROJECT_DIR$/../../interviews/gwt/gwttoknow/gwttoknow.iml" />
       <module fileurl="file://$PROJECT_DIR$/interview.iml" filepath="$PROJECT_DIR$/interview.iml" />
-      <module fileurl="file://$PROJECT_DIR$/src/main/main.iml" filepath="$PROJECT_DIR$/src/main/main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/web/src/main/main1.iml" filepath="$PROJECT_DIR$/web/src/main/main1.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ibatistoknow/src/main/main2.iml" filepath="$PROJECT_DIR$/ibatistoknow/src/main/main2.iml" />
-      <module fileurl="file://$PROJECT_DIR$/target/target.iml" filepath="$PROJECT_DIR$/target/target.iml" />
-      <module fileurl="file://$PROJECT_DIR$/src/test/test.iml" filepath="$PROJECT_DIR$/src/test/test.iml" />
       <module fileurl="file://$PROJECT_DIR$/web/web.iml" filepath="$PROJECT_DIR$/web/web.iml" />
-      <module fileurl="file://$PROJECT_DIR$/gwt-maven/web/web (1) (de.hpfsc).iml" filepath="$PROJECT_DIR$/gwt-maven/web/web (1) (de.hpfsc).iml" />
     </modules>
   </component>
 </project>
