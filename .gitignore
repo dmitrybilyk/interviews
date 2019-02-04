@@ -3,3 +3,6 @@
 .project
 .settings
 .iml
+.idea/**
+interview.iml
+web/web.iml
