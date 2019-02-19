@@ -8,8 +8,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class Main {
     public static void main(String[] args) {
-            ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.factorymethod/spring-factorymethod.xml");
-            SomeClassWithPropertyEditors someBean = (SomeClassWithPropertyEditors) applicationContext.getBean("someBean");
-            System.out.println(someBean.getName());
+            ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.custompropertyeditor/property-editor-context.xml");
+            SomeClassWithPropertyEditors2 someBean = (SomeClassWithPropertyEditors2) applicationContext.getBean("domainNameTest2");
+            System.out.println(someBean.getSomeClassWithPropertyEditors().getName());
     }
 }
