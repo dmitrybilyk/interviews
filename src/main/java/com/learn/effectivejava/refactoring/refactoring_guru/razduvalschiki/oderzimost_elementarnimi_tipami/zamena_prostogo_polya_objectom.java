@@ -1,6 +1,6 @@
 package com.learn.effectivejava.refactoring.refactoring_guru.razduvalschiki.oderzimost_elementarnimi_tipami;
 
-import com.sun.corba.se.impl.oa.toa.TOA;
+//import com.sun.corba.se.impl.oa.toa.TOA;
 
 /**
  * Created by Dimon on 05.05.2016.
