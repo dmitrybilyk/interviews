@@ -1,5 +1,6 @@
 package com.learn.core.collections.Collection.Set.LinkedHashSet;
 
+import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -10,7 +11,7 @@ public class LinkedHashSetMain
 {
    public static void main(String[] args)
    {
-      Set<String> linkedHashSet = new LinkedHashSet<String>();
+      LinkedHashSet<String> linkedHashSet = new LinkedHashSet<String>();
       linkedHashSet.add("First");
       linkedHashSet.add("Second");
       linkedHashSet.add("Third");
@@ -21,9 +22,9 @@ public class LinkedHashSetMain
       System.out.println(linkedHashSet);
 
 
-      for (String s : linkedHashSet)
-      {
-         System.out.println(s);
+      Iterator iterator = linkedHashSet.iterator();
+      while(iterator.hasNext()) {
+         System.out.println(iterator.next());
       }
 
    }

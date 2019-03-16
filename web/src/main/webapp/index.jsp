@@ -9,36 +9,12 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-  <head>
-    <title></title>
-  </head>
-  <body>
-       <a href="${pageContext.request.contextPath}/TestForwardRedirectServlet?param=redirect">Redirect</a>
-       <a href="${pageContext.request.contextPath}/TestForwardRedirectServlet?param=forward">Forward</a>
-       <a href="${pageContext.request.contextPath}/AnnotatedServlet">To Annotated servlet</a>
-       <a href="${pageContext.request.contextPath}/RequestDispatcherAnnotatedServlet">To Dispatcher Annotated servlet</a>
-       <a href="${pageContext.request.contextPath}/SessionTrackingAnnotatedServlet">Init Student</a>
-       <a href="${pageContext.request.contextPath}/CustomRuntimeExceptionServlet">Throw custom exception</a>
-       <a href="${pageContext.request.contextPath}/LongRunningServlet">Long running servlet</a>
-       <a href="${pageContext.request.contextPath}/AsyncLongRunningServlet">Async Long running servlet</a>
-       <a href="${pageContext.request.contextPath}/RedirectToUploadFilePageServlet">To upload page</a>
-       <a href="${pageContext.request.contextPath}/TestServletContextServlet">ContextTest</a>
-       <a href="${pageContext.request.contextPath}/employee">go to pagination test</a>
-
-       <%--Spring mvc--%>
-       <a href="${pageContext.request.contextPath}/mvc/welcome">Go to welcome controller</a>
-
-
-  "${pageContext.request.contextPath}/mvc/testMVC"
-  <c:out value="${returnedParam}"/>
-  <c:out value="${servletContext.returnedParam}"/>
-
-       <c:if test="${student ne null}">
-           <c:out value="${student}"/>
-       </c:if>
-       <c:if test="${student eq null}">
-           <c:out value="student is null"/>
-       </c:if>
-
-  </body>
+<head>
+    <title>GWT Title</title>
+    <script type="text/javascript" language="javascript"
+            src="LearnGwt/LearnGwt.nocache.js"></script>
+</head>
+<body>
+fdfsdfsdfsf
+</body>
 </html>

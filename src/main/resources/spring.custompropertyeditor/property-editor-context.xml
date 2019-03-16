@@ -5,22 +5,21 @@
        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
     <!-- Declare our bean -->
-    <bean id="domainNameTest" class="com.learn.spring.propertyeditorsupport.DomainName">
-        <property name="pattern">
-            <value>[a-zA-Z0-9\.]+(com|co.uk)</value>
-        </property>
+    <!--<bean id="domainNameTest" class="com.learn.spring.propertyeditors.SomeClassWithPropertyEditors">-->
+        <!--<property name="name" value="Dima"/>-->
+    <!--</bean>-->
+    <!-- Declare our bean -->
+    <bean id="domainNameTest2" class="com.learn.spring.propertyeditors.SomeClassWithPropertyEditors2">
+        <property name="someClassWithPropertyEditors" value="someValue"/>
     </bean>
 
     <!-- The pattern property above won't take a string so we -->
     <!-- need to declare one of these -->
-    <bean name="customEditorConfigurer"
-          class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+    <bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">
         <property name="customEditors">
             <map>
-                <entry key="java.util.regex.Pattern">
-                    <bean class="com.learn.spring.propertyeditorsupport.RegexPropertyEditor" />
-                </entry>
-                <!-- TODO Add other entries here when required -->
+                <entry key="com.learn.spring.propertyeditors.SomeClassWithPropertyEditors"
+                       value="com.learn.spring.propertyeditors.SomeClassPropertyEditor"/>
             </map>
         </property>
     </bean>

@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="web (1) (de.hpfsc):war">
-    <output-path>$PROJECT_DIR$/gwt-maven/web/target</output-path>
-    <root id="archive" name="web-1.0.0-SNAPSHOT.war">
-      <element id="artifact" artifact-name="web (1) (de.hpfsc):war exploded" />
-    </root>
-  </artifact>
-</component>

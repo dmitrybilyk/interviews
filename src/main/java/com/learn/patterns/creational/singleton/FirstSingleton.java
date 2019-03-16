@@ -17,9 +17,19 @@ public class FirstSingleton {
 
     public static FirstSingleton getInstance(){
         if(instance==null){
-            return new FirstSingleton();
+            instance = new FirstSingleton();
+            return instance;
         }else{
             return instance;
         }
+    }
+
+}
+
+class ForMain {
+    public static void main(String[] args) {
+//        FirstSingleton firstSingleton = new FirstSingleton();
+        System.out.println(FirstSingleton.getInstance());
+        System.out.println(FirstSingleton.getInstance());
     }
 }

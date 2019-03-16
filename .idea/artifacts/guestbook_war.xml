@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="guestbook:war">
-    <output-path>$PROJECT_DIR$/appengine-guestbook-java-master/target</output-path>
-    <root id="archive" name="site-1.0-SNAPSHOT.war">
-      <element id="artifact" artifact-name="guestbook:war exploded" />
-    </root>
-  </artifact>
-</component>

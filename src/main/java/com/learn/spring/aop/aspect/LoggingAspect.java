@@ -2,6 +2,7 @@ package com.learn.spring.aop.aspect;
 
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 /**
  * Created by IntelliJ IDEA.
@@ -12,8 +13,9 @@ import org.aspectj.lang.annotation.Before;
  */
 
 @Aspect
+@EnableAspectJAutoProxy
 public class LoggingAspect {
-    @Before("execution(public String getName())")
+    @Before("within(@com.learn.spring.aop.model.Circle *)")
     public void LoggingAdvice(){
         System.out.println("Advice run. Get method called");
     }

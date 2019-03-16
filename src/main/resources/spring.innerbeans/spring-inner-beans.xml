@@ -13,7 +13,7 @@
     <bean class="com.learn.spring.innerbeans.SomeClass" id="someClass" >
         <property name="name" value="Dima" />
         <property name="someOtherClass">
-            <bean class="com.learn.spring.innerbeans.SomeOtherClass" id="someOtherClass">
+            <bean class="com.learn.spring.innerbeans.SomeOtherClass">
                 <property name="name2" value="Dima2" />
             </bean>
         </property>

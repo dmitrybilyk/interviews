@@ -26,7 +26,7 @@ public class TreeSetMain
 
       System.out.println("--------------------------------------------------------------------------");
 
-      Set<Student> students = new TreeSet<Student>(new StudentComparator());
+      Set<Student> students = new TreeSet<Student>();
       Student student = new Student();
       student.setName("Dima");
       Student student2 = new Student();

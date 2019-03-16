@@ -16,10 +16,10 @@ public class Task implements Runnable {
 		while (true) {
 			// Generate a random number a calculate 1000 divide by that random number
 			result=1000/((int)(random.nextDouble()*1000));
-			System.out.printf("%s : %f\n",Thread.currentThread().getId(),result);
+			System.out.printf(Thread.currentThread().getId() + " --- " + result);
 			// Check if the Thread has been interrupted
 			if (Thread.currentThread().isInterrupted()) {
-				System.out.printf("%d : Interrupted\n",Thread.currentThread().getId());
+				System.out.printf("%d : Interrupted",Thread.currentThread().getId());
 				return;
 			}
 		}

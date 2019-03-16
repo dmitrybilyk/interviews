@@ -6,7 +6,8 @@ import org.springframework.context.event.ContextRefreshedEvent;
 
 public class RefreshListener implements ApplicationListener {
 public void onApplicationEvent(ApplicationEvent event) {
-   ((ContextRefreshedEvent) event).getApplicationContext().getBean("eventTrigger").toString();
-    System.out.println("fdsfsdf");
+    if (event instanceof CourseFullEvent) {
+        System.out.println(((CourseFullEvent) event).getCourse().getName()+ 8);
+    }
 }
 }

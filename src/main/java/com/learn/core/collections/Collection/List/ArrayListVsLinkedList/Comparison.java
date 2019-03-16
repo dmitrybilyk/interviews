@@ -37,7 +37,8 @@ public class Comparison
 
    private static String checkTheInsertToBegin(List<String> list){
       Date startLinked = new Date();
-      list.add(0, "SomeAddedToBeginingValue");
+//      list.add(0, "SomeAddedToBeginingValue");
+      list.remove("SomeValue1");
       Date finishLinked = new Date();
       long itTook = finishLinked.getTime() - startLinked.getTime();
 

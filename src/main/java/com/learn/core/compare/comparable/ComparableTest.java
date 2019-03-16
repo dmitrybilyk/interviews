@@ -14,32 +14,32 @@ import java.util.List;
 public class ComparableTest {
     public static void main(String [] args){
 
-        TestComparable testComparable1 = new TestComparable(188, "rlex");
-        TestComparable testComparable2 = new TestComparable(1977, "Aalex");
-        TestComparable testComparable3 = new TestComparable(191, "Man");
-        TestComparable testComparable4 = new TestComparable(250, "Man");
+        BookKeeper bookKeeper1 = new BookKeeper(188, "rlex");
+        BookKeeper bookKeeper2 = new BookKeeper(1977, "Aalex");
+        BookKeeper bookKeeper3 = new BookKeeper(191, "Man");
+        BookKeeper bookKeeper4 = new BookKeeper(250, "Man");
 
 
-        List<TestComparable> testComparableList = new ArrayList<TestComparable>();
-        testComparableList.add(testComparable1);
-        testComparableList.add(testComparable2);
-        testComparableList.add(testComparable3);
-        testComparableList.add(testComparable4);
+        List<BookKeeper> bookKeeperList = new ArrayList<BookKeeper>();
+        bookKeeperList.add(bookKeeper1);
+        bookKeeperList.add(bookKeeper2);
+        bookKeeperList.add(bookKeeper3);
+        bookKeeperList.add(bookKeeper4);
 
-        Collections.sort(testComparableList);
+        Collections.sort(bookKeeperList);
 
-        for (TestComparable testComparable : testComparableList) {
-            System.out.println(testComparable.getName());
-            System.out.println(testComparable.getAge());
+        for (BookKeeper bookKeeper : bookKeeperList) {
+//            System.out.println(bookKeeper.getName());
+            System.out.println(bookKeeper.getAge());
         }
 
-        if(testComparable1.compareTo(testComparable2)>0){
-            System.out.println("first grater then second");
-        }else if(testComparable1.compareTo(testComparable2)<0){
-            System.out.println("second grate then first");
-        }else{
-            System.out.println("They are equal!");
-        }
+//        if(bookKeeper1.compareTo(bookKeeper2)>0){
+//            System.out.println("first grater then second");
+//        }else if(bookKeeper1.compareTo(bookKeeper2)<0){
+//            System.out.println("second grate then first");
+//        }else{
+//            System.out.println("They are equal!");
+//        }
 
     }
 }

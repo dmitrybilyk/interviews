@@ -6,8 +6,6 @@ import com.learn.testing.complextest.model.TestedObject;
 import com.learn.testing.complextest.service.api.CheckingService;
 import com.learn.testing.complextest.service.impl.TestedObjectServiceImpl;
 import com.learn.testing.complextest.utils.TestedObjectUtils;
-import com.learn.testing.mockito.cofeemaschineexample.data.Portion;
-import com.sun.org.apache.xalan.internal.xsltc.compiler.util.VoidType;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="nikitka:war">
-    <output-path>$PROJECT_DIR$/nikitas-site/target</output-path>
-    <root id="archive" name="site-1.0-SNAPSHOT.war">
-      <element id="artifact" artifact-name="nikitka:war exploded" />
-    </root>
-  </artifact>
-</component>
