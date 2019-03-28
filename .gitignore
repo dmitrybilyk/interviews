@@ -5,4 +5,5 @@
 .iml
 .idea/**
 interview.iml
-web/web.iml
+web/web.iml.iml
+./idea
