@@ -24,6 +24,12 @@
     </properties>
 
     <dependencies>
+
+        <dependency>
+            <groupId>com.twilio.sdk</groupId>
+            <artifactId>twilio</artifactId>
+            <version>7.20.0</version>
+        </dependency>
         <!-- https://mvnrepository.com/artifact/javax.annotation/jsr250-api -->
         <dependency>
             <groupId>javax.annotation</groupId>
