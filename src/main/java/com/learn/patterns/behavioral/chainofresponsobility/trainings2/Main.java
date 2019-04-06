@@ -1,11 +1,11 @@
 package com.learn.patterns.behavioral.chainofresponsobility.trainings2;
 
-import com.twilio.Twilio;
-
-import com.twilio.Twilio;
-import com.twilio.base.ResourceSet;
-import com.twilio.rest.api.v2010.account.Message;
-import com.twilio.type.PhoneNumber;
+//import com.twilio.Twilio;
+//
+//import com.twilio.Twilio;
+//import com.twilio.base.ResourceSet;
+//import com.twilio.rest.api.v2010.account.Message;
+//import com.twilio.type.PhoneNumber;
 /**
  * Created by dik81 on 04.04.19.
  */
