@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap  PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="address">
+
+    <typeAlias alias="ADDRESS" type="com.learn.ibatis.UserAddress" />
+
+    <resultMap id="userAddressResultMap" class="ADDRESS">
+        <result property="id" column="ID" />
+        <result property="city" column="CITY" />
+        <result property="street" column="STREET" />
+        <result property="number" column="NUMBER" />
+    </resultMap>
+
+    <insert id="addUserAddress" parameterClass="com.learn.ibatis.UserAddress">
+        INSERT INTO ADDRESS (ID,CITY,STREET,NUMBER)
+        VALUES(#id#,#city#,#street#,#number#);
+    </insert>
+
+    <select id="getUserAddressById" parameterClass="java.lang.Integer" resultMap="userResultMap">
+        SELECT * FROM ADDRESS WHERE ID = #value#;
+    </select>
+
+    <select id="changeUserAddress" parameterClass="com.learn.ibatis.UserAddress">
+        UPDATE ADDRESS SET CITY = #city#, STREET = #street#, NUMBER = #number# WHERE ID = #id#;
+    </select>
+
+    <select id="getAllAddresses"  resultMap="userResultMap" resultClass="java.util.List">
+        SELECT * FROM ADDRESS;
+    </select>
+</sqlMap>
+
+
+

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap  PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd"> 
+<sqlMap namespace="user"> 
+
+	<typeAlias alias="USER" type="com.learn.ibatis.UserTEO" />
+
+	<resultMap id="userResultMap" class="USER">
+		<result property="id" column="ID" />
+  		<result property="name" column="NAME" />
+  		<result property="email" column="EMAIL" />
+  		<result property="password" column="PASSWORD" />
+  		<result property="address.id" column="ADDRESS_ID" jdbcType="INTEGER"/>
+  		<result property="address.city" column="CITY" jdbcType="VARCHAR"/>
+  		<result property="address.street" column="STREET" jdbcType="VARCHAR"/>
+  		<result property="address.number" column="NUMBER" jdbcType="INTEGER"/>
+	</resultMap>
+	
+	<select id="getUserById" parameterClass="java.lang.Integer" resultMap="userResultMap">
+		  SELECT * FROM USERINFO WHERE ID = #value#
+	</select>
+
+	<select id="getUserByEmail" parameterClass="java.lang.String" resultMap="userResultMap">
+		SELECT * FROM USERINFO WHERE EMAIL = #value#
+	</select>
+
+	<select id="getAllUsers" resultMap="userResultMap" resultClass="java.util.List">
+		SELECT * FROM USERINFO INNER JOIN ADDRESS ON ADDRESS.ID = USERINFO.ADDRESS_ID;
+	</select>
+	
+	<select id="getMaxId" resultClass="java.lang.Integer">
+		  SELECT MAX(ID) FROM USERINFO
+	</select>
+	
+	<insert id="addUser" parameterClass="USER">
+		INSERT INTO USERINFO (ID,NAME,EMAIL,PASSWORD,ADDRESS_ID)
+		 VALUES(#id#,#name#,#email#,#password#,#address#);
+	</insert>
+	
+	<delete id="deleteUserById" parameterClass="java.lang.Integer">
+		  DELETE FROM USERINFO WHERE ID = #value#
+	</delete>
+	
+</sqlMap>
