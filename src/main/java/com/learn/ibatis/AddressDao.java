@@ -10,6 +10,6 @@ import java.util.List;
 public interface AddressDao {
     public UserAddress addUserAddress (UserAddress userAddress, SqlMapClient sqlMapClient);
     public UserAddress getUserAddressById (Integer id, SqlMapClient sqlMapClient);
-    public void changeUserAddress (Integer id, SqlMapClient sqlMapClient);
+    public UserAddress updateUserAddress(UserAddress userAddress, SqlMapClient sqlMapClient);
     public List<UserAddress> getAllAddresses (SqlMapClient sqlMapClient);
 }

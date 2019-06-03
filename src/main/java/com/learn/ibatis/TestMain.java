@@ -7,39 +7,51 @@ import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import java.io.Reader;
 import java.util.List;
 
-public class TestMain
-{
-    public static void main(String[] args) throws Exception
-    {
+public class TestMain {
+    public static void main(String[] args) throws Exception {
         //Initialize dao
-        UserDao manager = new UserDaoIbatis();
- 
+        UserDao userDao = new UserDaoIbatis();
+        AddressDao addressDao = new AddressDaoIbatis();
+
         //Create the SQLMapClient
         Reader reader = Resources.getResourceAsReader("ibatis/sql-maps-config.xml");
         SqlMapClient sqlmapClient = SqlMapClientBuilder.buildSqlMapClient(reader);
- 
+
+
+        UserAddress userAddress2 = new UserAddress();
+     //   userAddress2.setId(5);
+        userAddress2.setCity("Kharkiv");
+        userAddress2.setNumber(88);
+        userAddress2.setStreet("Tankopiya");
+
+
+
+        addressDao.addUserAddress(userAddress2, sqlmapClient);
         //Create a new user to persist
 
         UserTEO user = new UserTEO();
-        user.setId(1);
-        user.setName("DemoUser");
-        user.setPassword("password");
-        user.setEmail("demo-user@howtodoinjava.com");
-        UserAddress userAddress = new UserAddress();
-        userAddress.setId(1);
-        user.setAddress(userAddress);
- 
-        //Add the user
-        manager.addUser(user, sqlmapClient);
+        user.setName("Petya");
+        user.setEmail("Petya7@gmail.com");
+        user.setPassword("Petya777");
+        user.setAddress(addressDao.getUserAddressById(2, sqlmapClient));
+        userDao.addUser(user, sqlmapClient);
 
-        List<UserTEO> listAllUsers = manager.getAllUsers(sqlmapClient);
-        for ( UserTEO listUser: listAllUsers){
-            System.out.print(listUser.getId()+"   ");
-            System.out.print(listUser.getName()+"  ");
-            System.out.println(listUser.getEmail());
+      //  user.getAddress().setCity("Poltava");
+        addressDao.updateUserAddress(user.getAddress(), sqlmapClient);
+
+
+        List<UserTEO> listAllUsers = userDao.getAllUsers(sqlmapClient);
+        for (UserTEO listUser : listAllUsers) {
+            System.out.print(listUser.getId() + "   ");
+            System.out.print(listUser.getName() + "  ");
+            System.out.print(listUser.getEmail() + "  ");
+            System.out.println(listUser.getAddress().getCity());
         }
 
 
+    }
+
+}
 
 
 
@@ -55,5 +67,3 @@ public class TestMain
 
         //Lets delete the user
 //       manager.getEmailByUserId().deleteUserById(1, sqlmapClient);
-    }
-}

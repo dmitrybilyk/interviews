@@ -15,11 +15,12 @@ public class UserDaoIbatis implements UserDao
 	public UserTEO addUser(UserTEO user, SqlMapClient sqlmapClient) {
 		try
 		{
-			Integer id = (Integer)sqlmapClient.queryForObject("user.getMaxId");
-			id = id == null ? 1 : id + 1;
-			user.setId(id);
+//			Integer id = (Integer)sqlmapClient.queryForObject("user.getMaxId");
+//			id = id == null ? 1 : id + 1;
+//			user.setId(id);
 			sqlmapClient.insert("user.addUser", user);
-			user = getUserById(id, sqlmapClient);
+
+			//user = getUserById(id, sqlmapClient);
 			return user;
 		}
 		catch(Exception e)

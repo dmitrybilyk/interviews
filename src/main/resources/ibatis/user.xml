@@ -33,7 +33,7 @@
 	
 	<insert id="addUser" parameterClass="USER">
 		INSERT INTO USERINFO (ID,NAME,EMAIL,PASSWORD,ADDRESS_ID)
-		 VALUES(#id#,#name#,#email#,#password#,#address#);
+		 VALUES(#id#,#name#,#email#,#password#,#address.id#);
 	</insert>
 	
 	<delete id="deleteUserById" parameterClass="java.lang.Integer">

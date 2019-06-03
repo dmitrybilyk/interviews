@@ -16,5 +16,6 @@
       </transactionManager>
     
     <sqlMap resource="ibatis/user.xml"/>
+    <sqlMap resource="ibatis/address.xml"/>
 
 </sqlMapConfig>

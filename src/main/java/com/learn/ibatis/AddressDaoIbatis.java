@@ -2,6 +2,7 @@ package com.learn.ibatis;
 
 import com.ibatis.sqlmap.client.SqlMapClient;
 
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -10,21 +11,57 @@ import java.util.List;
 public class AddressDaoIbatis implements AddressDao {
     @Override
     public UserAddress addUserAddress(UserAddress userAddress, SqlMapClient sqlMapClient) {
-        return null;
+
+
+    try
+    {
+        sqlMapClient.insert("address.addUserAddress", userAddress);
+        return userAddress;
     }
+    catch(Exception e)
+    {
+        e.printStackTrace();
+    }
+    return null;
+
+}
 
     @Override
     public UserAddress getUserAddressById(Integer id, SqlMapClient sqlMapClient) {
-        return null;
+    try
+    {
+        UserAddress userAddress = (UserAddress)sqlMapClient.queryForObject("address.getUserAddressById", id);
+        return userAddress;
     }
-
+    catch(Exception e)
+    {
+        e.printStackTrace();
+    }
+    return null;
+}
     @Override
-    public void changeUserAddress(Integer id, SqlMapClient sqlMapClient) {
-
-    }
+    public UserAddress updateUserAddress(UserAddress userAddress, SqlMapClient sqlMapClient) {
+     try
+     {
+         sqlMapClient.update("address.updateUserAddress", userAddress);
+         return userAddress;
+     }
+     catch (Exception e)
+     {
+           e.printStackTrace();
+     }
+     return null;
+}
 
     @Override
     public List<UserAddress> getAllAddresses(SqlMapClient sqlMapClient) {
+        List<UserAddress> listAllAddresses;
+        try {
+            listAllAddresses = (List<UserAddress>)sqlMapClient.queryForList("address.getAllAddresses");
+            return listAllAddresses;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 }

@@ -9,8 +9,7 @@ public class UserAddress {
     private String street;
     private Integer number;
 
-    public int getId() {
-        return id;}
+    public int getId() {return id;}
 
     public void setId(int id) {this.id = id;}
 

@@ -16,15 +16,15 @@
         VALUES(#id#,#city#,#street#,#number#);
     </insert>
 
-    <select id="getUserAddressById" parameterClass="java.lang.Integer" resultMap="userResultMap">
+    <select id="getUserAddressById" parameterClass="java.lang.Integer" resultMap="userAddressResultMap">
         SELECT * FROM ADDRESS WHERE ID = #value#;
     </select>
 
-    <select id="changeUserAddress" parameterClass="com.learn.ibatis.UserAddress">
+    <update id="updateUserAddress" parameterClass="com.learn.ibatis.UserAddress">
         UPDATE ADDRESS SET CITY = #city#, STREET = #street#, NUMBER = #number# WHERE ID = #id#;
-    </select>
+    </update>
 
-    <select id="getAllAddresses"  resultMap="userResultMap" resultClass="java.util.List">
+    <select id="getAllAddresses"  resultMap="userAddressResultMap" resultClass="java.util.List">
         SELECT * FROM ADDRESS;
     </select>
 </sqlMap>
