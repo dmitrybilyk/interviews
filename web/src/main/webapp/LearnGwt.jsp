@@ -9,8 +9,8 @@
 <html>
 <head>
     <title>GWT Title</title>
-    <script type="text/javascript" language="javascript"
-            src="learnGwt/learnGwt.nocache.js"></script>
+    <%--<script type="text/javascript" language="javascript"--%>
+            <%--src="learnGwt/learnGwt.nocache.js"></script>--%>
 </head>
 <body>
 hhh

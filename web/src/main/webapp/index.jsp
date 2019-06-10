@@ -11,8 +11,8 @@
 <html>
 <head>
     <title>GWT Title</title>
-    <script type="text/javascript" language="javascript"
-            src="LearnGwt/LearnGwt.nocache.js"></script>
+    <%--<script type="text/javascript" language="javascript"--%>
+            <%--src="LearnGwt/LearnGwt.nocache.js"></script>--%>
 </head>
 <body>
 fdfsdfsdfsf
