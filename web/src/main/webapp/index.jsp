@@ -15,6 +15,6 @@
             <%--src="LearnGwt/LearnGwt.nocache.js"></script>--%>
 </head>
 <body>
-fdfsdfsdfsf
+
 </body>
 </html>

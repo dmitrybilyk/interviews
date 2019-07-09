@@ -4,7 +4,6 @@ import org.jetbrains.annotations.NotNull;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,14 +19,14 @@ public class SubmitHandlerServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        try {
-            Thread.sleep(1000l);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Thread.sleep(1000l);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         JSONArray array = new JSONArray();
         array.put(getJsonObject("Lena", 32));
-        array.put(getJsonObject("Dima", 37));
+        array.put(getJsonObject("Dima", 38));
         resp.setContentType("application/json");
         resp.getWriter().write(array.toString());
 //        req.setAttribute("firstName", firstName);
@@ -46,6 +45,10 @@ public class SubmitHandlerServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String s = "dfd";
+        JSONArray array = new JSONArray();
+        array.put(getJsonObject("Lena", 32));
+        array.put(getJsonObject("Dima", 38));
+        resp.setContentType("application/json");
+        resp.getWriter().write(array.toString());
     }
 }
