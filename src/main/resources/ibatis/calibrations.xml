@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap  PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd"> 
+<sqlMap namespace="calibrations">
+
+	<resultMap id="subCalibrationsResultMap" class="com.learn.ibatis.SubCalibrationBO">
+		<result column="sub_calibration_id" property="subCalibrationId" jdbcType="INTEGER"/>
+		<result column="conversation_id" property="conversationId" jdbcType="VARCHAR"/>
+	</resultMap>
+
+	<select id="loadSubCalibrationsByCalibrationId"  resultMap="subCalibrationsResultMap" parameterClass="java.lang.Integer">
+SELECT SUB_CALIBRATIONS.sub_calibration_id, SUB_CALIBRATIONS.conversation_id
+from sub_calibrations SUB_CALIBRATIONS
+  JOIN calibration_sub_calibrations CALIBRATION_SUB_CALIBRATIONS on
+    CALIBRATION_SUB_CALIBRATIONS.sub_calibration_id = SUB_CALIBRATIONS.sub_calibration_id
+where calibration_id = #calibrationId#;
+	</select>
+	
+</sqlMap>
