@@ -3,21 +3,23 @@
   <head>
     <title>Disco Zebra Stripes!</title>
     <link rel="stylesheet" type="text/css" href="../styles/core.css"/>
-    <script type="text/javascript" src="../scripts/jquery-1.4.js"></script>
-    <script type="text/javascript">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
 
-      $.fn.getClassNames = function() {
-        var name = this.attr('className');
-        if (name != null) {
-          return name.split('');
+      $.fn.extend({
+        getClassNames:function() {
+          var name = this.attr('className');
+          if (name != null) {
+            return name.split('');
+          }
+          else {
+            return [];
+          }
         }
-        else {
-          return [];
-        }
-      };
+      });
 
       $(function(){
-        $("button").on("click", function(){
+        $("button").click(function(){
           console.log(getClassNames());
         });
         $("table tr:nth-child(even)").addClass("striped");

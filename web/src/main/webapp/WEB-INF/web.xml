@@ -6,7 +6,7 @@
          version="3.0">
 
     <welcome-file-list>
-        <welcome-file>form.jsp</welcome-file>
+        <welcome-file>/jqueryinaction/index.html</welcome-file>
         <!--<welcome-file>LearnGwt.jsp</welcome-file>-->
     </welcome-file-list>
 

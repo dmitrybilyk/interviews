@@ -4,21 +4,19 @@
     <title>jQuery .toggle() Example</title>
     <link rel="stylesheet" type="text/css" href="../styles/core.css"/>
     <script type="text/javascript" src="../scripts/jquery-1.4.js"></script>
+    <script type="text/javascript" src="../scripts/jqia2.support.js"></script>
     <script type="text/javascript">
       $(function(){
 
         $('img[src*=small]').toggle(
             function() {
-              $(this).attr('src',
-                $(this).attr('src').replace(/small/,'medium'));
+              say("one");
             },
             function() {
-              $(this).attr('src',
-                $(this).attr('src').replace(/medium/,'large'));
+              say("two");
             },
             function() {
-              $(this).attr('src',
-                $(this).attr('src').replace(/large/,'small'));
+              say("three");
             }
         );
 
