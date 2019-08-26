@@ -139,6 +139,20 @@
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
             <version>1.2.15</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.sun.jmx</groupId>
+                    <artifactId>jmxri</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.sun.jdmk</groupId>
+                    <artifactId>jmxtools</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>javax.jms</groupId>
+                    <artifactId>jms</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <!--Spring framework-->
@@ -433,11 +447,11 @@
             <artifactId>commons-codec</artifactId>
             <version>1.9</version>
         </dependency>
-        <dependency>
-            <groupId>777.com.intellij</groupId>
-            <artifactId>annotations</artifactId>
-            <version>12.0</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>777.com.intellij</groupId>-->
+            <!--<artifactId>annotations</artifactId>-->
+            <!--<version>12.0</version>-->
+        <!--</dependency>-->
 
 
     </dependencies>
@@ -445,46 +459,46 @@
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>2.12.1</version>
-                <executions>
-                    <execution>
-                        <id>verify-style</id>
-                        <phase>process-classes</phase>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <logViolationsToConsole>true</logViolationsToConsole>
-                    <checkstyleRules>
-                        <module name="Checker">
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-checkstyle-plugin</artifactId>-->
+                <!--<version>2.12.1</version>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<id>verify-style</id>-->
+                        <!--<phase>process-classes</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>check</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+                <!--<configuration>-->
+                    <!--<logViolationsToConsole>true</logViolationsToConsole>-->
+                    <!--<checkstyleRules>-->
+                        <!--<module name="Checker">-->
 
-                            <!-- Checks for Size Violations.                    -->
-                            <!-- See http://checkstyle.sf.net/config_sizes.html -->
-                            <module name="FileLength">
-                                <property name="max" value="35" />
-                                <property name="fileExtensions" value="java"/>
-                            </module>
+                            <!--&lt;!&ndash; Checks for Size Violations.                    &ndash;&gt;-->
+                            <!--&lt;!&ndash; See http://checkstyle.sf.net/config_sizes.html &ndash;&gt;-->
+                            <!--<module name="FileLength">-->
+                                <!--<property name="max" value="35" />-->
+                                <!--<property name="fileExtensions" value="java"/>-->
+                            <!--</module>-->
 
-                            <!-- Checks for whitespace                               -->
-                            <!-- See http://checkstyle.sf.net/config_whitespace.html -->
-                            <module name="FileTabCharacter"/>
+                            <!--&lt;!&ndash; Checks for whitespace                               &ndash;&gt;-->
+                            <!--&lt;!&ndash; See http://checkstyle.sf.net/config_whitespace.html &ndash;&gt;-->
+                            <!--<module name="FileTabCharacter"/>-->
 
-                            <module name="TreeWalker">
-                                <module name="StaticVariableName"/>
-                                <module name="TypeName">
-                                    <property name="format" value="^_?[A-Z][a-zA-Z0-9]*$"/>
-                                </module>
-                            </module>
-                            <module name="JavadocMethod">
-                                <property name="scope" value="protected"/>
-                                <property name="suppressLoadErrors" value="true"/>
-                            </module>
-                        </module>
+                            <!--<module name="TreeWalker">-->
+                                <!--<module name="StaticVariableName"/>-->
+                                <!--<module name="TypeName">-->
+                                    <!--<property name="format" value="^_?[A-Z][a-zA-Z0-9]*$"/>-->
+                                <!--</module>-->
+                            <!--</module>-->
+                            <!--<module name="JavadocMethod">-->
+                                <!--<property name="scope" value="protected"/>-->
+                                <!--<property name="suppressLoadErrors" value="true"/>-->
+                            <!--</module>-->
+                        <!--</module>-->
 
 
                         <!--Check style from shop-->
@@ -603,9 +617,9 @@
                         <!--<module name="DeclarationOrder"/>-->
                         <!--<module name="OneStatementPerLine"/>-->
                         <!--</module>-->
-                    </checkstyleRules>
-                </configuration>
-            </plugin>
+                    <!--</checkstyleRules>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
