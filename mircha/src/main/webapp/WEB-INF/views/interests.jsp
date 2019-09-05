@@ -44,7 +44,7 @@
                                 //...
                             },
                             error: function (e) {
-                                alert("fuck");
+                                alert("Not working");
                                 //...
                             }
                         });
