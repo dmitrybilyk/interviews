@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -37,43 +38,6 @@
     <link rel="stylesheet" type="text/css" href="styles/mircha.css"/>
 </head>
 <body>
-<h2>Mircha</h2>
-<div id="tabs">
-    <ul>
-        <li><a href="#tabs-1">Photos</a>
-        </li>
-        <li><a href="#tabs-2">Interests</a>
-        </li>
-        <li><a href="#tabs-3">Tab 3</a>
-        </li>
-    </ul>
-    <div id="tabs-1">
-        <img src="photos/1.jpg">
-        <img src="photos/2.jpg">
-        <img src="photos/3.jpg">
-        <p>Content for Tab 1</p>
-    </div>
-    <div id="tabs-2">
-        <ol id="selectable">
-            <li class="ui-widget-content">Item 1</li>
-            <li class="ui-widget-content">Item 2</li>
-            <li class="ui-widget-content">Item 3</li>
-            <li class="ui-widget-content">Item 4</li>
-            <li class="ui-widget-content">Item 5</li>
-            <li class="ui-widget-content">Item 6</li>
-            <li class="ui-widget-content">Item 7</li>
-        </ol>
-
-        <div>
-            <button id="addInterest">Add Interest</button>
-        </div>
-    </div>
-    <div id="tabs-3">
-        <p>Content for Tab 3</p>
-    </div>
-</div>
-<div id="tabid"></div>
-
-
+        <jsp:forward page="/mvc/interests"/>
 </body>
 </html>
