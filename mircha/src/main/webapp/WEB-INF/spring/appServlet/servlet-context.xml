@@ -40,6 +40,10 @@
 		<beans:property name="dataSource" ref="dataSource" />
 		<beans:property name="annotatedClasses">
 			<beans:list>
+				<beans:value>com.mircha.model.security.User</beans:value>
+				<beans:value>com.mircha.model.security.UserProfile</beans:value>
+				<!--<beans:value>com.mircha.model.security.UserProfileType</beans:value>-->
+				<!--<beans:value>com.mircha.model.security.State</beans:value>-->
 				<beans:value>com.mircha.model.Interest</beans:value>
 				<beans:value>com.mircha.spring.model.Person</beans:value>
 			</beans:list>
@@ -64,6 +68,7 @@
 	<context:component-scan base-package="com.mircha.controller" />
 	<context:component-scan base-package="com.mircha.service" />
 	<context:component-scan base-package="com.mircha.dao" />
+	<context:component-scan base-package="com.mircha.configuration" />
 
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 	
