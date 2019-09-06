@@ -7,6 +7,13 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js" type="text/javascript"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="js/apps.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("button").click(function(){
+                $("#ajaxResponse").hide();
+            });
+        });
+    </script>
 
 </head>
 <body>
@@ -31,6 +38,8 @@
         <div id="ajaxResponse"></div>
     </fieldset>
 </div>
+
+<button>Click me to hide!</button>
 
 </body>
 </html>

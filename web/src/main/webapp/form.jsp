@@ -44,7 +44,7 @@
       <%--document.getElementById('loading').innerHTML = "Loading...";--%>
     <%--}--%>
   <%--</script>--%>
-    <script type="text/javascript">
+    <script>
         jQuery(function () {
             jQuery('#sendForm').submit(function (event) {
                 event.preventDefault();
@@ -69,6 +69,7 @@
                 });
             })
         })
+
   </script>
         <%--$("#sendForm").submit(function (event) {--%>
         <%--event.preventDefault();--%>
@@ -139,7 +140,7 @@
 <body>
 <h2>HTML Forms</h2>
 <div id="loading"></div>
-<form action="${pageContext.request.contextPath}/SubmitHandlerServlet" id="sendForm" method="post">
+<form  id=test action="${pageContext.request.contextPath}/SubmitHandlerServlet" id="sendForm" method="post">
   Name:<br>
   <input type="text" name="name" id="name" class="formElement" value="${requestScope.get("name")}">
   <br>
