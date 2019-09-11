@@ -20,7 +20,8 @@ import java.util.Set;
 @Table(name="APP_USER")
 public class User {
 
-	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 
 	@NotEmpty

@@ -31,8 +31,8 @@ public class HelloWorldController {
 	@Autowired
 	UserService userService;
 	
-//	@RequestMapping(value = { "/", "/home" }, method = RequestMethod.GET)
-	@RequestMapping(value = { "/home" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/", "/home" }, method = RequestMethod.GET)
+//	@RequestMapping(value = { "/home" }, method = RequestMethod.GET)
 	public String homePage(ModelMap model) {
 		model.addAttribute("greeting", "Hi, Welcome to mysite");
 		return "welcome";
@@ -61,13 +61,18 @@ public class HelloWorldController {
 		return "login";
 	}
 
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public String login() {
+		return "welcome";
+	}
+
 	@RequestMapping(value="/logout", method = RequestMethod.GET)
 	public String logoutPage (HttpServletRequest request, HttpServletResponse response) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		if (auth != null){    
 			new SecurityContextLogoutHandler().logout(request, response, auth);
 		}
-		return "redirect:/login?logout";
+		return "redirect:/mvc/login?logout";
 	}
 
 	
