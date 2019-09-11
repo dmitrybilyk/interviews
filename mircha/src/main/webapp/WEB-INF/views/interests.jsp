@@ -10,33 +10,37 @@
     <script>
         jQuery(document).ready(function ($) {
             $("#addInterest").click(function (event) {
-                var name = prompt("Please enter your name", "Harry Potter");
-                var data = {};
-                data["name"] = name;
-                $.ajax({
-                    type: "POST",
-                    contentType: "application/json",
-                    url: "${pageContext.request.contextPath}/mvc/add/interest",
-                    data: JSON.stringify(data),
-                    dataType: 'json',
-                    timeout: 600000,
-                    success: function (response) {
-                        var htmlString = '<ul>';
-                        // var obj = jQuery.parseJSON(response);
-                        $.each(response, function () {
-                            htmlString += '<li>' + this.name + '</li>';
-                        });
-                        htmlString += '</ul>';
-                        $("#interestsDiv").html(htmlString);
-                        // data.forEach();
-                        // $("#tabs-2 ol li:last").after('<li class="ui-widget-content">' + name + '</li>');
-                        //...
-                    },
-                    error: function (e) {
-                        alert("Not working");
-                        //...
-                    }
-                });
+                var name = prompt("Please enter your name","").trim();
+                if (!!name) {
+                    var data = {};
+                    data["name"] = name;
+                    $.ajax({
+                        type: "POST",
+                        contentType: "application/json",
+                        url: "${pageContext.request.contextPath}/mvc/add/interest",
+                        data: JSON.stringify(data),
+                        dataType: 'json',
+                        timeout: 600000,
+                        success: function (response) {
+                            var htmlString = '<ol id="selectable">';
+                            // var obj = jQuery.parseJSON(response);
+                            $.each(response, function () {
+                                htmlString += '<li class="ui-widget-content">' + this.name + '</li>';
+                            });
+                            htmlString += '</ol>';
+                            $("#interestsDiv").html(htmlString);
+                            // data.forEach();
+                            // $("#tabs-2 ol li:last").after('<li class="ui-widget-content">' + name + '</li>');
+                            //...
+                        },
+                        error: function (e) {
+                            alert("Not working");
+                            //...
+                        }
+                    });
+                } else {
+                    alert("Nothing to add, bye!");
+                }
             });
 
             $("#tabs").tabs({
