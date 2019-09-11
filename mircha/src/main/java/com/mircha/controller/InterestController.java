@@ -48,8 +48,24 @@ public class InterestController {
 	@ResponseBody
 	@RequestMapping(value= "/add/interest", method = RequestMethod.POST
 					, consumes = "application/json", produces = "application/json")
-	public List<Interest> addPerson(@RequestBody Interest interest) {
+	public List<Interest> addInterest(@RequestBody Interest interest) {
 		interestService.addInterest(interest);
+		return interestService.getAllInterests();
+	}
+
+	@ResponseBody
+	@RequestMapping(value= "/delete/interest", method = RequestMethod.DELETE
+					, consumes = "application/json", produces = "application/json")
+	public List<Interest> deleteInterest(@RequestBody Interest interest) {
+		interestService.deleteInterest(interest);
+		return interestService.getAllInterests();
+	}
+
+	@ResponseBody
+	@RequestMapping(value= "/update/interest", method = RequestMethod.PUT
+					, consumes = "application/json", produces = "application/json")
+	public List<Interest> updateInterest(@RequestBody Interest interest) {
+		interestService.updateInterest(interest);
 		return interestService.getAllInterests();
 	}
 //

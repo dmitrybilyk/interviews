@@ -13,7 +13,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 
 @Configuration
 @EnableWebMvc
-//@ComponentScan(basePackages = "com.mircha.springsecurity")
+@ComponentScan(basePackages = "com.mircha")
 public class HelloWorldConfiguration extends WebMvcConfigurerAdapter {
 	
 	@Autowired

@@ -20,6 +20,16 @@ public class InterestServiceImpl implements InterestService {
 	}
 
 	@Override
+	public void deleteInterest(Interest interest) {
+		interestDAO.deleteInterest(interest);
+	}
+
+	@Override
+	public void updateInterest(Interest interest) {
+		interestDAO.updateInterest(interest);
+	}
+
+	@Override
 	public List<Interest> getAllInterests() {
 		return interestDAO.getAllInterests();
 	}

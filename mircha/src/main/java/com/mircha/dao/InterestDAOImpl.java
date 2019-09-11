@@ -27,6 +27,18 @@ public class InterestDAOImpl implements InterestDAO {
 	}
 
 	@Override
+	public void deleteInterest(Interest interest) {
+		Session session = this.sessionFactory.getCurrentSession();
+		session.delete(interest);
+	}
+
+	@Override
+	public void updateInterest(Interest interest) {
+		Session session = this.sessionFactory.getCurrentSession();
+		session.saveOrUpdate(interest);
+	}
+
+	@Override
 	public List<Interest> getAllInterests() {
 		Session session = this.sessionFactory.getCurrentSession();
 		List<Interest> interests = session.createQuery("from Interest").list();

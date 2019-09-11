@@ -8,7 +8,88 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
     <script>
+        function extracted(htmlString) {
+            htmlString += '<li class="ui-widget-content">' +
+                    '<div style="float: left;">' + this.name + '</div>'
+                    +
+                    '<div style="float: right;">' +
+                    '<a class="updateInterest" id=' + this.id + ' name=' + this.name +' href="#">Update</a>' +
+                    '</div>' +
+                    '<div style="float: right;">' +
+                    '<a class="deleteInterest" id=' + this.id + ' href="#">Delete</a>' +
+                    '</div>' +
+                    '</li>';
+            return htmlString;
+        }
+
         jQuery(document).ready(function ($) {
+            $("#interestsDiv").on("click", ".deleteInterest", function () {
+                    var data = {};
+                    data["id"] = this.id;
+                    $.ajax({
+                        type: "DELETE",
+                        contentType: "application/json",
+                        url: "${pageContext.request.contextPath}/mvc/delete/interest",
+                        data: JSON.stringify(data),
+                        dataType: 'json',
+                        timeout: 600000,
+                        success: function (response) {
+                            var htmlString = '<ol id="selectable">';
+                            // var obj = jQuery.parseJSON(response);
+                            $.each(response, function () {
+                                htmlString = extracted.call(this, htmlString);
+                            });
+                            htmlString += '</ol>';
+                            $("#interestsDiv").html(htmlString);
+                            // data.forEach();
+                            // $("#tabs-2 ol li:last").after('<li class="ui-widget-content">' + name + '</li>');
+                            //...
+                        },
+                        error: function (e) {
+                            alert("Not working");
+                            //...
+                        }
+                    });
+            });
+
+
+
+        <%--jQuery(document).ready(function ($) {--%>
+
+            jQuery(document).ready(function ($) {
+                $("#interestsDiv").on("click", ".updateInterest", function () {
+                    var name = prompt("Please enter your name", this.name).trim();
+                    if (!!name) {
+                        var data = {};
+                        data["id"] = this.id;
+                        data["name"] = name;
+                        $.ajax({
+                            type: "PUT",
+                            contentType: "application/json",
+                            url: "${pageContext.request.contextPath}/mvc/update/interest",
+                            data: JSON.stringify(data),
+                            dataType: 'json',
+                            timeout: 600000,
+                            success: function (response) {
+                                var htmlString = '<ol id="selectable">';
+                                $.each(response, function () {
+                                    htmlString = extracted.call(this, htmlString);
+                                });
+                                htmlString += '</ol>';
+                                $("#interestsDiv").html(htmlString);
+                            },
+                            error: function (e) {
+                                alert("Not working");
+                                //...
+                            }
+                        });
+                    }
+
+                });
+
+
+
+
             $("#addInterest").click(function (event) {
                 var name = prompt("Please enter your name","").trim();
                 if (!!name) {
@@ -25,7 +106,7 @@
                             var htmlString = '<ol id="selectable">';
                             // var obj = jQuery.parseJSON(response);
                             $.each(response, function () {
-                                htmlString += '<li class="ui-widget-content">' + this.name + '</li>';
+                                htmlString = extracted.call(this, htmlString);
                             });
                             htmlString += '</ol>';
                             $("#interestsDiv").html(htmlString);
@@ -66,6 +147,7 @@
                     $(this).remove();
                 }).appendTo('body');
             });
+        })
         });
     </script>
 
@@ -91,7 +173,15 @@
         <div id="interestsDiv">
             <ol id="selectable">
                 <c:forEach items="${interests}" var="interest">
-                    <li class="ui-widget-content">${interest.name}</li>
+                    <li class="ui-widget-content">
+                        <div style="float: left;">${interest.name}</div>
+                        <div style="float: right;">
+                            <a class="updateInterest" id="${interest.id}" name="${interest.name}" href="#">Update</a>
+                        </div>
+                        <div style="float: right;">
+                            <a class="deleteInterest" id="${interest.id}" href="#">Delete</a>
+                        </div>
+                    </li>
                 </c:forEach>
             </ol>
         </div>
