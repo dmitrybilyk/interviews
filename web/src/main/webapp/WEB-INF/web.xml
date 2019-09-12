@@ -20,7 +20,7 @@
 
     <!--<servlet-mapping>-->
         <!--<servlet-name>mvc-dispatcher</servlet-name>-->
-        <!--<url-pattern>/mvc/*</url-pattern>-->
+        <!--<url-pattern>/*</url-pattern>-->
     <!--</servlet-mapping>-->
 
     <!--<context-param>-->

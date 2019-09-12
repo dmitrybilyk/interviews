@@ -35,7 +35,7 @@ public class HelloWorldController {
 //	@RequestMapping(value = { "/home" }, method = RequestMethod.GET)
 	public String homePage(ModelMap model) {
 		model.addAttribute("greeting", "Hi, Welcome to mysite");
-		return "welcome";
+		return "login";
 	}
 
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
@@ -72,7 +72,7 @@ public class HelloWorldController {
 		if (auth != null){    
 			new SecurityContextLogoutHandler().logout(request, response, auth);
 		}
-		return "redirect:/mvc/login?logout";
+		return "redirect:/login?logout";
 	}
 
 	

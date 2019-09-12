@@ -11,7 +11,7 @@
 	<div class="success">
 		Dear <strong>${user}</strong>, Welcome to DBA Page.
 		<br/>
-		<a href="<c:url value="/mvc/logout" />">Logout</a>
+		<a href="<c:url value="/logout" />">Logout</a>
 	</div>
 </body>
 </html>

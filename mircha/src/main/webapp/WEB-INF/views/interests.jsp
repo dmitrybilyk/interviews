@@ -1,6 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@page pageEncoding="UTF-8" %>
-<html>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %><html>
 <head>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" type="text/css" href="styles/mircha.css"/>
@@ -29,7 +28,7 @@
                     $.ajax({
                         type: "DELETE",
                         contentType: "application/json",
-                        url: "${pageContext.request.contextPath}/mvc/delete/interest",
+                        url: "${pageContext.request.contextPath}/delete/interest",
                         data: JSON.stringify(data),
                         dataType: 'json',
                         timeout: 600000,
@@ -66,7 +65,7 @@
                         $.ajax({
                             type: "PUT",
                             contentType: "application/json",
-                            url: "${pageContext.request.contextPath}/mvc/update/interest",
+                            url: "${pageContext.request.contextPath}/update/interest",
                             data: JSON.stringify(data),
                             dataType: 'json',
                             timeout: 600000,
@@ -98,7 +97,7 @@
                     $.ajax({
                         type: "POST",
                         contentType: "application/json",
-                        url: "${pageContext.request.contextPath}/mvc/add/interest",
+                        url: "${pageContext.request.contextPath}/add/interest",
                         data: JSON.stringify(data),
                         dataType: 'json',
                         timeout: 600000,
@@ -153,15 +152,19 @@
 
 </head>
 <body>
-<h2>Mircha</h2>
-<div id="tabs">
+<div style="width: 100%;"><div style="float:left;"><h2>Mircha</h2></div><div style="float: right;"><sec:authentication property="name"/></div>
+    <div style="float: right;"><a href="${pageContext.request.contextPath}/logout">Logout</a></div></div>
+
+<div id="tabs" style="clear:both;">
     <ul>
         <li><a href="#tabs-1">Photos</a>
         </li>
         <li><a href="#tabs-2">Interests</a>
         </li>
-        <li><a href="#tabs-3">Tab 3</a>
-        </li>
+<sec:authorize access="hasRole('ROLE_ADMIN')">
+    <li><a href="#tabs-3">Tab 3</a>
+    </li>
+</sec:authorize>
     </ul>
     <div id="tabs-1"  class="ui-tabs-panel">
         <img data-enlargable style="cursor: zoom-in" src="photos/1.jpg">
@@ -189,9 +192,11 @@
             <button id="addInterest">Add Interest</button>
         </div>
     </div>
-    <div id="tabs-3" class="ui-tabs-panel">
-        <p>Content for Tab 3</p>
-    </div>
+    <sec:authorize access="hasRole('ROLE_ADMIN')">
+        <div id="tabs-3" class="ui-tabs-panel">
+            <p>Content for Tab 3</p>
+        </div>
+    </sec:authorize>
 </div>
 <div id="tabid"></div>
 

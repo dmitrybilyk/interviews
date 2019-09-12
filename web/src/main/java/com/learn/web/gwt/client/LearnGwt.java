@@ -12,7 +12,7 @@ public class LearnGwt implements EntryPoint {
     @Override
     public void onModuleLoad() {
         Frame frame = new Frame();
-        frame.setUrl("http://localhost:8081/player/mvc/get");
+        frame.setUrl("http://localhost:8081/player/get");
         RootPanel.get().add(frame);
     }
 }

@@ -10,10 +10,7 @@
 <body>
 	<div class="success">
 		Confirmation message : ${success}
-		<br>
-		Would you like to <a href="<c:url value='/mvc/newUser' />">Add More Users</a>?
-		<br/>
-		Go to <a href="<c:url value='/mvc/admin' />">Admin Page</a> OR <a href="<c:url value="/logout" />">Logout</a>
+		Go to <a href="<c:url value='/interests' />">Main page</a> OR <a href="<c:url value="/logout" />">Logout</a>
 	</div>
 	
 </body>

@@ -36,6 +36,6 @@
     </script>
 </head>
 <body>
-        <jsp:forward page="/mvc/interests"/>
+        <jsp:forward page="/interests"/>
 </body>
 </html>

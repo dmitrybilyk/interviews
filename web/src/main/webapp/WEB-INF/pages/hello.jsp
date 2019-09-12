@@ -12,6 +12,6 @@
 </head>
 <body>
 User agent  -  "${userAgent}"
-<a href="${pageContext.request.contextPath}/mvc/welcome/students">Go to welcome controller</a>
+<a href="${pageContext.request.contextPath}/welcome/students">Go to welcome controller</a>
 </body>
 </html>

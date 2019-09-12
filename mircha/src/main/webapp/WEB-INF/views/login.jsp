@@ -14,7 +14,8 @@
 			<div class="login-container">
 				<div class="login-card">
 					<div class="login-form">
-						<c:url var="loginUrl" value="/mvc/login" />
+						<c:url var="loginUrl" value="/login" />
+						<c:url var="toRegistration" value="/newUser" />
 						<form action="${loginUrl}" method="post" class="form-horizontal">
 							<c:if test="${param.error != null}">
 								<div class="alert alert-danger">
@@ -41,6 +42,8 @@
 								<input type="submit"
 									class="btn btn-block btn-primary btn-default" value="Log in">
 							</div>
+
+							<a class="form-actions" href="${toRegistration}">Registration</a>
 						</form>
 					</div>
 				</div>
