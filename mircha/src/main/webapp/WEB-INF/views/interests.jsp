@@ -1,10 +1,25 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %><html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" type="text/css" href="styles/mircha.css"/>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="static/form.js" ></script>
+    <%--<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>--%>
+
+    <style>
+        label, input { display:block; }
+        input.text { margin-bottom:12px; width:95%; padding: .4em; }
+        fieldset { padding:0; border:0; margin-top:25px; }
+        h1 { font-size: 1.2em; margin: .6em 0; }
+        div#users-contain { width: 350px; margin: 20px 0; }
+        div#users-contain table { margin: 1em 0; border-collapse: collapse; width: 100%; }
+        div#users-contain table td, div#users-contain table th { border: 1px solid #eee; padding: .6em 10px; text-align: left; }
+        .ui-dialog .ui-state-error { padding: .3em; }
+        .validateTips { border: 1px solid transparent; padding: 0.3em; }
+    </style>
 
     <script>
         function extracted(htmlString) {
@@ -200,6 +215,45 @@
 </div>
 <div id="tabid"></div>
 
+
+<div id="dialog-form" title="Create new user">
+    <p class="validateTips">All form fields are required.</p>
+
+    <form>
+        <fieldset>
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" value="Jane Smith" class="text ui-widget-content ui-corner-all">
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email" value="jane@smith.com" class="text ui-widget-content ui-corner-all">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" value="xxxxxxx" class="text ui-widget-content ui-corner-all">
+
+            <!-- Allow form submission with keyboard without duplicating the dialog button -->
+            <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+        </fieldset>
+    </form>
+</div>
+
+<div id="users-contain" class="ui-widget">
+    <h1>Existing Users:</h1>
+    <table id="users" class="ui-widget ui-widget-content">
+        <thead>
+        <tr class="ui-widget-header ">
+            <th>Name</th>
+            <th>Email</th>
+            <th>Password</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>John Doe</td>
+            <td><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d7bdb8bfb9f9b3b8b297b2afb6baa7bbb2f9b4b8ba">[email&#160;protected]</a></td>
+            <td>johndoe1</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<button id="create-user">Create new user</button>
 
 </body>
 </html>
