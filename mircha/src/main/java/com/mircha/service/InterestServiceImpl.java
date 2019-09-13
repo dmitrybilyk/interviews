@@ -15,7 +15,7 @@ public class InterestServiceImpl implements InterestService {
 	@Autowired
 	private InterestDAO interestDAO;
 
-	@PreAuthorize("hasRole('ROLE_ADMIN')")
+//	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@Override
 	public void addInterest(Interest interest) {
 		interestDAO.addInterest(interest);

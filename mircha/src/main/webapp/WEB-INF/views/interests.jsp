@@ -70,73 +70,73 @@
 
         <%--jQuery(document).ready(function ($) {--%>
 
-            jQuery(document).ready(function ($) {
-                $("#interestsDiv").on("click", ".updateInterest", function () {
-                    var name = prompt("Please enter your name", this.name).trim();
-                    if (!!name) {
-                        var data = {};
-                        data["id"] = this.id;
-                        data["name"] = name;
-                        $.ajax({
-                            type: "PUT",
-                            contentType: "application/json",
-                            url: "${pageContext.request.contextPath}/update/interest",
-                            data: JSON.stringify(data),
-                            dataType: 'json',
-                            timeout: 600000,
-                            success: function (response) {
-                                var htmlString = '<ol id="selectable">';
-                                $.each(response, function () {
-                                    htmlString = extracted.call(this, htmlString);
-                                });
-                                htmlString += '</ol>';
-                                $("#interestsDiv").html(htmlString);
-                            },
-                            error: function (e) {
-                                alert("Not working");
-                                //...
-                            }
-                        });
-                    }
+            <%--jQuery(document).ready(function ($) {--%>
+                <%--$("#interestsDiv").on("click", ".updateInterest", function () {--%>
+                    <%--var name = prompt("Please enter your name", this.name).trim();--%>
+                    <%--if (!!name) {--%>
+                        <%--var data = {};--%>
+                        <%--data["id"] = this.id;--%>
+                        <%--data["name"] = name;--%>
+                        <%--$.ajax({--%>
+                            <%--type: "PUT",--%>
+                            <%--contentType: "application/json",--%>
+                            <%--url: "${pageContext.request.contextPath}/update/interest",--%>
+                            <%--data: JSON.stringify(data),--%>
+                            <%--dataType: 'json',--%>
+                            <%--timeout: 600000,--%>
+                            <%--success: function (response) {--%>
+                                <%--var htmlString = '<ol id="selectable">';--%>
+                                <%--$.each(response, function () {--%>
+                                    <%--htmlString = extracted.call(this, htmlString);--%>
+                                <%--});--%>
+                                <%--htmlString += '</ol>';--%>
+                                <%--$("#interestsDiv").html(htmlString);--%>
+                            <%--},--%>
+                            <%--error: function (e) {--%>
+                                <%--alert("Not working");--%>
+                                <%--//...--%>
+                            <%--}--%>
+                        <%--});--%>
+                    <%--}--%>
 
-                });
-
-
+                <%--});--%>
 
 
-            $("#addInterest").click(function (event) {
-                var name = prompt("Please enter your name","").trim();
-                if (!!name) {
-                    var data = {};
-                    data["name"] = name;
-                    $.ajax({
-                        type: "POST",
-                        contentType: "application/json",
-                        url: "${pageContext.request.contextPath}/add/interest",
-                        data: JSON.stringify(data),
-                        dataType: 'json',
-                        timeout: 600000,
-                        success: function (response) {
-                            var htmlString = '<ol id="selectable">';
-                            // var obj = jQuery.parseJSON(response);
-                            $.each(response, function () {
-                                htmlString = extracted.call(this, htmlString);
-                            });
-                            htmlString += '</ol>';
-                            $("#interestsDiv").html(htmlString);
-                            // data.forEach();
-                            // $("#tabs-2 ol li:last").after('<li class="ui-widget-content">' + name + '</li>');
-                            //...
-                        },
-                        error: function (e) {
-                            alert("Not working");
-                            //...
-                        }
-                    });
-                } else {
-                    alert("Nothing to add, bye!");
-                }
-            });
+
+
+            <%--$("#addInterest").click(function (event) {--%>
+                <%--var name = prompt("Please enter your name","").trim();--%>
+                <%--if (!!name) {--%>
+                    <%--var data = {};--%>
+                    <%--data["name"] = name;--%>
+                    <%--$.ajax({--%>
+                        <%--type: "POST",--%>
+                        <%--contentType: "application/json",--%>
+                        <%--url: "${pageContext.request.contextPath}/add/interest",--%>
+                        <%--data: JSON.stringify(data),--%>
+                        <%--dataType: 'json',--%>
+                        <%--timeout: 600000,--%>
+                        <%--success: function (response) {--%>
+                            <%--var htmlString = '<ol id="selectable">';--%>
+                            <%--// var obj = jQuery.parseJSON(response);--%>
+                            <%--$.each(response, function () {--%>
+                                <%--htmlString = extracted.call(this, htmlString);--%>
+                            <%--});--%>
+                            <%--htmlString += '</ol>';--%>
+                            <%--$("#interestsDiv").html(htmlString);--%>
+                            <%--// data.forEach();--%>
+                            <%--// $("#tabs-2 ol li:last").after('<li class="ui-widget-content">' + name + '</li>');--%>
+                            <%--//...--%>
+                        <%--},--%>
+                        <%--error: function (e) {--%>
+                            <%--alert("Not working");--%>
+                            <%--//...--%>
+                        <%--}--%>
+                    <%--});--%>
+                <%--} else {--%>
+                    <%--alert("Nothing to add, bye!");--%>
+                <%--}--%>
+            <%--});--%>
 
             $("#tabs").tabs({
                 activate: function (event, ui) {
@@ -221,39 +221,56 @@
 
     <form>
         <fieldset>
-            <label for="name">Name</label>
-            <input type="text" name="name" id="name" value="Jane Smith" class="text ui-widget-content ui-corner-all">
-            <label for="email">Email</label>
-            <input type="text" name="email" id="email" value="jane@smith.com" class="text ui-widget-content ui-corner-all">
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password" value="xxxxxxx" class="text ui-widget-content ui-corner-all">
+            <%--<label for="name">Name</label>--%>
+            <%--<input type="text" name="name" id="name" value="Jane Smith" class="text ui-widget-content ui-corner-all">--%>
+            <%--<label for="email">Email</label>--%>
+            <%--<input type="text" name="email" id="email" value="jane@smith.com" class="text ui-widget-content ui-corner-all">--%>
+            <%--<label for="password">Password</label>--%>
+            <%--<input type="password" name="password" id="password" value="xxxxxxx" class="text ui-widget-content ui-corner-all">--%>
 
-            <!-- Allow form submission with keyboard without duplicating the dialog button -->
-            <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+            <%--<!-- Allow form submission with keyboard without duplicating the dialog button -->--%>
+            <%--<input type="submit" tabindex="-1" style="position:absolute; top:-1000px">--%>
         </fieldset>
     </form>
 </div>
 
-<div id="users-contain" class="ui-widget">
-    <h1>Existing Users:</h1>
-    <table id="users" class="ui-widget ui-widget-content">
-        <thead>
-        <tr class="ui-widget-header ">
-            <th>Name</th>
-            <th>Email</th>
-            <th>Password</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>John Doe</td>
-            <td><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d7bdb8bfb9f9b3b8b297b2afb6baa7bbb2f9b4b8ba">[email&#160;protected]</a></td>
-            <td>johndoe1</td>
-        </tr>
-        </tbody>
-    </table>
+
+<div id="interest-add-edit-form" title="Add/Edit interest">
+    <p class="validateTips">All form fields are required.</p>
+
+    <form id="interestsForm">
+        <fieldset>
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" value="Jane Smith" class="text ui-widget-content ui-corner-all">
+            <label for="description">Description</label>
+            <input type="text" name="description" id="description" class="text ui-widget-content ui-corner-all">
+            <!-- Allow form submission with keyboard without duplicating the dialog button -->
+
+            <input type="submit" id="submit" value="Create" tabindex="-1" style="position:absolute; top:-1000px">
+        </fieldset>
+    </form>
 </div>
-<button id="create-user">Create new user</button>
+
+<%--<div id="users-contain" class="ui-widget">--%>
+    <%--<h1>Existing Users:</h1>--%>
+    <%--<table id="users" class="ui-widget ui-widget-content">--%>
+        <%--<thead>--%>
+        <%--<tr class="ui-widget-header ">--%>
+            <%--<th>Name</th>--%>
+            <%--<th>Email</th>--%>
+            <%--<th>Password</th>--%>
+        <%--</tr>--%>
+        <%--</thead>--%>
+        <%--<tbody>--%>
+        <%--<tr>--%>
+            <%--<td>John Doe</td>--%>
+            <%--<td><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d7bdb8bfb9f9b3b8b297b2afb6baa7bbb2f9b4b8ba">[email&#160;protected]</a></td>--%>
+            <%--<td>johndoe1</td>--%>
+        <%--</tr>--%>
+        <%--</tbody>--%>
+    <%--</table>--%>
+<%--</div>--%>
+<%--<button id="create-user">Create new user</button>--%>
 
 </body>
 </html>

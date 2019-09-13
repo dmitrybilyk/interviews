@@ -41,35 +41,74 @@
 }
 
     function addUser() {
-    var valid = true;
-    allFields.removeClass( "ui-state-error" );
+    // var valid = true;
+    // allFields.removeClass( "ui-state-error" );
+    //
+    // valid = valid && checkLength( name, "username", 3, 16 );
+    // valid = valid && checkLength( email, "email", 6, 80 );
+    // valid = valid && checkLength( password, "password", 5, 16 );
+    //
+    // valid = valid && checkRegexp( name, /^[a-z]([0-9a-z_\s])+$/i, "Username may consist of a-z, 0-9, underscores, spaces and must begin with a letter." );
+    // valid = valid && checkRegexp( email, emailRegex, "eg. ui@jquery.com" );
+    // valid = valid && checkRegexp( password, /^([0-9a-zA-Z])+$/, "Password field only allow : a-z 0-9" );
+    //
+    // if ( valid ) {
 
-    valid = valid && checkLength( name, "username", 3, 16 );
-    valid = valid && checkLength( email, "email", 6, 80 );
-    valid = valid && checkLength( password, "password", 5, 16 );
+        // $("#addInterest").click(function (event) {
+        var data = {};
+            data["name"] = $("#name").val();
+            data["description"] = $("#description").val();
+            // var name = prompt("Please enter your name","").trim();
+            // if (!!name) {
+            //     var data = {};
+            //     data["name"] = name;
+                $.ajax({
+                    type: "POST",
+                    contentType: "application/json",
+                    url: "/mircha/add/interest",
+                    data: JSON.stringify(data),
+                    dataType: 'json',
+                    timeout: 600000,
+                    success: function (response) {
+                        var htmlString = '<ol id="selectable">';
+                        // var obj = jQuery.parseJSON(response);
+                        $.each(response, function () {
+                            htmlString = extracted.call(this, htmlString);
+                        });
+                        htmlString += '</ol>';
+                        $("#interestsDiv").html(htmlString);
+                        // data.forEach();
+                        // $("#tabs-2 ol li:last").after('<li class="ui-widget-content">' + name + '</li>');
+                        //...
+                    },
+                    error: function (e) {
+                        alert("Not working");
+                        //...
+                    }
+                });
+            // } else {
+            //     alert("Nothing to add, bye!");
+            // }
+        // });
 
-    valid = valid && checkRegexp( name, /^[a-z]([0-9a-z_\s])+$/i, "Username may consist of a-z, 0-9, underscores, spaces and must begin with a letter." );
-    valid = valid && checkRegexp( email, emailRegex, "eg. ui@jquery.com" );
-    valid = valid && checkRegexp( password, /^([0-9a-zA-Z])+$/, "Password field only allow : a-z 0-9" );
 
-    if ( valid ) {
-    $( "#users tbody" ).append( "<tr>" +
-    "<td>" + name.val() + "</td>" +
-    "<td>" + email.val() + "</td>" +
-    "<td>" + password.val() + "</td>" +
-    "</tr>" );
+    // $( "#users tbody" ).append( "<tr>" +
+    // "<td>" + name.val() + "</td>" +
+    // "<td>" + email.val() + "</td>" +
+    // "<td>" + password.val() + "</td>" +
+    // "</tr>" );
     dialog.dialog( "close" );
-}
-    return valid;
+// }
+    return true;
 }
 
-    dialog = $( "#dialog-form" ).dialog({
+    dialog = $( "#interest-add-edit-form" ).dialog({
     autoOpen: false,
     height: 400,
     width: 350,
     modal: true,
     buttons: {
-    "Create an account": addUser,
+    "Create interest": addUser,
     Cancel: function() {
     dialog.dialog( "close" );
 }
@@ -85,7 +124,9 @@
     addUser();
 });
 
-    $( "#create-user" ).button().on( "click", function() {
+    $( "#addInterest" ).button().on( "click", function() {
     dialog.dialog( "open" );
+    // $( "#create-user" ).button().on( "click", function() {
+    // dialog.dialog( "open" );
 });
 } );
