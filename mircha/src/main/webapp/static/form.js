@@ -1,6 +1,6 @@
 $(function () {
     var dialog, form, dialogConfirm;
-    jQuery(document).ready(function ($) {
+    // jQuery(document).ready(function ($) {
         $("#tabs").tabs({
             activate: function (event, ui) {
                 var active = $('#tabs').tabs('option', 'active');
@@ -19,13 +19,13 @@ $(function () {
                 '</li>';
             return htmlString;
         }
-        function deleteInterest() {
+        function deleteInterest(id) {
             var data = {};
-            data["id"] = this.id;
+            data["id"] = id;
             $.ajax({
                 type: "DELETE",
                 contentType: "application/json",
-                url: "/mircha/delete/interest",
+                url: "/delete/interest",
                 data: JSON.stringify(data),
                 dataType: 'json',
                 timeout: 600000,
@@ -140,7 +140,7 @@ $(function () {
             width: 350,
             modal: true,
             buttons: {
-                "Delete": deleteInterest,
+                "Delete": deleteInterest(),
                 Cancel: function () {
                     dialogConfirm.dialog("close");
                 }
@@ -164,5 +164,5 @@ $(function () {
             function () {
                 dialogConfirm.dialog("open");
             });
-    });
+    // });
 });

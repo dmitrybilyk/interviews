@@ -19,7 +19,7 @@
 
 <%--<c:url var="addAction" value="/person/add" ></c:url>--%>
 
-<form:form action="/mircha/person/add" commandName="person" method="post">
+<form:form action="/person/add" commandName="person" method="post">
 <table>
 	<c:if test="${!empty person.name}">
 	<%--<tr>--%>
@@ -84,8 +84,8 @@
 			<td>${person.id}</td>
 			<td>${person.name}</td>
 			<td>${person.country}</td>
-			<td><a href="<c:url value='/mircha/edit/${person.id}' />" >Edit</a></td>
-			<td><a href="<c:url value='/mircha/remove/${person.id}' />" >Delete</a></td>
+			<td><a href="<c:url value='/edit/${person.id}' />" >Edit</a></td>
+			<td><a href="<c:url value='/remove/${person.id}' />" >Delete</a></td>
 		</tr>
 	</c:forEach>
 	</table>

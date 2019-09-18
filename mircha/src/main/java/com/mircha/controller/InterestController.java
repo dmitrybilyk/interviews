@@ -36,6 +36,13 @@ public class InterestController {
 		return "interests";
 	}
 
+
+	@ResponseBody
+	@RequestMapping(value= "/load/interests", method = RequestMethod.GET, produces = "application/json")
+	public List<Interest> loadInterests() {
+		return interestService.getAllInterests();
+	}
+
 //	@RequestMapping(value = "/persons", method = RequestMethod.GET)
 //	public String listPersons(Model model) {
 //		model.addAttribute("person", new Person());

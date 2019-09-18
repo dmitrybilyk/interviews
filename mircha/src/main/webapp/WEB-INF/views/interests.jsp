@@ -4,9 +4,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" type="text/css" href="styles/mircha.css"/>
+    <link rel="stylesheet" type="text/css" href="static/css/app.css"/>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="static/form.js" ></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Dynatable/0.3.1/jquery.dynatable.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Dynatable/0.3.1/jquery.dynatable.css">
 
     <style>
         label, input { display:block; }
@@ -21,6 +25,44 @@
     </style>
 
     <script>
+        $(document).ready(function() {
+
+            $.ajax({
+                type : "GET",
+                url : "/load/interests",
+                timeout : 100000,
+                cache    : false,
+                data : {
+                },
+                beforeSend: function(){
+                },
+                complete: function(){
+
+                },
+                success : function(data) {
+                    // alert(data);
+                    console.log(data);
+                    // var response = JSON.parse(data);
+                    // console.log(response);
+                    $('#tableIdToFill').dynatable({
+
+                        dataset: {
+                            records: data
+                        }
+                    });
+
+                },
+                error : function(e) {
+                    alert("userContext");
+                    console.log("ERROR: ", e);
+
+                },
+                done : function(e) {
+                }
+            });
+
+
+        });
 
     </script>
 
@@ -47,24 +89,14 @@
         <p>Content for Tab 1</p>
     </div>
     <div id="tabs-2" class="ui-tabs-panel">
-        <div id="interestsDiv">
-            <ol id="selectable">
-                <c:forEach items="${interests}" var="interest">
-                    <li class="ui-widget-content">
-                        <div style="float: left;">${interest.name}</div>
-                        <div style="float: right;">
-                            <a class="updateInterest" id="${interest.id}" name="${interest.name}" href="#">Update</a>
-                        </div>
-                        <div style="float: right;">
-                            <a class="deleteInterest" id="${interest.id}" href="#">Delete</a>
-                        </div>
-                    </li>
-                </c:forEach>
-            </ol>
-        </div>
-        <div>
-            <button id="addInterest">Add Interest</button>
-        </div>
+        <table id="tableIdToFill" class="display" cellspacing="0" width="98%">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+        </table>
     </div>
     <sec:authorize access="hasRole('ROLE_ADMIN')">
         <div id="tabs-3" class="ui-tabs-panel">
