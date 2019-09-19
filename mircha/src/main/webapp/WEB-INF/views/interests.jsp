@@ -8,6 +8,12 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="static/form.js" ></script>
+    <link rel="stylesheet" type="text/css" href="static/css/appStyle.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/ui-darkness/jquery-ui.css" rel="stylesheet">
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Dynatable/0.3.1/jquery.dynatable.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Dynatable/0.3.1/jquery.dynatable.css">
@@ -26,6 +32,11 @@
 
     <script>
         $(document).ready(function() {
+            $("#tabs").tabs({
+                activate: function (event, ui) {
+                    var active = $('#tabs').tabs('option', 'active');
+                }
+            });
 
             $.ajax({
                 type : "GET",
@@ -68,20 +79,28 @@
 
 </head>
 <body>
-<div style="width: 100%;"><div style="float:left; margin-left: 30px"><h2>Mircha</h2></div><div style="float: right;"><sec:authentication property="name"/></div>
-    <div style="float: right; margin-right: 20px"><a href="${pageContext.request.contextPath}/logout">Logout</a></div></div>
+<nav style="background: teal;" class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#"><h2 class="meniItem">Mircha</h2></a>
+        </div>
 
-<div id="tabs" style="clear:both;">
-    <ul>
-        <li><a href="#tabs-1">Photos</a>
-        </li>
-        <li><a href="#tabs-2">Interests</a>
-        </li>
-<sec:authorize access="hasRole('ROLE_ADMIN')">
-    <li><a href="#tabs-3">Tab 3</a>
-    </li>
-</sec:authorize>
-    </ul>
+        <ul class="nav navbar-nav">
+                <li><a href="#tabs-1"><h4 class="meniItem">Photos</h4></a></li>
+                <li><a href="#tabs-2"><h4 class="meniItem">Interests</h4></a></li>
+                <sec:authorize access="hasRole('ROLE_ADMIN')">
+                    <li><a href="#tabs-3"><h4 class="meniItem">Tab 3</h4></a></li>
+                </sec:authorize>
+        </ul>
+        <div style="float: right;"><sec:authentication property="name"/></div>
+        <div style="float: right; margin-right: 20px">
+            <a href="${pageContext.request.contextPath}/logout">Logout</a>
+        </div>
+
+    </div>
+</nav>
+
+<div id="tabs">
     <div id="tabs-1"  class="ui-tabs-panel">
         <img data-enlargable style="cursor: zoom-in" src="photos/1.jpg">
         <img data-enlargable style="cursor: zoom-in" src="photos/2.jpg">
@@ -103,10 +122,9 @@
             <p>Content for Tab 3</p>
         </div>
     </sec:authorize>
-</div>
+    </div>
 
 <div id="interest-add-edit-form" title="Add/Edit interest">
-    <p class="validateTips">All form fields are required.</p>
     <form id="interestsForm">
         <fieldset>
             <label for="name">Name</label>

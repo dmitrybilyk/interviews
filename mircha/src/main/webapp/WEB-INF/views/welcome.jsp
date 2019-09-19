@@ -8,6 +8,18 @@
 	<link href="<c:url value='/static/css/app.css' />" rel="stylesheet">
 </head>
 <body>
+<nav style="background: teal;" class="navbar navbar-default">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#"><h4 class="meniItem">Mircha</h4></a>
+		</div>
+		<ul class="nav navbar-nav">
+			<li><a href="<c:url value="/interests" />"><h4 class="meniItem">Welcome</h4></a></li>
+			<li><a href="<c:url value="/photos" />"><h4 class="meniItem">Photos</h4></a></li>
+			<li class="active"><a href="<c:url value="/newUser" />"><h4 class="meniItem">New User</h4></a></li>
+		</ul>
+	</div>
+</nav>
 	<div class="success">
 		Greeting : ${greeting}
 		This is a welcome page.

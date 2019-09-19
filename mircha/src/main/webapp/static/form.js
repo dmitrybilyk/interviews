@@ -1,11 +1,7 @@
 $(function () {
     var dialog, form, dialogConfirm;
     // jQuery(document).ready(function ($) {
-        $("#tabs").tabs({
-            activate: function (event, ui) {
-                var active = $('#tabs').tabs('option', 'active');
-            }
-        });
+
         function extracted(htmlString) {
             htmlString += '<li class="ui-widget-content">' +
                 '<div style="float: left;">' + this.name + '</div>'
