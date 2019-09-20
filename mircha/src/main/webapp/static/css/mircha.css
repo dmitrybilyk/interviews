@@ -1,6 +1,14 @@
 body {
     background-color: #00BEBE;
 }
+a.logout {
+    color: #333;
+    text-decoration: underline;
+}
+a.logout:hover {
+    color: #00BEBE;
+    text-decoration: none;
+}
 #tabs {
     width: 95%;
     margin-left: auto;
@@ -12,7 +20,10 @@ body {
     width: 250px;
     height: 320px;
     border: solid lightgrey 1px;
-
+    display: none;
+}
+#tabs-2 {
+    display: none;
 }
 #selectable .ui-selecting {
     background: #FECA40;
@@ -26,5 +37,3 @@ body {
 #selectable li {
     margin: 3px; padding: 0.4em; font-size: 1.4em; height: 18px;
 }
-
-/* Note that jQuery UI CSS is loaded from Google's CDN in the "Add Resources" pane to the left.  Normally this would be done in your <head> */

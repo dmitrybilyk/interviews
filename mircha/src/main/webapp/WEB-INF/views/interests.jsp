@@ -2,40 +2,30 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %><html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/ui-darkness/jquery-ui.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Dynatable/0.3.1/jquery.dynatable.css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" type="text/css" href="styles/mircha.css"/>
     <link rel="stylesheet" type="text/css" href="static/css/app.css"/>
+    <link rel="stylesheet" type="text/css" href="static/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="static/css/mircha.css"/>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="static/form.js" ></script>
-    <link rel="stylesheet" type="text/css" href="static/css/appStyle.css">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/ui-darkness/jquery-ui.css" rel="stylesheet">
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
-
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Dynatable/0.3.1/jquery.dynatable.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Dynatable/0.3.1/jquery.dynatable.css">
-
-    <style>
-        label, input { display:block; }
-        input.text { margin-bottom:12px; width:95%; padding: .4em; }
-        fieldset { padding:0; border:0; margin-top:25px; }
-        h1 { font-size: 1.2em; margin: .6em 0; }
-        div#users-contain { width: 350px; margin: 20px 0; }
-        div#users-contain table { margin: 1em 0; border-collapse: collapse; width: 100%; }
-        div#users-contain table td, div#users-contain table th { border: 1px solid #eee; padding: .6em 10px; text-align: left; }
-        button { border: 1px solid transparent; margin-top: 20px; }
-        .deleteInterest {margin-right: 20px}
-    </style>
+    <script src="static/form.js" ></script>
 
     <script>
         $(document).ready(function() {
-            $("#tabs").tabs({
-                activate: function (event, ui) {
-                    var active = $('#tabs').tabs('option', 'active');
-                }
+            $('#tab-1').click(function() {
+                $('#tabs-1').show();
+                return false;
+            });
+            $('#tab-2').click(function() {
+                $('#tabs-2').open();
+                return false;
             });
 
             $.ajax({
@@ -82,21 +72,20 @@
 <nav style="background: teal;" class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#"><h2 class="meniItem">Mircha</h2></a>
+            <a class="active navbar-brand" href="#"><h4 class="meniItem">Mircha</h4></a>
         </div>
-
         <ul class="nav navbar-nav">
-                <li><a href="#tabs-1"><h4 class="meniItem">Photos</h4></a></li>
-                <li><a href="#tabs-2"><h4 class="meniItem">Interests</h4></a></li>
-                <sec:authorize access="hasRole('ROLE_ADMIN')">
-                    <li><a href="#tabs-3"><h4 class="meniItem">Tab 3</h4></a></li>
-                </sec:authorize>
+            <li><a href="#" class="tab-1"><h4 class="meniItem">Photos</h4></a></li>
+            <li><a href="#" class="tab-2"><h4 class="meniItem">Interests</h4></a></li>
+            <sec:authorize access="hasRole('ROLE_ADMIN')">
+                <li><a href="#tabs-3"><h4 class="meniItem">Tab 3</h4></a></li>
+            </sec:authorize>
         </ul>
-        <div style="float: right;"><sec:authentication property="name"/></div>
-        <div style="float: right; margin-right: 20px">
-            <a href="${pageContext.request.contextPath}/logout">Logout</a>
-        </div>
-
+        <ul class="nav navbar-nav" style="float: right">
+            <li style="float: right;"><a href=""><h4 class="meniItem"><sec:authentication property="name"/></h4></a></li>
+            <li style="float: right; margin-right: 10px"><a href="${pageContext.request.contextPath}/logout" class="logout">
+                <h4 class="meniItem">Logout</h4></a></li>
+        </ul>
     </div>
 </nav>
 
@@ -118,11 +107,11 @@
         </table>
     </div>
     <sec:authorize access="hasRole('ROLE_ADMIN')">
-        <div id="tabs-3" class="ui-tabs-panel">
-            <p>Content for Tab 3</p>
-        </div>
-    </sec:authorize>
+    <div id="tabs-3" class="ui-tabs-panel">
+        <p>Content for Tab 3</p>
     </div>
+    </sec:authorize>
+</div>
 
 <div id="interest-add-edit-form" title="Add/Edit interest">
     <form id="interestsForm">
