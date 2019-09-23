@@ -35,7 +35,7 @@ body, #mainWrapper, .form-control{
 
 .login-container {
     margin-top: 100px;
-    background-color: floralwhite;
+    background-color: #00BEBE;
     width: 40%;
     left: 30%;
     position: absolute;
@@ -44,6 +44,9 @@ body, #mainWrapper, .form-control{
 .login-card {
     width: 80%;
     margin: auto;
+}
+.login-card a {
+    color: white;
 }
 .login-form {
     padding: 10%;

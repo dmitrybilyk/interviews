@@ -10,7 +10,7 @@
 <body>
 	<div class="success">
 		Confirmation message : ${success}
-		Go to <a href="<c:url value="/welcome" />">Main page</a> OR <a href="<c:url value="/logout" />">Logout</a>
+		Go to <a href="<c:url value="/interests" />">Main page</a> OR <a href="<c:url value="/logout" />">Logout</a>
 	</div>
 	
 </body>

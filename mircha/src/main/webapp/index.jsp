@@ -15,27 +15,27 @@
 
 <%--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>--%>
     <script>
-        $(function () {
-            $("#tabs").tabs({
-                        activate: function (event, ui) {
-                            var active = $('#tabs').tabs('option', 'active');
-                            $("#tabid").html('the tab id is ' + $("#tabs ul>li a").eq(active).attr("href"));
+<%-- $(function () {
+     $("#tabs").tabs({
+                 activate: function (event, ui) {
+                     var active = $('#tabs').tabs('option', 'active');
+                     $("#tabid").html('the tab id is ' + $("#tabs ul>li a").eq(active).attr("href"));
 
-                        }
-                    }
+                 }
+             }
 
-            );
-        });
-        $(function () {
-            $("#selectable" ).selectable();
-            $("#addInterest").click(function () {
-                $("#tabs-2 ol li:last").after('<li class="ui-widget-content">demo</li>');
-            })
-        });
+     );
+ });
+ $(function () {
+     $("#selectable" ).selectable();
+     $("#addInterest").click(function () {
+         $("#tabs-2 ol li:last").after('<li class="ui-widget-content">demo</li>');
+     })
+ });--%>
 
     </script>
 </head>
 <body>
-        <jsp:forward page="WEB-INF/views/welcome.jsp"/>
+ <jsp:forward page="WEB-INF/views/welcome.jsp"/>
 </body>
 </html>

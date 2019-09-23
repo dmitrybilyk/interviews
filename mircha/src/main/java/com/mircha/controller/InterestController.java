@@ -30,7 +30,7 @@ public class InterestController {
 		this.interestService = interestService;
 	}
 
-	@RequestMapping(value = "/interests", method = RequestMethod.GET)
+	@RequestMapping(value = "/interests", method = RequestMethod.POST)
 	public String goHome(Model model) {
 		model.addAttribute("interests", this.interestService.getAllInterests());
 		return "interests";

@@ -19,12 +19,14 @@
 
     <script>
         $(document).ready(function() {
-            $('#tab-1').click(function() {
+            $('.tab-1').click(function() {
                 $('#tabs-1').show();
+                $('#tabs-2').hide();
                 return false;
             });
-            $('#tab-2').click(function() {
-                $('#tabs-2').open();
+            $('.tab-2').click(function() {
+                $('#tabs-2').show();
+                $('#tabs-1').hide();
                 return false;
             });
 
@@ -91,10 +93,17 @@
 
 <div id="tabs">
     <div id="tabs-1"  class="ui-tabs-panel">
-        <img data-enlargable style="cursor: zoom-in" src="photos/1.jpg">
-        <img data-enlargable style="cursor: zoom-in" src="photos/2.jpg">
-        <img data-enlargable style="cursor: zoom-in" src="photos/3.jpg">
-        <p>Content for Tab 1</p>
+        <p> </p>
+        <div class="gallery">
+            <div class="img-list">
+                <img data-enlargable style="cursor: zoom-in" src="photos/1.jpg">
+                <img data-enlargable style="cursor: zoom-in" src="photos/2.jpg">
+                <img data-enlargable style="cursor: zoom-in" src="photos/3.jpg">
+            </div>
+            <a href="#" class="prev">Prev</a>
+            <a href="#" class="next">Next</a>
+        </div>
+        <p>TODO some text</p>
     </div>
     <div id="tabs-2" class="ui-tabs-panel">
         <table id="tableIdToFill" class="display" cellspacing="0" width="98%">

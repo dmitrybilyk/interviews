@@ -13,14 +13,14 @@
 			<a class="active navbar-brand" href="#"><h4 class="meniItem">Mircha</h4></a>
 		</div>
 		<ul class="nav navbar-nav">
-			<li><a href="/interests"><h4 class="meniItem">Welcome</h4></a></li>
-			<li><a href="/interests"><h4 class="meniItem">Photos</h4></a></li>
-			<li><a href="/add/interest"><h4 class="meniItem">Interests</h4></a></li>
+			<li><a href="/login"><h4 class="meniItem">Welcome</h4></a></li>
+			<li><a href="#"><h4 class="meniItem">Photos</h4></a></li>
+			<li><a href="#"><h4 class="meniItem">Interests</h4></a></li>
 		</ul>
 	</div>
 </nav>
 	<div class="success">
-		This is a Mircha's website!
+		This is a Mircha's website! Please, <a href="/login">login</a> to see more
 	</div>
 </body>
 </html>
