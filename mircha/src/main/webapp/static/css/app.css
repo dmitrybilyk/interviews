@@ -42,6 +42,7 @@ body, #mainWrapper, .form-control{
 }
 
 .login-card {
+    border-radius: 4px;
     width: 80%;
     margin: auto;
 }

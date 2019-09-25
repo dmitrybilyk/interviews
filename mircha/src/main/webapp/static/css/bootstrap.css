@@ -1587,6 +1587,7 @@ pre code {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+  border: none;
 }
 .row {
   margin-right: -15px;
@@ -2967,7 +2968,7 @@ select[multiple].form-group-lg .form-control {
 .btn {
   display: inline-block;
   padding: 6px 12px;
-  margin-bottom: 0;
+  margin-right: 4px;
   font-size: 14px;
   font-weight: normal;
   line-height: 1.42857143;
@@ -2981,24 +2982,15 @@ select[multiple].form-group-lg .form-control {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  background-image: none;
+  color: #000000;
+  background-color: #929292;
   border: 1px solid transparent;
   border-radius: 4px;
-}
-.btn:focus,
-.btn:active:focus,
-.btn.active:focus,
-.btn.focus,
-.btn:active.focus,
-.btn.active.focus {
-  outline: thin dotted;
-  outline: 5px auto -webkit-focus-ring-color;
-  outline-offset: -2px;
 }
 .btn:hover,
 .btn:focus,
 .btn.focus {
-  color: #333;
+  color: #ffffff;
   text-decoration: none;
 }
 .btn:active,
@@ -4858,7 +4850,7 @@ a.badge:focus {
 }
 .container .jumbotron,
 .container-fluid .jumbotron {
-  border-radius: 6px;
+  border-radius: 10px;
 }
 .jumbotron .container {
   max-width: 100%;

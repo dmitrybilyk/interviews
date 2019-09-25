@@ -1,10 +1,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %><html>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/ui-darkness/jquery-ui.css" rel="stylesheet">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Dynatable/0.3.1/jquery.dynatable.css">
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/Dynatable/0.3.1/jquery.dynatable.css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" type="text/css" href="static/css/app.css"/>
     <link rel="stylesheet" type="text/css" href="static/css/bootstrap.css"/>
@@ -14,59 +16,52 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Dynatable/0.3.1/jquery.dynatable.js"></script>
-    <script src="static/form.js" ></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/Dynatable/0.3.1/jquery.dynatable.js"></script>
+    <script src="static/form.js"></script>
 
     <script>
-        $(document).ready(function() {
-            $('.tab-1').click(function() {
+        $(document).ready(function () {
+            $('.tab-1').click(function () {
                 $('#tabs-1').show();
                 $('#tabs-2').hide();
                 return false;
             });
-            $('.tab-2').click(function() {
+            $('.tab-2').click(function () {
                 $('#tabs-2').show();
                 $('#tabs-1').hide();
                 return false;
             });
 
             $.ajax({
-                type : "GET",
-                url : "/load/interests",
-                timeout : 100000,
-                cache    : false,
-                data : {
+                type: "GET",
+                url: "/load/interests",
+                timeout: 100000,
+                cache: false,
+                data: {},
+                beforeSend: function () {
                 },
-                beforeSend: function(){
+                complete: function () {
                 },
-                complete: function(){
+                success: function (data) {
 
-                },
-                success : function(data) {
-                    // alert(data);
-                    console.log(data);
-                    // var response = JSON.parse(data);
-                    // console.log(response);
                     $('#tableIdToFill').dynatable({
-
                         dataset: {
                             records: data
-                        }
+                            }
                     });
-
                 },
-                error : function(e) {
+                error: function (e) {
                     alert("userContext");
                     console.log("ERROR: ", e);
-
                 },
-                done : function(e) {
+                done: function (e) {
                 }
             });
-
-
+            function hideFirstColumn(){
+                $('td:nth-child(1)').hide();
+            }
         });
-
     </script>
 
 </head>
@@ -84,41 +79,58 @@
             </sec:authorize>
         </ul>
         <ul class="nav navbar-nav" style="float: right">
-            <li style="float: right;"><a href=""><h4 class="meniItem"><sec:authentication property="name"/></h4></a></li>
-            <li style="float: right; margin-right: 10px"><a href="${pageContext.request.contextPath}/logout" class="logout">
+            <li style="float: right;"><a href=""><h4 class="meniItem"><sec:authentication property="name"/></h4></a>
+            </li>
+            <li style="float: right; margin-right: 10px"><a href="${pageContext.request.contextPath}/logout"
+                                                            class="logout">
                 <h4 class="meniItem">Logout</h4></a></li>
         </ul>
     </div>
 </nav>
 
 <div id="tabs">
-    <div id="tabs-1"  class="ui-tabs-panel">
-        <p> </p>
-        <div class="gallery">
-            <div class="img-list">
-                <img data-enlargable style="cursor: zoom-in" src="photos/1.jpg">
-                <img data-enlargable style="cursor: zoom-in" src="photos/2.jpg">
-                <img data-enlargable style="cursor: zoom-in" src="photos/3.jpg">
+    <div id="tabs-1" class="ui-tabs-panel">
+        <div class="divContainer">
+            <h4>Micha's photos:</h4>
+            <div class="gallery">
+                <div class="img-list">
+                    <img data-enlargable style="cursor: zoom-in" src="photos/1.jpg">
+                    <img data-enlargable style="cursor: zoom-in" src="photos/2.jpg">
+                    <img data-enlargable style="cursor: zoom-in" src="photos/3.jpg">
+                </div>
+                <a href="#" class="prev">Prev</a>
+                <a href="#" class="next">Next</a>
             </div>
-            <a href="#" class="prev">Prev</a>
-            <a href="#" class="next">Next</a>
+            <p>TODO some text</p>
         </div>
-        <p>TODO some text</p>
     </div>
     <div id="tabs-2" class="ui-tabs-panel">
-        <table id="tableIdToFill" class="display" cellspacing="0" width="98%">
-            <thead>
-            <tr>
-                <th>Name</th>
-                <th>Description</th>
-            </tr>
-            </thead>
-        </table>
+        <div class="divContainer">
+            <h4>Mircha is interesting in: </h4>
+            <table id="tableIdToFill" class="display tableData" cellspacing="0" width="98%">
+                <thead>
+                <tr>
+                    <th colspan=2>
+                        <button class="btn" id="buttonAddNew">Add</button>
+                        <button class="btn" id="buttonEdit">Edit</button>
+                        <button class="btn" onclick="deleteRow()">Delete</button>
+                    </th>
+                </tr>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody onload="hideFirstColumn()">
+
+                </tbody>
+            </table>
+        </div>
     </div>
     <sec:authorize access="hasRole('ROLE_ADMIN')">
-    <div id="tabs-3" class="ui-tabs-panel">
-        <p>Content for Tab 3</p>
-    </div>
+        <div id="tabs-3" class="divContainer ui-tabs-panel">
+            <p>Content for Tab 3</p>
+        </div>
     </sec:authorize>
 </div>
 
