@@ -49,7 +49,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 	  http.authorizeRequests()
 	  	.antMatchers().denyAll()
-					  .antMatchers("/login","/welcome","/index", "/newUser").permitAll()
+					  .antMatchers("/", "/interests", "/login","/welcome","/index", "/newUser").permitAll()
 //					  .antMatchers("/", "/interests").access("hasRole('USER') or hasRole('ADMIN') or hasRole('DBA')")
 	  	.antMatchers("/admin/**").access("hasRole('ADMIN')")
 	  	.antMatchers("/db/**").access("hasRole('ADMIN') and hasRole('DBA')")

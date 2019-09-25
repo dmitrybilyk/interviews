@@ -1,31 +1,128 @@
+var id = 0;
+var name = "";
+var description = "";
+
+var actioCreate = false;
+var actioEdit = false;
+function deleteInterest() {
+    if (id!==0) {
+        var data = {};
+        data["id"] = id;
+        $.ajax({
+            type: "DELETE",
+            url: "/delete/interest",
+            contentType: "application/json",
+            data: JSON.stringify(data),
+            dataType: 'json',
+            success: function(data) {
+                fillTable(data)
+            },
+            beforeSend: function () {
+                document.getElementById("tdataDis").innerHTML = ""; // innerHTML is right for a div
+                //alert("delete");
+            },
+            complete: function () {
+                // setUserPanel();
+            }
+        })
+    }
+}
+
+function fillTable(data) {
+    $(function () {
+        $.each(data, function (i, item) {
+            $('<tr>').append(
+                    $('<td class="i">').text(item.id),
+                    $('<td class="n">').text(item.name),
+                    $('<td class="d">').text(item.description)
+            ).appendTo('#tdataDis');
+        });
+    });
+    $("tbody tr").click(function () {
+        $('.selected').removeClass('selected');
+        $(this).addClass("selected");
+        id = $('.i', this).html();
+        name = $('.n', this).html();
+        description = $('.d', this).html();
+    });
+}
+
+function editInterest() {
+    if (id!==0) {
+        var data = {};
+        data["id"] = id;
+        data["name"] = name;
+        data["description"] = description;
+        $.ajax({
+            type: "PUT",
+            url: "/update/interest",
+            contentType: "application/json",
+            data: JSON.stringify(data),
+            dataType: 'json',
+            success: function(data) {
+                $("#dialogAddInterest").dialog("close");
+                fillTable(data);
+            },
+            beforeSend: function () {
+                document.getElementById("tdataDis").innerHTML = ""; // innerHTML is right for a div
+                //alert("delete");
+            },
+            complete: function () {
+                // setUserPanel();
+            }
+        })
+    }
+}
 $(function () {
-    var dialog, form, dialogConfirm;
-        function deleteInterest(id) {
-            var data = {};
-            data["id"] = id;
-            $.ajax({
-                type: "DELETE",
-                contentType: "application/json",
-                url: "/delete/interest",
-                data: JSON.stringify(data),
-                dataType: 'json',
-                timeout: 600000,
-                success: function (response) {
-                    var htmlString = '<ol id="selectable">';
-                    // var obj = jQuery.parseJSON(response);
-                    $.each(response, function () {
-                        htmlString = extracted.call(this, htmlString);
-                    });
-                    htmlString += '</ol>';
-                    $("#interestsDiv").html(htmlString);
-                },
-                error: function (e) {
-                    alert("Noooooot working");
-                }
-            });
+    $("#dialogAddInterest").dialog({
+        autoOpen: false,
+        maxWidth: 850,
+        maxHeight: 500,
+        width: 850,
+        height: 400,
+        buttons: {
+            Cancel: function () {
+                $(this).dialog("close");
+            }
+        }
+    });
+
+    $("#buttonAddNew").on("click", function () {
+        actioCreate = true;
+        actioEdit = false;
+        $('#name').val("");
+        $('#description').val("");
+
+        $("#dialogAddInterest").dialog("open");
+        $("#dialogAddInterest").dialog('title', 'Add a new interest');
+    });
+
+    $("#buttonEdit").on("click", function () {
+        if (id !== 0 && name !== "") {
+            actioCreate = false;
+            actioEdit = true;
+
+            $('#name').val(name);
+            $('#description').val(description);
+
+            $("#dialogAddInterest").dialog({title: "Edit: "+name}).dialog('open');
+            // $("#dialogAddInterest").dialog('title');
+        } else {
+            alert("Please select an interest you want to edit!");
+        }
+    });
+
+    $("#submit").click(function (e) {
+        if (actioCreate) {
+            addInterest();
+        } else if (actioEdit) {
+            editInterest();
         }
 
 
+    });
+
+    var dialog, form, dialogConfirm;
         $('img[data-enlargable]').addClass('img-enlargable').click(function () {
             var src = $(this).attr('src');//get the source attribute of the clicked image
             $('<div>').css({
@@ -83,25 +180,24 @@ $(function () {
             $.ajax({
                 type: "POST",
                 contentType: "application/json",
-                url: "/mircha/add/interest",
+                url: "/add/interest",
                 data: JSON.stringify(data),
                 dataType: 'json',
                 timeout: 600000,
+                beforeSend: function () {
+                    document.getElementById("tdataDis").innerHTML = ""; // innerHTML is right for a div
+                    //alert("delete");
+                },
                 success: function (response) {
-                    var htmlString = '<ol id="selectable">';
-                    // var obj = jQuery.parseJSON(response);
-                    $.each(response, function () {
-                        htmlString = extracted.call(this, htmlString);
-                    });
-                    htmlString += '</ol>';
-                    $("#interestsDiv").html(htmlString);
+                    $("#dialogAddInterest").dialog("close");
+                    fillTable(response)
                 },
                 error: function (e) {
                     alert("Notttt working");
                 }
             });
-            dialog.dialog("close");
-            return true;
+            // dialog.dialog("close");
+            // return true;
         }
 
         dialog = $("#interest-add-edit-form").dialog({
@@ -149,74 +245,6 @@ $(function () {
             function () {
                 dialogConfirm.dialog("open");
             });
-        // });
-
-
-        //var $li = $('.img-list').find('> li'),
-        //    $links = $li.find('> a'),
-        //    $lightbox = $('.lightbox'),
-        //    $next = $('.next'),
-        //    $prev = $('.prev'),
-        //    $overlay = $('.overlay'),
-        //    liIndex,
-        //    targetImg;
-        //
-        ////preload images
-        //var imgSources = [
-        //    'photos/1.jpg',
-        //    'photos/2.jpg',
-        //    'photos/3.jpg'
-        //];
-        //
-        //var imgs = [];
-        //for (var i = 0; i < imgSources.length; i++) {
-        //    imgs[i] = new Image();
-        //    imgs[i].src = imgSources[i];
-        //}
-        //
-        //function replaceImg(src) {
-        //    $lightbox.find('img').attr('src', src);
-        //}
-        //
-        //function getHref(index) {
-        //    return $li.eq(index).find('>a').attr('href');
-        //}
-        //
-        //function closeLigtbox() {
-        //    $lightbox.fadeOut();
-        //}
-        //
-        //$overlay.click(closeLigtbox);
-        //
-        //$links.click(function(e) {
-        //    e.preventDefault();
-        //    targetImg = $(this).attr('href');
-        //    liIndex = $(this).parent().index();
-        //    replaceImg(targetImg);
-        //    $lightbox.fadeIn();
-        //});
-        //
-        //$next.click( function() {
-        //    if ( (liIndex + 1) < $li.length ) {
-        //        targetImg = getHref(liIndex + 1);
-        //        liIndex ++;
-        //    } else {
-        //        targetImg = getHref(0);
-        //        liIndex = 0;
-        //    }
-        //    replaceImg(targetImg);
-        //});
-        //
-        //$prev.click( function() {
-        //    if ( (liIndex) > 0 ) {
-        //        targetImg = getHref(liIndex - 1);
-        //        liIndex --;
-        //    } else {
-        //        targetImg = getHref($li.length - 1);
-        //        liIndex = $li.length - 1;
-        //    }
-        //    replaceImg(targetImg);
-        //});
 
         var start = 0;
         var nb = 5;

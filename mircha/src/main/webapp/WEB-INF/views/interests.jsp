@@ -9,6 +9,7 @@
           href="https://cdnjs.cloudflare.com/ajax/libs/Dynatable/0.3.1/jquery.dynatable.css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" type="text/css" href="static/css/app.css"/>
+    <link rel="stylesheet" type="text/css" href="static/css/appStyle.css"/>
     <link rel="stylesheet" type="text/css" href="static/css/bootstrap.css"/>
     <link rel="stylesheet" type="text/css" href="static/css/mircha.css"/>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -21,6 +22,48 @@
     <script src="static/form.js"></script>
 
     <script>
+        function setUserPanel() {
+            $.ajax({
+                type: "GET",
+                url: "/load/interests",
+                timeout: 100000,
+                cache: false,
+                data: {},
+                beforeSend: function () {
+                    document.getElementById("tdataDis").innerHTML = ""; // innerHTML is right for a div
+                    //alert("delete");
+                },
+                complete: function () {
+                },
+                success: function (data) {
+                    // var response = JSON.parse(data);
+                    $(function () {
+                        $.each(data, function (i, item) {
+                            $('<tr>').append(
+                                    $('<td class="i">').text(item.id),
+                                    $('<td class="n">').text(item.name),
+                                    $('<td class="d">').text(item.description)
+                            ).appendTo('#tdataDis');
+                        });
+                    });
+                    $("tbody tr").click(function () {
+                        $('.selected').removeClass('selected');
+                        $(this).addClass("selected");
+                        id = $('.i', this).html();
+                        name = $('.n', this).html();
+                        description = $('.d', this).html();
+                    });
+                },
+                error: function (e) {
+                    alert("userContext");
+                    console.log("ERROR: ", e);
+
+                },
+                done: function (e) {
+                }
+            });
+        }
+
         $(document).ready(function () {
             $('.tab-1').click(function () {
                 $('#tabs-1').show();
@@ -32,35 +75,7 @@
                 $('#tabs-1').hide();
                 return false;
             });
-
-            $.ajax({
-                type: "GET",
-                url: "/load/interests",
-                timeout: 100000,
-                cache: false,
-                data: {},
-                beforeSend: function () {
-                },
-                complete: function () {
-                },
-                success: function (data) {
-
-                    $('#tableIdToFill').dynatable({
-                        dataset: {
-                            records: data
-                            }
-                    });
-                },
-                error: function (e) {
-                    alert("userContext");
-                    console.log("ERROR: ", e);
-                },
-                done: function (e) {
-                }
-            });
-            function hideFirstColumn(){
-                $('td:nth-child(1)').hide();
-            }
+            setUserPanel();
         });
     </script>
 
@@ -109,19 +124,16 @@
             <h4>Mircha is interesting in: </h4>
             <table id="tableIdToFill" class="display tableData" cellspacing="0" width="98%">
                 <thead>
+                <tr><td style="background: darkcyan" colspan=3>
+                    <button class="btn" id="buttonAddNew" >New</button>
+                    <button class="btn" id="buttonEdit" >Edit</button>
+                    <button class="btn" onclick="deleteInterest()">Delete</button>
+                </td></tr>
                 <tr>
-                    <th colspan=2>
-                        <button class="btn" id="buttonAddNew">Add</button>
-                        <button class="btn" id="buttonEdit">Edit</button>
-                        <button class="btn" onclick="deleteRow()">Delete</button>
-                    </th>
-                </tr>
-                <tr>
-                    <th>Name</th>
-                    <th>Description</th>
+                    <th>Id</th><th>Name</th><th>Description</th>
                 </tr>
                 </thead>
-                <tbody onload="hideFirstColumn()">
+                <tbody id="tdataDis">
 
                 </tbody>
             </table>
@@ -134,20 +146,43 @@
     </sec:authorize>
 </div>
 
-<div id="interest-add-edit-form" title="Add/Edit interest">
-    <form id="interestsForm">
-        <fieldset>
-            <label for="name">Name</label>
-            <input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all">
-            <label for="description">Description</label>
-            <input type="text" name="description" id="description" class="text ui-widget-content ui-corner-all">
-            <!-- Allow form submission with keyboard without duplicating the dialog button -->
-            <!--<input type="submit" id="submit" value="Create" tabindex="-1" style="position:absolute; top:-1000px">-->
-        </fieldset>
-    </form>
+<%--<div id="interest-add-edit-form" title="Add/Edit interest">--%>
+    <%--<form id="interestsForm">--%>
+        <%--<fieldset>--%>
+            <%--<label for="name">Name</label>--%>
+            <%--<input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all">--%>
+            <%--<label for="description">Description</label>--%>
+            <%--<input type="text" name="description" id="description" class="text ui-widget-content ui-corner-all">--%>
+            <%--<!-- Allow form submission with keyboard without duplicating the dialog button -->--%>
+            <%--<!--<input type="submit" id="submit" value="Create" tabindex="-1" style="position:absolute; top:-1000px">-->--%>
+        <%--</fieldset>--%>
+    <%--</form>--%>
+<%--</div>--%>
+<%--<div id="confirm-delete-form" title="Delete interest">--%>
+    <%--<p>Are you really want to delete this interest?</p>--%>
+<%--</div>--%>
+
+
+<div style="" id="dialogAddInterest" title="Add a new Interest">
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label class="control-label col-sm-4" for="name">Name :</label>
+            <div class="col-sm-8">
+                <input id="name" type="text" class="form-control" value=""  placeholder="Name"/>
+            </div>
+        </div><br/>
+        <div class="form-group">
+            <label class="control-label col-sm-4" for="description">Description:</label>
+            <div class="col-sm-8">
+                <input id="description" type="text" class="form-control" value=""   placeholder="Description"/>
+            </div>
+        </div><br/>
+    </div>
+    <div class="col-sm-offset-8 col-sm-4">
+        <input class="btn" id="submit" type="button" value="Create">
+    </div>
+
 </div>
-<div id="confirm-delete-form" title="Delete interest">
-    <p>Are you really want to delete this interest?</p>
-</div>
+
 </body>
 </html>
