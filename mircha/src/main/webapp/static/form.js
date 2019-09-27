@@ -4,6 +4,80 @@ var description = "";
 
 var actioCreate = false;
 var actioEdit = false;
+
+function fillTable(data) {
+    $(function () {
+        $.each(data, function (i, item) {
+            $('<tr>').append(
+                $('<td class="i">').text(item.id),
+                $('<td class="n">').text(item.name),
+                $('<td class="d">').text(item.description)
+            ).appendTo('#tdataDis');
+        });
+    });
+    $("tbody tr").click(function () {
+        $('.selected').removeClass('selected');
+        $(this).addClass("selected");
+        id = $('.i', this).html();
+        name = $('.n', this).html();
+        description = $('.d', this).html();
+    });
+}
+
+function addInterest() {
+    var data = {};
+    data["name"] = $("#name").val();
+    data["description"] = $("#description").val();
+    $.ajax({
+        type: "POST",
+        contentType: "application/json",
+        url: "/add/interest",
+        data: JSON.stringify(data),
+        dataType: 'json',
+        timeout: 600000,
+        beforeSend: function () {
+            document.getElementById("tdataDis").innerHTML = ""; // innerHTML is right for a div
+        },
+        success: function (response) {
+            $("#dialogAddInterest").dialog("close");
+            fillTable(response)
+        },
+        error: function (e) {
+            alert("Notttt working");
+        }
+    });
+}
+
+function editInterest() {
+    if (id!==0) {
+        var data = {};
+        data["id"] = $("#id").val();
+        data["name"] = $("#name").val();
+        data["description"] = $("#description").val();
+        $.ajax({
+            type: "PUT",
+            contentType: "application/json",
+            url: "/update/interest",
+            data: JSON.stringify(data),
+            dataType: 'json',
+            timeout: 600000,
+            beforeSend: function () {
+                document.getElementById("tdataDis").innerHTML = ""; // innerHTML is right for a div
+                //alert("delete");
+            },
+            success: function(data) {
+                $("#dialogAddInterest").dialog("close");
+                fillTable(data);
+            },
+            complete: function () {
+            },
+            error: function (e) {
+                alert("Notttt working");
+            }
+        });
+    }
+}
+
 function deleteInterest() {
     if (id!==0) {
         var data = {};
@@ -28,51 +102,9 @@ function deleteInterest() {
     }
 }
 
-function fillTable(data) {
-    $(function () {
-        $.each(data, function (i, item) {
-            $('<tr>').append(
-                    $('<td class="i">').text(item.id),
-                    $('<td class="n">').text(item.name),
-                    $('<td class="d">').text(item.description)
-            ).appendTo('#tdataDis');
-        });
-    });
-    $("tbody tr").click(function () {
-        $('.selected').removeClass('selected');
-        $(this).addClass("selected");
-        id = $('.i', this).html();
-        name = $('.n', this).html();
-        description = $('.d', this).html();
-    });
-}
 
-function editInterest() {
-    if (id!==0) {
-        var data = {};
-        data["id"] = id;
-        data["name"] = name;
-        data["description"] = description;
-        $.ajax({
-            type: "PUT",
-            url: "/update/interest",
-            contentType: "application/json",
-            data: JSON.stringify(data),
-            dataType: 'json',
-            success: function(data) {
-                $("#dialogAddInterest").dialog("close");
-                fillTable(data);
-            },
-            beforeSend: function () {
-                document.getElementById("tdataDis").innerHTML = ""; // innerHTML is right for a div
-                //alert("delete");
-            },
-            complete: function () {
-                // setUserPanel();
-            }
-        })
-    }
-}
+
+
 $(function () {
     $("#dialogAddInterest").dialog({
         autoOpen: false,
@@ -81,6 +113,13 @@ $(function () {
         width: 850,
         height: 400,
         buttons: {
+            "Save": function(e) {
+                if (actioCreate) {
+                    addInterest();
+                } else if (actioEdit) {
+                    editInterest();
+                }
+            },
             Cancel: function () {
                 $(this).dialog("close");
             }
@@ -102,6 +141,7 @@ $(function () {
             actioCreate = false;
             actioEdit = true;
 
+            $('#id').val(id);
             $('#name').val(name);
             $('#description').val(description);
 
@@ -112,15 +152,13 @@ $(function () {
         }
     });
 
-    $("#submit").click(function (e) {
-        if (actioCreate) {
-            addInterest();
-        } else if (actioEdit) {
-            editInterest();
-        }
-
-
-    });
+    //$("#submit").click(function (e) {
+    //    if (actioCreate) {
+    //        addInterest();
+    //    } else if (actioEdit) {
+    //        editInterest();
+    //    }
+    //});
 
     var dialog, form, dialogConfirm;
         $('img[data-enlargable]').addClass('img-enlargable').click(function () {
@@ -173,32 +211,7 @@ $(function () {
         //        return true;
         //    }
         //}
-        function addInterest() {
-            var data = {};
-            data["name"] = $("#name").val();
-            data["description"] = $("#description").val();
-            $.ajax({
-                type: "POST",
-                contentType: "application/json",
-                url: "/add/interest",
-                data: JSON.stringify(data),
-                dataType: 'json',
-                timeout: 600000,
-                beforeSend: function () {
-                    document.getElementById("tdataDis").innerHTML = ""; // innerHTML is right for a div
-                    //alert("delete");
-                },
-                success: function (response) {
-                    $("#dialogAddInterest").dialog("close");
-                    fillTable(response)
-                },
-                error: function (e) {
-                    alert("Notttt working");
-                }
-            });
-            // dialog.dialog("close");
-            // return true;
-        }
+
 
         dialog = $("#interest-add-edit-form").dialog({
             autoOpen: false,
