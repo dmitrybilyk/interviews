@@ -14,8 +14,8 @@
 		</div>
 		<ul class="nav navbar-nav">
 			<li><a href="/login"><h4 class="meniItem">Welcome</h4></a></li>
-			<li><a href="#"><h4 class="meniItem">Photos</h4></a></li>
-			<li><a href="#"><h4 class="meniItem">Interests</h4></a></li>
+			<li><a href="/photos"><h4 class="meniItem">Photos</h4></a></li>
+			<li><a href="/interests"><h4 class="meniItem">Interests</h4></a></li>
 		</ul>
 	</div>
 </nav>

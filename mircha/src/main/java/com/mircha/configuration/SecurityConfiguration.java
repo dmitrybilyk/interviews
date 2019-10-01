@@ -48,11 +48,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 	  http.authorizeRequests()
-	  	.antMatchers().denyAll()
-					  .antMatchers("/", "/interests", "/login","/welcome","/index", "/newUser").permitAll()
+//	  	.antMatchers().denyAll()
+					  .antMatchers("/", "/login", "/index", "/newUser").permitAll()
 //					  .antMatchers("/", "/interests").access("hasRole('USER') or hasRole('ADMIN') or hasRole('DBA')")
-	  	.antMatchers("/admin/**").access("hasRole('ADMIN')")
-	  	.antMatchers("/db/**").access("hasRole('ADMIN') and hasRole('DBA')")
+	  	.antMatchers("/interests").access("isFullyAuthenticated()")
+	  	.antMatchers("/welcome").access("isFullyAuthenticated()")
+	  	.antMatchers("welcome.jsp").access("isFullyAuthenticated()")
+//	  	.antMatchers("/admin/**").access("hasRole('ADMIN')")
+//	  	.antMatchers("/db/**").access("hasRole('ADMIN') and hasRole('DBA')")
 	  	.and().formLogin().loginPage("/login")
 	  	.usernameParameter("ssoId").passwordParameter("password")
 	  	.and().exceptionHandling().accessDeniedPage("/Access_Denied")
