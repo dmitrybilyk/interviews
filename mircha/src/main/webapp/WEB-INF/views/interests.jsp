@@ -4,7 +4,6 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/ui-darkness/jquery-ui.css" rel="stylesheet">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css"
           href="https://cdnjs.cloudflare.com/ajax/libs/Dynatable/0.3.1/jquery.dynatable.css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -12,13 +11,12 @@
     <link rel="stylesheet" type="text/css" href="static/css/appStyle.css"/>
     <link rel="stylesheet" type="text/css" href="static/css/bootstrap.css"/>
     <link rel="stylesheet" type="text/css" href="static/css/mircha.css"/>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript"
             src="https://cdnjs.cloudflare.com/ajax/libs/Dynatable/0.3.1/jquery.dynatable.js"></script>
     <script src="static/form.js"></script>
@@ -83,7 +81,7 @@
 
 </head>
 <body>
-<nav style="background: teal;" class="navbar navbar-default">
+<nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
             <a class="active navbar-brand" href="#"><h4 class="meniItem">Mircha</h4></a>
@@ -109,21 +107,50 @@
     <div id="tabs-1" class="ui-tabs-panel">
         <div class="divContainer">
             <h4>Micha's photos:</h4>
-            <div class="gallery">
-                <div class="img-list">
-                    <img data-enlargable style="cursor: zoom-in" src="photos/1.jpg">
-                    <img data-enlargable style="cursor: zoom-in" src="photos/2.jpg">
-                    <img data-enlargable style="cursor: zoom-in" src="photos/3.jpg">
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img src="photos/1.jpg">
+                    </div>
+                    <div class="item">
+                        <img src="photos/2.jpg">
+                    </div>
+                    <div class="item">
+                        <img src="photos/3.jpg">
+                    </div>
                 </div>
-                <a href="#" class="prev">Prev</a>
-                <a href="#" class="next">Next</a>
+                <!-- Left and right controls -->
+                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                    <span class="sr-only">Next</span>
+                </a>
             </div>
-            <p>TODO some text</p>
+            <%--<div class="gallery">--%>
+                <%--<div class="img-list">--%>
+                    <%--<img data-enlargable style="cursor: zoom-in" src="photos/1.jpg">--%>
+                    <%--<img data-enlargable style="cursor: zoom-in" src="photos/2.jpg">--%>
+                    <%--<img data-enlargable style="cursor: zoom-in" src="photos/3.jpg">--%>
+                <%--</div>--%>
+                <%--<a href="#" class="prev">Prev</a>--%>
+                <%--<a href="#" class="next">Next</a>--%>
+            <%--</div>--%>
+            <%--<p>TODO some text</p>--%>
         </div>
     </div>
     <div id="tabs-2" class="ui-tabs-panel">
         <div class="divContainer">
-            <h4>Mircha is interesting in: </h4>
+            <h4>Mircha is interest in: </h4>
             <table id="tableIdToFill" class="display tableData" cellspacing="0" width="98%">
                 <thead>
                 <tr><td style="background: darkcyan" colspan=3>
@@ -165,24 +192,28 @@
 <%--</div>--%>
 
 
-<div style="" id="dialogAddInterest" title="Add a new Interest">
-    <div class="col-sm-6">
+<div style="height: 250px; width: 500px" id="dialogAddInterest" title="Add a new Interest">
+        <div hidden>
+            <label class="control-lb" for="name">Id :</label>
+            <div class="col-sm-8">
+                <input id="id" type="text" class="form-control" value=""  placeholder="Id"/>
+            </div>
+        </div><br/>
         <div class="form-group">
-            <label class="control-label col-sm-4" for="name">Name :</label>
+            <label class="control-lb col-sm-4" for="name">Name :</label>
             <div class="col-sm-8">
                 <input id="name" type="text" class="form-control" value=""  placeholder="Name"/>
             </div>
         </div><br/>
         <div class="form-group">
-            <label class="control-label col-sm-4" for="description">Description:</label>
+            <label class="control-lb col-sm-4" for="description">Description:</label>
             <div class="col-sm-8">
                 <input id="description" type="text" class="form-control" value=""   placeholder="Description"/>
             </div>
         </div><br/>
-    </div>
-    <div class="col-sm-offset-8 col-sm-4">
-        <input class="btn" id="submit" type="button" value="Create">
-    </div>
+       <%--<div class="col-sm-offset-8 col-sm-4">--%>
+        <%--<input class="btn" id="submit" type="button" value="Save">--%>
+    <%--</div>--%>
 
 </div>
 
