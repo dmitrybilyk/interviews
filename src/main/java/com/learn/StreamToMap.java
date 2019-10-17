@@ -19,7 +19,7 @@ public class StreamToMap {
 		Optional<List<FiaskoKiaskoDiscount>> fiaskoKiaskoDiscounts = Optional.ofNullable(getFiaskoKiaskoDiscounts());
 		if (fiaskoKiaskoDiscounts.isPresent()) {
 			Map<String, String> map = fiaskoKiaskoDiscounts.get().stream().collect
-							(Collectors.toMap(FiaskoKiaskoDiscount::getId, enumerationService::getEnumerationName));
+							(Collectors.toMap(FiaskoKiaskoDiscount::getCode, enumerationService::getEnumerationName));
 
 			for (String s : map.keySet()) {
 				System.out.println(s);
@@ -36,10 +36,10 @@ public class StreamToMap {
 
 	private static List<FiaskoKiaskoDiscount> getFiaskoKiaskoDiscounts() {
 		FiaskoKiaskoDiscount fiaskoKiaskoDiscount1 = new FiaskoKiaskoDiscount();
-		fiaskoKiaskoDiscount1.setId("1");
+		fiaskoKiaskoDiscount1.setCode("1");
 		fiaskoKiaskoDiscount1.setName("name1");
 		FiaskoKiaskoDiscount fiaskoKiaskoDiscount2 = new FiaskoKiaskoDiscount();
-		fiaskoKiaskoDiscount2.setId("2");
+		fiaskoKiaskoDiscount2.setCode("2");
 		fiaskoKiaskoDiscount2.setName("name2");
 		return Arrays.asList(fiaskoKiaskoDiscount1, fiaskoKiaskoDiscount2);
 //		return null;
@@ -49,15 +49,15 @@ public class StreamToMap {
 }
 
 class FiaskoKiaskoDiscount {
-	private String id;
+	private String code;
 	private String name;
 
-	public String getId() {
-		return id;
+	public String getCode() {
+		return code;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setCode(String code) {
+		this.code = code;
 	}
 
 	public String getName() {
