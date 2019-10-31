@@ -30,17 +30,17 @@ public class InterestController {
 		this.interestService = interestService;
 	}
 
-	@RequestMapping(value = "/interests", method = RequestMethod.GET)
+	@RequestMapping(value = "/interests", method = RequestMethod.POST)
 	public String goHome(Model model) {
 		model.addAttribute("interests", this.interestService.getAllInterests());
 		return "interests";
 	}
 
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String goEmptyHome(Model model) {
-		model.addAttribute("interests", this.interestService.getAllInterests());
-		return "interests";
-	}
+//	@RequestMapping(value = "/", method = RequestMethod.GET)
+//	public String goEmptyHome(Model model) {
+//		model.addAttribute("interests", this.interestService.getAllInterests());
+//		return "interests";
+//	}
 
 
 	@ResponseBody

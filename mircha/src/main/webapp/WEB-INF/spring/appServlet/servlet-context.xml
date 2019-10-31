@@ -18,7 +18,7 @@
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving 
 		up static resources in the ${webappRoot}/resources directory -->
-	<resources mapping="/resources/**" location="/resources/" />
+	<resources mapping="/resources/**" location="/resourses/"/>
 	<resources mapping="/static/**" location="/static/" />
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources
@@ -30,6 +30,7 @@
 	</beans:bean>
 
 	<context:component-scan base-package="com.mircha.controller" />
+	<context:component-scan base-package="com.mircha.controller.security" />
 
 
 </beans:beans>

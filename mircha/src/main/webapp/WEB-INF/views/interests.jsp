@@ -94,7 +94,7 @@
             </sec:authorize>
         </ul>
         <ul class="nav navbar-nav" style="float: right">
-            <li style="float: right;"><a href=""><h4 class="meniItem"><sec:authentication property="name"/></h4></a>
+            <li style="float: right;"><a href=""><h4 class="meniItem"><sec:authorize var="name"/></h4></a>
             </li>
             <li style="float: right; margin-right: 10px"><a href="${pageContext.request.contextPath}/logout"
                                                             class="logout">
