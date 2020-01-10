@@ -1,0 +1,142 @@
+1. What is Java language? How is it different to for instance other languages (C for instance)
+- in c you may use multiple inheritance, pointers etc.
+- java is fully object-oriented, c - is semi object-oriented
+Which principles of OOP do you know? (abstraction, encapsulation, inheritance and polymorphism)
+a) abstraction
+The progress of abstraction happens when you declare an interface, write a class,
+implement a method, declare a variable, etc. Everything is an abstraction.
+Abstraction is the most fundamental concept on which others rely on,
+such as encapsulation, inheritance and polymorphism.
+Abstraction is the progress of modeling real world objects into programming language.
+Hence interfaces and abstract classes are just two techniques used in this progress.
+b) Encapsulation.
+Here, the common characteristics and behaviors of a person are packaged into a single unit: the Personclass.
+This is the process of encapsulation.
+Second, encapsulation is a technique for protecting data from misuse by the outside world,
+which is referred as ‘information hiding’ or ‘data hiding’.
+c) Inheritance.
+nheritance is the ability of a class inherits data and behaviors from another class.
+Note that only public and protected members of the superclass are inherited by
+the subclass. The subclass can freely add new members to extend features of the superclass.
+Inheritance is for reusing code. Using inheritance promotes the maintainability of the code.
+Another reason for implementing inheritance is for the purpose of extensibility
+
+In Java, inheritance can be implemented in three forms:
+A class inherits another class
+A class implements another interface
+An interface inherits another interface
+
+d) Polymorphism.
+Polymorphism means ‘many forms’. In OOP, polymorphism means a type can point to
+different object at different time. In other words, the actual object to which
+a reference type refers, can be determined at runtime.
+
+Polymorphism is a robust feature of OOP. It increases the reusability,
+flexibility and extensibility of code. Take the above example for instance:
+Reusability: the teach() method can be re-used for different kinds of objects as
+long as they are sub types of the Animal interface.
+Flexibility: the actual object can be determined at runtime which allows the code
+run more flexibly.
+Extensibility: when we want to add a new kind of Animal, e.g. Snake, we just pass
+an object of Snake into the teach() method without any modification.
+
+2. Which steps whould you use to create and run some simple java programe from console?
+
+3. What is the difference between interface and abstract class. When would you prefer to use
+abstract class?
+- can abstract class have non-abstract methods? Can class extend several abstract classes?
+Summing up, we can say that the major difference between an abstract class and an
+interface is the methods they contain (completed versus uncompleted) and their
+contents (a real class vs. an empty template)
+
+4. Which class is the parent of all classes in java.
+Please list the methods of Object class in java.
+
+- clone - how to use this method? Which issues could happen with cloning? How to resolve them?
+- equals - rules while overriding equals and hashcode
+- hashcode
+- notify -
+- notifyAll
+- toString
+- wait
+
+5. Exception hierarchi. Which types of exceptions exist, difference between them.
+Which operators to use, is it recommended to use them to control the flow of the
+program, what are the best practices regarding exceptions handling? Examples of checked/unchecked
+exceptions.
+
+/home/dmitry/dev/projects/interviews/src/main/java/com/learn/core/exceptions/theory
+/home/dmitry/dev/projects/interviews/src/main/java/com/learn/core/exceptions/exceptionhierarchy3.png
+
+6. Collections hierarchi.
+/home/dmitry/dev/projects/interviews/src/main/java/com/learn/core/collections/CollectionsStructure.png
+
+Which data types do you know? Array, LinkedList, Queue, Stack, tree, graph
+Do you know any searching or sorting algorithm?
+
+How hashmap works internally? What is collision? how to get rid of collisions?
+What if keys of 2 objects are equal?
+
+What is Arraylist. What is inside array list? What is capacity etc?
+What is LinkedList. What is inside?
+Compare ArrayList and LinkedList. Which one is quicker to add and to get objects?
+On what conditions it depends?
+
+What is recursion?
+
+7. What is a multithreading in java? How to create a thread in java?
+Which ways of synchronization do you know? Reentrant lock, synchronization, semaphors etc
+How to make one thread to wait until another thread completes it's job and just after that it
+will start himself?
+What is deadlock and how to avoid deadlock?
+What if you want to return some result from thread execution? (Callable interface)
+
+8. IO.
+/home/dmitry/dev/projects/interviews/src/main/java/com/learn/core/io/iotheory.txt
+What is the difference between byte stream and Charachter stream?
+
+9. What a generics for?
+what are wildcards?
+/home/dmitry/dev/projects/interviews/src/main/java/com/learn/core/generics/toUnderstand/wildcards/Wildcards.java
+
+10. Java 8 features
+/home/dmitry/dev/projects/interviews/src/main/java/com/learn/core/Java8Features/Java8Main.java
+
+11. Inner classes
+/home/dmitry/dev/projects/interviews/src/main/java/com/learn/core/innerclasses/basic/innertest/MainForNested.java
+
+12. Spring, Spring Boot, Spring Data, Spring MVC
+/home/dmitry/dev/projects/interviews/src/main/java/com/learn/spring/questionsAndAnswers.txt
+
+13. Database, joins, indexes, what is relational database, what is primary key, foreign key,
+Hibernate
+
+14. Git
+
+15. Maven
+
+16. Logging
+
+17. Checkstyle
+
+18. Unit testing, integration testing
+
+19. Http methods: GET, POST, which else.
+What is servlet?
+/home/dmitry/dev/projects/interviews/web/servletstheory/servleteQuestionsAndAnswers
+What to do if you want something to be done before request gets to servlet?
+What if you want to do something if session is expired?
+What is jsp? how is it different to HTML? What is tag library. Have you ever creatd custom
+tags?
+
+20. Re-factoring
+
+21. Patterns.
+
+22. /home/dmitry/dev/projects/interviews/src/main/java/com/learn/interview_theory.txt
+
+23. Do you know jquery? Java script?
+
+
+
+
