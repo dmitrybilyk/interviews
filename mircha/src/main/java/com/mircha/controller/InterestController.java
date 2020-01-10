@@ -36,6 +36,12 @@ public class InterestController {
 		return "interests";
 	}
 
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String goEmptyHome(Model model) {
+		model.addAttribute("interests", this.interestService.getAllInterests());
+		return "interests";
+	}
+
 
 	@ResponseBody
 	@RequestMapping(value= "/load/interests", method = RequestMethod.GET, produces = "application/json")

@@ -123,7 +123,7 @@ and open the template in the editor.
             }
 
             table.tableData tr.selected {
-                background-color: #e92929 !important;
+                background-color: #00dfdf !important;
                 color:#fff;
                 vertical-align: middle;
                 padding: 1.5em;

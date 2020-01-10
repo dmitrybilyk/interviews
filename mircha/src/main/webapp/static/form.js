@@ -1,48 +1,166 @@
-$(function () {
-    var dialog, form, dialogConfirm;
-    // jQuery(document).ready(function ($) {
-        $("#tabs").tabs({
-            activate: function (event, ui) {
-                var active = $('#tabs').tabs('option', 'active');
+var id = 0;
+var name = "";
+var description = "";
+
+var actioCreate = false;
+var actioEdit = false;
+
+function fillTable(data) {
+    $(function () {
+        $.each(data, function (i, item) {
+            $('<tr>').append(
+                $('<td class="i">').text(item.id),
+                $('<td class="n">').text(item.name),
+                $('<td class="d">').text(item.description)
+            ).appendTo('#tdataDis');
+        });
+    });
+    $("tbody tr").click(function () {
+        $('.selected').removeClass('selected');
+        $(this).addClass("selected");
+        id = $('.i', this).html();
+        name = $('.n', this).html();
+        description = $('.d', this).html();
+    });
+}
+
+function addInterest() {
+    var data = {};
+    data["name"] = $("#name").val();
+    data["description"] = $("#description").val();
+    $.ajax({
+        type: "POST",
+        contentType: "application/json",
+        url: "/add/interest",
+        data: JSON.stringify(data),
+        dataType: 'json',
+        timeout: 600000,
+        beforeSend: function () {
+            document.getElementById("tdataDis").innerHTML = ""; // innerHTML is right for a div
+        },
+        success: function (response) {
+            $("#dialogAddInterest").dialog("close");
+            fillTable(response)
+        },
+        error: function (e) {
+            alert("Notttt working");
+        }
+    });
+}
+
+function editInterest() {
+    if (id!==0) {
+        var data = {};
+        data["id"] = $("#id").val();
+        data["name"] = $("#name").val();
+        data["description"] = $("#description").val();
+        $.ajax({
+            type: "PUT",
+            contentType: "application/json",
+            url: "/update/interest",
+            data: JSON.stringify(data),
+            dataType: 'json',
+            timeout: 600000,
+            beforeSend: function () {
+                document.getElementById("tdataDis").innerHTML = ""; // innerHTML is right for a div
+                //alert("delete");
+            },
+            success: function(data) {
+                $("#dialogAddInterest").dialog("close");
+                fillTable(data);
+            },
+            complete: function () {
+            },
+            error: function (e) {
+                alert("Notttt working");
             }
         });
-        function extracted(htmlString) {
-            htmlString += '<li class="ui-widget-content">' +
-                '<div style="float: left;">' + this.name + '</div>'
-                +
-                '<div style="float: right;">' +
-                '<a class="updateInterest" id=' + this.id + ' name=' + this.name + ' href="#">Update</a>' +
-                '</div>' +
-                '<div style="float: right;">' +
-                '<a class="deleteInterest" id=' + this.id + ' href="#">Delete</a>' +
-                '</div>' +
-                '</li>';
-            return htmlString;
-        }
-        function deleteInterest(id) {
-            var data = {};
-            data["id"] = id;
-            $.ajax({
-                type: "DELETE",
-                contentType: "application/json",
-                url: "/delete/interest",
-                data: JSON.stringify(data),
-                dataType: 'json',
-                timeout: 600000,
-                success: function (response) {
-                    var htmlString = '<ol id="selectable">';
-                    // var obj = jQuery.parseJSON(response);
-                    $.each(response, function () {
-                        htmlString = extracted.call(this, htmlString);
-                    });
-                    htmlString += '</ol>';
-                    $("#interestsDiv").html(htmlString);
-                },
-                error: function (e) {
-                    alert("Noooooot working");
+    }
+}
+
+function deleteInterest() {
+    if (id!==0) {
+        var data = {};
+        data["id"] = id;
+        $.ajax({
+            type: "DELETE",
+            url: "/delete/interest",
+            contentType: "application/json",
+            data: JSON.stringify(data),
+            dataType: 'json',
+            success: function(data) {
+                fillTable(data)
+            },
+            beforeSend: function () {
+                document.getElementById("tdataDis").innerHTML = ""; // innerHTML is right for a div
+                //alert("delete");
+            },
+            complete: function () {
+                // setUserPanel();
+            }
+        })
+    }
+}
+
+
+
+
+$(function () {
+    $("#dialogAddInterest").dialog({
+        autoOpen: false,
+        maxWidth: 850,
+        maxHeight: 500,
+        width: 850,
+        height: 400,
+        buttons: {
+            "Save": function(e) {
+                if (actioCreate) {
+                    addInterest();
+                } else if (actioEdit) {
+                    editInterest();
                 }
-            });
+            },
+            Cancel: function () {
+                $(this).dialog("close");
+            }
         }
+    });
+
+    $("#buttonAddNew").on("click", function () {
+        actioCreate = true;
+        actioEdit = false;
+        $('#name').val("");
+        $('#description').val("");
+
+        $("#dialogAddInterest").dialog("open");
+        $("#dialogAddInterest").dialog('title', 'Add a new interest');
+    });
+
+    $("#buttonEdit").on("click", function () {
+        if (id !== 0 && name !== "") {
+            actioCreate = false;
+            actioEdit = true;
+
+            $('#id').val(id);
+            $('#name').val(name);
+            $('#description').val(description);
+
+            $("#dialogAddInterest").dialog({title: "Edit: "+name}).dialog('open');
+            // $("#dialogAddInterest").dialog('title');
+        } else {
+            alert("Please select an interest you want to edit!");
+        }
+    });
+
+    //$("#submit").click(function (e) {
+    //    if (actioCreate) {
+    //        addInterest();
+    //    } else if (actioEdit) {
+    //        editInterest();
+    //    }
+    //});
+
+    var dialog, form, dialogConfirm;
         $('img[data-enlargable]').addClass('img-enlargable').click(function () {
             var src = $(this).attr('src');//get the source attribute of the clicked image
             $('<div>').css({
@@ -57,6 +175,8 @@ $(function () {
                 $(this).remove();
             }).appendTo('body');
         });
+
+
         // From http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#e-mail-state-%28type=email%29
         //emailRegex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
         //    name = $("#name"),
@@ -91,33 +211,7 @@ $(function () {
         //        return true;
         //    }
         //}
-        function addInterest() {
-            var data = {};
-            data["name"] = $("#name").val();
-            data["description"] = $("#description").val();
-            $.ajax({
-                type: "POST",
-                contentType: "application/json",
-                url: "/mircha/add/interest",
-                data: JSON.stringify(data),
-                dataType: 'json',
-                timeout: 600000,
-                success: function (response) {
-                    var htmlString = '<ol id="selectable">';
-                    // var obj = jQuery.parseJSON(response);
-                    $.each(response, function () {
-                        htmlString = extracted.call(this, htmlString);
-                    });
-                    htmlString += '</ol>';
-                    $("#interestsDiv").html(htmlString);
-                },
-                error: function (e) {
-                    alert("Notttt working");
-                }
-            });
-            dialog.dialog("close");
-            return true;
-        }
+
 
         dialog = $("#interest-add-edit-form").dialog({
             autoOpen: false,
@@ -164,5 +258,29 @@ $(function () {
             function () {
                 dialogConfirm.dialog("open");
             });
-    // });
+
+        var start = 0;
+        var nb = 5;
+        var end = start + nb;
+        var length = $('.img-list img').length;
+        var list = $('.img-list img');
+
+        list.hide().filter(':lt(' + (end) + ')').show();
+
+
+        $('.prev, .next').click(function (e) {
+            e.preventDefault();
+
+            if ($(this).hasClass('prev')) {
+                start -= nb;
+            } else {
+                start += nb;
+            }
+
+            if (start < 0 || start >= length) start = 0;
+            end = start + nb;
+
+            if (start == 0) list.hide().filter(':lt(' + (end) + ')').show();
+            else list.hide().filter(':lt(' + (end) + '):gt(' + (start - 1) + ')').show();
+        });
 });

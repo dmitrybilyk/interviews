@@ -1,16 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<title>Welcome page</title>
-	<link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet">
-	<link href="<c:url value='/static/css/app.css' />" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="static/css/app.css"/>
+	<link rel="stylesheet" type="text/css" href="static/css/bootstrap.css"/>
 </head>
 <body>
+<nav style="background: teal;" class="navbar navbar-default">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="active navbar-brand" href="#"><h4 class="meniItem">Mircha</h4></a>
+		</div>
+		<ul class="nav navbar-nav">
+			<li><a href="/login"><h4 class="meniItem">Welcome</h4></a></li>
+			<li><a href="/photos"><h4 class="meniItem">Photos</h4></a></li>
+			<li><a href="/interests"><h4 class="meniItem">Interests</h4></a></li>
+		</ul>
+	</div>
+</nav>
 	<div class="success">
-		Greeting : ${greeting}
-		This is a welcome page.
+		This is a Mircha's website! Please, <a href="/login">login</a> to see more
 	</div>
 </body>
 </html>
