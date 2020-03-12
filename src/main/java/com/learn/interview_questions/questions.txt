@@ -138,5 +138,33 @@ tags?
 23. Do you know jquery? Java script?
 
 
+Java questions:
+What is difference between fail-fast and fail-safe?
+
+Answer:
+The Iterator's fail-safe property works with the clone of the underlying collection and thus,
+it is not affected by any modification in the collection. All the collection classes in
+java.util package are fail-fast, while the collection classes in java.util.concurrent are
+fail-safe. Fail-fast iterators throw a ConcurrentModificationException, while fail-safe
+iterator never throws such an exception.
+
+
+Q21: What is a JavaBean exactly?
+Topic: Java
+Difficulty: ⭐⭐⭐
+Answer:
+Basically, a "Bean" follows the standart:
+
+is a serializable object (that is, it implements java.io.Serializable, and does so correctly), that
+has "properties" whose getters and setters are just methods with certain names (like, say, getFoo() is the getter for the "Foo" property), and
+has a public 0-arg constructor (so it can be created at will and configured by setting its properties).
+There is no syntactic difference between a JavaBean and another class - a class is a JavaBean if it follows the standards.
+
+What is the volatile keyword useful for?
+
+Answer:
+volatile has semantics for memory visibility. Basically, the value of a volatile
+field becomes visible to all readers (other threads in particular) after a write operation completes on it. Without volatile, readers could see some non-updated value.
+
 
 
