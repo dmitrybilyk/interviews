@@ -31,6 +31,7 @@ public class LinkedListMain
 
       //When we remove by value, the first found element with this value will be removed
       list.remove("4");
+      list.get(5);
       list.remove(3);
 
 

@@ -1,0 +1,16 @@
+ArrayList - Based on array of Object type. Every element has an index.
+Default 'add(E e)' method will add to the end of list. If we insert or remove in the middle
+then new array will be created underneath. Also the new array will be created if capacity is full.
+
+LinkedList consists of Nodes. Every node consists of element (value), link to previous and to next element.
+
+Get (search) will be fast on ArrayList - o(1) - constant. On LinkedList get is o(n) in the middle as it needs to
+iterate via all elements (from end or from start, depends on target index value).
+Removal in ArrayList is constant just for the case of last element as it doesn't need to re-index other elements.
+LinkedList will search with constant time for first or last elements.
+
+Deletion for ArrayList is constant just for the last element as it doesn't need to re-index elements.
+LinkedList is linear for the middle element and constant for first and last.
+
+LinkedList is preferable just in case if you need to often insert or delete on first or last element.
+ArrayList is more convenient for processor regarding it's caches.

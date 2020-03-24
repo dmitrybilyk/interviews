@@ -1,6 +1,9 @@
 package com.learn.core.collections.Collection.List.ArrayList;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * Created by bid on 8/21/14.
@@ -9,7 +12,20 @@ public class ArrayListMain
 {
    public static void main(String[] args)
    {
-      ArrayList<String> list = new ArrayList<String>(3);
+
+      List<String> stringList = new ArrayList<>();
+      stringList.add("dfd");
+
+      Set<String> set = new HashSet<>();
+      set.add("Diii");
+
+      String[] elements = new String[7];
+//      elements[0] = 4;
+
+      List<String> arrayList = new ArrayList<>(set);
+
+
+      List<String> list = new ArrayList<String>(3);
       //after creating the object of ArrayList it has variable 'size' and
       //'elementData array of type E (generic)
 
@@ -20,7 +36,7 @@ public class ArrayListMain
 
 
       list.add("First");
-      list.add("First");
+      list.add("SomeElement");
       list.add("First");
       list.add("First");
       list.add("First");
