@@ -9,12 +9,7 @@ import java.util.*;
  */
 public class Main {
     public static void main(String[] args) {
-        Map<ObjectKey, ObjectValue> map = new TreeMap<>(new Comparator<ObjectKey>() {
-            @Override
-            public int compare(ObjectKey o1, ObjectKey o2) {
-                return 0;
-            }
-        });
+        Map<ObjectKey, ObjectValue> map = new HashMap<>();
         ObjectKey objectKey = new ObjectKey("Dima", "Bilyk", 38);
         ObjectKey objectKey1 = new ObjectKey("Dima", "Bilyk", 38);
         ObjectValue objectValue = new ObjectValue("Some value");
@@ -23,6 +18,7 @@ public class Main {
         map.put(objectKey, objectValue);
         map.put(objectKey1, objectValue);
         map.put(objectKey2, objectValue2);
+        map.put(null, new ObjectValue("dffd"));
 
 
         for (ObjectValue key : map.values()) {

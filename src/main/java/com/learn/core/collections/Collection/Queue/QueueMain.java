@@ -1,5 +1,6 @@
 package com.learn.core.collections.Collection.Queue;
 
+import java.util.LinkedList;
 import java.util.Queue;
 import java.util.concurrent.LinkedBlockingDeque;
 
@@ -12,7 +13,7 @@ public class QueueMain
 {
    public static void main(String[] args)
    {
-      Queue<String> queue = new LinkedBlockingDeque<String>();
+      Queue<String> queue = new LinkedList<>();
       queue.add("First");
       queue.add("Second");
       queue.add("Third");
