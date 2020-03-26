@@ -1,0 +1,19 @@
+Equals method is used to compare to objects of the same type. By default it's implemented (in Object class) to
+compare by references in memory (with == sign). Overriding equals affects how object would be used in collections for
+instance. If you override the equals you also need to override hashcode method.
+
+Principles of equals method:
+- reflexivity - a.equals(a) should always return true
+- symmetricity - if a.equals(b) == true then b.equals(a) == true
+- transitivity - if a equals b and b equals c then a equals c
+- consistency - Multiple runnings of a.equals(b) should return the same result (provided no any field is changed (which
+participates in equals calculation))
+if a != null then a.equals(null) will always return false
+
+hashcode method calculates the hashcode of the object. The same fields should participates as fields in equals method.
+
+Principles of hashcode method:
+- multiple runnings of hachcode method on the same object will return the same result (provided no any effective field
+is changed). Also runnings on different executions of application could return different hachcode
+- if 2 objects are equals then hashcode should also be equal, but if objects are not equal then hashcode could
+return the same value. And this is not good because this could lead to collisions in hash structure (hashset or hashmap).

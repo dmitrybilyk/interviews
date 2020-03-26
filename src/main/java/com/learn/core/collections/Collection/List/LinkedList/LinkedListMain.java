@@ -1,9 +1,11 @@
 package com.learn.core.collections.Collection.List.LinkedList;
 
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.Set;
 
 /**
  * Created by bid on 8/21/14.
@@ -46,7 +48,41 @@ public class LinkedListMain
          }
       }
 
+      Set<SomeClass> someClasses = new HashSet<>();
+      SomeClass e = new SomeClass();
+      e.setName("1");
+      SomeClass e2 = new SomeClass();
+      e2.setName("2");
+      someClasses.add(e);
+      someClasses.add(e2);
 
+      for (SomeClass someClass : someClasses) {
+         System.out.println(someClass.getName());
+      }
+
+
+   }
+
+   static class SomeClass {
+      private String name;
+
+      public String getName() {
+         return name;
+      }
+
+      public void setName(String name) {
+         this.name = name;
+      }
+
+      @Override
+      public boolean equals(Object obj) {
+         return true;
+      }
+
+      @Override
+      public int hashCode() {
+         return 1;
+      }
    }
 
 }

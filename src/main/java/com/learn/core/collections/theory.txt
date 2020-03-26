@@ -1,8 +1,9 @@
-ArrayList - Based on array of Object type. Every element has an index.
+List:
+1. ArrayList - Based on array of Object type. Every element has an index.
 Default 'add(E e)' method will add to the end of list. If we insert or remove in the middle
 then new array will be created underneath. Also the new array will be created if capacity is full.
 
-LinkedList consists of Nodes. Every node consists of element (value), link to previous and to next element.
+2. LinkedList consists of Nodes. Every node consists of element (value), link to previous and to next element.
 
 Get (search) will be fast on ArrayList - o(1) - constant. On LinkedList get is o(n) in the middle as it needs to
 iterate via all elements (from end or from start, depends on target index value).
@@ -15,12 +16,9 @@ LinkedList is linear for the middle element and constant for first and last.
 LinkedList is preferable just in case if you need to often insert or delete on first or last element.
 ArrayList is more convenient for processor regarding it's caches.
 
-Stack extends Vector and behavres like LIFO. It has methods push and pop, peek.
-
-Queue behaves like FIFO.
-
-Deque behaves like FIFO but could be bidirectional (popLast, pushFirst etc.)
-
+3. Stack extends Vector and behavres like LIFO. It has methods push and pop, peek.
+4. Queue behaves like FIFO.
+5. Deque behaves like FIFO but could be bidirectional (popLast, pushFirst etc.)
 
 Map:
 1. HashMap. There is a Entry interface in Map interface. Node from HashMap is an implementor of it.
@@ -37,3 +35,17 @@ If we add a lot of elements to HashMap and at once remove them the size of map w
 (ArrayList has method 'trimToSize()' for such cases). The only thing we can do is to created new map and send current as
 a parameter.
 
+2. Hashtable - obsolete. It's like HasmMap but with sinchronized methods.
+3. TreeMap (implements SortedMap and Navi..Map) - keeps natural order of keys.
+4. LinkedHashMap - keeps order (by keys) of insertion (or fetching) of elements
+
+Set:
+1.HashSet. Supports elements uniqueness. There is HashMap inside but as Value some dummy object is used.
+2. TreeSet - keeps natural order of elements. (Comparator could be used manually)
+3. LinkedHashSet - keeps order of insertion
+
+
+Fail-fast collection (like ArrayList) will throw a ConcurrentModificationException exception if we remove element while we iterating it.
+But it will not faile if we remove element on iterator object itself.
+Fail-safe collection (like CopyOnWriteArrayList) will work with snapshot of original collection inside so it will
+not throw an exception (but it take more memory and state of collection is not uptodate while iteration).
