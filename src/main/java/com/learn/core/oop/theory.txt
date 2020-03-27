@@ -1,0 +1,9 @@
+There are 4 basic principles of object oriented programming.
+1. Encapsulation - Implementation or fields should be hidden from outside and some access method should be
+provided to access them. In this way for instance state of the object could be secured.
+2. Abstraction - If 2 objects are incorporate to each other then ideally they should know anything about internal
+implementation of each other and should work via interfaces.
+3. Inheritance - This principle describes 'IS-A' relationship between objects. One object could inherit the behavior
+of another. This allows to not have duplicate code and to easiely support the code etc.
+4. Polymorphism - one name > many forms. One interface > many implementations. Static - overloaded methods,
+Dynamic - overridden methods - when JVM decides at runtime which behavior to run depending of implementation type.
