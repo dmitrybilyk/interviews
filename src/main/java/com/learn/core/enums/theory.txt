@@ -1,0 +1,3 @@
+Enums are group of named constants. Enum implicitely extends ENUM class.
+Elements of enum could have variables and methods, Enum class could have constructor.
+Enum allows to guarantee type safety.

@@ -1,0 +1,5 @@
+MVC pattern stands for Model - View - Controller. View sends request to Controller based on mapping and
+Controller determines to which Business Model behavior to delegate the request. Model performs all operations, fetches
+some result and sends to Controller which passes Data model (ideally just some pojo without behavior) to View.
+So, View knows aboout Data Model to be able to show it properly. Controller knows about both View and Model.
+Model doesn't know about anybody. In MVC View and Model could be easily replaced. That's the main idea of this pattern.

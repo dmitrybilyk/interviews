@@ -10,7 +10,7 @@ package com.learn.core.enums;
 public enum EnumClass {
     JUNIOR("1"),
     MIDDLE("2"),
-    SENYOUR("3");
+    SENIOR("3");
 
     public String getValue() {
         return value;
@@ -26,7 +26,19 @@ public enum EnumClass {
         this.value = value;
     }
 
+    public static String getFirst2CharsOfElement(EnumClass enumClass) {
+        for (EnumClass aClass : EnumClass.values()) {
+            if (aClass == enumClass) {
+                return aClass.name().substring(0, 2);
+            }
+        }
+        return "dd";
+    }
+
     public static void main(String[] args){
+        EnumClass enumClass = EnumClass.valueOf("SENIOR");
+        System.out.println(EnumClass.JUNIOR.name());
         System.out.println(MIDDLE.ordinal());
+        System.out.println(EnumClass.getFirst2CharsOfElement(enumClass));
     }
 }

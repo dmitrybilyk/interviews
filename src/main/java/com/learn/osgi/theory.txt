@@ -1,0 +1,4 @@
+OSGI - is a component system based on java. It allows to do hot deploy of some modules, to work with several package
+versions to support external obsolete systems.
+Apache Karaf - is a platform which allows to run application based on OSGI.
+Apache Camel - is an integration framework, allowing to integrate several systems all together.
