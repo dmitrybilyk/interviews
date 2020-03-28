@@ -19,28 +19,36 @@ public class ThreadLocalExample implements Runnable{
             return new SimpleDateFormat("yyyyMMdd HHmm");
         }
     };
+
+    private static final ThreadLocal<String> someString = new ThreadLocal<String>() {
+        @Override
+        protected String initialValue() {
+            return "some initial value";
+        }
+    };
      
     public static void main(String[] args) throws InterruptedException {
         ThreadLocalExample obj = new ThreadLocalExample();
-        for(int i = 0 ; i < 10; i++){
+        for(int i = 0 ; i < 3; i++){
             Thread t = new Thread(obj, "" +i);
-            Thread.sleep(new Random().nextInt(1000));
+            Thread.sleep(1000);
             t.start();
         }
     }
  
     @Override
     public void run() {
-        System.out.println("Thread Name = " + Thread.currentThread().getName() + " default Formatter = " + formatter.get().toPattern());
+//        System.out.println("Thread Name = " + Thread.currentThread().getName() + " default Formatter = " + formatter.get().toPattern());
+        System.out.println("Thread Name = " + Thread.currentThread().getName() + " string = " + someString.get());
         try {
-            Thread.sleep(new Random().nextInt(1000));
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
          
-        formatter.set(new SimpleDateFormat());
-         
-        System.out.println("Thread Name= " + Thread.currentThread().getName() + " formatter = " + formatter.get().toPattern());
+        someString.set("Changed value");
+
+        System.out.println("Thread Name = " + Thread.currentThread().getName() + " string = " + someString.get());
     }
  
 }

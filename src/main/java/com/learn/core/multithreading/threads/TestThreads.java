@@ -24,6 +24,7 @@ public class TestThreads {
         {
             str=new String (s);
             num=n;
+            Thread thread = new Thread();
             Thread t=new Thread (this);
             t. start ( );
         }

@@ -12,8 +12,6 @@ public class SimpleThreadPoolTest {
             executor.execute(worker);
           }
         executor.shutdown();
-        while (!executor.isTerminated()) {
-        }
         System.out.println("Finished all threads");
     }
 
