@@ -23,12 +23,10 @@ public class Main {
             System.out.println(Class.forName("com.learn.bases.reflection.tutorial.User").getSimpleName());
             System.out.println("Package "+Class.forName("com.learn.bases.reflection.tutorial.User").getPackage());
             System.out.println("SuperClass "+Class.forName("com.learn.bases.reflection.tutorial.User").getSuperclass());
-        } catch (ClassNotFoundException e) {
+        } catch (ClassNotFoundException | NoSuchFieldException | IllegalAccessException e) {
             e.printStackTrace();
-        } catch (NoSuchFieldException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-        }
+        } //To change body of catch statement use File | Settings | File Templates.
+        //To change body of catch statement use File | Settings | File Templates.
+
     }
 }

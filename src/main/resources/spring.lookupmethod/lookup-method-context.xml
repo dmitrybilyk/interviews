@@ -9,7 +9,7 @@
 
 
 
-<bean id="singleton" class="com.learn.spring.lookupmethod.SingletonClass" scope="singleton">
+<bean id="singleton" class="com.learn.spring.lookupmethod.SingletonClass" scope="prototype">
     <lookup-method bean="prototype" name="createPrototypeClass" />
 </bean>
 

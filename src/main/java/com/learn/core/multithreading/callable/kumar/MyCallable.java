@@ -24,7 +24,7 @@ public class MyCallable implements Callable<String> {
      
     public static void main(String args[]){
         //Get ExecutorService from Executors utility class, thread pool size is 10
-        ExecutorService executor = Executors.newFixedThreadPool(10);
+        ExecutorService executor = Executors.newFixedThreadPool(100);
         //create a list to hold the Future object associated with Callable
         List<Future<String>> list = new ArrayList<Future<String>>();
         //Create MyCallable instance

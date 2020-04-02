@@ -8,8 +8,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class Main {
     public static void main(String[] args) {
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.lookupmethod/lookup-method-context.xml");
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("file:/home/dmitry/dev/projects/interviews/src/main/resources/spring.lookupmethod/lookup-method-context.xml");
         SingletonClass singletonClass = (SingletonClass) applicationContext.getBean("singleton");
+        SingletonClass singletonClass2 = (SingletonClass) applicationContext.getBean("singleton");
         singletonClass.printDescription();
         singletonClass.printDescription();
     }

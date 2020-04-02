@@ -16,4 +16,9 @@ public class ThreadTest
    {
       this.count = count;
    }
+
+   public void increamentCount()
+   {
+      this.count++;
+   }
 }

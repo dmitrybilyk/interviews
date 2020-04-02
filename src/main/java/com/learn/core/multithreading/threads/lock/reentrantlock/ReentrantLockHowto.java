@@ -16,19 +16,19 @@ public class ReentrantLockHowto {
 
      //Locking using Lock and ReentrantLock
      public int getCount() {
-        lock.lock();
-        try {
+//        lock.lock();
+//        try {
             System.out.println(Thread.currentThread().getName() + " gets Count: " + count);
             return count++;
-        } finally {
-            lock.unlock();
-        }
+//        } finally {
+//            lock.unlock();
+//        }
      }
 
-     //Implicit locking using synchronized keyword
-     public synchronized int getCountTwo() {
-            return count++;
-     }
+//     //Implicit locking using synchronized keyword
+//     public synchronized int getCountTwo() {
+//            return count++;
+//     }
 
     
 
@@ -41,6 +41,7 @@ public class ReentrantLockHowto {
                 while (counter.getCount() <= 6) {
                     try {
                         Thread.sleep(100);
+                        counter.increamentCount();
                     } catch (InterruptedException ex) {
                         ex.printStackTrace();                    }
                 }
@@ -54,6 +55,7 @@ public class ReentrantLockHowto {
                 while (counter.getCount() <= 6) {
                     try {
                         Thread.sleep(100);
+                        counter.increamentCount();
                     } catch (InterruptedException ex) {
                         ex.printStackTrace();
                     }

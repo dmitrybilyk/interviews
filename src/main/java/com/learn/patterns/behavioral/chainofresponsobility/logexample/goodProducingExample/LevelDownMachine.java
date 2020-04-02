@@ -6,6 +6,6 @@ package com.learn.patterns.behavioral.chainofresponsobility.logexample.goodProdu
 public class LevelDownMachine extends AbstractMachine {
   @Override
   public void performAction(Good good) {
-    good.setLevel(good.getLevel() + 5);
+    good.setLevel(good.getLevel() - 1);
   }
 }

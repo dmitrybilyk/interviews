@@ -24,7 +24,7 @@ public class Main {
 
             BillingAddress billingAddress = new BillingAddress("Matrosova", "Gorlovka");
             PurchaseOrder purchaseOrder = (PurchaseOrder) session.get(PurchaseOrder.class, billingAddress);
-            PurchaseOrder purchaseOrder2 = (PurchaseOrder) session.load(PurchaseOrder.class, billingAddress);
+//            PurchaseOrder purchaseOrder2 = (PurchaseOrder) session.load(PurchaseOrder.class, billingAddress);
             System.out.println(purchaseOrder);
 //            System.out.println(purchaseOrder2);
             transaction.commit();

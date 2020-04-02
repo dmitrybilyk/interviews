@@ -8,7 +8,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class SpringDemo{
 public static void main(String... args) {
-        AbstractApplicationContext context = new ClassPathXmlApplicationContext("/spring.cachable/cachable-spring.xml");
+        AbstractApplicationContext context = new ClassPathXmlApplicationContext("file:/home/dmitry/dev/projects/interviews/src/main/resources/spring.cachable/cachable-spring.xml");
         Employee employee=(Employee) context.getBean("employee");
 
         //calling getEmployee method first time.

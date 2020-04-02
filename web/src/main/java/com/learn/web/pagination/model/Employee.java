@@ -1,6 +1,8 @@
 package com.learn.web.pagination.model;
 
-public class Employee {
+import java.io.Serializable;
+
+public class Employee implements Serializable {
    private int employeeId;
    private String employeeName;
    private double salary;

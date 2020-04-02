@@ -16,5 +16,5 @@
     <bean id="employee" class="com.learn.spring.cachable.Employee">
     </bean>
     <bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager" p:cacheManager-ref="ehcache"/>
-    <bean id="ehcache" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean" p:configLocation="classpath:spring.cachable/ehcache.xml"/>
+    <bean id="ehcache" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean" p:configLocation="file:/home/dmitry/dev/projects/interviews/src/main/resources/spring.cachable/ehcache.xml"/>
 </beans>

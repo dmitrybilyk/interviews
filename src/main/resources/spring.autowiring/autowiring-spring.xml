@@ -8,8 +8,8 @@
            http://www.springframework.org/schema/cache
            http://www.springframework.org/schema/cache/spring-cache.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd" default-autowire="byName">
 
-    <context:annotation-config/>
-    <context:component-scan base-package="com.learn.spring.autowiring"/>
+<!--    <context:annotation-config/>-->
+<!--    <context:component-scan base-package="com.learn.spring.autowiring"/>-->
     <!--<bean id="employee" class="com.learn.spring.autowiring.Employee">-->
         <!--&lt;!&ndash;<property name="department" ref="department"/>&ndash;&gt;-->
         <!--<property name="department" ref="department"/>-->
@@ -20,5 +20,13 @@
     <!--<bean id="department2" class="com.learn.spring.autowiring.Department">-->
         <!--<property name="name" value="dep_name2" />-->
     <!--</bean>-->
+<!--    <bean id="goodCar" class="com.learn.spring.autowiring.GoodCar">-->
+<!--&lt;!&ndash;        <property name="driver" ref="driver"/>&ndash;&gt;-->
+<!--&lt;!&ndash;        <constructor-arg ref="driver"/>&ndash;&gt;-->
+<!--    </bean>-->
+
+<!--    <bean id="driver2" class="com.learn.spring.autowiring.Driver">-->
+<!--        <property name="name" value="Some Driver"/>-->
+<!--    </bean>-->
 
 </beans>
