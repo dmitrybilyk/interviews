@@ -11,7 +11,7 @@ import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
-import com.learn.web.gwt.client.contacts.presenter.EditContactPresenter;
+import com.learn.web.gwt.client.contacts.EditContactPresenter;
 
 public class EditContactView extends Composite implements EditContactPresenter.Display {
   private final TextBox firstName;

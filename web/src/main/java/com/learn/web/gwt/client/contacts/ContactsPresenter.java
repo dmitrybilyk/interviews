@@ -1,4 +1,4 @@
-package com.learn.web.gwt.client.contacts.presenter;
+package com.learn.web.gwt.client.contacts;
 
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
@@ -8,10 +8,11 @@ import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.Widget;
-import com.learn.web.gwt.client.contacts.ContactsServiceAsync;
 import com.learn.web.gwt.client.contacts.event.AddContactEvent;
 import com.learn.web.gwt.client.contacts.event.EditContactEvent;
+import com.learn.web.gwt.client.contacts.event.ShowSelectedContactsEvent;
 import com.learn.web.gwt.shared.contacts.ContactDetails;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +24,7 @@ public class ContactsPresenter implements Presenter {
   public interface Display {
     HasClickHandlers getAddButton();
     HasClickHandlers getDeleteButton();
+    HasClickHandlers getShowSelectedButton();
     HasClickHandlers getList();
     void setData(List<String> data);
     int getClickedRow(ClickEvent event);
@@ -50,6 +52,14 @@ public class ContactsPresenter implements Presenter {
     display.getDeleteButton().addClickHandler(new ClickHandler() {
       public void onClick(ClickEvent event) {
         deleteSelectedContacts();
+      }
+    });
+
+    display.getShowSelectedButton().addClickHandler(new ClickHandler() {
+      public void onClick(ClickEvent event) {
+        ShowSelectedContactsEvent showSelectedContactsEvent = new ShowSelectedContactsEvent();
+        showSelectedContactsEvent.setSelectedContactsIds(getSelectedContactIds());
+        eventBus.fireEvent(showSelectedContactsEvent);
       }
     });
     
@@ -98,8 +108,8 @@ public class ContactsPresenter implements Presenter {
   }
   
   private void fetchContactDetails() {
-    rpcService.getContactDetails(new AsyncCallback<ArrayList<ContactDetails>>() {
-      public void onSuccess(ArrayList<ContactDetails> result) {
+    rpcService.getContactDetails(new AsyncCallback<List<ContactDetails>>() {
+      public void onSuccess(List<ContactDetails> result) {
           contactDetails = result;
           sortContactDetails();
           List<String> data = new ArrayList<String>();
@@ -118,15 +128,10 @@ public class ContactsPresenter implements Presenter {
   }
 
   private void deleteSelectedContacts() {
-    List<Integer> selectedRows = display.getSelectedRows();
-    ArrayList<String> ids = new ArrayList<String>();
-    
-    for (int i = 0; i < selectedRows.size(); ++i) {
-      ids.add(contactDetails.get(selectedRows.get(i)).getId());
-    }
-    
-    rpcService.deleteContacts(ids, new AsyncCallback<ArrayList<ContactDetails>>() {
-      public void onSuccess(ArrayList<ContactDetails> result) {
+    List<Integer> ids = getSelectedContactIds();
+
+    rpcService.deleteContacts(ids, new AsyncCallback<List<ContactDetails>>() {
+      public void onSuccess(List<ContactDetails> result) {
         contactDetails = result;
         sortContactDetails();
         List<String> data = new ArrayList<String>();
@@ -143,5 +148,9 @@ public class ContactsPresenter implements Presenter {
         Window.alert("Error deleting selected contacts");
       }
     });
+  }
+
+  @NotNull private List<Integer> getSelectedContactIds() {
+    return display.getSelectedRows();
   }
 }

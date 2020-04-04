@@ -1,17 +1,16 @@
-<!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.0//EN"
-        "http://google-web-toolkit.googlecode.com/svn/releases/2.0/distro-source/core/src/gwt-module.dtd">
-<module rename-to="learnGwt">
+<?xml version="1.0" encoding="UTF-8"?>
+<module rename-to="LearnGwtJunit">
 
     <!-- Inherit the core Web Toolkit stuff.                  -->
-    <inherits name='com.google.gwt.user.User'/>
+    <inherits name='com.learn.web.gwt.LearnGwt'/>
 <!--    <inherits name="com.google.gwt.junit.JUnit"/>-->
 
-    <source path="client"/>
-    <source path="shared"/>
+<!--    <source path="client"/>-->
+<!--    <source path="shared"/>-->
 <!--    <source path='test'/>-->
 
     <!-- Specify the app entry point class.                   -->
-    <entry-point class='com.learn.web.gwt.client.LearnGwt'/>
+<!--    <entry-point class='com.learn.web.gwt.client.LearnGwt'/>-->
 
     <!--<stylesheet src='MySampleApplication.css' />-->
 

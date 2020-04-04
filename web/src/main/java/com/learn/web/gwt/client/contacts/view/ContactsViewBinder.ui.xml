@@ -1,0 +1,15 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+    <g:VerticalPanel>
+        <g:HorizontalPanel ui:field="decoratorPanel">
+            <g:FlexTable ui:field="contentTable"/>
+                <g:HorizontalPanel ui:field="hPanel">
+                    <g:Button ui:field="addButton" />
+                    <g:Button ui:field="deleteButton"/>
+                    <g:Button ui:field="showSelectedButton"/>
+                </g:HorizontalPanel>
+                <g:FlexTable ui:field="contactsTable"/>
+        </g:HorizontalPanel>
+
+    </g:VerticalPanel>
+</ui:UiBinder>

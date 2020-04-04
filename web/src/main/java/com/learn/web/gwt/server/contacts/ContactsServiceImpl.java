@@ -8,6 +8,9 @@ import com.learn.web.gwt.shared.contacts.ContactDetails;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @SuppressWarnings("serial")
 public class ContactsServiceImpl extends RemoteServiceServlet implements ContactsService {
@@ -34,7 +37,7 @@ public class ContactsServiceImpl extends RemoteServiceServlet implements Contact
       "post_master@example.com", "rchilders@example.com", "buster@example.com",
       "user31065@example.com", "ftsgeolbx@example.com"};
       
-  private final HashMap<String, Contact> contacts = new HashMap<String, Contact>();
+  private final Map<String, Contact> contacts = new HashMap<String, Contact>();
 
   public ContactsServiceImpl() {
     initContacts();
@@ -62,11 +65,11 @@ public class ContactsServiceImpl extends RemoteServiceServlet implements Contact
   }
 
   public Boolean deleteContact(String id) {
-    contacts.remove(id);
+    contacts.remove(String.valueOf(id));
     return true;
   }
   
-  public ArrayList<ContactDetails> deleteContacts(ArrayList<String> ids) {
+  public List<ContactDetails> deleteContacts(List<String> ids) {
 
     for (int i = 0; i < ids.size(); ++i) {
       deleteContact(ids.get(i));
@@ -75,8 +78,8 @@ public class ContactsServiceImpl extends RemoteServiceServlet implements Contact
     return getContactDetails();
   }
   
-  public ArrayList<ContactDetails> getContactDetails() {
-    ArrayList<ContactDetails> contactDetails = new ArrayList<ContactDetails>();
+  public List<ContactDetails> getContactDetails() {
+          List<ContactDetails> contactDetails = new ArrayList<ContactDetails>();
     
     Iterator<String> it = contacts.keySet().iterator();
     while(it.hasNext()) { 
@@ -89,5 +92,9 @@ public class ContactsServiceImpl extends RemoteServiceServlet implements Contact
 
   public Contact getContact(String id) {
     return contacts.get(id);
+  }
+
+  @Override public List<Contact> getSelectedContact(List<Integer> ids) {
+    return contacts.values().stream().filter(o -> ids.contains(Integer.valueOf(o.getId()))).collect(Collectors.toList());
   }
 }

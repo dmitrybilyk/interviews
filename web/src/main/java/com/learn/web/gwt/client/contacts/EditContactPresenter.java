@@ -1,4 +1,4 @@
-package com.learn.web.gwt.client.contacts.presenter;
+package com.learn.web.gwt.client.contacts;
 
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
@@ -9,7 +9,6 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.HasValue;
 import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.Widget;
-import com.learn.web.gwt.client.contacts.ContactsServiceAsync;
 import com.learn.web.gwt.client.contacts.event.ContactUpdatedEvent;
 import com.learn.web.gwt.client.contacts.event.EditContactCancelledEvent;
 import com.learn.web.gwt.shared.contacts.Contact;
