@@ -10,7 +10,7 @@ public class Contacts implements EntryPoint {
   public void onModuleLoad() {
     ContactsServiceAsync rpcService = GWT.create(ContactsService.class);
     HandlerManager eventBus = new HandlerManager(null);
-    AppController appViewer = new AppController(rpcService, eventBus);
+    AppController appViewer = new AppController(rpcService);
     appViewer.go(RootPanel.get());
   }
 }

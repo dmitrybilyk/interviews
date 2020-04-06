@@ -2,10 +2,12 @@ package com.learn.web.gwt.client.contacts;
 
 import com.google.gwt.event.logical.shared.ValueChangeEvent;
 import com.google.gwt.event.logical.shared.ValueChangeHandler;
+import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.event.shared.HandlerManager;
 import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.HasWidgets;
+import com.google.inject.Inject;
 import com.learn.web.gwt.client.contacts.event.AddContactEvent;
 import com.learn.web.gwt.client.contacts.event.AddContactEventHandler;
 import com.learn.web.gwt.client.contacts.event.ContactUpdatedEvent;
@@ -26,12 +28,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AppController implements ValueChangeHandler<String> {
-  private final HandlerManager eventBus;
+  @Inject
+  private EventBus eventBus;
   private final ContactsServiceAsync rpcService; 
   private HasWidgets container;
   
-  public AppController(ContactsServiceAsync rpcService, HandlerManager eventBus) {
-    this.eventBus = eventBus;
+  public AppController(ContactsServiceAsync rpcService) {
     this.rpcService = rpcService;
     bind();
   }
@@ -91,7 +93,7 @@ public class AppController implements ValueChangeHandler<String> {
   
   private void doEditContact(String id) {
     History.newItem("edit", false);
-    Presenter presenter = new EditContactPresenter(rpcService, eventBus, new EditContactView(), id);
+    Presenter presenter = new EditContactPresenter(rpcService, new EditContactView(), id);
     presenter.go(container);
   }
 
@@ -127,13 +129,13 @@ public class AppController implements ValueChangeHandler<String> {
       Presenter presenter = null;
 
       if (token.equals("list")) {
-        presenter = new ContactsPresenter(rpcService, eventBus, new ContactsViewBinder());
+        presenter = new ContactsPresenter(rpcService, new ContactsViewBinder());
       }
       else if (token.equals("add")) {
-        presenter = new EditContactPresenter(rpcService, eventBus, new EditContactView());
+        presenter = new EditContactPresenter(rpcService, new EditContactView());
       }
       else if (token.equals("edit")) {
-        presenter = new EditContactPresenter(rpcService, eventBus, new EditContactView());
+        presenter = new EditContactPresenter(rpcService, new EditContactView());
       }
       else if (token.equals("showSelected")) {
         presenter = new SelectedContactsPresenter(new SelectedContactsView());

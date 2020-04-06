@@ -3,12 +3,14 @@ package com.learn.web.gwt.client.contacts;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.HasClickHandlers;
+import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.event.shared.HandlerManager;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.HasValue;
 import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.Widget;
+import com.google.inject.Inject;
 import com.learn.web.gwt.client.contacts.event.ContactUpdatedEvent;
 import com.learn.web.gwt.client.contacts.event.EditContactCancelledEvent;
 import com.learn.web.gwt.shared.contacts.Contact;
@@ -25,20 +27,19 @@ public class EditContactPresenter implements Presenter{
   
   private Contact contact;
   private final ContactsServiceAsync rpcService;
-  private final HandlerManager eventBus;
+  @Inject
+  private EventBus eventBus;
   private final Display display;
   
-  public EditContactPresenter(ContactsServiceAsync rpcService, HandlerManager eventBus, Display display) {
+  public EditContactPresenter(ContactsServiceAsync rpcService, Display display) {
     this.rpcService = rpcService;
-    this.eventBus = eventBus;
     this.contact = new Contact();
     this.display = display;
     bind();
   }
   
-  public EditContactPresenter(ContactsServiceAsync rpcService, HandlerManager eventBus, Display display, String id) {
+  public EditContactPresenter(ContactsServiceAsync rpcService, Display display, String id) {
     this.rpcService = rpcService;
-    this.eventBus = eventBus;
     this.display = display;
     bind();
     

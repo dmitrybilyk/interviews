@@ -4,7 +4,11 @@
 
     <!-- Inherit the core Web Toolkit stuff.                  -->
     <inherits name='com.google.gwt.user.User'/>
-<!--    <inherits name="com.google.gwt.junit.JUnit"/>-->
+    <inherits name="com.google.gwt.activity.Activity"/>
+    <inherits name="com.google.gwt.place.Place"/>
+    <inherits name="com.google.gwt.inject.Inject"/>
+    <inherits name="com.google.gwt.inject.Inject"/>
+    <!--    <inherits name="com.google.gwt.junit.JUnit"/>-->
 
     <source path="client"/>
     <source path="shared"/>
@@ -12,6 +16,13 @@
 
     <!-- Specify the app entry point class.                   -->
     <entry-point class='com.learn.web.gwt.client.LearnGwt'/>
+<!--    activity-->
+<!--    <entry-point class='com.learn.web.gwt.client.activity.HelloMVP'/>-->
+
+    <!-- Use ClientFactoryImpl by default -->
+    <replace-with class="com.learn.web.gwt.client.activity.ClientFactoryImpl">
+        <when-type-is class="com.learn.web.gwt.client.activity.ClientFactory"/>
+    </replace-with>
 
     <!--<stylesheet src='MySampleApplication.css' />-->
 

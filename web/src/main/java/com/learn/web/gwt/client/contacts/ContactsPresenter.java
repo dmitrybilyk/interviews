@@ -3,11 +3,13 @@ package com.learn.web.gwt.client.contacts;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.HasClickHandlers;
+import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.event.shared.HandlerManager;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.Widget;
+import com.google.inject.Inject;
 import com.learn.web.gwt.client.contacts.event.AddContactEvent;
 import com.learn.web.gwt.client.contacts.event.EditContactEvent;
 import com.learn.web.gwt.client.contacts.event.ShowSelectedContactsEvent;
@@ -33,12 +35,12 @@ public class ContactsPresenter implements Presenter {
   }
   
   private final ContactsServiceAsync rpcService;
-  private final HandlerManager eventBus;
+  @Inject
+  private EventBus eventBus;
   private final Display display;
   
-  public ContactsPresenter(ContactsServiceAsync rpcService, HandlerManager eventBus, Display view) {
+  public ContactsPresenter(ContactsServiceAsync rpcService, Display view) {
     this.rpcService = rpcService;
-    this.eventBus = eventBus;
     this.display = view;
   }
   

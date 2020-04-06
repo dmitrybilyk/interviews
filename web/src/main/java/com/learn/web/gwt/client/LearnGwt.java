@@ -8,9 +8,11 @@ import com.google.gwt.event.shared.SimpleEventBus;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.RootPanel;
+import com.google.inject.Inject;
 import com.learn.web.gwt.client.contacts.AppController;
 import com.learn.web.gwt.client.contacts.ContactsService;
 import com.learn.web.gwt.client.contacts.ContactsServiceAsync;
+import com.learn.web.gwt.client.gin.MVPInjector;
 import com.learn.web.gwt.shared.CustomCheckedException;
 import com.learn.web.gwt.shared.Employee;
 
@@ -21,12 +23,15 @@ import java.util.List;
  * Created by dmitry on 07.01.19.
  */
 public class LearnGwt implements EntryPoint {
+//    public static HandlerManager eventBus = new HandlerManager(null);
+//    private final MVPInjector injector = GWT.create(MVPInjector.class);
+//    @Inject
+//    private EventBus eventBus;
     @Override
     public void onModuleLoad() {
 
         ContactsServiceAsync rpcService = GWT.create(ContactsService.class);
-        HandlerManager eventBus = new HandlerManager(null);
-        AppController appViewer = new AppController(rpcService, eventBus);
+        AppController appViewer = new AppController(rpcService);
         appViewer.go(RootPanel.get());
 //        HelloServiceAsync helloServiceAsync = GWT.create(HelloService.class);
 //

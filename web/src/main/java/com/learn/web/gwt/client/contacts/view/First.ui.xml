@@ -1,0 +1,37 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+
+    <ui:style field='otherStyle'>
+        .pretty { background-color: Orange; }
+    </ui:style>
+
+    <ui:style>
+        .hot {
+            color: magenta;
+        }
+
+        /*.redBox {*/
+        /*    background-color:pink; border: 1px solid red;*/
+        /*}*/
+
+        /*.enabled {*/
+        /*    color:black;*/
+        /*}*/
+    </ui:style>
+<!--    <ui:style src="MyUI.css" />-->
+
+    <ui:style type='com.learn.web.gwt.client.contacts.view.First.MyStyle'>
+        .redBox { background-color:pink; border: 1px solid red; }
+        .enabled { color:black; }
+        .disabled { color:gray; }
+    </ui:style>
+
+    <g:VerticalPanel>
+        <g:Label ui:field="firstLabel">Keep your ducks</g:Label>
+        <g:Label ui:field="secondLabel">in a row</g:Label>
+        <g:Button ui:field="button" styleName='{style.hot}'>Click button</g:Button>
+    </g:VerticalPanel>
+
+<!--    <div class='{style.redBox} {style.enabled}'>I'm a red box widget.</div>-->
+
+</ui:UiBinder>
