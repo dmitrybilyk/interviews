@@ -79,7 +79,7 @@ public class CapitalizeClient {
         // Get the server address from a dialog box.
         String serverAddress = JOptionPane.showInputDialog(
             frame,
-            "Enter IP Address of the Server:",
+            "Enter IP Address.java of the Server:",
             "Welcome to the Capitalization Program",
             JOptionPane.QUESTION_MESSAGE);
 

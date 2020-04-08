@@ -12,6 +12,8 @@ public class ExampleClassMain {
         exampleClasses.add(new ExampleClass("Name1"));
         exampleClasses.add(new ExampleClass("Name2"));
         exampleClasses.add(new ExampleClass("Name2"));
+        exampleClasses.add(new ExampleClass("Name4"));
+        exampleClasses.add(new ExampleClass("Name3"));
 
         for (ExampleClass exampleClass : exampleClasses) {
             System.out.println(exampleClass.getName());

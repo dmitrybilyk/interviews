@@ -19,6 +19,6 @@ public class UserServiceImpl {
     }
 
 //    public Integer getHouseNumber(User user) {
-//        return Optional.of(user).flatMap(User::getAddress).flatMap(Address::getHouseNumber).orElse(77);
+//        return Optional.of(user).flatMap(User::getAddress).flatMap(Address.java::getHouseNumber).orElse(77);
 //    }
 }

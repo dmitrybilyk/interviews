@@ -13,6 +13,7 @@ public class TestSetRemoveAll {
     set.add("two");
     set.add("three");
     set.add("four");
+    System.out.println(set);
 
     Set<String> setToDelete = new HashSet<>();
     setToDelete.add("one");
@@ -20,6 +21,6 @@ public class TestSetRemoveAll {
     setToDelete.iterator().next();
 
     set.removeAll(setToDelete);
-    System.out.println(setToDelete.size());
+    System.out.println(set);
   }
 }

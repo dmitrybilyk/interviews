@@ -21,9 +21,10 @@ public class Lena {
 
         Set<Person> personSet = new HashSet<>();
         personSet.add(new Person("setPerson1"));
-        personSet.add(new Person("setPerson1"));
+        personSet.add(new Person("setPerson2"));
         for (Person person : personSet) {
             System.out.println(person.getName());
         }
+        System.out.println(list.size());
     }
 }

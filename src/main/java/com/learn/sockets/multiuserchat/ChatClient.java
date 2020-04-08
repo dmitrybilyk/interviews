@@ -75,7 +75,7 @@ public class ChatClient {
     private String getServerAddress() {
         return JOptionPane.showInputDialog(
             frame,
-            "Enter IP Address of the Server:",
+            "Enter IP Address.java of the Server:",
             "Welcome to the Chatter",
             JOptionPane.QUESTION_MESSAGE);
     }

@@ -7,41 +7,62 @@ import java.util.List;
  * Created by dik81 on 20.11.18.
  */
 public class Main {
-    static List<Dima> all = new ArrayList<>();
     public static void main(String[] args) {
 
 
-        List<Nikita> nikitas = new ArrayList<>();
-        nikitas.add(new Nikita());
-        nikitas.add(new Nikita());
+        List<Cat> cats = new ArrayList<>();
+        cats.add(new Cat("A"));
+        cats.add(new Cat("B"));
+        cats.add(new Cat("C"));
 
-        List<Dima> list = new ArrayList<>();
-        list.add(new Dima());
-        list.add(new Dima());
+        List<Animal> animals = new ArrayList<>();
+        animals.add(new Animal());
+        animals.add(new Animal());
 
-        printAll(nikitas);
+        printAll(cats);
 
-        addToAll(nikitas);
+        addToAll(animals);
 
     }
+//принцип PECS для понимания где какой WILDCARD использовать:
+//Producer extends (only "produce", we can only read from this type)
+//Consumer super ("consume", we can only add to this type)
 
-    static class Dima{
-        static String name;
+    public static void printAll(List<? extends Animal> list) {
+        for (Animal animal : list) {
+            System.out.println(animal.getName());
+        }
+        list.add(null);//исключение: можем записать в Produser значение 'null'
     }
 
-    static class Nikita extends Dima {
-        static String name;
-    }
-
-    public static void printAll(List<? extends Dima> list) {
-        for (Dima dima : list) {
-            System.out.println(dima);
+    public static void addToAll(List<? super Cat> list) {
+       list.add(new Cat("D"));
+       list.add(new Cat("E"));
+        for (Object o : list) { //исключение: можем прочитать из Consumer'a Object
+            System.out.println(o.getClass().getName());
         }
     }
+}
+ class Animal {
+    private String name;
 
-    public static void addToAll(List<? super Nikita> list) {
-        for (Object o : list) {
-//            all.add(o);
-        }
+    public String getName() {
+        return name;
     }
+
+    public void setName(String name) {
+       this.name = name;
+    }
+}
+ class Cat extends Animal {
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    Cat(String name) {
+        this.name = name;
+    }
+
 }

@@ -25,17 +25,12 @@ class Student extends Thread{
 
    private List<String> rentedBooks;
 
-   Student()
-   {
-   }
-
    Student(final String studentName, final int age)
    {
       this.studentName = studentName;
       this.age = age;
       rentedBooks = new ArrayList<String>();
    }
-
 
    public void addABook(Book book){
       book.rentABook(book.getName());
@@ -50,7 +45,7 @@ class Student extends Thread{
    @Override
    public void run()
    {
-      System.out.println("Student" + getStudentName() + "is taking the book!");
+      System.out.println("Student " + getStudentName() + " is taking the book!");
       try
       {
          Thread.sleep(10l);

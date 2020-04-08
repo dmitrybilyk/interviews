@@ -32,7 +32,7 @@ public class TreeSetMain
       Student student2 = new Student();
       student2.setName("Armin");
       Student student3 = new Student();
-      student3.setName("Zekko");
+      student3.setName("Bekko");
 
       students.add(student);
       students.add(student2);

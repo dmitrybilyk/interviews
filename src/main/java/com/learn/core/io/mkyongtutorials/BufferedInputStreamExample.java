@@ -10,7 +10,7 @@ public class BufferedInputStreamExample {
  
 	public static void main(String[] args) {
  
-		File file = new File("C:\\testing.txt");
+		File file = new File("c:\\newfile.txt");
       FileInputStream fis = null;
 		BufferedInputStream bis = null;
 		DataInputStream dis = null;

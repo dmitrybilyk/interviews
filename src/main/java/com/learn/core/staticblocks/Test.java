@@ -1,5 +1,6 @@
 package com.learn.core.staticblocks;
 
+
 public class Test {
 
     static{

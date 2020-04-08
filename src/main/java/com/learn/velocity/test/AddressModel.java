@@ -21,7 +21,7 @@ package com.learn.velocity.test;
 import java.util.Date;
 
 /**
- * Generated model class for type Address first defined at extension core.
+ * Generated model class for type Address.java first defined at extension core.
  */
 @SuppressWarnings("all")
 public class AddressModel
@@ -35,259 +35,259 @@ public class AddressModel
     }
 
     /**<i>Generated model type code constant.</i>*/
-	public final static String _TYPECODE = "Address";
+	public final static String _TYPECODE = "Address.java";
 	
-	/** <i>Generated constant</i> - Attribute key of <code>Address.streetnumber</code> attribute defined at extension <code>core</code>. */
+	/** <i>Generated constant</i> - Attribute key of <code>Address.java.streetnumber</code> attribute defined at extension <code>core</code>. */
 	public static final String STREETNUMBER = "streetnumber";
 	
-	/** <i>Generated constant</i> - Attribute key of <code>Address.company</code> attribute defined at extension <code>core</code>. */
+	/** <i>Generated constant</i> - Attribute key of <code>Address.java.company</code> attribute defined at extension <code>core</code>. */
 	public static final String COMPANY = "company";
 	
-	/** <i>Generated constant</i> - Attribute key of <code>Address.title</code> attribute defined at extension <code>core</code>. */
+	/** <i>Generated constant</i> - Attribute key of <code>Address.java.title</code> attribute defined at extension <code>core</code>. */
 	public static final String TITLE = "title";
 	
-	/** <i>Generated constant</i> - Attribute key of <code>Address.postalcode</code> attribute defined at extension <code>core</code>. */
+	/** <i>Generated constant</i> - Attribute key of <code>Address.java.postalcode</code> attribute defined at extension <code>core</code>. */
 	public static final String POSTALCODE = "postalcode";
 	
-	/** <i>Generated constant</i> - Attribute key of <code>Address.building</code> attribute defined at extension <code>core</code>. */
+	/** <i>Generated constant</i> - Attribute key of <code>Address.java.building</code> attribute defined at extension <code>core</code>. */
 	public static final String BUILDING = "building";
 	
-	/** <i>Generated constant</i> - Attribute key of <code>Address.remarks</code> attribute defined at extension <code>catalog</code>. */
+	/** <i>Generated constant</i> - Attribute key of <code>Address.java.remarks</code> attribute defined at extension <code>catalog</code>. */
 	public static final String REMARKS = "remarks";
 	
-	/** <i>Generated constant</i> - Attribute key of <code>Address.ssoCustomerId</code> attribute defined at extension <code>pacoshopcore</code>. */
+	/** <i>Generated constant</i> - Attribute key of <code>Address.java.ssoCustomerId</code> attribute defined at extension <code>pacoshopcore</code>. */
 	public static final String SSOCUSTOMERID = "ssoCustomerId";
 	
-	/** <i>Generated constant</i> - Attribute key of <code>Address.appartment</code> attribute defined at extension <code>core</code>. */
+	/** <i>Generated constant</i> - Attribute key of <code>Address.java.appartment</code> attribute defined at extension <code>core</code>. */
 	public static final String APPARTMENT = "appartment";
 	
-	/** <i>Generated constant</i> - Attribute key of <code>Address.cellphone</code> attribute defined at extension <code>core</code>. */
+	/** <i>Generated constant</i> - Attribute key of <code>Address.java.cellphone</code> attribute defined at extension <code>core</code>. */
 	public static final String CELLPHONE = "cellphone";
 	
-	/** <i>Generated constant</i> - Attribute key of <code>Address.phone2</code> attribute defined at extension <code>core</code>. */
+	/** <i>Generated constant</i> - Attribute key of <code>Address.java.phone2</code> attribute defined at extension <code>core</code>. */
 	public static final String PHONE2 = "phone2";
 	
-	/** <i>Generated constant</i> - Attribute key of <code>Address.milesAndMoreNumber</code> attribute defined at extension <code>pacoshopcore</code>. */
+	/** <i>Generated constant</i> - Attribute key of <code>Address.java.milesAndMoreNumber</code> attribute defined at extension <code>pacoshopcore</code>. */
 	public static final String MILESANDMORENUMBER = "milesAndMoreNumber";
 	
-	/** <i>Generated constant</i> - Attribute key of <code>Address.url</code> attribute defined at extension <code>catalog</code>. */
+	/** <i>Generated constant</i> - Attribute key of <code>Address.java.url</code> attribute defined at extension <code>catalog</code>. */
 	public static final String URL = "url";
 	
-	/** <i>Generated constant</i> - Attribute key of <code>Address.country</code> attribute defined at extension <code>core</code>. */
+	/** <i>Generated constant</i> - Attribute key of <code>Address.java.country</code> attribute defined at extension <code>core</code>. */
 	public static final String COUNTRY = "country";
 	
-	/** <i>Generated constant</i> - Attribute key of <code>Address.lastname</code> attribute defined at extension <code>core</code>. */
+	/** <i>Generated constant</i> - Attribute key of <code>Address.java.lastname</code> attribute defined at extension <code>core</code>. */
 	public static final String LASTNAME = "lastname";
 	
-	/** <i>Generated constant</i> - Attribute key of <code>Address.contactAddress</code> attribute defined at extension <code>catalog</code>. */
+	/** <i>Generated constant</i> - Attribute key of <code>Address.java.contactAddress</code> attribute defined at extension <code>catalog</code>. */
 	public static final String CONTACTADDRESS = "contactAddress";
 	
-	/** <i>Generated constant</i> - Attribute key of <code>Address.pobox</code> attribute defined at extension <code>core</code>. */
+	/** <i>Generated constant</i> - Attribute key of <code>Address.java.pobox</code> attribute defined at extension <code>core</code>. */
 	public static final String POBOX = "pobox";
 	
-	/** <i>Generated constant</i> - Attribute key of <code>Address.phone1</code> attribute defined at extension <code>core</code>. */
+	/** <i>Generated constant</i> - Attribute key of <code>Address.java.phone1</code> attribute defined at extension <code>core</code>. */
 	public static final String PHONE1 = "phone1";
 	
-	/** <i>Generated constant</i> - Attribute key of <code>Address.lastUpdate</code> attribute defined at extension <code>pacoshopcore</code>. */
+	/** <i>Generated constant</i> - Attribute key of <code>Address.java.lastUpdate</code> attribute defined at extension <code>pacoshopcore</code>. */
 	public static final String LASTUPDATE = "lastUpdate";
 	
-	/** <i>Generated constant</i> - Attribute key of <code>Address.dateOfBirth</code> attribute defined at extension <code>core</code>. */
+	/** <i>Generated constant</i> - Attribute key of <code>Address.java.dateOfBirth</code> attribute defined at extension <code>core</code>. */
 	public static final String DATEOFBIRTH = "dateOfBirth";
 	
-	/** <i>Generated constant</i> - Attribute key of <code>Address.region</code> attribute defined at extension <code>core</code>. */
+	/** <i>Generated constant</i> - Attribute key of <code>Address.java.region</code> attribute defined at extension <code>core</code>. */
 	public static final String REGION = "region";
 	
-	/** <i>Generated constant</i> - Attribute key of <code>Address.title2</code> attribute defined at extension <code>pacoshopcore</code>. */
+	/** <i>Generated constant</i> - Attribute key of <code>Address.java.title2</code> attribute defined at extension <code>pacoshopcore</code>. */
 	public static final String TITLE2 = "title2";
 	
-	/** <i>Generated constant</i> - Attribute key of <code>Address.fax</code> attribute defined at extension <code>core</code>. */
+	/** <i>Generated constant</i> - Attribute key of <code>Address.java.fax</code> attribute defined at extension <code>core</code>. */
 	public static final String FAX = "fax";
 	
-	/** <i>Generated constant</i> - Attribute key of <code>Address.publicKey</code> attribute defined at extension <code>catalog</code>. */
+	/** <i>Generated constant</i> - Attribute key of <code>Address.java.publicKey</code> attribute defined at extension <code>catalog</code>. */
 	public static final String PUBLICKEY = "publicKey";
 	
-	/** <i>Generated constant</i> - Attribute key of <code>Address.department</code> attribute defined at extension <code>core</code>. */
+	/** <i>Generated constant</i> - Attribute key of <code>Address.java.department</code> attribute defined at extension <code>core</code>. */
 	public static final String DEPARTMENT = "department";
 	
-	/** <i>Generated constant</i> - Attribute key of <code>Address.original</code> attribute defined at extension <code>core</code>. */
+	/** <i>Generated constant</i> - Attribute key of <code>Address.java.original</code> attribute defined at extension <code>core</code>. */
 	public static final String ORIGINAL = "original";
 	
-	/** <i>Generated constant</i> - Attribute key of <code>Address.shippingAddress</code> attribute defined at extension <code>catalog</code>. */
+	/** <i>Generated constant</i> - Attribute key of <code>Address.java.shippingAddress</code> attribute defined at extension <code>catalog</code>. */
 	public static final String SHIPPINGADDRESS = "shippingAddress";
 	
-	/** <i>Generated constant</i> - Attribute key of <code>Address.paymentAddresss2CartToOrderCronJob</code> attribute defined at extension <code>basecommerce</code>. */
+	/** <i>Generated constant</i> - Attribute key of <code>Address.java.paymentAddresss2CartToOrderCronJob</code> attribute defined at extension <code>basecommerce</code>. */
 	public static final String PAYMENTADDRESSS2CARTTOORDERCRONJOB = "paymentAddresss2CartToOrderCronJob";
 	
-	/** <i>Generated constant</i> - Attribute key of <code>Address.unloadingAddress</code> attribute defined at extension <code>catalog</code>. */
+	/** <i>Generated constant</i> - Attribute key of <code>Address.java.unloadingAddress</code> attribute defined at extension <code>catalog</code>. */
 	public static final String UNLOADINGADDRESS = "unloadingAddress";
 	
-	/** <i>Generated constant</i> - Attribute key of <code>Address.district</code> attribute defined at extension <code>core</code>. */
+	/** <i>Generated constant</i> - Attribute key of <code>Address.java.district</code> attribute defined at extension <code>core</code>. */
 	public static final String DISTRICT = "district";
 	
-	/** <i>Generated constant</i> - Attribute key of <code>Address.billingAddress</code> attribute defined at extension <code>catalog</code>. */
+	/** <i>Generated constant</i> - Attribute key of <code>Address.java.billingAddress</code> attribute defined at extension <code>catalog</code>. */
 	public static final String BILLINGADDRESS = "billingAddress";
 	
-	/** <i>Generated constant</i> - Attribute key of <code>Address.middlename2</code> attribute defined at extension <code>core</code>. */
+	/** <i>Generated constant</i> - Attribute key of <code>Address.java.middlename2</code> attribute defined at extension <code>core</code>. */
 	public static final String MIDDLENAME2 = "middlename2";
 	
-	/** <i>Generated constant</i> - Attribute key of <code>Address.town</code> attribute defined at extension <code>core</code>. */
+	/** <i>Generated constant</i> - Attribute key of <code>Address.java.town</code> attribute defined at extension <code>core</code>. */
 	public static final String TOWN = "town";
 	
-	/** <i>Generated constant</i> - Attribute key of <code>Address.middlename</code> attribute defined at extension <code>core</code>. */
+	/** <i>Generated constant</i> - Attribute key of <code>Address.java.middlename</code> attribute defined at extension <code>core</code>. */
 	public static final String MIDDLENAME = "middlename";
 	
-	/** <i>Generated constant</i> - Attribute key of <code>Address.gender</code> attribute defined at extension <code>core</code>. */
+	/** <i>Generated constant</i> - Attribute key of <code>Address.java.gender</code> attribute defined at extension <code>core</code>. */
 	public static final String GENDER = "gender";
 	
-	/** <i>Generated constant</i> - Attribute key of <code>Address.typeQualifier</code> attribute defined at extension <code>catalog</code>. */
+	/** <i>Generated constant</i> - Attribute key of <code>Address.java.typeQualifier</code> attribute defined at extension <code>catalog</code>. */
 	public static final String TYPEQUALIFIER = "typeQualifier";
 	
-	/** <i>Generated constant</i> - Attribute key of <code>Address.businessPartnerId</code> attribute defined at extension <code>pacoshopcore</code>. */
+	/** <i>Generated constant</i> - Attribute key of <code>Address.java.businessPartnerId</code> attribute defined at extension <code>pacoshopcore</code>. */
 	public static final String BUSINESSPARTNERID = "businessPartnerId";
 	
-	/** <i>Generated constant</i> - Attribute key of <code>Address.line2</code> attribute defined at extension <code>basecommerce</code>. */
+	/** <i>Generated constant</i> - Attribute key of <code>Address.java.line2</code> attribute defined at extension <code>basecommerce</code>. */
 	public static final String LINE2 = "line2";
 	
-	/** <i>Generated constant</i> - Attribute key of <code>Address.visibleInAddressBook</code> attribute defined at extension <code>commerceservices</code>. */
+	/** <i>Generated constant</i> - Attribute key of <code>Address.java.visibleInAddressBook</code> attribute defined at extension <code>commerceservices</code>. */
 	public static final String VISIBLEINADDRESSBOOK = "visibleInAddressBook";
 	
-	/** <i>Generated constant</i> - Attribute key of <code>Address.line1</code> attribute defined at extension <code>basecommerce</code>. */
+	/** <i>Generated constant</i> - Attribute key of <code>Address.java.line1</code> attribute defined at extension <code>basecommerce</code>. */
 	public static final String LINE1 = "line1";
 	
-	/** <i>Generated constant</i> - Attribute key of <code>Address.deliveryAddresss2CartToOrderCronJob</code> attribute defined at extension <code>basecommerce</code>. */
+	/** <i>Generated constant</i> - Attribute key of <code>Address.java.deliveryAddresss2CartToOrderCronJob</code> attribute defined at extension <code>basecommerce</code>. */
 	public static final String DELIVERYADDRESSS2CARTTOORDERCRONJOB = "deliveryAddresss2CartToOrderCronJob";
 	
-	/** <i>Generated constant</i> - Attribute key of <code>Address.firstname</code> attribute defined at extension <code>core</code>. */
+	/** <i>Generated constant</i> - Attribute key of <code>Address.java.firstname</code> attribute defined at extension <code>core</code>. */
 	public static final String FIRSTNAME = "firstname";
 	
-	/** <i>Generated constant</i> - Attribute key of <code>Address.email</code> attribute defined at extension <code>core</code>. */
+	/** <i>Generated constant</i> - Attribute key of <code>Address.java.email</code> attribute defined at extension <code>core</code>. */
 	public static final String EMAIL = "email";
 	
-	/** <i>Generated constant</i> - Attribute key of <code>Address.roleInCompany</code> attribute defined at extension <code>pacoshopcore</code>. */
+	/** <i>Generated constant</i> - Attribute key of <code>Address.java.roleInCompany</code> attribute defined at extension <code>pacoshopcore</code>. */
 	public static final String ROLEINCOMPANY = "roleInCompany";
 	
-	/** <i>Generated constant</i> - Attribute key of <code>Address.duplicate</code> attribute defined at extension <code>core</code>. */
+	/** <i>Generated constant</i> - Attribute key of <code>Address.java.duplicate</code> attribute defined at extension <code>core</code>. */
 	public static final String DUPLICATE = "duplicate";
 	
-	/** <i>Generated constant</i> - Attribute key of <code>Address.streetname</code> attribute defined at extension <code>core</code>. */
+	/** <i>Generated constant</i> - Attribute key of <code>Address.java.streetname</code> attribute defined at extension <code>core</code>. */
 	public static final String STREETNAME = "streetname";
 	
 	
-	/** <i>Generated variable</i> - Variable of <code>Address.streetnumber</code> attribute defined at extension <code>core</code>. */
+	/** <i>Generated variable</i> - Variable of <code>Address.java.streetnumber</code> attribute defined at extension <code>core</code>. */
 	private String _streetnumber;
 	
-	/** <i>Generated variable</i> - Variable of <code>Address.company</code> attribute defined at extension <code>core</code>. */
+	/** <i>Generated variable</i> - Variable of <code>Address.java.company</code> attribute defined at extension <code>core</code>. */
 	private String _company;
 
-	/** <i>Generated variable</i> - Variable of <code>Address.postalcode</code> attribute defined at extension <code>core</code>. */
+	/** <i>Generated variable</i> - Variable of <code>Address.java.postalcode</code> attribute defined at extension <code>core</code>. */
 	private String _postalcode;
 	
-	/** <i>Generated variable</i> - Variable of <code>Address.building</code> attribute defined at extension <code>core</code>. */
+	/** <i>Generated variable</i> - Variable of <code>Address.java.building</code> attribute defined at extension <code>core</code>. */
 	private String _building;
 	
-	/** <i>Generated variable</i> - Variable of <code>Address.remarks</code> attribute defined at extension <code>catalog</code>. */
+	/** <i>Generated variable</i> - Variable of <code>Address.java.remarks</code> attribute defined at extension <code>catalog</code>. */
 	private String _remarks;
 	
-	/** <i>Generated variable</i> - Variable of <code>Address.ssoCustomerId</code> attribute defined at extension <code>pacoshopcore</code>. */
+	/** <i>Generated variable</i> - Variable of <code>Address.java.ssoCustomerId</code> attribute defined at extension <code>pacoshopcore</code>. */
 	private String _ssoCustomerId;
 	
-	/** <i>Generated variable</i> - Variable of <code>Address.appartment</code> attribute defined at extension <code>core</code>. */
+	/** <i>Generated variable</i> - Variable of <code>Address.java.appartment</code> attribute defined at extension <code>core</code>. */
 	private String _appartment;
 	
-	/** <i>Generated variable</i> - Variable of <code>Address.cellphone</code> attribute defined at extension <code>core</code>. */
+	/** <i>Generated variable</i> - Variable of <code>Address.java.cellphone</code> attribute defined at extension <code>core</code>. */
 	private String _cellphone;
 	
-	/** <i>Generated variable</i> - Variable of <code>Address.phone2</code> attribute defined at extension <code>core</code>. */
+	/** <i>Generated variable</i> - Variable of <code>Address.java.phone2</code> attribute defined at extension <code>core</code>. */
 	private String _phone2;
 	
-	/** <i>Generated variable</i> - Variable of <code>Address.milesAndMoreNumber</code> attribute defined at extension <code>pacoshopcore</code>. */
+	/** <i>Generated variable</i> - Variable of <code>Address.java.milesAndMoreNumber</code> attribute defined at extension <code>pacoshopcore</code>. */
 	private String _milesAndMoreNumber;
 	
-	/** <i>Generated variable</i> - Variable of <code>Address.url</code> attribute defined at extension <code>catalog</code>. */
+	/** <i>Generated variable</i> - Variable of <code>Address.java.url</code> attribute defined at extension <code>catalog</code>. */
 	private String _url;
 	
-	/** <i>Generated variable</i> - Variable of <code>Address.lastname</code> attribute defined at extension <code>core</code>. */
+	/** <i>Generated variable</i> - Variable of <code>Address.java.lastname</code> attribute defined at extension <code>core</code>. */
 	private String lastname;
 	
-	/** <i>Generated variable</i> - Variable of <code>Address.contactAddress</code> attribute defined at extension <code>catalog</code>. */
+	/** <i>Generated variable</i> - Variable of <code>Address.java.contactAddress</code> attribute defined at extension <code>catalog</code>. */
 	private Boolean _contactAddress;
 	
-	/** <i>Generated variable</i> - Variable of <code>Address.pobox</code> attribute defined at extension <code>core</code>. */
+	/** <i>Generated variable</i> - Variable of <code>Address.java.pobox</code> attribute defined at extension <code>core</code>. */
 	private String _pobox;
 	
-	/** <i>Generated variable</i> - Variable of <code>Address.phone1</code> attribute defined at extension <code>core</code>. */
+	/** <i>Generated variable</i> - Variable of <code>Address.java.phone1</code> attribute defined at extension <code>core</code>. */
 	private String _phone1;
 	
-	/** <i>Generated variable</i> - Variable of <code>Address.lastUpdate</code> attribute defined at extension <code>pacoshopcore</code>. */
+	/** <i>Generated variable</i> - Variable of <code>Address.java.lastUpdate</code> attribute defined at extension <code>pacoshopcore</code>. */
 	private Date _lastUpdate;
 	
-	/** <i>Generated variable</i> - Variable of <code>Address.dateOfBirth</code> attribute defined at extension <code>core</code>. */
+	/** <i>Generated variable</i> - Variable of <code>Address.java.dateOfBirth</code> attribute defined at extension <code>core</code>. */
 	private Date _dateOfBirth;
 	
-	/** <i>Generated variable</i> - Variable of <code>Address.title2</code> attribute defined at extension <code>pacoshopcore</code>. */
+	/** <i>Generated variable</i> - Variable of <code>Address.java.title2</code> attribute defined at extension <code>pacoshopcore</code>. */
 	private String _title2;
 	
-	/** <i>Generated variable</i> - Variable of <code>Address.fax</code> attribute defined at extension <code>core</code>. */
+	/** <i>Generated variable</i> - Variable of <code>Address.java.fax</code> attribute defined at extension <code>core</code>. */
 	private String _fax;
 	
-	/** <i>Generated variable</i> - Variable of <code>Address.publicKey</code> attribute defined at extension <code>catalog</code>. */
+	/** <i>Generated variable</i> - Variable of <code>Address.java.publicKey</code> attribute defined at extension <code>catalog</code>. */
 	private String _publicKey;
 	
-	/** <i>Generated variable</i> - Variable of <code>Address.department</code> attribute defined at extension <code>core</code>. */
+	/** <i>Generated variable</i> - Variable of <code>Address.java.department</code> attribute defined at extension <code>core</code>. */
 	private String _department;
 	
-	/** <i>Generated variable</i> - Variable of <code>Address.original</code> attribute defined at extension <code>core</code>. */
+	/** <i>Generated variable</i> - Variable of <code>Address.java.original</code> attribute defined at extension <code>core</code>. */
 	private AddressModel _original;
 	
-	/** <i>Generated variable</i> - Variable of <code>Address.shippingAddress</code> attribute defined at extension <code>catalog</code>. */
+	/** <i>Generated variable</i> - Variable of <code>Address.java.shippingAddress</code> attribute defined at extension <code>catalog</code>. */
 	private Boolean _shippingAddress;
 
-	/** <i>Generated variable</i> - Variable of <code>Address.unloadingAddress</code> attribute defined at extension <code>catalog</code>. */
+	/** <i>Generated variable</i> - Variable of <code>Address.java.unloadingAddress</code> attribute defined at extension <code>catalog</code>. */
 	private Boolean _unloadingAddress;
 	
-	/** <i>Generated variable</i> - Variable of <code>Address.district</code> attribute defined at extension <code>core</code>. */
+	/** <i>Generated variable</i> - Variable of <code>Address.java.district</code> attribute defined at extension <code>core</code>. */
 	private String _district;
 	
-	/** <i>Generated variable</i> - Variable of <code>Address.billingAddress</code> attribute defined at extension <code>catalog</code>. */
+	/** <i>Generated variable</i> - Variable of <code>Address.java.billingAddress</code> attribute defined at extension <code>catalog</code>. */
 	private Boolean _billingAddress;
 	
-	/** <i>Generated variable</i> - Variable of <code>Address.middlename2</code> attribute defined at extension <code>core</code>. */
+	/** <i>Generated variable</i> - Variable of <code>Address.java.middlename2</code> attribute defined at extension <code>core</code>. */
 	private String _middlename2;
 	
-	/** <i>Generated variable</i> - Variable of <code>Address.town</code> attribute defined at extension <code>core</code>. */
+	/** <i>Generated variable</i> - Variable of <code>Address.java.town</code> attribute defined at extension <code>core</code>. */
 	private String _town;
 	
-	/** <i>Generated variable</i> - Variable of <code>Address.middlename</code> attribute defined at extension <code>core</code>. */
+	/** <i>Generated variable</i> - Variable of <code>Address.java.middlename</code> attribute defined at extension <code>core</code>. */
 	private String _middlename;
 
-	/** <i>Generated variable</i> - Variable of <code>Address.typeQualifier</code> attribute defined at extension <code>catalog</code>. */
+	/** <i>Generated variable</i> - Variable of <code>Address.java.typeQualifier</code> attribute defined at extension <code>catalog</code>. */
 	private String _typeQualifier;
 	
-	/** <i>Generated variable</i> - Variable of <code>Address.businessPartnerId</code> attribute defined at extension <code>pacoshopcore</code>. */
+	/** <i>Generated variable</i> - Variable of <code>Address.java.businessPartnerId</code> attribute defined at extension <code>pacoshopcore</code>. */
 	private String _businessPartnerId;
 	
-	/** <i>Generated variable</i> - Variable of <code>Address.line2</code> attribute defined at extension <code>basecommerce</code>. */
+	/** <i>Generated variable</i> - Variable of <code>Address.java.line2</code> attribute defined at extension <code>basecommerce</code>. */
 	private String _line2;
 	
-	/** <i>Generated variable</i> - Variable of <code>Address.visibleInAddressBook</code> attribute defined at extension <code>commerceservices</code>. */
+	/** <i>Generated variable</i> - Variable of <code>Address.java.visibleInAddressBook</code> attribute defined at extension <code>commerceservices</code>. */
 	private Boolean _visibleInAddressBook;
 	
-	/** <i>Generated variable</i> - Variable of <code>Address.line1</code> attribute defined at extension <code>basecommerce</code>. */
+	/** <i>Generated variable</i> - Variable of <code>Address.java.line1</code> attribute defined at extension <code>basecommerce</code>. */
 	private String _line1;
 	
-	/** <i>Generated variable</i> - Variable of <code>Address.firstname</code> attribute defined at extension <code>core</code>. */
+	/** <i>Generated variable</i> - Variable of <code>Address.java.firstname</code> attribute defined at extension <code>core</code>. */
 	private String firstname;
 	
-	/** <i>Generated variable</i> - Variable of <code>Address.email</code> attribute defined at extension <code>core</code>. */
+	/** <i>Generated variable</i> - Variable of <code>Address.java.email</code> attribute defined at extension <code>core</code>. */
 	private String _email;
 	
-	/** <i>Generated variable</i> - Variable of <code>Address.roleInCompany</code> attribute defined at extension <code>pacoshopcore</code>. */
+	/** <i>Generated variable</i> - Variable of <code>Address.java.roleInCompany</code> attribute defined at extension <code>pacoshopcore</code>. */
 	private String _roleInCompany;
 	
-	/** <i>Generated variable</i> - Variable of <code>Address.duplicate</code> attribute defined at extension <code>core</code>. */
+	/** <i>Generated variable</i> - Variable of <code>Address.java.duplicate</code> attribute defined at extension <code>core</code>. */
 	private Boolean _duplicate;
 	
-	/** <i>Generated variable</i> - Variable of <code>Address.streetname</code> attribute defined at extension <code>core</code>. */
+	/** <i>Generated variable</i> - Variable of <code>Address.java.streetname</code> attribute defined at extension <code>core</code>. */
 	private String _streetname;
 	
 	

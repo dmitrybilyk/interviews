@@ -76,7 +76,7 @@ public class Person {
 
     @Column(name="LastName")
     private String lastName;
-    @Column(name="Address")
+    @Column(name="Address.java")
 //    @Audited(targetAuditMode= RelationTargetAuditMode.NOT_AUDITED)
     private String address;
 

@@ -12,3 +12,19 @@ the Java NIO overview.
 todo
 read http://tutorials.jenkov.com/java-nio/overview.html
 
+Using a Buffer to read and write data typically follows this little 4-step process:
+
+Write data into the Buffer
+Call buffer.flip()
+Read data out of the Buffer
+Call buffer.clear() or buffer.compact()
+
+When you write data into a buffer, the buffer keeps track of how much data you have written.
+Once you need to read the data, you need to switch the buffer from writing mode into reading mode
+using the flip() method call. In reading mode the buffer lets you read all the data written into the buffer.
+
+Once you have read all the data, you need to clear the buffer, to make it ready for writing again.
+You can do this in two ways: by calling clear() or by calling compact().
+The clear() method clears the whole buffer.
+The compact() method only clears the data which you have already read. Any unread data is moved to
+the beginning of the buffer, and data will now be written into the buffer after the unread data.
