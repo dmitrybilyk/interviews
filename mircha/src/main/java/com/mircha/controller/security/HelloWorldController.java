@@ -5,6 +5,7 @@ import com.mircha.model.security.UserProfile;
 import com.mircha.service.security.UserProfileService;
 import com.mircha.service.security.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -57,13 +58,16 @@ public class HelloWorldController {
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String loginPage() {
+	public String loginPage(ModelMap model) {
+		User user = new User();
+		model.addAttribute("user", user);
 		return "login";
 	}
 
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login() {
-		return "welcome";
+	@RequestMapping(value = "/loginUser", method = RequestMethod.POST)
+	public String login(@Valid User user, BindingResult result, ModelMap model) {
+		SecurityContextHolder.getContext().setAuthentication(new UsernamePasswordAuthenticationToken(user.getSsoId(), user.getPassword()));
+		return "interests";
 	}
 
 	@RequestMapping(value="/logout", method = RequestMethod.GET)

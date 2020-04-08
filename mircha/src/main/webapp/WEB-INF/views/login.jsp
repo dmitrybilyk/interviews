@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -14,9 +15,9 @@
 			<div class="login-container">
 				<div class="login-card">
 					<div class="login-form">
-						<c:url var="loginUrl" value="/interests" />
+						<c:url var="loginUrl" value="/loginUser" />
 						<c:url var="toRegistration" value="/newUser" />
-						<form action="${loginUrl}" method="post" class="form-horizontal">
+						<form:form action="${loginUrl}" modelAttribute="user" method="post" class="form-horizontal">
 							<c:if test="${param.error != null}">
 								<div class="alert alert-danger">
 									<p>Invalid username and password.</p>
@@ -28,12 +29,13 @@
 								</div>
 							</c:if>
 							<div class="input-group input-sm">
-								<label class="input-group-addon" for="username"><i class="fa fa-user"></i></label>
-								<input type="text" class="form-control" id="username" name="ssoId" placeholder="Enter Username" required>
+								<label class="input-group-addon" for="ssoId"><i class="fa fa-user"></i></label>
+								<%--<form:input type="text" path="ssoId" id="ssoId" class="form-control input-sm"/>--%>
+								<form:input path="ssoId" type="text" class="form-control" id="ssoId" name="ssoId" placeholder="Enter Username" required="true"></form:input>
 							</div>
 							<div class="input-group input-sm">
 								<label class="input-group-addon" for="password"><i class="fa fa-lock"></i></label> 
-								<input type="password" class="form-control" id="password" name="password" placeholder="Enter Password" required>
+								<form:input path="password" type="password" class="form-control" id="password" name="password" placeholder="Enter Password" required="true"></form:input>
 							</div>
 							<input type="hidden" name="${_csrf.parameterName}"
 								value="${_csrf.token}" />
@@ -44,7 +46,7 @@
 							</div>
 
 							<a class="form-actions" href="${toRegistration}">Registration</a>
-						</form>
+						</form:form>
 					</div>
 				</div>
 			</div>

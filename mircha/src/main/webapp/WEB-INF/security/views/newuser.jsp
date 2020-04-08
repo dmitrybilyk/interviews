@@ -94,7 +94,7 @@
 
 		<div class="row">
 			<div class="form-actions floatRight">
-				<input type="submit" value="Register" class="btn btn-primary btn-sm"> or <a href="<c:url value='/mvc/admin' />">Cancel</a>
+				<input type="submit" value="Register" class="btn btn-primary btn-sm"> or <a href="<c:url value='/admin' />">Cancel</a>
 			</div>
 		</div>
 	</form:form>

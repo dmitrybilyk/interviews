@@ -1,5 +1,7 @@
 package com.learn.core.regex;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -45,9 +47,37 @@ import java.util.regex.Pattern;
  */
 public class TestRegexp {
     public static void main(String[] args){
-         Pattern manyBlanks = Pattern.compile("^\\s*y+u?do(es)?u{5,}i{3}?.(?:du|mu)[^dfs][^a-s]*dim\\Bbb\\d\\D\\s*$");
-         Matcher blanks = manyBlanks.matcher("    yyyudouuuuuuiiijmulwwwdimbb6d    ");
+      String enteredValue = new String("\\+380504759475");
+      String checkedValue = "+380504759475"; //exact number (with plus or not)
+
+//      String enteredValue = new String("\\+\\d\\d\\d\\d\\d\\d\\d\\d\\d\\d\\d");
+//      String checkedValue = "+38050475947"; //only digits (with plus or not)
+//
+//      String enteredValue = "\\d\\d\\d\\d";
+//      String checkedValue = "3805"; //any number of 4 length
+
+//      String enteredValue = "^[A-Za-z]+\\d+";
+//      String checkedValue = "ud86"; //starts with some string value and whatever length
+
+//      String escapedValue = getEscapedValue(enteredValue);
+
+      Pattern pattern = Pattern.compile(enteredValue);
+      Matcher blanks = pattern.matcher(checkedValue);
        System.out.println(blanks.matches());
 
     }
+
+  @NotNull
+  private static String getEscapedValue(String enteredValue) {
+    StringBuilder escapedValue = new StringBuilder("");
+    for (char c: enteredValue.toCharArray()) {
+      if (c == '+' || c == 'd') {
+        String v = String.format("\\%s", c);
+        escapedValue.append(v);
+      } else {
+        escapedValue.append(c);
+      }
+    }
+    return escapedValue.toString();
+  }
 }
