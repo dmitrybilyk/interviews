@@ -1,6 +1,5 @@
-package com.learn.core.staticimport;
+package com.learn.core.statickeyword.staticimport;
 
-import static com.learn.core.reflection.ContainsStaticContent.*;
 import static com.learn.core.reflection.ContainsStaticContent.print2;
 
 /**

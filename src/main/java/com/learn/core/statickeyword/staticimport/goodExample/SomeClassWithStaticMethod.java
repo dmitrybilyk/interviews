@@ -1,4 +1,4 @@
-package com.learn.core.staticimport.goodExample;
+package com.learn.core.statickeyword.staticimport.goodExample;
 
 /**
  * Created by dik81 on 12.01.19.

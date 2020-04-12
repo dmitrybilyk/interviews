@@ -1,4 +1,4 @@
-package com.learn.core.statis_variables;
+package com.learn.core.statickeyword.statis_variables;
 
 public class ClassWithStaticVariable {
 	public static String someName;

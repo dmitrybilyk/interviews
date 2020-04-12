@@ -1,4 +1,4 @@
-package com.learn.core.staticimport;
+package com.learn.core.statickeyword.staticimport;
 
 /**
  * Created by IntelliJ IDEA.

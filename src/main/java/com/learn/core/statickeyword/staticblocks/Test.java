@@ -1,4 +1,4 @@
-package com.learn.core.staticblocks;
+package com.learn.core.statickeyword.staticblocks;
 
 public class Test {
 
