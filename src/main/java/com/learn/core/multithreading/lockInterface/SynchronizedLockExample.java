@@ -7,30 +7,14 @@ public class SynchronizedLockExample implements Runnable{
     public SynchronizedLockExample(Resource r){
         this.resource = r;
     }
-     
-    @Override
-    public void run() {
-        synchronized (resource) {
-           try
-           {
-              resource.doSomething();
-           }
-           catch (InterruptedException e)
-           {
-              e.printStackTrace();
-           }
-           resource.someSynchronizedMethod();
-        }
 
-       try
-       {
-          resource.doLogging();
-       }
-       catch (InterruptedException e)
-       {
-          e.printStackTrace();
-       }
-    }
+        @Override
+        public void run() {
+                synchronized (resource) {
+                        resource.doSomething("dfd");
+                }
+                resource.doLogging();
+        }
 }
 
 //Notice that I am using synchronized block to acquire the lock on Resource object.
