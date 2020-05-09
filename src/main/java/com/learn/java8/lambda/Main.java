@@ -8,6 +8,10 @@ public class Main {
         System.out.println(test.test(2, 3));
     }
     public static void main(String[] args) {
+        SomeInterface someInterface = s -> System.out.println(s);
+        someInterface.print("dima");
+
+
 
     useLamda(new LamdaTest() {
         @Override
@@ -16,4 +20,10 @@ public class Main {
         }
     });
     }
+
+}
+
+@FunctionalInterface
+interface SomeInterface {
+    void print(String s);
 }
