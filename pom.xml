@@ -23,6 +23,7 @@
         <spring.security.version>3.2.3.RELEASE</spring.security.version>
         <slf4j.version>1.7.7</slf4j.version>
         <jmh.version>1.21</jmh.version>
+        <mongodb-driver-sync.version>3.12.0</mongodb-driver-sync.version>
     </properties>
 
     <dependencies>
@@ -37,7 +38,21 @@
             <artifactId>jmh-generator-annprocess</artifactId>
             <version>${jmh.version}</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongo-java-driver</artifactId>
+            <version>3.12.3</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.6.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongodb-driver-sync</artifactId>
+            <version>${mongodb-driver-sync.version}</version>
+        </dependency>
         <dependency>
             <groupId>com.twilio.sdk</groupId>
             <artifactId>twilio</artifactId>
