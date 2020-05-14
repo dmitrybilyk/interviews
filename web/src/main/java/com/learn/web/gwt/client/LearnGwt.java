@@ -2,6 +2,7 @@ package com.learn.web.gwt.client;
 
 import com.google.gwt.cell.client.Cell;
 import com.google.gwt.cell.client.DateCell;
+import com.google.gwt.cell.client.TextCell;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.builder.shared.AnchorBuilder;
@@ -20,9 +21,11 @@ import com.google.gwt.user.cellview.client.AbstractHeaderOrFooterBuilder;
 import com.google.gwt.user.cellview.client.CellTable;
 import com.google.gwt.user.cellview.client.Column;
 import com.google.gwt.user.cellview.client.HasKeyboardSelectionPolicy;
+import com.google.gwt.user.cellview.client.SafeHtmlHeader;
 import com.google.gwt.user.cellview.client.TextColumn;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Button;
+import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.TextBox;
@@ -32,7 +35,23 @@ import com.google.gwt.view.client.SelectionChangeEvent;
 import com.google.gwt.view.client.SingleSelectionModel;
 import com.learn.web.gwt.client.contacts.ContactsService;
 import com.learn.web.gwt.client.contacts.ContactsServiceAsync;
+import com.learn.web.gwt.client.sap.BoatClassDTO;
+import com.learn.web.gwt.client.sap.BoatDTO;
+import com.learn.web.gwt.client.sap.Color;
+import com.learn.web.gwt.client.sap.CompetitorDTO;
+import com.learn.web.gwt.client.sap.CompetitorWithBoatDTO;
+import com.learn.web.gwt.client.sap.DisplayedLeaderboardRowsProvider;
+import com.learn.web.gwt.client.sap.Duration;
+import com.learn.web.gwt.client.sap.FlushableSortedCellTableWithStylableHeaders;
+import com.learn.web.gwt.client.sap.InvertibleComparator;
+import com.learn.web.gwt.client.sap.LeaderboardDTO;
+import com.learn.web.gwt.client.sap.LeaderboardRowDTO;
+import com.learn.web.gwt.client.sap.LeaderboardSortableColumnWithMinMax;
+import com.learn.web.gwt.client.sap.RGBColor;
+import com.learn.web.gwt.client.sap.SortingOrder;
+import org.jetbrains.annotations.NotNull;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -43,11 +62,224 @@ import java.util.Map;
 /**
  * Created by dmitry on 07.01.19.
  */
-public class LearnGwt implements EntryPoint {
-//    public static HandlerManager eventBus = new HandlerManager(null);
+public class LearnGwt implements EntryPoint, DisplayedLeaderboardRowsProvider {
+    @Override public Map<CompetitorDTO, LeaderboardRowDTO> getRowsToDisplay() {
+        Map<CompetitorDTO, LeaderboardRowDTO> result;
+//        Iterable<CompetitorDTO> allFilteredCompetitors = competitorSelectionProvider.getFilteredCompetitors();
+        result = new HashMap<>();
+//        for (CompetitorDTO competitorInPreSelectedRace : getCompetitors(preSelectedRace)) {
+//            if (Util.contains(allFilteredCompetitors, competitorInPreSelectedRace)) {
+        LeaderboardRowDTO leaderboardRowDTO = new LeaderboardRowDTO();
+
+        CompetitorDTO competitorDTO = new CompetitorDTO() {
+            @Override public String getTwoLetterIsoCountryCode() {
+                return "yyy";
+            }
+
+            @Override public String getThreeLetterIocCountryCode() {
+                return "yyy";
+            }
+
+            @Override public String getCountryName() {
+                return "yyy";
+            }
+
+            @Override public String getIdAsString() {
+                return "yyy";
+            }
+
+            @Override public String getSearchTag() {
+                return "yyy";
+            }
+
+            @Override public void addToSearchTag(String searchTag) {
+
+            }
+
+            @Override public String getName() {
+                return "yyy";
+            }
+
+            @Override public String getShortName() {
+                return "yyy";
+            }
+
+            @Override public String getShortInfo() {
+                return "yyy";
+            }
+
+            @Override public String getShortInfo(boolean preferSailId) {
+                return "yyy";
+            }
+
+            @Override public Color getColor() {
+                return new RGBColor("RED");
+            }
+
+            @Override public String getEmail() {
+                return "yyy";
+            }
+
+            @Override public boolean hasEmail() {
+                return false;
+            }
+
+            @Override public String getFlagImageURL() {
+                return "yyy";
+            }
+
+            @Override public String getImageURL() {
+                return "yyy";
+            }
+
+            @Override public Double getTimeOnTimeFactor() {
+                return 0d;
+            }
+
+            @Override public Duration getTimeOnDistanceAllowancePerNauticalMile() {
+                return new Duration() {
+                    @Override public long asMillis() {
+                        return 0;
+                    }
+
+                    @Override public double asSeconds() {
+                        return 0;
+                    }
+
+                    @Override public double asMinutes() {
+                        return 0;
+                    }
+
+                    @Override public double asHours() {
+                        return 0;
+                    }
+
+                    @Override public double asDays() {
+                        return 0;
+                    }
+
+                    @Override public Duration abs() {
+                        return null;
+                    }
+
+                    @Override public Duration divide(long divisor) {
+                        return null;
+                    }
+
+                    @Override public Duration divide(double divisor) {
+                        return null;
+                    }
+
+                    @Override public double divide(Duration duration) {
+                        return 0;
+                    }
+
+                    @Override public Duration times(long factor) {
+                        return null;
+                    }
+
+                    @Override public Duration times(double factor) {
+                        return null;
+                    }
+
+                    @Override public Duration minus(Duration duration) {
+                        return null;
+                    }
+
+                    @Override public Duration minus(long milliseconds) {
+                        return null;
+                    }
+
+                    @Override public Duration plus(long milliseconds) {
+                        return null;
+                    }
+
+                    @Override public Duration plus(Duration duration) {
+                        return null;
+                    }
+
+                    @Override public Duration mod(Duration d) {
+                        return null;
+                    }
+
+                    @Override public int compareTo(@NotNull Duration duration) {
+                        return 0;
+                    }
+                };
+            }
+
+            @Override public boolean hasBoat() {
+                return true;
+            }
+
+            @Override public CompetitorDTO getCompetitorFromPrevious(LeaderboardDTO previousVersion) {
+                return null;
+            }
+
+            @Override public void clearNonPublicFields() {
+
+            }
+
+            @Override public Serializable getId() {
+                return "yyy";
+            }
+        };
+        leaderboardRowDTO.competitor = competitorDTO;
+leaderboardRowDTO.totalTimeSailedInSeconds = 4d;
+        result.put(competitorDTO, leaderboardRowDTO);
+//            }
+//        }
+        return result;
+    }
+    //    public static HandlerManager eventBus = new HandlerManager(null);
 //    private final MVPInjector injector = GWT.create(MVPInjector.class);
 //    @Inject
 //    private EventBus eventBus;
+
+    private class TotalRankColumn extends LeaderboardSortableColumnWithMinMax<LeaderboardRowDTO, String> {
+        public TotalRankColumn() {
+            super(new TextCell(), SortingOrder.ASCENDING, LearnGwt.this);
+            setHorizontalAlignment(ALIGN_CENTER);
+            setSortable(true);
+        }
+
+        @Override
+        public String getValue(LeaderboardRowDTO object) {
+//            final int totalRank = getLeaderboard().getTotalRank(object.competitor);
+            final int totalRank = 1;
+            return "1";
+        }
+
+        @Override
+        public InvertibleComparator<LeaderboardRowDTO> getComparator() {
+            return new InvertibleComparator<LeaderboardRowDTO>() {
+                @Override public void setAscending(boolean ascending) {
+
+                }
+
+                @Override public boolean isAscending() {
+                    return false;
+                }
+
+                @Override public void invertOrder() {
+
+                }
+
+                @Override public int compare(LeaderboardRowDTO leaderboardRowDTO, LeaderboardRowDTO t1) {
+                    return 0;
+                }
+            };
+        }
+
+        @Override
+        public SafeHtmlHeader getHeader() {
+//            return new SafeHtmlHeaderWithTooltip(SafeHtmlUtils.fromString(stringMessages.totalRegattaRank()),
+//                    stringMessages.rankColumnTooltip());
+            return new SafeHtmlHeader(SafeHtmlUtils.fromString("Some header"));
+        }
+
+    }
+
     @Override
     public void onModuleLoad() {
 
@@ -100,7 +332,110 @@ public class LearnGwt implements EntryPoint {
 
 //        DockWidgetPanel panel = new DockWidgetPanel("dd", "dff");
 //        RootPanel.get().add(new Label("dfdfd"));
-        createCelleTable();
+
+        FlushableSortedCellTableWithStylableHeaders<LeaderboardRowDTO> table =
+                new FlushableSortedCellTableWithStylableHeaders<LeaderboardRowDTO>(1);
+            table.addColumn(new TextColumn<LeaderboardRowDTO>() {
+                @Override public String getValue(LeaderboardRowDTO object) {
+                    return "Column1";
+                }
+            });
+//        table.getDataProvider().
+
+        ArrayList<LeaderboardRowDTO> values = new ArrayList<>();
+        LeaderboardRowDTO leaderboardRowDTO = new LeaderboardRowDTO();
+        leaderboardRowDTO.competitor = new CompetitorDTO() {
+            @Override public String getTwoLetterIsoCountryCode() {
+                return "UA";
+            }
+
+            @Override public String getThreeLetterIocCountryCode() {
+                return null;
+            }
+
+            @Override public String getCountryName() {
+                return null;
+            }
+
+            @Override public String getIdAsString() {
+                return null;
+            }
+
+            @Override public String getSearchTag() {
+                return null;
+            }
+
+            @Override public void addToSearchTag(String searchTag) {
+
+            }
+
+            @Override public String getName() {
+                return "Dima";
+            }
+
+            @Override public String getShortName() {
+                return null;
+            }
+
+            @Override public String getShortInfo() {
+                return null;
+            }
+
+            @Override public String getShortInfo(boolean preferSailId) {
+                return null;
+            }
+
+            @Override public Color getColor() {
+                return null;
+            }
+
+            @Override public String getEmail() {
+                return null;
+            }
+
+            @Override public boolean hasEmail() {
+                return false;
+            }
+
+            @Override public String getFlagImageURL() {
+                return null;
+            }
+
+            @Override public String getImageURL() {
+                return null;
+            }
+
+            @Override public Double getTimeOnTimeFactor() {
+                return null;
+            }
+
+            @Override public Duration getTimeOnDistanceAllowancePerNauticalMile() {
+                return null;
+            }
+
+            @Override public boolean hasBoat() {
+                return false;
+            }
+
+            @Override public CompetitorDTO getCompetitorFromPrevious(LeaderboardDTO previousVersion) {
+                return null;
+            }
+
+            @Override public void clearNonPublicFields() {
+
+            }
+
+            @Override public Serializable getId() {
+                return null;
+            }
+        };
+//        Map<CompetitorDTO, LeaderboardRowDTO> map = getRowsToDisplay();
+        table.getDataProvider().setList(Arrays.asList(leaderboardRowDTO));
+//        values.add(leaderboardRowDTO);
+//        table.setList(values);
+//        RootPanel.get().add(new Label("dfdf"));
+        RootPanel.get().add(table);
+//        createCelleTable();
 
     }
 

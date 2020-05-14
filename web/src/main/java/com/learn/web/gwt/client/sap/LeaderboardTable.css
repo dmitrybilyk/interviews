@@ -1,0 +1,155 @@
+.cellTableWidget {
+	border-top: 1px solid #c9caca;
+	border-right: 1px solid #c9caca;
+	border-collapse: separate;
+}
+
+
+
+/** v-align images in the table header
+ * grey background for table header
+ */
+.cellTableHeader {
+	position: relative;
+    vertical-align: bottom;
+	background-color: #e5e5e5;
+	border-right: 0px solid #c9caca !important;
+	border-top: none !important;
+	border-bottom: 1px solid #c9caca !important;
+	border-left: 1px solid #c9caca !important;
+	padding: 3px 5px;
+	padding-bottom: 5px;
+	text-align: center;
+	text-shadow: none !important;
+	font-weight: bold;
+	font-size: 12px!important;
+}
+
+.cellTableFirstColumnHeader {
+	position: relative;
+    vertical-align: bottom;
+	background-color: #e5e5e5;
+	text-align: center;
+}
+
+.cellTableLastColumnHeader {
+	position: relative;
+    vertical-align: bottom;
+	background-color: #e5e5e5;
+	text-align: center;
+}
+
+.cellTableHeader > span > img:first-child {
+	position: relative;
+    vertical-align: middle;
+}
+
+.cellTableEvenRow {
+    background-color: rgba(255,255,255,0.5);
+}
+
+.cellTableOddRow {
+    background-color: rgba(242,242,242,0.5);
+}
+
+.cellTableSelectedRow {
+    color: #000000;
+    background-color: rgba(229,242,249,0.5);
+}
+
+
+.cellTableCell {
+    font-size: 12px !important;
+    line-height: 1.5em !important;  
+    vertical-align: middle;
+}
+
+.cellTableSelectedRowCell {
+    box-shadow: inset 0px -3px 3px -3px #21a0e4, inset 0px 3px 3px -3px #21a0e4;
+    padding: 7px !important;
+ }
+
+.cellTableEvenRowCell, .cellTableOddRowCell {
+    border-top: none;
+    border-right: none;
+    border-bottom: 1px solid #d6d6d6;
+    border-left: 1px solid #d6d6d6;
+	padding: 7px;
+	white-space: nowrap;
+}
+
+.cellTableCheckboxColumnCell {
+}
+
+.cellTableCheckboxSelected {
+    height: 13px;
+    width: 13px;
+    margin: auto auto;
+    border: 1px solid #fcbb22;
+    background-color: #fcbb22;
+/*     border: solid 1px #acacac; */
+/*     background-color: #cacaca; */
+	
+}
+
+.cellTableCheckboxDeselected {
+    height: 13px;
+    width: 13px;
+	margin: auto auto;
+	border: solid 1px #acacac;
+}
+
+.cellTableHoveredRow {
+	background-color: rgba(229,242,249,0.5);
+	border-bottom: 1px solid #e5e5e5;
+}
+
+
+.cellTableRaceColumnHeader {
+	background-color: #e5e5e5;
+}
+
+.cellTableRaceColumnHeader span:first-child{
+	display: block;
+}
+
+.cellTableRaceColumnHeader span input, .cellTableRaceColumnHeader span img{
+	margin: 0 auto;
+}
+
+.cellTableRaceColumnHeader span img {
+	float: left;
+}
+
+.cellTableLegColumnHeader {
+	background-color: #efefef;
+}
+
+.cellTableLegDetailColumnHeader {
+	background-color: #f4f5f6;
+}
+
+.cellTableRaceColumnHeader span > div, .cellTableLegColumnHeader span > div {
+	width: 19px !important;
+	height: 19px !important;
+}
+
+.cellTableRaceColumn {
+	background-color: #e0e0e0 !important;
+}
+
+.cellTableLegColumn {
+	background-color: #efefef !important;
+}
+
+.cellTableLegDetailColumn {
+	background-color: #ffffff !important;
+}
+
+.cellTableTotalColumn {
+	background-color: #e0e0e0 !important;
+}
+
+.cellTableSailIdColumn img {
+	max-width: none;
+}
