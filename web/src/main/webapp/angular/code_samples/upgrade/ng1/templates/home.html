@@ -1,7 +1,26 @@
-<div class="container">
-  <div class="row">
-    <pin item="pin" ng-repeat="pin in ctrl.pins">
-    </pin>
-  </div>
-</div>
+<script>
 
+  alert(null === undefined);
+</script>
+
+<style>
+  .row {
+    margin: 20px auto;
+    max-width: 300px;
+    display: flex;
+  }
+  .row > div {
+    border: 1px dashed gray;
+    flex: 1 1 auto; /* Розмір елементів визначено всередині елементів */
+    text-align: center;
+    padding: 12px;
+  }
+</style>
+
+
+<div class="row">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+  <div>4</div>
+</div>
