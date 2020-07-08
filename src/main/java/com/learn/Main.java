@@ -1,6 +1,6 @@
 package com.learn;
 
-import org.apache.openjpa.jdbc.kernel.exps.MapEntry;
+//import org.apache.openjpa.jdbc.kernel.exps.MapEntry;
 
 import java.util.Collection;
 import java.util.Collections;

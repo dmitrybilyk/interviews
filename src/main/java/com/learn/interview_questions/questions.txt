@@ -195,6 +195,8 @@ SPRING TRANSACTION MANAGEMENT
 24.......... How memory is organized in Java. What is Heap and what is Stack
 https://javadevblog.com/chto-takoe-heap-i-stack-pamyat-v-java.html
 
+25.......... Patterns
+
 7. What is a multithreading in java? How to create a thread in java?
 Which ways of synchronization do you know? Reentrant lock, synchronization, semaphors etc
 How to make one thread to wait until another thread completes it's job and just after that it

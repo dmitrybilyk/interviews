@@ -13,6 +13,5 @@ public class Main {
         System.out.println(userService.getUserAddress(user));
 
         Optional<User> someUser = Optional.of(new User("new user"));
-
     }
 }

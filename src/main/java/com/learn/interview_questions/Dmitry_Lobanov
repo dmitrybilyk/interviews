@@ -6,8 +6,15 @@
 •	Experience writing JAVA serverless functions in AWS, writing high-performance code to minimize the volume of required JAVA packages
 •	Experience with JAVA serverless unit-testing, preferred
 •	Familiarity with big data processing tools, e.g. Apache Hadoop
+Welcome to this course: Big Data Analytics With Apache Hadoop Stack. Apache Hadoop is a collection of open-source software utilities that facilitate using a network of many computers to solve problems involving massive amounts of data and computation. If you have a basic understanding of Hadoop and want to put your knowledge to use to build fantastic Big Data solutions for business, then this course is for you. The Hadoop stack includes more than a dozen components, or subprojects, that are complex to deploy and manage. Installation, configuration and production deployment at scale is challenging.
+
+In this course, you'll learn:
+Hadoop - Java software framework to support data-intensive distributed applications
+
 •	Experience as a Technical Lead or Lead Developer, preferred
+
 •	Architecture skills and commitment to code design best practices
+
 •	Experience with: GraalVM, preferred
 Get started with GraalVM – a high-performance runtime that provides significant improvements in application performance
 and efficiency which is ideal for microservices. It is designed for applications written in Java, JavaScript,

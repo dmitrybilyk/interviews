@@ -12,7 +12,6 @@ public class MainTest {
     }
 }
 
-class
 
 class TaskCallable implements Callable {
     public Object call() throws Exception {

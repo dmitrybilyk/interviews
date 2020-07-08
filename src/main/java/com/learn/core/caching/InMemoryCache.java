@@ -37,7 +37,7 @@ public class InMemoryCache implements Cache {
             cache.remove(key);
         } else {
             long expiryTime = System.currentTimeMillis() + periodInMillis;
-            cache.put(key, new SoftReference<>(new CacheObject(value, expiryTime)));
+//            cache.put(key, new SoftReference<>(new CacheObject(value, expiryTime)));
         }
     }
  
@@ -48,7 +48,8 @@ public class InMemoryCache implements Cache {
  
     @Override
     public Object get(String key) {
-        return Optional.ofNullable(cache.get(key)).map(SoftReference::get).filter(cacheObject -> !cacheObject.isExpired()).map(CacheObject::getValue).orElse(null);
+//        return Optional.ofNullable(cache.get(key)).map(SoftReference::get).filter(cacheObject -> !cacheObject.isExpired()).map(CacheObject::getValue).orElse(null);
+        return null;
     }
  
     @Override
