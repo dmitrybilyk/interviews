@@ -1,7 +1,6 @@
-1. What is Java language? How is it different to for instance other languages (C for instance)
-- in c you may use multiple inheritance, pointers etc.
-- java is fully object-oriented, c - is semi object-oriented
-Which principles of OOP do you know? (abstraction, encapsulation, inheritance and polymorphism)
+111111111. What is Java language? How is it different to for instance other languages (Scala for instance)
+
+222222222. Which principles of OOP do you know? (abstraction, encapsulation, inheritance and polymorphism)
 a) abstraction
 The progress of abstraction happens when you declare an interface, write a class,
 implement a method, declare a variable, etc. Everything is an abstraction.
@@ -9,22 +8,24 @@ Abstraction is the most fundamental concept on which others rely on,
 such as encapsulation, inheritance and polymorphism.
 Abstraction is the progress of modeling real world objects into programming language.
 Hence interfaces and abstract classes are just two techniques used in this progress.
+
 b) Encapsulation.
 Here, the common characteristics and behaviors of a person are packaged into a single unit: the Personclass.
 This is the process of encapsulation.
 Second, encapsulation is a technique for protecting data from misuse by the outside world,
 which is referred as ‘information hiding’ or ‘data hiding’.
 c) Inheritance.
-nheritance is the ability of a class inherits data and behaviors from another class.
+inheritance is the ability of a class inherits data and behaviors from another class.
 Note that only public and protected members of the superclass are inherited by
 the subclass. The subclass can freely add new members to extend features of the superclass.
 Inheritance is for reusing code. Using inheritance promotes the maintainability of the code.
 Another reason for implementing inheritance is for the purpose of extensibility
 
-In Java, inheritance can be implemented in three forms:
-A class inherits another class
-A class implements another interface
-An interface inherits another interface
+What is association:
+Association defines how objects related to each other, know each other and use each other's functionality.
+Two forms of association:
+- composition - It is a “belongs-to” type of association. it's 'has-a' relationship
+- aggregation - also 'has-a' relationship but here objects could exist independently
 
 d) Polymorphism.
 Polymorphism means ‘many forms’. In OOP, polymorphism means a type can point to
@@ -40,27 +41,65 @@ run more flexibly.
 Extensibility: when we want to add a new kind of Animal, e.g. Snake, we just pass
 an object of Snake into the teach() method without any modification.
 
-2. Which steps whould you use to create and run some simple java programe from console?
+33333333. In which forms inheritance could be implemented in Java?
 
-3. What is the difference between interface and abstract class. When would you prefer to use
+In Java, inheritance can be implemented in three forms:
+A class inherits another class
+A class implements another interface
+An interface inherits another interface
+
+44444444. Which types of Polymorthism exist in Java?
+1) static - methods overloading
+2) dynamic - methods overriding
+
+55555555. Which steps would you use to create and run some simple java program from console?
+to use compiler first and then to run with java command.
+
+66666666. What is the difference between interface and abstract class. When would you prefer to use
 abstract class?
 - can abstract class have non-abstract methods? Can class extend several abstract classes?
 Summing up, we can say that the major difference between an abstract class and an
 interface is the methods they contain (completed versus uncompleted) and their
 contents (a real class vs. an empty template)
 
-4. Which class is the parent of all classes in java.
+77777777. What can you say about the fields in interfaces. Which modifiers are applied to them by default?
+All fields in interface are public static final, i.e. they are constants.
+
+
+88888888. Which class is the parent of all classes in java.
 Please list the methods of Object class in java.
 
 - clone - how to use this method? Which issues could happen with cloning? How to resolve them?
 - equals - rules while overriding equals and hashcode
+
+Equals method is used to compare to objects of the same type. By default it's implemented (in Object class) to
+compare by references in memory (with == sign). Overriding equals affects how object would be used in collections for
+instance. If you override the equals you also need to override hashcode method.
+
+99999999. Principles of equals method:
+- reflexivity - a.equals(a) should always return true
+- symmetricity - if a.equals(b) == true then b.equals(a) == true
+- transitivity - if a equals b and b equals c then a equals c
+- consistency - Multiple runnings of a.equals(b) should return the same result (provided no any field is changed (which
+participates in equals calculation))
+if a != null then a.equals(null) will always return false
+
 - hashcode
+
+hashcode method calculates the hashcode of the object. The same fields should participates as fields in equals method.
+
+10..........Principles of hashcode method:
+- multiple runs of hachcode method on the same object will return the same result (provided no any effective field
+is changed). Also runnings on different executions of application could return different hachcode
+- if 2 objects are equals then hashcode should also be equal, but if objects are not equal then hashcode could
+return the same value. And this is not good because this could lead to collisions in hash structure (hashset or hashmap).
+
 - notify -
 - notifyAll
 - toString
 - wait
 
-5. Exception hierarchi. Which types of exceptions exist, difference between them.
+11......... Exception hierarchi. Which types of exceptions exist, difference between them.
 Which operators to use, is it recommended to use them to control the flow of the
 program, what are the best practices regarding exceptions handling? Examples of checked/unchecked
 exceptions.
@@ -68,14 +107,57 @@ exceptions.
 /home/dmitry/dev/projects/interviews/src/main/java/com/learn/core/exceptions/theory
 /home/dmitry/dev/projects/interviews/src/main/java/com/learn/core/exceptions/exceptionhierarchy3.png
 
-6. Collections hierarchi.
+
+
+12......... Which data structures do you know?
+Array, LinkedList, Queue, Stack, tree, graph
+
+13......... Collections hierarchi.
 /home/dmitry/dev/projects/interviews/src/main/java/com/learn/core/collections/CollectionsStructure.png
 
-Which data types do you know? Array, LinkedList, Queue, Stack, tree, graph
-Do you know any searching or sorting algorithm?
+14......... Compare ArrayList and LinkedList
+Get (search) will be fast on ArrayList - o(1) - constant. On LinkedList get is o(n) in the middle as it needs to
+iterate via all elements (from end or from start, depends on target index value).
+Removal in ArrayList is constant just for the case of last element as it doesn't need to re-index other elements.
+LinkedList will search with constant time for first or last elements.
 
-How hashmap works internally? What is collision? how to get rid of collisions?
+Deletion for ArrayList is constant just for the last element as it doesn't need to re-index elements.
+LinkedList is linear for the middle element and constant for first and last.
+
+LinkedList is preferable just in case if you need to often insert or delete on first or last element.
+ArrayList is more convenient for processor regarding it's caches.
+
+
+15.......... Do you know any searching or sorting algorithms? Please name algorithms you remember.
+
+Searching:
+- Linear search (one by one from let till the end);
+- Binary search (sort and then get element from middle and consider appropriate side until you find the element)
+
+Sorting:
+- Selection sort (we have initial array and take element one by one and put them to another array in ascending order
+for instance. At the same time we take elements one by one from unsorted array)
+- Bubble sort (swapping elements one by one with comparison closely related elements until we don't need to swap anymore)
+The key process in quickSort is partition(). Target of partitions is, given an array and an element x of array as pivot,
+put x at its correct position in sorted array and put all smaller elements (smaller than x) before x, and put all
+greater elements (greater than x) after x.
+
+16........... How hashmap works internally? What is collision? how to get rid of collisions?
 What if keys of 2 objects are equal?
+
+HashMap. There is a Entry interface in Map interface. Node from HashMap is an implementor of it.
+Inside HashMap there is an array of type Node - Node[]. To determine to which node to put the value
+hashing is used. This means index to where to put Node is calculated based on hash value (hashcode of key is used here)
+and size of array.
+If there is a collision (hash and key are different but index is the same) then Entries (Nodes) are persisted as a
+linked list (every element has link to the next element of the bucket). If hash and key is the same then value is just
+replaced. The better hashcode and equals are implemented the more evenly elements will be placed to nodes - less
+collisions > better performance. If collision happens new elements are added to the beginning of the linked list.
+Default size of Node[] is 16 and increase capacity is 0.75. If capacity is full then size is two times increased and indexes
+of all elements are recalculated.
+If we add a lot of elements to HashMap and at once remove them the size of map will not be decreased to initial value.
+(ArrayList has method 'trimToSize()' for such cases). The only thing we can do is to created new map and send current as
+a parameter.
 
 What is Arraylist. What is inside array list? What is capacity etc?
 What is LinkedList. What is inside?
@@ -83,6 +165,35 @@ Compare ArrayList and LinkedList. Which one is quicker to add and to get objects
 On what conditions it depends?
 
 What is recursion?
+
+
+17......... What will happen if you iterate the ArrayList and remove element at the same time? Provide an
+example of fail-safe collection, please?
+Fail-fast collection (like ArrayList) will throw a ConcurrentModificationException exception if we remove element while we iterating it.
+But it will not fail if we remove element on iterator object itself.
+Fail-safe collection (like CopyOnWriteArrayList) will work with snapshot of original collection inside so it will
+not throw an exception (but it takes more memory and state of collection is not uptodate while iteration).
+
+18.......... What is http protocol
+http  - it's a protocol to communicate between client (browser) and server (container of servlets - tomcat...)
+It is used for dynamic requests. Http transactions are either request or a response.
+
+19.......... What is REST
+
+20.......... What is Ajax
+
+21.......... What is MVC
+
+22.......... /home/dmitry/IdeaProjects/interviews/src/main/java/com/learn/interview_theory.txt
+
+SPRING TRANSACTION MANAGEMENT
+
+22.......... What is Spring DATA. Please tell something about it.
+
+23.......... What is SOLID principles > https://medium.com/webbdev/solid-4ffc018077da
+
+24.......... How memory is organized in Java. What is Heap and what is Stack
+https://javadevblog.com/chto-takoe-heap-i-stack-pamyat-v-java.html
 
 7. What is a multithreading in java? How to create a thread in java?
 Which ways of synchronization do you know? Reentrant lock, synchronization, semaphors etc

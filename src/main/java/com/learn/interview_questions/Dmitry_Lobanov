@@ -1,0 +1,21 @@
+•	Expert Java programming skills, proficiency with Java 8
+•	Expertise with Spring Core and Spring Boot
+•	Expertise using Hibernate or similar ORM
+•	Experience with JBoss experience or similar Java application server
+•	Proficiency working with SQL an NoSQL DB
+•	Experience writing JAVA serverless functions in AWS, writing high-performance code to minimize the volume of required JAVA packages
+•	Experience with JAVA serverless unit-testing, preferred
+•	Familiarity with big data processing tools, e.g. Apache Hadoop
+•	Experience as a Technical Lead or Lead Developer, preferred
+•	Architecture skills and commitment to code design best practices
+•	Experience with: GraalVM, preferred
+Get started with GraalVM – a high-performance runtime that provides significant improvements in application performance
+and efficiency which is ideal for microservices. It is designed for applications written in Java, JavaScript,
+LLVM-based languages such as C and C++, and other dynamic languages. It removes the isolation between programming
+languages and enables interoperability in a shared runtime. This page guides you through downloading and installing
+GraalVM Community and adding support for additional languages or components and shows you how to run simple programs.
+
+•	Proficiency with Maven, Git, and CICD pipelines
+Which continues integration and continues delivery tools did you use - Jenkins, Bamboo.
+Do you have an experience with ui autotests - selenium etc.
+•	Strong English reading, writing, and speaking skills

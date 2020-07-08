@@ -16,7 +16,7 @@ LinkedList is linear for the middle element and constant for first and last.
 LinkedList is preferable just in case if you need to often insert or delete on first or last element.
 ArrayList is more convenient for processor regarding it's caches.
 
-3. Stack extends Vector and behavres like LIFO. It has methods push and pop, peek.
+3. Stack extends Vector and behaves like LIFO. It has methods push and pop, peek.
 4. Queue behaves like FIFO.
 5. Deque behaves like FIFO but could be bidirectional (popLast, pushFirst etc.)
 
@@ -46,6 +46,6 @@ Set:
 
 
 Fail-fast collection (like ArrayList) will throw a ConcurrentModificationException exception if we remove element while we iterating it.
-But it will not faile if we remove element on iterator object itself.
+But it will not fail if we remove element on iterator object itself.
 Fail-safe collection (like CopyOnWriteArrayList) will work with snapshot of original collection inside so it will
-not throw an exception (but it take more memory and state of collection is not uptodate while iteration).
+not throw an exception (but it takes more memory and state of collection is not uptodate while iteration).
