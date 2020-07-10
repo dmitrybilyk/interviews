@@ -1,9 +1,18 @@
+
+
+
+
 •	Expert Java programming skills, proficiency with Java 8
+
 •	Expertise with Spring Core and Spring Boot
 •	Expertise using Hibernate or similar ORM
 •	Experience with JBoss experience or similar Java application server
 •	Proficiency working with SQL an NoSQL DB
+
 •	Experience writing JAVA serverless functions in AWS, writing high-performance code to minimize the volume of required JAVA packages
+AWS Lambda позволяет запускать программный код без выделения серверов и управления ими. Оплате подлежит только фактическое время выполнения вычислений.
+
+С помощью Lambda можно запускать практически любые виды приложений и серверных сервисов, при этом не требуются какие-либо операции администрирования. Просто загрузите программный код, и Lambda обеспечит все ресурсы, необходимые для его исполнения, масштабирования и обеспечения высокой доступности. Можно настроить автоматический запуск программного кода из других сервисов AWS или вызывать его непосредственно из любого мобильного или интернет‑приложения.
 •	Experience with JAVA serverless unit-testing, preferred
 •	Familiarity with big data processing tools, e.g. Apache Hadoop
 Welcome to this course: Big Data Analytics With Apache Hadoop Stack. Apache Hadoop is a collection of open-source software utilities that facilitate using a network of many computers to solve problems involving massive amounts of data and computation. If you have a basic understanding of Hadoop and want to put your knowledge to use to build fantastic Big Data solutions for business, then this course is for you. The Hadoop stack includes more than a dozen components, or subprojects, that are complex to deploy and manage. Installation, configuration and production deployment at scale is challenging.

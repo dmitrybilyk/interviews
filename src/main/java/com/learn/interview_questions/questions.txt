@@ -10,7 +10,7 @@ Abstraction is the progress of modeling real world objects into programming lang
 Hence interfaces and abstract classes are just two techniques used in this progress.
 
 b) Encapsulation.
-Here, the common characteristics and behaviors of a person are packaged into a single unit: the Personclass.
+Here, the common characteristics and behaviors of a person are packaged into a single unit: the Person class.
 This is the process of encapsulation.
 Second, encapsulation is a technique for protecting data from misuse by the outside world,
 which is referred as ‘information hiding’ or ‘data hiding’.
@@ -197,6 +197,9 @@ https://javadevblog.com/chto-takoe-heap-i-stack-pamyat-v-java.html
 
 25.......... Patterns
 
+26.......... Database normalization
+https://www.studytonight.com/dbms/database-normalization.php
+
 7. What is a multithreading in java? How to create a thread in java?
 Which ways of synchronization do you know? Reentrant lock, synchronization, semaphors etc
 How to make one thread to wait until another thread completes it's job and just after that it
@@ -239,7 +242,7 @@ What is servlet?
 /home/dmitry/dev/projects/interviews/web/servletstheory/servleteQuestionsAndAnswers
 What to do if you want something to be done before request gets to servlet?
 What if you want to do something if session is expired?
-What is jsp? how is it different to HTML? What is tag library. Have you ever creatd custom
+What is jsp? how is it different to HTML? What is tag library. Have you ever created custom
 tags?
 
 20. Re-factoring
