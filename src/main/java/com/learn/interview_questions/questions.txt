@@ -10,12 +10,11 @@ Abstraction is the progress of modeling real world objects into programming lang
 Hence interfaces and abstract classes are just two techniques used in this progress.
 
 b) Encapsulation.
-Here, the common characteristics and behaviors of a person are packaged into a single unit: the Person class.
-This is the process of encapsulation.
-Second, encapsulation is a technique for protecting data from misuse by the outside world,
-which is referred as ‘information hiding’ or ‘data hiding’.
+With Enclapsulation we describe and put the state and behavior of entity to some unit of abstraction - class and
+we try to protect important state and behavior by avoiding them to be accessed directly but with some public
+interfaces.
 c) Inheritance.
-inheritance is the ability of a class inherits data and behaviors from another class.
+inheritance is the ability of a class to inherit data and behaviors from another class.
 Note that only public and protected members of the superclass are inherited by
 the subclass. The subclass can freely add new members to extend features of the superclass.
 Inheritance is for reusing code. Using inheritance promotes the maintainability of the code.
