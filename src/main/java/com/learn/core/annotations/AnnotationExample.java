@@ -9,6 +9,8 @@ public class AnnotationExample {
     public static void main(String[] args) {
         try {
             genericsTest();
+            AnnotationExample annotationExample = new AnnotationExample();
+            annotationExample.toString();
         } catch (FileNotFoundException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }

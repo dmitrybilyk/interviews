@@ -1,4 +1,4 @@
-package com.learn.core.memory;
+package com.learn.interview_questions.memory;
 
 // Objects are stored in heap. Primitives, local variables, references to objects used in method are stored in stack.
 //Stack memory consists of blocks which are allocated in LIFO order

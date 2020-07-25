@@ -1,0 +1,5 @@
+Primitives and Objects in Java are passed by Value.
+In case of primitives the copy of values are created and in case of objects the new reference to the same
+object is created. So if you change the object (values of it's fields) in method these changes will be visible
+outside the method after it completes execution. But if you assign some new object to the object parameter
+reference then original object will not be affected at all.
