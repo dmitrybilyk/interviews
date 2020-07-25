@@ -1,8 +1,7 @@
 Q: What is Spring?
 A: Spring is an open source development framework for enterprise Java. The core features of the Spring Framework
-can be used in developing any Java application, but there are extensions for building web applications on top
-of the Java EE platform. Spring framework targets to make J2EE development easier to use and promote good
-programming practice by enabling a POJO-based programming model.
+can be used in developing any Java application. Spring framework targets to make J2EE development easier to use and
+promote good programming practice by enabling a POJO-based programming model.
 
 Q: what are benefits of using spring?
 A: Following is the list of few of the great benefits of using Spring Framework:
@@ -11,7 +10,7 @@ Lightweight: Spring is lightweight when it comes to size and transparency. The b
 is around 2MB.
 
 Inversion of control (IOC): Loose coupling is achieved in spring using the technique Inversion of Control.
-The objects give their dependencies instead of creating or looking for dependent objects.
+The objects are given their dependencies from outside instead of creating or looking for dependent objects.
 
 Aspect oriented (AOP): Spring supports Aspect oriented programming and enables cohesive development by
 separating application business logic from system services.

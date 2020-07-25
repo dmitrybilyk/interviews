@@ -1,0 +1,52 @@
+List:
+1. ArrayList - Based on array of Object type. Every element has an index.
+Default 'add(E e)' method will add to the end of list. If we insert or remove in the middle
+then new array will be re-created underneath. Also the new array will be created if capacity is full.
+
+2. LinkedList consists of Nodes. Every node consists of element (value), link to previous and to next element.
+
+Get (search) will be fast on ArrayList - o(1) - constant because we get by index.
+On LinkedList get is o(n) in the middle as it needs to
+iterate via all elements (from end or from start, depends on target index value).
+Removal in ArrayList is constant just for the case of last element as it doesn't need to re-index other elements.
+LinkedList will search with constant time for first or last elements.
+
+Deletion for ArrayList is constant just for the last element as it doesn't need to re-index elements.
+LinkedList is linear for the middle element and constant for first and last.
+
+LinkedList is preferable just in case if you need to often insert or delete on first or last element.
+ArrayList is more convenient for processor regarding it's caches.
+
+3. Stack extends Vector and behaves like LIFO. It has methods push and pop, peek.
+4. Queue behaves like FIFO.
+5. Deque behaves like FIFO but could be bidirectional (popLast, pushFirst etc.)
+
+Map:
+1. HashMap. There is a Entry interface in Map interface. Node from HashMap is an implementor of it.
+Inside HashMap there is an array of type Node - Node[]. To determine to which node to put the value
+hashing is used. This means index to where to put Node is calculated based on hash value (hashcode of key is used here)
+and size of array.
+If there is a collision (hash and key are different but index is the same) then Entries (Nodes) are persisted as a
+linked list (every element has link to the next element of the bucket). If hash and key is the same then value is just
+replaced. The better hashcode and equals are implemented the more evenly elements will be placed to nodes - less
+collisions > better performance. If collision happens new elements are added to the beginning of the linked list.
+Default size of Node[] is 16 and increase capacity is 0.75. If capacity is full then size is two times increased and indexes
+of all elements are recalculated.
+If we add a lot of elements to HashMap and at once remove them the size of map will not be decreased to initial value.
+(ArrayList has method 'trimToSize()' for such cases). The only thing we can do is to created new map and send current as
+a parameter.
+
+2. Hashtable - obsolete. It's like HasmMap but with sinchronized methods.
+3. TreeMap (implements SortedMap and Navi..Map) - keeps natural order of keys.
+4. LinkedHashMap - keeps order (by keys) of insertion (or fetching) of elements
+
+Set:
+1.HashSet. Supports elements uniqueness. There is HashMap inside but as Value some dummy object is used.
+2. TreeSet - keeps natural order of elements. (Comparator could be used manually)
+3. LinkedHashSet - keeps order of insertion
+
+
+Fail-fast collection (like ArrayList) will throw a ConcurrentModificationException exception if we remove element while we iterating it.
+But it will not fail if we remove element on iterator object itself.
+Fail-safe collection (like CopyOnWriteArrayList) will work with snapshot of original collection inside so it will
+not throw an exception (but it takes more memory and state of collection is not uptodate while iteration).

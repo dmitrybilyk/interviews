@@ -1,16 +1,7 @@
 package com.learn.hibernate.cacheusing.firstlevel;
 
-import com.learn.hibernate.cacheusing.model.Person;
-import com.learn.hibernate.cacheusing.utils.FirstLevelCashHibernateAnnotationUtil;
-import com.learn.hibernate.cacheusing.utils.HibernateAnnotationUtil;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
-import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Created with IntelliJ IDEA.

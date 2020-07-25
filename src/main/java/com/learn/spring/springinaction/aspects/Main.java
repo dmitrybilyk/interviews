@@ -1,6 +1,6 @@
 package com.learn.spring.springinaction.aspects;
 
-import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -8,7 +8,13 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class Main {
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("/springinaction/aspects.xml");
+        ConfigurableApplicationContext context
+                = new ClassPathXmlApplicationContext(
+                "aspects.xml");
+        context.registerShutdownHook();
+//    }
+
+//    ApplicationContext context = new ClassPathXmlApplicationContext("/springinaction/aspects.xml");
         Human human = (Human) context.getBean("human");
         human.act();
     }
