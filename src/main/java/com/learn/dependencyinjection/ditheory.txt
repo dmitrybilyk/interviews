@@ -10,5 +10,5 @@ calls them. Here, this is reversed: The dependencies are handed to the object wh
 created. This also illustrates the Hollywood Principle at work: Don't call around for
 your dependencies, we'll give them to you when we need you.
 
-Inversion of control devides WHAT to do from WHEN to do.
+Inversion of control divides WHAT to do from WHEN to do.
 
