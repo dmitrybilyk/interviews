@@ -1,0 +1,6 @@
+- class and it's members should be declared as final
+- no setters should be provided
+- when new object is needed deep copy should be provided via constructor
+
+Immutable classes are simple to use, thread-safe, easy to cache, they are good to use as keys in hashable
+data structures,

@@ -1,7 +1,5 @@
 package com.learn.interview_questions.collections.list;
 
-import sun.awt.image.ImageWatched;
-
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;

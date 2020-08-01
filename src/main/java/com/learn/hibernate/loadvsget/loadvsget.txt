@@ -1,6 +1,6 @@
 load will return a proxy object.
 
-get will return a actual object, and returns null if it wont find any object.
+get will return an actual object, and returns null if it wont find any object.
 
 
 The one difference between get() and load() is how they indicate that the

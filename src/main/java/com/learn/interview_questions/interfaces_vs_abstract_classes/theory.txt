@@ -1,0 +1,13 @@
+Abstract class:
+- can have non abstract methods;
+- can have static fields;
+- can have instance variables;
+- can be extended
+- you can extend just one abstract (or usual) class
+
+Interfaces:
+- can't have instance variables, members are public static final by default
+- can't have constructor
+- can't have static variables
+- have only abstract methods
+- you can implement as many interfaces as you need

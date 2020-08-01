@@ -1,0 +1,17 @@
+Java memory consists of Stack and Heap. Both occupy the RAM.
+
+Stack is quicker and memory allocation happens at
+compile time. Stack persist methods and local variables, references to objects. It frees up quickly at once method
+is over.
+
+Heap keeps global objects. Memory allocation happens at runtime. It's unlimited in size. It consists of
+Young and Old generation. Garbage collector frees up young generation at once. But in old generation there is some
+more complicated algorithm.
+
+
+Reference types:
+Strong - usual. When there no any reference to the object (when it's set to null for instance) the object is deleted
+from memory.
+WeakReference - good to load the link to classloader. GC will remove objects if just weak reference are connected to it.
+SoftReference - garbage collection will remove objects if there is a lack of memory (good for implementing cache).
+PhantomReference - helpful if we just want to know if object is will be removed now and memory will be allocated.

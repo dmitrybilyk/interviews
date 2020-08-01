@@ -7,4 +7,7 @@ public abstract class SomeAbstractClass {
     }
 
     protected abstract void printAbstract() ;
+    protected void printNonAbstract() {
+        System.out.println("non abstract");
+    };
 }
