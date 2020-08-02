@@ -5,7 +5,7 @@ package com.learn.patterns.behavioral.observer;
 // an object and want to get notified whenever there is any change.
 // In observer pattern, the object that watch on the state of another
 // object are called Observer and the object that is being watched is
-// called Subject. According to GoF, observer pattern intent is
+// called Subject.
 public class ObserverPatternTest {
 
     public static void main(String[] args) {

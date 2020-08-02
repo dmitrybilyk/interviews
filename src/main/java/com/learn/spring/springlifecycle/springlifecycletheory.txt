@@ -13,9 +13,6 @@ Spring framework provides following 4 ways for controlling life cycle events of 
 
     @PostConstruct and @PreDestroy annotations
 
-
-Custom init() and destroy() methods in bean configuration file
-
 The default init and destroy methods in bean configuration file can be defined in two ways:
 
     Bean local definition applicable to a single bean

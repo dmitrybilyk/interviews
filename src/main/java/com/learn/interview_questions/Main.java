@@ -7,17 +7,32 @@ public class Main {
 	}
 
 	public static void main(String[] args) {
-		int a = 10;
-		int b = 5;
-		a = a + b;
-		b = a - b;
-		a = a - b;
-		System.out.println( a + " " + b);
+		double d = 56.44;
+		long l = (long) d;
+
+
+		System.out.println(sendStringToMain());
+//		int a = 10;
+//		int b = 5;
+//		a = a + b;
+//		b = a - b;
+//		a = a - b;
+//		System.out.println( a + " " + b);
 	}
 	interface someInterface {
 		int d = 0;
 		void pring();
 		void print2();
+	}
+
+	static String sendStringToMain() {
+		try{
+			return "ddd";
+		} catch (Exception ex) {
+
+		} finally {
+			return "bbb";
+		}
 	}
 }
 

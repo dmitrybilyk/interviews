@@ -32,6 +32,8 @@ public class MyCallable implements Callable<Student>
          System.out.println(studentFuture.get().getName());
       }
 
+      System.out.println("this is next");
+
    }
 
    @Override
@@ -39,6 +41,7 @@ public class MyCallable implements Callable<Student>
    {
       Student studentElement = new Student();
       studentElement.setName("Dimon" + new Random().nextInt(5));
+      Thread.sleep(1000);
 
       return studentElement;
    }

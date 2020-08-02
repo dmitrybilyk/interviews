@@ -1,0 +1,4 @@
+The Command pattern turns the request itself into an object.
+This object can be stored and passed around like other objects.
+The key to this pattern is a Command interface, which declares an interface for executing operations.
+In its simplest form, this interface includes an abstract execute operation.

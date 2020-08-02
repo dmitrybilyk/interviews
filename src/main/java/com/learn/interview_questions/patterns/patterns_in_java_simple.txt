@@ -1,0 +1,61 @@
+Creational patterns
+
+Builder
+java.lang.StringBuilder#append() (unsynchronized)
+java.util.stream.Stream.Builder
+
+Factory method
+java.util.Calendar#getInstance()
+java.util.ResourceBundle#getBundle()
+
+Singleton
+java.lang.Runtime#getRuntime()
+
+
+Structural patterns
+
+Adapter
+java.util.Arrays#asList()
+java.io.InputStreamReader(InputStream) (returns a Reader)
+java.io.OutputStreamWriter(OutputStream) (returns a Writer)
+
+Decorator
+All subclasses of java.io.InputStream, OutputStream, Reader and Writer have a constructor taking an instance of
+same type.
+
+
+Proxy
+java.rmi.*
+
+
+Behavioral patterns
+
+Chain of responsibility
+java.util.logging.Logger#log()
+javax.servlet.Filter#doFilter()
+
+Command
+All implementations of java.lang.Runnable
+
+Iterator
+All implementations of java.util.Iterator
+
+Mediator
+jjava.util.concurrent.Executor#execute()
+
+Memento
+All implementations of java.io.Serializable
+
+Observer (or Publish/Subscribe)
+All implementations of java.util.EventListener
+
+
+Strategy
+java.util.Comparator#compare()
+javax.servlet.http.HttpServlet, the service() and all doXXX() methods take HttpServletRequest and HttpServletResponse
+and the implementor has to process them (and not to get hold of them as instance variables!).
+javax.servlet.Filter#doFilter()
+
+Template method
+javax.servlet.http.HttpServlet, all the doXXX() methods by default sends a HTTP 405 "Method Not Allowed" error to the
+response. You're free to implement none or any of them.
