@@ -5,7 +5,7 @@ import java.util.List;
 
 // The class which keeps the list for history
 public class CareTaker {
-    private List<Memento> mementoList = new ArrayList<>();
+    private final List<Memento> mementoList = new ArrayList<>();
     public void push(Memento memento) {
         mementoList.add(memento);
     }

@@ -41,7 +41,7 @@ Iterator
 All implementations of java.util.Iterator
 
 Mediator
-jjava.util.concurrent.Executor#execute()
+java.util.concurrent.Executor#execute()
 
 Memento
 All implementations of java.io.Serializable
