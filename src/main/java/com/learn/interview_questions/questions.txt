@@ -1,3 +1,14 @@
+Please check the following skills:
+Java skills
+Spring Boot skills
+Experience with Maven
+Javascript skills
+Experience with any JS frameworks
+SQL and NoSQL databases experience
+HTML/CSS skills
+English skills
+
+
 111111111. What is Java language? How is it different to for instance other languages (Scala for instance)
 
 222222222. Which principles of OOP do you know? (abstraction, encapsulation, inheritance and polymorphism)
@@ -10,7 +21,7 @@ Abstraction is the progress of modeling real world objects into programming lang
 Hence interfaces and abstract classes are just two techniques used in this progress.
 
 b) Encapsulation.
-With Enclapsulation we describe and put the state and behavior of entity to some unit of abstraction - class and
+With Encapsulation we describe and put the state and behavior of entity to some unit of abstraction - class and
 we try to protect important state and behavior by avoiding them to be accessed directly but with some public
 interfaces.
 c) Inheritance.

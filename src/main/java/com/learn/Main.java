@@ -2,12 +2,15 @@ package com.learn;
 
 //import org.apache.openjpa.jdbc.kernel.exps.MapEntry;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Map;
-import java.util.Set;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  * Created by dmitry on 10.02.18.
@@ -63,7 +66,20 @@ public class Main {
         Map<String, Set<LeaderboardGroup>> map = map2.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, stringLeaderboardGroupEntry -> Collections.singleton(stringLeaderboardGroupEntry.getValue())));
 //        Map<String, LeaderboardGroup> map = leaderboardGroupsByName.values().stream().map(leaderboardGroups -> leaderboardGroups.stream().findFirst().get()).map(LeaderboardGroup::getName)
 
-        LeaderboardGroup leaderboardGroup1 = leaderboardGroupsByName.get("lg1").stream().findFirst().orElse(null);
+//        LeaderboardGroup leaderboardGroup1 = leaderboardGroupsByName.get("lg1").stream().findFirst().orElse(null);
+//        LocalDateTime localDate = LocalDateTime.ofInstant(Instant.ofEpochMilli(System.currentTimeMillis()), ZoneId.systemDefault());
+//        System.out.println(localDate.format(DateTimeFormatter.ofPattern("MM/dd/yyyy")));
+////        System.out.println(String.format("%tF", System.currentTimeMillis()));
+//        String result = "";
+//        Date mDate = new Date();
+//        result += String.valueOf(mDate.getDate()) + "/";
+//        result += String.valueOf(mDate.getMonth() + 1) + "/";
+//        result += String.valueOf(mDate.getYear() + 1900);
+//        System.out.println(result);
+//        IntStream.range()
+
+
+
     }
 
     static void print(int i, String ... values) {
