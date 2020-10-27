@@ -1,11 +1,15 @@
 Please check the following skills:
-Java skills
-Spring Boot skills
-Experience with Maven
-Javascript skills
-Experience with any JS frameworks
-SQL and NoSQL databases experience
-HTML/CSS skills
+Java skills. Worked with micro services.
+Spring
+
+Apache Spark - https://www.edureka.co/blog/interview-questions/top-apache-spark-interview-questions-2016/ no
+ETL - https://chernobrovov.ru/articles/etl-chto-takoe-zachem-i-dlya-kogo.html no
+Experience with JWT no
+https://www.javainuse.com/misc/jwt-interview-questions
+Experience with Big Data and AWS . Created account for bissneses, big data course with big data
+https://career.guru99.com/top-15-aws-interview-questions/
+Experience with Security tools. stored password with SHA, Spring security, sensitive info.
+https://docstore.mik.ua/orelly/java-ent/security/appa_01.htm
 English skills
 
 

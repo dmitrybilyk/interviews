@@ -1,0 +1,4 @@
+Default methods are created to be able to add some new functionality to existing interfaces.
+Could be a problem with forward compatibility. For instance new 'sort' method in Collection (and if someone
+already created the method with this name).
+Also static methods could be added and used.

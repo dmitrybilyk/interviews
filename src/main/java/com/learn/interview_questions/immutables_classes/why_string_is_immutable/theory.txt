@@ -1,0 +1,5 @@
+String is immutable because of:
+1. String pool
+2. Security
+3. String could be used effectively in hashing structures.
+
