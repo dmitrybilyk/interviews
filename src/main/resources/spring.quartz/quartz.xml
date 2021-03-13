@@ -29,7 +29,7 @@
 
     <bean id="runMeTask" class="com.learn.spring.quartz.RunMeTask"/>
 
-    <bean name="runMeJob" class="org.springframework.scheduling.quartz.JobDetailBean">
+    <bean name="runMeJob" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
 
         <property name="jobClass" value="com.learn.spring.quartz.RunMeJob" />
 
@@ -52,7 +52,7 @@
 
     <!-- Simple Trigger, run every 5 seconds -->
     <bean id="simpleTrigger"
-          class="org.springframework.scheduling.quartz.SimpleTriggerBean">
+          class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
 
         <property name="jobDetail" ref="runMeJob" />
         <property name="repeatInterval" value="5000" />
