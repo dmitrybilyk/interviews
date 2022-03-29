@@ -1,33 +1,34 @@
 Please check the following skills:
-Java skills. Worked with micro services.
-Spring
 
-Apache Spark - https://www.edureka.co/blog/interview-questions/top-apache-spark-interview-questions-2016/ no
-ETL - https://chernobrovov.ru/articles/etl-chto-takoe-zachem-i-dlya-kogo.html no
-Experience with JWT no
-https://www.javainuse.com/misc/jwt-interview-questions
-Experience with Big Data and AWS . Created account for bissneses, big data course with big data
-https://career.guru99.com/top-15-aws-interview-questions/
-Experience with Security tools. stored password with SHA, Spring security, sensitive info.
-https://docstore.mik.ua/orelly/java-ent/security/appa_01.htm
+Java,
+Spring Boot,
+SQL
 English skills
 
 
-111111111. What is Java language? How is it different to for instance other languages (Scala for instance)
+1......... What are the major features of Java programming?
+- Object-Oriented;
+- Platform Independent;
+- Secure;
+- Multithreaded;
+- High Performance (JIT - improves performance, compiles not all code at once. Especially for big projects);
 
-222222222. Which principles of OOP do you know? (abstraction, encapsulation, inheritance and polymorphism)
-a) abstraction
-The progress of abstraction happens when you declare an interface, write a class,
-implement a method, declare a variable, etc. Everything is an abstraction.
-Abstraction is the most fundamental concept on which others rely on,
-such as encapsulation, inheritance and polymorphism.
-Abstraction is the progress of modeling real world objects into programming language.
-Hence interfaces and abstract classes are just two techniques used in this progress.
+2......... What is a byte code?
+- it is a machine code in form of the .class file, instructions for the JVM, it's existence makes java platform independent
+- JVM interprets the byte code and turns it into machine code to be executed on the processor
+- write once, read anywhere
+
+3......... Which principles of OOP do you know?
+a) Abstraction
+Abstraction is the process of modeling real world objects into programming language.
+Hence interfaces and abstract classes are just two techniques used in this process.
+We don't show the implementation details to the user, but just show him what he needs.
+It's kind of 'details hiding'.
 
 b) Encapsulation.
-With Encapsulation we describe and put the state and behavior of entity to some unit of abstraction - class and
-we try to protect important state and behavior by avoiding them to be accessed directly but with some public
-interfaces.
+It's kind of data hiding. It's the process of binding together the code and data it manipulates.
+It's the hiding of some important data with providing the interface to manipulate it in secure way.
+
 c) Inheritance.
 inheritance is the ability of a class to inherit data and behaviors from another class.
 Note that only public and protected members of the superclass are inherited by
@@ -55,52 +56,48 @@ run more flexibly.
 Extensibility: when we want to add a new kind of Animal, e.g. Snake, we just pass
 an object of Snake into the teach() method without any modification.
 
-33333333. In which forms inheritance could be implemented in Java?
+4......... In which forms inheritance could be implemented in Java?
 
 In Java, inheritance can be implemented in three forms:
-A class inherits another class
-A class implements another interface
-An interface inherits another interface
+- A class inherits another class
+- A class implements another interface
+- An interface inherits another interface
 
-44444444. Which types of Polymorthism exist in Java?
+5......... Which types of Polymorphism exist in Java?
 1) static - methods overloading
 2) dynamic - methods overriding
 
-55555555. Which steps would you use to create and run some simple java program from console?
-to use compiler first and then to run with java command.
-
-66666666. What is the difference between interface and abstract class. When would you prefer to use
+6......... What is the difference between interface and abstract class. When would you prefer to use
 abstract class?
 - can abstract class have non-abstract methods? Can class extend several abstract classes?
 Summing up, we can say that the major difference between an abstract class and an
 interface is the methods they contain (completed versus uncompleted) and their
 contents (a real class vs. an empty template)
 
-77777777. What can you say about the fields in interfaces. Which modifiers are applied to them by default?
+7......... What can you say about the fields in interfaces. Which modifiers are applied to them by default?
 All fields in interface are public static final, i.e. they are constants.
 
-
-88888888. Which class is the parent of all classes in java.
+8......... Which class is the parent of all classes in java.
 Please list the methods of Object class in java.
 
 - clone - how to use this method? Which issues could happen with cloning? How to resolve them?
 - equals - rules while overriding equals and hashcode
 
-Equals method is used to compare to objects of the same type. By default it's implemented (in Object class) to
+Equals method is used to compare objects of the same type. By default it's implemented (in Object class) to
 compare by references in memory (with == sign). Overriding equals affects how object would be used in collections for
 instance. If you override the equals you also need to override hashcode method.
 
-99999999. Principles of equals method:
+9......... Principles of equals method:
 - reflexivity - a.equals(a) should always return true
-- symmetricity - if a.equals(b) == true then b.equals(a) == true
+- simmetricity - if a.equals(b) == true then b.equals(a) == true
 - transitivity - if a equals b and b equals c then a equals c
-- consistency - Multiple runnings of a.equals(b) should return the same result (provided no any field is changed (which
+- consistency - Multiple runs of a.equals(b) should return the same result (provided any field is changed (which
 participates in equals calculation))
 if a != null then a.equals(null) will always return false
 
 - hashcode
 
-hashcode method calculates the hashcode of the object. The same fields should participates as fields in equals method.
+hashcode method calculates the hashcode of the object. The same fields should participate as fields in equals method.
 
 10..........Principles of hashcode method:
 - multiple runs of hachcode method on the same object will return the same result (provided no any effective field
@@ -115,12 +112,12 @@ return the same value. And this is not good because this could lead to collision
 
 11......... Exception hierarchi. Which types of exceptions exist, difference between them.
 Which operators to use, is it recommended to use them to control the flow of the
-program, what are the best practices regarding exceptions handling? Examples of checked/unchecked
+program, what are the best practices regarding exceptions handling?
+Examples of checked/unchecked
 exceptions.
 
 /home/dmitry/dev/projects/interviews/src/main/java/com/learn/core/exceptions/theory
 /home/dmitry/dev/projects/interviews/src/main/java/com/learn/core/exceptions/exceptionhierarchy3.png
-
 
 
 12......... Which data structures do you know?
@@ -159,7 +156,7 @@ greater elements (greater than x) after x.
 16........... How hashmap works internally? What is collision? how to get rid of collisions?
 What if keys of 2 objects are equal?
 
-HashMap. There is a Entry interface in Map interface. Node from HashMap is an implementor of it.
+HashMap. There is an Entry interface in Map interface. Node from HashMap is an implementor of it.
 Inside HashMap there is an array of type Node - Node[]. To determine to which node to put the value
 hashing is used. This means index to where to put Node is calculated based on hash value (hashcode of key is used here)
 and size of array.
@@ -172,13 +169,6 @@ of all elements are recalculated.
 If we add a lot of elements to HashMap and at once remove them the size of map will not be decreased to initial value.
 (ArrayList has method 'trimToSize()' for such cases). The only thing we can do is to created new map and send current as
 a parameter.
-
-What is Arraylist. What is inside array list? What is capacity etc?
-What is LinkedList. What is inside?
-Compare ArrayList and LinkedList. Which one is quicker to add and to get objects?
-On what conditions it depends?
-
-What is recursion?
 
 
 17......... What will happen if you iterate the ArrayList and remove element at the same time? Provide an
