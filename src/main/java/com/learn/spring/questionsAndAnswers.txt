@@ -458,7 +458,7 @@ A: @RequestMapping annotation is used to map a URL to either an entire class or 
 Q: What are the ways to access Hibernate by using Spring?
 A: There are two ways to access hibernate using spring:
 
-Inversion of Control with a Hibernate Template and Callback.
+Inversion of Control with Hibernate Template and Callback.
 
 Extending HibernateDAOSupport and Applying an AOP Interceptor node.
 

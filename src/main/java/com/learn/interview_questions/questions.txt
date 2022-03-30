@@ -218,21 +218,33 @@ URL - http://example.com/some/page.html
 
 URI - /some/page.html
 
+21.......... What is Servlet in Java, What is JSP. Servlet lifecycle
+https://www.javatpoint.com/life-cycle-of-a-servlet
 
-21.......... Which HTTP methods do you know?
+22.......... What is REST
+Representational State Transfer. It is an architectural style for distributing data between the network machines.
+There are 2 pints - client and server. REST mostly works through the http protocol. REST request doesn't have state,
+It knows anything about the previous requests. There is some strict agreement how to name the paths.
+
+22.......... Which HTTP methods do you know?
 GET, POST, PUT, HEAD, DELETE, PATCH, OPTIONS, CONNECT, TRACE
 
 - which of them may have a body?
 
+23.......... Spring
+/home/dmitry/dev/projects/interviews/src/main/java/com/learn/spring/questionsAndAnswers.txt
 
-21.......... What is REST
-Representational State Transfer.
+24.......... Spring Boot
+https://www.edureka.co/blog/interview-questions/spring-boot-interview-questions/
 
-21.......... What is MVC
+25. Database, joins, indexes, what is relational database, what is primary key, foreign key,
+Hibernate
 
-22.......... /home/dmitry/IdeaProjects/interviews/src/main/java/com/learn/interview_theory.txt
+26. What is execution plan. Do you have experience improving performance of the sql query.
+Give an example please if so.
 
-SPRING TRANSACTION MANAGEMENT
+
+
 
 22.......... What is Spring DATA. Please tell something about it.
 
@@ -266,12 +278,6 @@ what are wildcards?
 
 11. Inner classes
 /home/dmitry/dev/projects/interviews/src/main/java/com/learn/core/innerclasses/basic/innertest/MainForNested.java
-
-12. Spring, Spring Boot, Spring Data, Spring MVC
-/home/dmitry/dev/projects/interviews/src/main/java/com/learn/spring/questionsAndAnswers.txt
-
-13. Database, joins, indexes, what is relational database, what is primary key, foreign key,
-Hibernate
 
 14. Git
 
@@ -328,5 +334,13 @@ Answer:
 volatile has semantics for memory visibility. Basically, the value of a volatile
 field becomes visible to all readers (other threads in particular) after a write operation completes on it. Without volatile, readers could see some non-updated value.
 
+
+
+
+21.......... What is MVC
+
+22.......... /home/dmitry/IdeaProjects/interviews/src/main/java/com/learn/interview_theory.txt
+
+SPRING TRANSACTION MANAGEMENT
 
 
