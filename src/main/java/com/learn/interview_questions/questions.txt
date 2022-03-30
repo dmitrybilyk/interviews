@@ -176,15 +176,57 @@ example of fail-safe collection, please?
 Fail-fast collection (like ArrayList) will throw a ConcurrentModificationException exception if we remove element while we iterating it.
 But it will not fail if we remove element on iterator object itself.
 Fail-safe collection (like CopyOnWriteArrayList) will work with snapshot of original collection inside so it will
-not throw an exception (but it takes more memory and state of collection is not uptodate while iteration).
+not throw an exception (but it takes more memory and state of collection is not up-to-date while iteration).
 
-18.......... What is http protocol
+18.......... Inner Classes
+- regular inner
+- static inner
+- local inner
+- anonymous inner
+
+19. Generics
+- are types in Java variant? Are generic types variant?
+We have a Human as a parent class and Student as a Child class.
+Can we create the object like this:
+List<Human> humans = new ArrayList<Student>
+
+What is covariance?
+What is contravariance?
+
+What is Producer Extends Consumer Super. In which cases we need to use 'super T'?
+
+20.......... What is http protocol
 http  - it's a protocol to communicate between client (browser) and server (container of servlets - tomcat...)
 It is used for dynamic requests. Http transactions are either request or a response.
 
-19.......... What is REST
+- a single request or response line.
+request line consists of http method (usually GET or POST) followed by document address and the
+HTTP version number being used.
 
-20.......... What is Ajax
+REQUEST:::
+GET /contents.html HTTP/1.1
+Headers
+Body
+
+RESPONSE:::
+
+HTTP/1.1 200 OK
+HEADERS
+BODY
+
+URL - http://example.com/some/page.html
+
+URI - /some/page.html
+
+
+21.......... Which HTTP methods do you know?
+GET, POST, PUT, HEAD, DELETE, PATCH, OPTIONS, CONNECT, TRACE
+
+- which of them may have a body?
+
+
+21.......... What is REST
+Representational State Transfer.
 
 21.......... What is MVC
 
