@@ -226,19 +226,49 @@ Representational State Transfer. It is an architectural style for distributing d
 There are 2 pints - client and server. REST mostly works through the http protocol. REST request doesn't have state,
 It knows anything about the previous requests. There is some strict agreement how to name the paths.
 
-22.......... Which HTTP methods do you know?
+23.......... Which HTTP methods do you know?
 GET, POST, PUT, HEAD, DELETE, PATCH, OPTIONS, CONNECT, TRACE
 
 - which of them may have a body?
 
-23.......... Spring
-/home/dmitry/dev/projects/interviews/src/main/java/com/learn/spring/questionsAndAnswers.txt
+24.......... Spring
+- What is spring Framework, it's features:
+It's an open source development framework for enterprise Java. It's lightweight. It provides inversion of control,
+it's based on POJOs. Spring Container supports bean's lifecycle.
 
-24.......... Spring Boot
+- What is Dependency injection.
+It's the concrete example of the Inversion Of Control. You just configure dependencies and Spring Container is
+responsible for injecting them for you
+
+- Types of Dependency injection
+Constructor based (for required fields),
+Setter based (for optional fields)
+
+- Benefits of Dependency injection:
+It minimizes the amount of code in your application. It makes your application easy to test.
+Loose coupling. IOC containers support eager instantiation and lazy loading of services.
+
+- What is AOP?
+Programming technique that allows programmers to modularize crosscutting concerns.
+
+- Which types of beans configuration do you prefer:
+XML-based, Annotation-based, Java-based
+
+- Bean scopes:
+singleton (default), prototype, request, session, global session. Which is a default?
+
+- What is autowiring
+It's an ability of Spring Container to automatically find the objects for your dependencies. Types of autowiring:
+byName, byType, constructor
+
+- What is @Configuration annotation
+It marks class a 'provider of beans'. With @Bean annotation you populate beans.
+
+25.......... Spring Boot
 https://www.edureka.co/blog/interview-questions/spring-boot-interview-questions/
 
 25. Database, joins, indexes, what is relational database, what is primary key, foreign key,
-Hibernate
+Hibernate, Normalization.
 
 26. What is execution plan. Do you have experience improving performance of the sql query.
 Give an example please if so.
