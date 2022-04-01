@@ -80,6 +80,11 @@ All fields in interface are public static final, i.e. they are constants.
 8......... Which class is the parent of all classes in java.
 Please list the methods of Object class in java.
 
+9......... What are enums in Java?
+Enums are group of named constants. Enum implicitely extends ENUM class.
+Elements of enum could have variables and methods, Enum class could have constructor.
+Enum allows guarantee type safety.
+
 - clone - how to use this method? Which issues could happen with cloning? How to resolve them?
 - equals - rules while overriding equals and hashcode
 
@@ -195,6 +200,41 @@ What is contravariance?
 
 What is Producer Extends Consumer Super. In which cases we need to use 'super T'?
 
+19.......... Java 8 features
+/home/dmitry/dev/projects/interviews/src/main/java/com/learn/core/Java8Features/Java8Main.java
+
+20.......... Inner classes
+
+21.......... What is a multithreading in java? How to create a thread in java?
+- What is a thread?
+Threads are lightweight processes within processes as seen
+
+- Ways to create a thread?
+extending Thread, implementing Runnable
+
+- What are Different Types of threads in Java?
+user thread, daemon thread (cease to exist when the main thread terminates, for background tasks)
+
+- What is the difference between synchronized and ReentrantLock in Java?
+ReentrantLock provides additional functionality over the use of synchronized methods and statements.
+Provides a non-blocking attempt to acquire a lock using tryLock() method that acquires the lock only if it is not
+held by another thread at the time of invocation.
+Provides a feature to acquire the lock that can be interrupted using lockInterruptibly() method that acquires the
+lock unless the current thread is interrupted.
+Provides a feature to acquire the lock that can timeout using the tryLock(long timeout, TimeUnit unit) method that
+acquires the lock if it is not held by another thread within the given waiting time and the current thread has not
+been interrupted.
+
+- Join method
+
+
+Which ways of synchronization do you know? Reentrant lock, synchronization, semaphors etc
+How to make one thread to wait until another thread completes it's job and just after that it
+will start himself?
+What is deadlock and how to avoid deadlock?
+What if you want to return some result from thread execution? (Callable interface)
+
+
 20.......... What is http protocol
 http  - it's a protocol to communicate between client (browser) and server (container of servlets - tomcat...)
 It is used for dynamic requests. Http transactions are either request or a response.
@@ -265,49 +305,74 @@ byName, byType, constructor
 It marks class a 'provider of beans'. With @Bean annotation you populate beans.
 
 25.......... Spring Boot
+- What is Spring Boot
+It's a Spring module aimed to simplify the implementation of the java applications. Features:
+auto dependency resolution, embedded http servers, auto-configuration.
+
+It goes with a set of starters depending on which type of application you want to implement.
+
+Also provides some metrics by default.
+
+- How auto-configuration works?
+Based on dependencies you added it enables needed Spring features, configures them properly for you.
+
+- What is Spring Actuator?
+Cool feature of Spring Boot which provides a lot of metrics and could be easily integrated with monitoring frameworks.
+
+- What is @RequestMapping annotation for?
+Maps request to method by value.
+
+- What is @RestController annotation for?
+It adds @ResponseBody 'feature' to the @Controller. So, it will return the json object
+
 https://www.edureka.co/blog/interview-questions/spring-boot-interview-questions/
 
-25. Database, joins, indexes, what is relational database, what is primary key, foreign key,
+25. SQL Database, joins, indexes, what is relational database, what is primary key, foreign key,
 Hibernate, Normalization.
+- What is a foreign key?
+A foreign key is an attribute or a set of attributes that references the primary key of some other table.
+Basically, it is used to link together two tables.
 
-26. What is execution plan. Do you have experience improving performance of the sql query.
-Give an example please if so.
+- What is an index? And which types of indexes exist?
+Index is a quick lookup table based on some field of set of fields. Could be Single, multi - column. Unique Index.
+
+- What is the purpose of the Unique index?
+
+- How many clustered indexes could be related to the table. What is the default clustered index?
+One clustered index. Primary key by default. It's responsible for default sorting of the rows in table.
+
+- Types of joins
+
+- Forms of Normalization:
+https://www.studytonight.com/dbms/database-normalization.php
+
+- Difference between Delete and Truncate commands
+
+- How would you filter the result of Group By clause?
+
+- What is execution plan. Do you have experience improving performance of the sql query.
 
 
+26.......... What is SOLID principles > https://medium.com/webbdev/solid-4ffc018077da
+S: Single Responsibility Principle (Принцип единственной ответственности).
+O: Open-Closed Principle (Принцип открытости-закрытости).
+L: Liskov Substitution Principle (Принцип подстановки Барбары Лисков).
+I: Interface Segregation Principle (Принцип разделения интерфейса).
+D: Dependency Inversion Principle (Принцип инверсии зависимостей).
 
-
-22.......... What is Spring DATA. Please tell something about it.
-
-23.......... What is SOLID principles > https://medium.com/webbdev/solid-4ffc018077da
-
-24.......... How memory is organized in Java. What is Heap and what is Stack
+27.......... How memory is organized in Java. What is Heap and what is Stack
+// Objects are stored in heap. Primitives, local variables, references to objects used in method are stored in stack.
+//Stack memory consists of blocks which are allocated in LIFO order
+// There are several parts in Heap depending on how many times object survived during the garbage collection.
+//You may trigger System.gc() or Runtime.gc() but there is no guarantee jvm will clean at once.
 https://javadevblog.com/chto-takoe-heap-i-stack-pamyat-v-java.html
 
 25.......... Patterns
-
-26.......... Database normalization
-https://www.studytonight.com/dbms/database-normalization.php
-
-7. What is a multithreading in java? How to create a thread in java?
-Which ways of synchronization do you know? Reentrant lock, synchronization, semaphors etc
-How to make one thread to wait until another thread completes it's job and just after that it
-will start himself?
-What is deadlock and how to avoid deadlock?
-What if you want to return some result from thread execution? (Callable interface)
+/home/dmitry/dev/projects/interviews/src/main/java/com/learn/patterns/creational/singleton/Singleton.java
 
 8. IO.
 /home/dmitry/dev/projects/interviews/src/main/java/com/learn/core/io/iotheory.txt
 What is the difference between byte stream and Charachter stream?
-
-9. What a generics for?
-what are wildcards?
-/home/dmitry/dev/projects/interviews/src/main/java/com/learn/core/generics/toUnderstand/wildcards/Wildcards.java
-
-10. Java 8 features
-/home/dmitry/dev/projects/interviews/src/main/java/com/learn/core/Java8Features/Java8Main.java
-
-11. Inner classes
-/home/dmitry/dev/projects/interviews/src/main/java/com/learn/core/innerclasses/basic/innertest/MainForNested.java
 
 14. Git
 
@@ -328,8 +393,6 @@ What is jsp? how is it different to HTML? What is tag library. Have you ever cre
 tags?
 
 20. Re-factoring
-
-21. Patterns.
 
 22. /home/dmitry/dev/projects/interviews/src/main/java/com/learn/interview_theory.txt
 
@@ -364,13 +427,5 @@ Answer:
 volatile has semantics for memory visibility. Basically, the value of a volatile
 field becomes visible to all readers (other threads in particular) after a write operation completes on it. Without volatile, readers could see some non-updated value.
 
-
-
-
-21.......... What is MVC
-
-22.......... /home/dmitry/IdeaProjects/interviews/src/main/java/com/learn/interview_theory.txt
-
-SPRING TRANSACTION MANAGEMENT
 
 
