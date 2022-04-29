@@ -13,7 +13,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class Main {
     public static void main(String[] args) {
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("autowire-context.xml");
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:main/resources/autowire-context.xml");
         VehicleService vehicleService = (VehicleService) applicationContext.getBean("foreignVehicleServiceImpl");
         vehicleService.save();
 

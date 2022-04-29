@@ -6,7 +6,7 @@ SQL
 English skills
 
 
-1......... What are the major features of Java programming?
+1......... What are the major features of Java?
 - Object-Oriented;
 - Platform Independent;
 - Secure;
@@ -120,6 +120,7 @@ Which operators to use, is it recommended to use them to control the flow of the
 program, what are the best practices regarding exceptions handling?
 Examples of checked/unchecked
 exceptions.
+What is type erasure. Is it possible to make exception generic. Why not?
 
 /home/dmitry/dev/projects/interviews/src/main/java/com/learn/core/exceptions/theory
 /home/dmitry/dev/projects/interviews/src/main/java/com/learn/core/exceptions/exceptionhierarchy3.png
@@ -202,8 +203,6 @@ What is Producer Extends Consumer Super. In which cases we need to use 'super T'
 
 19.......... Java 8 features
 /home/dmitry/dev/projects/interviews/src/main/java/com/learn/core/Java8Features/Java8Main.java
-
-20.......... Inner classes
 
 21.......... What is a multithreading in java? How to create a thread in java?
 - What is a thread?
