@@ -18,7 +18,7 @@
         <spring.security.version>3.2.3.RELEASE</spring.security.version>
         <slf4j.version>1.7.7</slf4j.version>
         <jmh.version>1.21</jmh.version>
-        <mongodb-driver-sync.version>3.12.0</mongodb-driver-sync.version>
+        <mongodb-driver-sync.version>3.12.8</mongodb-driver-sync.version>
     </properties>
 
     <dependencies>
