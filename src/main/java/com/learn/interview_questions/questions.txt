@@ -47,9 +47,9 @@ Polymorphism means ‘many forms’. In OOP, polymorphism means a type can point
 different object at different time. In other words, the actual object to which
 a reference type refers, can be determined at runtime.
 
-Polymorphism is a robust feature of OOP. It increases the reusability,
+Polymorphism is a robust feature of OOP. It increases the re-usability,
 flexibility and extensibility of code. Take the above example for instance:
-Reusability: the teach() method can be re-used for different kinds of objects as
+Re-usability: the teach() method can be re-used for different kinds of objects as
 long as they are sub types of the Animal interface.
 Flexibility: the actual object can be determined at runtime which allows the code
 run more flexibly.
