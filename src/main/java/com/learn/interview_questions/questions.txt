@@ -11,7 +11,8 @@ English skills
 - Platform Independent;
 - Secure;
 - Multithreaded;
-- High Performance (JIT - improves performance, compiles not all code at once. Especially for big projects);
+- High Performance (JIT - improves performance, compiles not all code at once. Especially for big projects
+(method which are used more often can be pre-compiled, there are several types of JIT compilation: warm, hot etc.);
 
 2......... What is a byte code?
 - it is a machine code in form of the .class file, instructions for the JVM, it's existence makes java platform independent
@@ -80,15 +81,10 @@ All fields in interface are public static final, i.e. they are constants.
 8......... Which class is the parent of all classes in java.
 Please list the methods of Object class in java.
 
-9......... What are enums in Java?
-Enums are group of named constants. Enum implicitely extends ENUM class.
-Elements of enum could have variables and methods, Enum class could have constructor.
-Enum allows guarantee type safety.
-
 - clone - how to use this method? Which issues could happen with cloning? How to resolve them?
 - equals - rules while overriding equals and hashcode
 
-Equals method is used to compare objects of the same type. By default it's implemented (in Object class) to
+Equals method is used to compare objects of the same type. By default, it's implemented (in Object class) to
 compare by references in memory (with == sign). Overriding equals affects how object would be used in collections for
 instance. If you override the equals you also need to override hashcode method.
 
@@ -114,6 +110,12 @@ return the same value. And this is not good because this could lead to collision
 - notifyAll
 - toString
 - wait
+- getClass (for reflection for example could be used)
+
+10......... What are enums in Java?
+Enums are group of named constants. Enum implicitly extends ENUM class.
+Elements of enum could have variables and methods, Enum class could have constructor.
+Enum allows guarantee type safety.
 
 11......... Exception hierarchi. Which types of exceptions exist, difference between them.
 Which operators to use, is it recommended to use them to control the flow of the
