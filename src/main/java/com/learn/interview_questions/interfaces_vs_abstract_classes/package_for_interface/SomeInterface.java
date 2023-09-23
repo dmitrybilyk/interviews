@@ -3,4 +3,7 @@ package com.learn.interview_questions.interfaces_vs_abstract_classes.package_for
 public interface SomeInterface {
     public static final int fieldInInterface = 30;
     void intPrint();
+    default void printDefault() {
+        System.out.println("some default");
+    }
 }

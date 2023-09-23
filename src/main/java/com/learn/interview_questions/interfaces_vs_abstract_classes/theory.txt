@@ -1,5 +1,5 @@
 Abstract class:
-- can have non abstract methods;
+- can have none-abstract methods;
 - can have static fields;
 - can have instance variables;
 - can be extended
@@ -11,3 +11,8 @@ Interfaces:
 - can't have static variables
 - have only abstract methods
 - you can implement as many interfaces as you need
+
+Interfaces may have default methods (for backward compatibility they were added) which don't have access to instance state
+as interfaces have not state (instance variables, methods).
+Default methods are needed for having backwards compatibility. New methods were added to `List` JDK interface
+and we don't clients to make changes in all implementors of that interface.
