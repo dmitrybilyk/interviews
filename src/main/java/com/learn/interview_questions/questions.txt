@@ -117,12 +117,12 @@ Enums are group of named constants. Enum implicitly extends ENUM class.
 Elements of enum could have variables and methods, Enum class could have constructor.
 Enum allows guarantee type safety.
 
-11......... Exception hierarchi. Which types of exceptions exist, difference between them.
+11......... Exception hierarchy. Which types of exceptions exist, difference between them.
 Which operators to use, is it recommended to use them to control the flow of the
 program, what are the best practices regarding exceptions handling?
 Examples of checked/unchecked
 exceptions.
-What is type erasure. Is it possible to make exception generic. Why not?
+What is type erasure. Is it possible to make exception generic. Why not? (not possible because of type erasure)
 
 /home/dmitry/dev/projects/interviews/src/main/java/com/learn/core/exceptions/theory
 /home/dmitry/dev/projects/interviews/src/main/java/com/learn/core/exceptions/exceptionhierarchy3.png
@@ -140,7 +140,6 @@ iterate via all elements (from end or from start, depends on target index value)
 Removal in ArrayList is constant just for the case of last element as it doesn't need to re-index other elements.
 LinkedList will search with constant time for first or last elements.
 
-Deletion for ArrayList is constant just for the last element as it doesn't need to re-index elements.
 LinkedList is linear for the middle element and constant for first and last.
 
 LinkedList is preferable just in case if you need to often insert or delete on first or last element.
